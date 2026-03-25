@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import ValidatingFieldWrapper from './ValidatingFieldWrapper.jsx';
 
 /**
@@ -29,9 +29,17 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   // Guard: skip rendering entirely when conditions are not met
   const shouldRender = changesetWebform?.changeset && !formField?.isOmitted && formField?.fieldType !== 'noDisplay';
 
+  // Incrementing this counter after async validation completes is the only way
+  // to tell React that formField.validationErrors (a getter on the changeset
+  // class instance) has changed, since React cannot observe mutations on
+  // plain objects/class instances.
+  const [, forceUpdate] = useState(0);
+
   const validateField = useCallback(async (field) => {
     console.log('validateField');
     await field.validate({ skipUnvalidated: true });
+    // Changeset errors have now been updated on the class instance — tell React.
+    forceUpdate((n) => n + 1);
   }, []);
 
   const updateFieldValue = useCallback(

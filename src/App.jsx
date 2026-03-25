@@ -16,7 +16,7 @@ const formSchema = {
       validationRules: [
         {
           validationMethod: 'validatePresence',
-          arguments: true,
+          arguments: { presence: true },
         },
       ],
     },

@@ -1,6 +1,13 @@
-export function validatePresence() {
+export function validatePresence(options) {
   return (_key, newValue, _oldValue, changes, content) => {
-    console.log('validatePresence', { newValue, changes, content });
-    return 'Test';
+    var response = true;
+    if (options && options.presence) {
+      if (typeof newValue === 'string' && newValue.trim() === '') {
+        response = 'This field is required';
+      } else if (newValue === null || newValue === undefined) {
+        response = 'This field is required';
+      }
+    }
+    return response;
   };
 }
