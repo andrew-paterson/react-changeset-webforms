@@ -1,0 +1,11 @@
+.cwf-clone-group .cwf-clone {
+  flex-grow: 1;
+  display: flex;
+}
+.cwf-clone-group .clone-actions {
+  padding-top: --spacer-md;
+  padding-right: --spacer-md;
+}
+.cwf-clone-group .clone-actions svg {
+  height: 20px;
+}
