@@ -11,10 +11,7 @@ import React from 'react';
  *  - validationErrorsArray   {string[]}  Array of error message strings.
  */
 export default function FieldErrors({ formField, validationErrorsArray }) {
-  console.log(validationErrorsArray);
-  console.log(formField);
-  // if (formField?.validationStatus !== 'invalid' || !validationErrorsArray?.length) {
-  if (!validationErrorsArray?.length) {
+  if (formField?.validationStatus !== 'invalid' || !validationErrorsArray?.length) {
     return null;
   }
 

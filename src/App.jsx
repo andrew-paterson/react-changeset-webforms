@@ -1,8 +1,6 @@
 import './App.css';
 import ChangesetWebform from './components/ChangesetWebform.jsx';
 
-let language = 'JS';
-
 const formSchema = {
   formSettings: {
     formName: 'appClassNames',
@@ -34,6 +32,37 @@ const formSchema = {
           key: '2',
         },
       ],
+    },
+    {
+      fieldId: 'rgbColours',
+      fieldType: 'radioButtonGroup',
+      fieldLabel: 'Select colour',
+      attrsFromConfig: {
+        classNames: {
+          optionsWrapper: ['$inherited', 'd-flex'],
+          labelledRadioButton: ['$inherited', 'me-4'],
+        },
+      },
+      options: [
+        {
+          label: 'Red',
+          value: 'ff0000',
+        },
+        {
+          label: 'Green',
+          value: '00ff00',
+        },
+        {
+          label: 'Blue',
+          value: '0000ff',
+        },
+      ],
+    },
+    {
+      fieldId: 'description',
+      fieldType: 'textarea',
+      fieldLabel: 'Description',
+      placeholder: 'Enter your description here',
     },
   ],
 };

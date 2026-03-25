@@ -10,7 +10,6 @@ export default function Input({ formField, changesetWebform, updateFieldValue, o
 
   const handleUserInteraction = useCallback(
     (eventName, event) => {
-      console.log('handleUserInteraction', { eventName, value: event.target.value, event });
       if (eventName === 'keyUp' && formField.fieldType === 'input' && event.keyCode === 13 && onFormSubmit) {
         formField.focussed = false;
         onFormSubmit(changesetWebform.changeset);
@@ -51,7 +50,7 @@ export default function Input({ formField, changesetWebform, updateFieldValue, o
       aria-errormessage={formField.ariaErrorMessage}
       aria-describedby={formField.ariaDescribedBy}
       required={formField.required}
-      {...rest}
+      // {...rest}
     />
   );
 }

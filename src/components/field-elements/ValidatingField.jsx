@@ -36,7 +36,6 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   const [, forceUpdate] = useState(0);
 
   const validateField = useCallback(async (field) => {
-    console.log('validateField');
     await field.validate({ skipUnvalidated: true });
     // Changeset errors have now been updated on the class instance — tell React.
     forceUpdate((n) => n + 1);
@@ -63,10 +62,8 @@ export default function ValidatingField({ formField, formFields, formSettings, c
     (eventName, value, event) => {
       if (!formField || formField.disabled) return;
       formField.eventLog.push(eventName);
-      console.log('onUserInteraction', { eventName, value, event });
       validateField(formField);
       onUserInteractionProp?.(formField, eventName, value, event);
-      console.log('formField after onUserInteraction', formField);
     },
     [formField, validateField, onUserInteractionProp],
   );
@@ -75,7 +72,6 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   const didInsert = useCallback(
     (element) => {
       if (!formField || !element) return;
-      console.log(formField);
       formField.eventLog = formField.eventLog || []; // TODO should not be required.
       formField.eventLog.push('insert');
       if (formField.fieldValue) {
@@ -119,7 +115,6 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   // Single (non-clone-group) field
   const FieldComponent = formField.componentClass;
   const dataTestFieldId = dataTestId || formField.id;
-  console.log('----------------------', formField.validationErrors);
 
   return (
     <ValidatingFieldWrapper
