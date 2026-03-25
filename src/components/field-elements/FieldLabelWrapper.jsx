@@ -1,4 +1,5 @@
 import React from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * FieldLabelWrapper
@@ -34,7 +35,7 @@ export default function FieldLabelWrapper({ formField, children, ...rest }) {
   return (
     <label
       htmlFor={formField?.id}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {children}
     </label>

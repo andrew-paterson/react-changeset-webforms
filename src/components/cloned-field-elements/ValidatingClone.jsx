@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import ValidatingFieldWrapper from '../ValidatingFieldWrapper.jsx';
+import ValidatingFieldWrapper from '../field-elements/ValidatingFieldWrapper.jsx';
 
 /**
  * ValidatingClone

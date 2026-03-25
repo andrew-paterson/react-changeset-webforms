@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useEffect, useState } from 'react';
-import FieldLabel from '../FieldLabel.jsx';
-import FieldErrors from '../FieldErrors.jsx';
+import FieldLabel from '../field-elements/FieldLabel.jsx';
+import FieldErrors from '../field-elements/FieldErrors.jsx';
 import ValidatingClone from './ValidatingClone.jsx';
 import './validating-clone-group.css';
 

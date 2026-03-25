@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import ValidatingFieldWrapper from './ValidatingFieldWrapper.jsx';
+import ValidatingCloneGroup from '../cloned-field-elements/ValidatingCloneGroup.jsx';
 
 /**
  * ValidatingField
@@ -98,23 +99,25 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   if (!shouldRender) {
     return null;
   }
+  const dataTestFieldId = dataTestId || formField.id;
 
-  // Clone-group fields: render a ValidatingCloneGroup (stub until available)
   if (formField.cloneGroupName) {
-    // TODO: replace with <ValidatingCloneGroup ... /> once created
     return (
-      <div
-        data-clone-group-placeholder
-        data-field-id={formField.id}
-      >
-        {/* ValidatingCloneGroup goes here */}
-      </div>
+      <ValidatingCloneGroup
+        ref={didInsert}
+        masterFormField={formField}
+        updateFieldValue={updateFieldValue}
+        validateField={validateField}
+        afterClickAddCloneButton={afterClickAddCloneButton}
+        onUserInteraction={onUserInteraction}
+        dataTestFieldId={dataTestFieldId}
+        changesetWebform={changesetWebform}
+      />
     );
   }
 
   // Single (non-clone-group) field
   const FieldComponent = formField.componentClass;
-  const dataTestFieldId = dataTestId || formField.id;
 
   return (
     <ValidatingFieldWrapper
