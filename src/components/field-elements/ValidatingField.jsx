@@ -44,9 +44,19 @@ export default function ValidatingField({ formField, formFields, formSettings, c
 
   const updateFieldValue = useCallback(
     (value) => {
-      return formField?.updateValue(value);
+      if (!formField) return;
+      // updateValue mutates the changeset synchronously (sets the new value)
+      // and then kicks off an async validate internally.
+      // Fire forceUpdate immediately so the new fieldValue is reflected, then
+      // again once the internal validate promise resolves so validation errors
+      // (and all derived getters) are also reflected.
+      const result = formField.updateValue(value);
+      forceUpdate((n) => n + 1);
+      if (result && typeof result.then === 'function') {
+        result.then(() => forceUpdate((n) => n + 1));
+      }
     },
-    [formField],
+    [formField, forceUpdate],
   );
 
   const onUserInteraction = useCallback(
