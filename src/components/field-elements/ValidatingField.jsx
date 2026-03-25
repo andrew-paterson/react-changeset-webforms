@@ -120,7 +120,6 @@ export default function ValidatingField({ formField, formFields, formSettings, c
     <ValidatingFieldWrapper
       ref={didInsert}
       formField={formField}
-      dataTestFormName={dataTestFormName}
       dataTestFieldId={dataTestFieldId}
       changesetWebform={changesetWebform}
       labelId={formField.labelId}
@@ -132,8 +131,6 @@ export default function ValidatingField({ formField, formFields, formSettings, c
       {FieldComponent && (
         <FieldComponent
           formField={formField}
-          formFields={formFields}
-          formSettings={formSettings}
           updateFieldValue={updateFieldValue}
           onUserInteraction={onUserInteraction}
           changesetWebform={changesetWebform}

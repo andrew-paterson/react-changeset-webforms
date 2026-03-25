@@ -56,7 +56,6 @@ export default function FieldLabel({ formField, changesetWebform, labelId }) {
       data-test-class="cwf-field-label"
       data-test-id={`${formField.id}-label`}
       formField={formField}
-      changesetWebform={changesetWebform}
     >
       {labelContent}
     </FieldLabelWrapper>

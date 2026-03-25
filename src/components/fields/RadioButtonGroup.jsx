@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import LabelledRadioButton from '../background/LabelledRadioButton.jsx';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 export default function RadioButtonGroup({ formField, formSettings, changesetWebform, updateFieldValue, onUserInteraction, ...rest }) {
   const onRadioChange = useCallback(
@@ -14,7 +15,7 @@ export default function RadioButtonGroup({ formField, formSettings, changesetWeb
     <div
       aria-label={formField.ariaLabel}
       data-test-id="options-wrapper"
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {(formField.options || []).map((option) => (
         <LabelledRadioButton

@@ -1,5 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import LabelledCheckbox from '../background/LabelledCheckbox.jsx';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 function stringToArray(value) {
   let array;
@@ -44,7 +45,7 @@ export default function CheckboxGroup({ formField, changesetWebform, updateField
     <div
       data-test-id="options-wrapper"
       aria-label={formField.ariaLabel}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {options.map((option) => (
         <LabelledCheckbox

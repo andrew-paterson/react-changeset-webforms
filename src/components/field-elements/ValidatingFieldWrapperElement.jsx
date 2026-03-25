@@ -1,4 +1,5 @@
 import React from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * ValidatingFieldWrapperElement
@@ -18,12 +19,12 @@ export default function ValidatingFieldWrapperElement({ formField, children, ...
         data-options-length={formField.options?.length}
         aria-errormessage={formField.ariaErrorMessage}
         aria-describedby={formField.ariaDescribedBy}
-        {...rest}
+        {...filterHtmlProps(rest)}
       >
         {children}
       </fieldset>
     );
   }
 
-  return <div {...rest}>{children}</div>;
+  return <div {...filterHtmlProps(rest)}>{children}</div>;
 }

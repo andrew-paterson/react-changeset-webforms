@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 export default function Textarea({ formField, changesetWebform, updateFieldValue, onUserInteraction, onFormSubmit, ...rest }) {
   const onChange = useCallback(
@@ -45,7 +46,7 @@ export default function Textarea({ formField, changesetWebform, updateFieldValue
       aria-errormessage={formField.ariaErrorMessage}
       aria-describedby={formField.ariaDescribedBy}
       required={formField.required}
-      {...rest}
+      {...filterHtmlProps(rest)}
     />
   );
 }

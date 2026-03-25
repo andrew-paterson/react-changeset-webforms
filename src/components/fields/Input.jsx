@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 export default function Input({ formField, changesetWebform, updateFieldValue, onUserInteraction, onFormSubmit, ...rest }) {
   const onChange = useCallback(
@@ -50,7 +51,7 @@ export default function Input({ formField, changesetWebform, updateFieldValue, o
       aria-errormessage={formField.ariaErrorMessage}
       aria-describedby={formField.ariaDescribedBy}
       required={formField.required}
-      // {...rest}
+      {...filterHtmlProps(rest)}
     />
   );
 }

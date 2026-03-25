@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      '@emotion/is-prop-valid':
+        specifier: ^1.4.0
+        version: 1.4.0
       ember-changeset-validations:
         specifier: ^5.0.0
         version: 5.0.0(@babel/core@7.29.0)(@ember/string@4.0.1)(ember-source@6.11.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -618,6 +621,12 @@ packages:
   '@embroider/shared-internals@3.0.2':
     resolution: {integrity: sha512-/SusdG+zgosc3t+9sPFVKSFOYyiSgLfXOT6lYNWoG1YtnhWDxlK4S8leZ0jhcVjemdaHln5rTyxCnq8oFLxqpQ==}
     engines: {node: 12.* || 14.* || >= 16}
+
+  '@emotion/is-prop-valid@1.4.0':
+    resolution: {integrity: sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw==}
+
+  '@emotion/memoize@0.9.0':
+    resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
 
   '@esbuild/aix-ppc64@0.27.3':
     resolution: {integrity: sha512-9fJMTNFTWZMh5qwrBItuziu834eOCUcEqymSH7pY+zoMVEZg3gcPuBNxH1EvfVYe9h0x/Ptw8KBzv7qxb7l8dg==}
@@ -3131,6 +3140,12 @@ snapshots:
       typescript-memoize: 1.1.1
     transitivePeerDependencies:
       - supports-color
+
+  '@emotion/is-prop-valid@1.4.0':
+    dependencies:
+      '@emotion/memoize': 0.9.0
+
+  '@emotion/memoize@0.9.0': {}
 
   '@esbuild/aix-ppc64@0.27.3':
     optional: true
