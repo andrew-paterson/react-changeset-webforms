@@ -49,7 +49,7 @@ export default function ValidatingFieldWrapper({ formField, masterFormField, cha
   // pass it as a prop; here we import it directly.
   // If your project has a RemoveCloneButton component, import it at the top.
   // import RemoveCloneButton from './RemoveCloneButton.jsx';
-
+  console.log(validationErrorsArray);
   const fieldContents = (
     <>
       <FieldLabel

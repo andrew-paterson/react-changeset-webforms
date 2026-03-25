@@ -11,10 +11,10 @@ import React from 'react';
  *  - validationErrorsArray   {string[]}  Array of error message strings.
  */
 export default function FieldErrors({ formField, validationErrorsArray }) {
-  if (
-    formField?.validationStatus !== 'invalid' ||
-    !validationErrorsArray?.length
-  ) {
+  console.log(validationErrorsArray);
+  console.log(formField);
+  // if (formField?.validationStatus !== 'invalid' || !validationErrorsArray?.length) {
+  if (!validationErrorsArray?.length) {
     return null;
   }
 
@@ -25,7 +25,10 @@ export default function FieldErrors({ formField, validationErrorsArray }) {
       data-test-class="cwf-field-errors"
     >
       {validationErrorsArray.map((error, index) => (
-        <div key={index} data-test-class="cwf-field-error">
+        <div
+          key={index}
+          data-test-class="cwf-field-error"
+        >
           {error}
         </div>
       ))}

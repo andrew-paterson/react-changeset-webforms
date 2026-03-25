@@ -1,22 +1,22 @@
 // BEGIN-SNIPPET ember-changeset-validations-default-validators.js
 import {
-  validateDate,
+  // validateDate,
   validatePresence,
-  validateLength,
-  validateNumber,
-  validateFormat,
-  validateInclusion,
-  validateExclusion,
-  validateConfirmation,
-} from 'ember-changeset-validations/validators';
+  // validateLength,
+  // validateNumber,
+  // validateFormat,
+  // validateInclusion,
+  // validateExclusion,
+  // validateConfirmation,
+} from '../validators/presence.js';
 // END-SNIPPET
 export default {
-  validateDate,
+  // validateDate,
   validatePresence,
-  validateLength,
-  validateNumber,
-  validateFormat,
-  validateInclusion,
-  validateExclusion,
-  validateConfirmation,
+  // validateLength,
+  // validateNumber,
+  // validateFormat,
+  // validateInclusion,
+  // validateExclusion,
+  // validateConfirmation,
 };

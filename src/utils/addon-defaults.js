@@ -1,17 +1,13 @@
-import InputComponent from '../components/fields/input.jsx';
-import TextareaComponent from '../components/fields/textarea.jsx';
-import PowerSelectComponent from '../components/fields/power-select.jsx';
-import PowerDatepickerComponent from '../components/fields/power-datepicker.jsx';
-import CheckboxComponent from '../components/fields/checkbox.jsx';
-import RadioButtonGroupComponent from '../components/fields/radio-button-group.jsx';
-import CheckboxGroupComponent from '../components/fields/checkbox-group.jsx';
-import ClickerComponent from '../components/fields/clicker.jsx';
-import StaticContentComponent from '../components/fields/static-content.jsx';
-import PowerSelectCheckboxesComponent from '../components/fields/power-select-checkboxes.jsx';
-import IconTrashComponent from '../components/icons/icon-trash.js';
-import AddCloneButtonComponent from '../components/cloned-field-elements/add-clone-button.jsx';
-import PowerSelectCheckboxesTriggerComponent from '../components/background/power-select-checkboxes-trigger.js';
-import moment from 'moment';
+import InputComponent from '../components/fields/Input.jsx';
+import TextareaComponent from '../components/fields/Textarea.jsx';
+import CheckboxComponent from '../components/fields/Checkbox.jsx';
+import RadioButtonGroupComponent from '../components/fields/RadioButtonGroup.jsx';
+import CheckboxGroupComponent from '../components/fields/CheckboxGroup.jsx';
+import ClickerComponent from '../components/fields/Clicker.jsx';
+import StaticContentComponent from '../components/fields/StaticContent.jsx';
+import IconTrashComponent from '../components/svg/icons/IconTrash.jsx';
+import AddCloneButtonComponent from '../components/cloned-field-elements/AddCloneButton.jsx';
+import defaultValidators from './default-validators';
 
 export default {
   // BEGIN-SNIPPET default-attrs-from-config.js
@@ -232,59 +228,6 @@ export default {
       componentClass: TextareaComponent,
     },
     {
-      // BEGIN-SNIPPET powerSelect-field-options.js
-      fieldType: 'powerSelect',
-      allowClear: false, // Boolean. If true, the select box shows a clear icon which clears the value oif the field. See https://ember-power-select.com/docs/the-trigger for more.
-      searchEnabled: false, // Boolean. If true, a search box will display at the top of the select options, and will filter the options list then the user types. See https://ember-power-select.com/docs/the-search for more.
-      searchPlaceholder: 'Search', // String. If passed it will replace the default placeholder in the search box for the power select list.
-      options: [], // Array of items to show in the dropdown. Items can either all be objects, or they can all be primitives, such as strings or numbers. If an array of objects is passed, then optionDisplayProp should be passed to determine which property in the object should be shown as the label of the option in the list.
-      optionDisplayProp: null, // String - which property of the object to show in the list if options is an array of objects.
-      optionComponent: null, // Object with { componentClass, props }.
-      // `componentClass` is the imported class of the component to show on the add clone button.
-      // `props` can be included to pass state or data to the component, accessible as {{@props}}.
-      // `@changesetWebform and @formField are passed to the component.
-      selectedItemComponent: null, // The imported class of the component to pass to the Power Select component. See https://ember-power-select.com/docs/api-reference
-      validatesOn: ['$inherited', 'valueUpdated'], // Array of strings
-      requiresAriaLabelledBy: true,
-      // END-SNIPPET
-      componentClass: PowerSelectComponent,
-    },
-    {
-      // BEGIN-SNIPPET powerDatePicker-field-options.js
-      fieldType: 'powerDatePicker',
-      dateTimeFormat: 'YYYY-MM-DD HH:mm:ss', // String - time format to use
-      dateTimeDisplayFormat: null, // String - the format of the datetime to show in the trigger input. Defaults to dateTimeFormat if null.
-      defaultTime: '00:00:00.000', // String - default time. Must be in the format HH:mm:ss.SSS.
-      fixedTime: null, // String - force the time to a value, whatever tha date is. Must be in the format HH:mm:ss.SSS
-      showTimeSelector: false, // Boolean - show the UI for the user to change the time.
-      timeSelectorFields: 'HH,mm,ss,SSS', // String - comma separated list of the fields to show in the time selector component. combination of valid momentjs time string parts can be given.
-      calendarTitleFormat: 'MMMM YYYY',
-      timeInputLabels: {
-        hours: 'Hour',
-        minutes: 'Min',
-        seconds: 'Sec',
-        milliseconds: 'Msec',
-        amPm: 'AM/PM',
-      },
-      closeDatePickerOnSelect: false,
-      dateRangeSettings: null,
-      minDate: null, // String - the earliest day that the calendar will allow the user to select. Must be in the format YYYY-MM-DD.
-      maxDate: null, // String - the latest day that the calendar will allow the user to select. Must be in the format YYYY-MM-DD.
-      validatesOn: ['$inherited', 'valueUpdated', 'blurDateTimeInput'], // Array of strings
-      requiresAriaLabelledBy: true,
-      // END-SNIPPET
-      componentClass: PowerDatepickerComponent,
-      customParser(field) {
-        field.dateTimeFormat = field.dateTimeFormat.replace(/S{1,}/, 'SSS');
-        field.dateTimeDisplayFormat = field.dateTimeDisplayFormat ? field.dateTimeDisplayFormat.replace(/S{1,}/, 'SSS') : field.dateTimeFormat;
-
-        if (field.defaultValue) {
-          field.defaultValue = moment(field.defaultValue, field.dateTimeFormat).format(field.dateTimeFormat);
-        }
-        return field;
-      },
-    },
-    {
       // BEGIN-SNIPPET singleCheckbox-field-options.js
       fieldType: 'singleCheckbox',
       checkBoxLabelComponent: null, // Object with { componentClass, props }.
@@ -351,22 +294,7 @@ export default {
       componentClass: StaticContentComponent,
       ignoreValidation: true,
     },
-    {
-      // BEGIN-SNIPPET powerSelectCheckboxes-field-options.js
-      fieldType: 'powerSelectCheckboxes',
-      allowClear: false, // Boolean. If true, the select box shows a clear icon which clears the value oif the field. See https://ember-power-select.com/docs/the-trigger for more.
-      searchEnabled: false, // Boolean. If true, a search box will display at the top of the select options, and will filter the options list then the user types. See https://ember-power-select.com/docs/the-search for more.
-      searchPlaceholder: 'Search', // String. If passed it will replace the default placeholder in the search box for the power select list.
-      options: [], // Array of items to show in the dropdown. Items can either all be objects, or they can all be primitives, such as strings or numbers. If an array of objects is passed, then optionDisplayProp should be passed to determine which property in the object should be shown as the label of the option in the list.
-      optionDisplayProp: null, // String - which property of the object to show in the list if options is an array of objects.
-      validatesOn: ['$inherited', 'valueUpdated'], // Array of strings
-      triggerComponent: PowerSelectCheckboxesTriggerComponent, // Optional -  imported class of the component pass to the Power Select compoent as `triggerComponent`.
-      // `@extra` is passed to the component from the Power Select component
-      requiresAriaLabelledBy: true,
-      displaySelectedFirst: true, // Boolean - if true, when the dropdown is opened, selected options are displayed the top of the options list by adding display:flex and flex-direction column as inline styles to the options container element, and order:-1 as an inline style opt the list elements of selected options. The options property of the field is not mutated in any way.
-      // END-SNIPPET
-      componentClass: PowerSelectCheckboxesComponent,
-    },
   ],
+  validators: defaultValidators,
 };
 // END-SNIPPET

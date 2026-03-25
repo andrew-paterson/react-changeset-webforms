@@ -6,6 +6,20 @@ import appDefaults from '../utils/app-defaults.js';
 import ValidatingField from './field-elements/ValidatingField.jsx';
 import FormActions from './form-elements/FormActions.jsx';
 
+import { FormField as _FormField } from 'validated-changeset-webforms';
+import { FormFieldClone as _FormFieldClone } from 'validated-changeset-webforms';
+import { FormSettings as _FormSettings } from 'validated-changeset-webforms';
+import { Option as _Option } from 'validated-changeset-webforms';
+import { Changeset } from 'validated-changeset';
+
+const modules = {
+  FormField: _FormField,
+  FormFieldClone: _FormFieldClone,
+  FormSettings: _FormSettings,
+  Option: _Option,
+  Changeset: Changeset,
+};
+
 /**
  * ChangesetWebform
  *
@@ -32,7 +46,7 @@ import FormActions from './form-elements/FormActions.jsx';
  *                                      formValidationPassed, beforeSubmitForm,
  *                                      formValidationFailed
  */
-export default function ChangesetWebform({
+export default function ChangesetWebformComp({
   formSchema,
   data,
   debug: debugProp,
@@ -87,11 +101,13 @@ export default function ChangesetWebform({
     };
 
     const instance = new ChangesetWebform(formSchema, data, {
-      appDefaults: [addonDefaults, appDefaults],
+      // appDefaults: [addonDefaults, appDefaults],
+      appDefaults: [addonDefaults],
       dynamicIncludeExcludeConditions,
       onFormSubmit: onFormSubmitOverride,
       debug: debugMode,
       callbacks,
+      modules,
     });
 
     if (debugMode) {
