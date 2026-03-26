@@ -1,31 +1,22 @@
 {
-  "name": "react-changeset-webforms",
+  "name": "workspace-root",
+  "version": "0.2.6",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "repository": "",
+  "license": "MIT",
+  "author": "",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@emotion/is-prop-valid": "^1.4.0",
-    "ember-changeset-validations": "^5.0.0",
-    "markdown-it": "^14.1.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "validated-changeset-webforms": "^0.0.3"
+    "build": "pnpm --filter ember-changeset-webforms build",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember-changeset-webforms start",
+    "start:test-app": "pnpm --filter test-app start",
+    "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "vite": "^7.3.1"
-  }
+    "concurrently": "^8.2.2"
+  },
+  "packageManager": "pnpm@9.12.2"
 }

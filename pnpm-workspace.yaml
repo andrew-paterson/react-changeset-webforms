@@ -1,2 +1,3 @@
-overrides:
-  validated-changeset-webforms: link:../validated-changeset-webforms
+packages:
+  - 'react-changeset-webforms'
+  - 'test-app'
