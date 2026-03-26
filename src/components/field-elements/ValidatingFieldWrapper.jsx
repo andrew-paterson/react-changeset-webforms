@@ -1,55 +1,58 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, forwardRef, useImperativeHandle } from 'react';
 import ValidatingFieldWrapperElement from './ValidatingFieldWrapperElement.jsx';
 import FieldLabel from './FieldLabel.jsx';
 import FieldDescription from './FieldDescription.jsx';
 import FieldErrors from './FieldErrors.jsx';
+import RemoveCloneButton from '../cloned-field-elements/RemoveCloneButton.jsx';
 
 /**
  * ValidatingFieldWrapper
  *
- * Wraps a single field's content with:
- *  - a ValidatingFieldWrapperElement (fieldset or div)
- *  - optional field-actions slot (shown for clones that can be removed)
- *  - label, description, field controls, and errors, all placed into the
- *    correct DOM container (clone or wrapper) via refs — mirroring the
- *    Ember `{{in-element}}` portal pattern.
+ * Wraps a single field (or clone) in the correct structure:
+ *  - ValidatingFieldWrapperElement (fieldset or div) as the outer shell.
+ *  - For clone fields: a `data-field-actions` slot div (for the remove button)
+ *    followed by a `data-field-content` div containing the field internals.
+ *  - For non-clone fields: the field internals rendered directly inside the shell.
+ *
+ * Field internals (label, description, controls, errors) are rendered in the
+ * same place in both cases — the Ember version used {{in-element}} portals to
+ * move them into slot divs, but in React we just render them directly where
+ * they belong.
+ *
+ * The component accepts a `ref` (via forwardRef) so a parent can use a
+ * callback ref for {{did-insert}} / {{will-destroy}} lifecycle equivalents.
  *
  * Props:
- *  - formField               {object}      The field model object.
- *  - masterFormField         {object}      The master field (for clones).
- *  - changesetWebform        {object}      The parent webform instance.
+ *  - formField               {object}      The field model.
+ *  - masterFormField         {object}      The master field (clone rows only).
+ *  - changesetWebform        {object}      Parent webform instance.
+ *  - children                {ReactNode}   The field control element(s).
+ *  - dataTestFieldId         {string}      data-test-id on the wrapper element.
+ *  - dataTestFormName        {string}      data-test-form-name attribute.
  *  - labelId                 {string}      id for the label element.
- *  - validationErrorsArray   {string[]}    Validation error strings.
- *  - dataTestFieldId         {string}      data-test-id attribute value.
- *  - removeClone             {Function}    Handler to remove a clone.
- *  - children                {React.Node}  The field control element(s).
- *  - ...rest                              Spread onto the wrapper element.
+ *  - validationErrorsArray   {string[]}    Passed to FieldErrors.
+ *  - removeClone             {Function}    Clone remove handler.
+ *  - ...rest                               Spread onto ValidatingFieldWrapperElement.
  */
-function getAttrsFromConfigNameSpaces(formField, masterFormField) {
-  const final = ['focussedField', 'disabledField', 'validatedField'];
-  final.push(formField.isClone ? 'cloneWrapper' : 'fieldWrapper');
-  if (formField.validates) final.push('validatingField');
-  if (formField.required) final.push('requiredField');
-  const hasFieldActions = formField.isClone && masterFormField?.cloneCountStatus !== 'min';
-  if (formField.isClone && hasFieldActions) final.push('cloneWrapperWithRemoveButton');
-  return [...new Set(final)].join(',');
-}
+const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ formField, masterFormField, changesetWebform, children, dataTestFieldId, dataTestFormName, labelId, validationErrorsArray, removeClone, ...rest }, ref) {
+  const wrapperElRef = useRef(null);
 
-export default function ValidatingFieldWrapper({ formField, masterFormField, changesetWebform, labelId, validationErrorsArray, dataTestFieldId, removeClone, children, ...rest }) {
-  const fieldActionsRef = useRef(null);
-  const fieldContentsRef = useRef(null);
+  // Merge the forwarded ref with our internal ref so the parent's callback ref
+  // fires on the wrapper element while we can also query it internally.
+  useImperativeHandle(ref, () => wrapperElRef.current, []);
 
   const hasFieldActions = formField?.isClone && masterFormField?.cloneCountStatus !== 'min';
 
-  // For clones, field contents are rendered into a separate slot div via ref;
-  // for master fields, they render directly inside the wrapper.
-  const isClone = formField?.isClone;
+  const attrsFromConfigNameSpaces = (() => {
+    const ns = ['focussedField', 'disabledField', 'validatedField'];
+    ns.push(formField?.isClone ? 'cloneWrapper' : 'fieldWrapper');
+    if (formField?.validates) ns.push('validatingField');
+    if (formField?.required) ns.push('requiredField');
+    if (formField?.isClone && hasFieldActions) ns.push('cloneWrapperWithRemoveButton');
+    return ns.filter((item, i, arr) => arr.indexOf(item) === i).join(',');
+  })();
 
-  // Import RemoveCloneButton lazily to avoid circular deps — callers can also
-  // pass it as a prop; here we import it directly.
-  // If your project has a RemoveCloneButton component, import it at the top.
-  // import RemoveCloneButton from './RemoveCloneButton.jsx';
-  const fieldContents = (
+  const fieldInternals = (
     <>
       <FieldLabel
         formField={formField}
@@ -61,8 +64,8 @@ export default function ValidatingFieldWrapper({ formField, masterFormField, cha
         changesetWebform={changesetWebform}
       />
       <div
-        role={formField?.isGroup ? 'group' : undefined}
         data-test-id="field-controls"
+        role={formField?.isGroup ? 'group' : undefined}
       >
         {children}
       </div>
@@ -76,6 +79,7 @@ export default function ValidatingFieldWrapper({ formField, masterFormField, cha
 
   return (
     <ValidatingFieldWrapperElement
+      ref={wrapperElRef}
       formField={formField}
       data-test-cwf-field-wrapper={!formField?.isClone || undefined}
       data-test-cwf-clone-wrapper={formField?.isClone || undefined}
@@ -83,42 +87,34 @@ export default function ValidatingFieldWrapper({ formField, masterFormField, cha
       data-test-cwf-field-validates={formField?.validates}
       data-test-cwf-field-required={formField?.required}
       data-test-id={dataTestFieldId}
+      data-test-form-name={dataTestFormName}
       data-test-validates={formField?.validates}
       data-test-was-validated={formField?.wasValidated}
       data-test-validation-status={formField?.validationStatus}
       className={formField?.typeClass}
-      data-attrs-namespaces={getAttrsFromConfigNameSpaces(formField, masterFormField)}
+      data-attrs-from-config={attrsFromConfigNameSpaces}
       {...rest}
     >
-      {/* Field-actions slot — only rendered for removable clones */}
-      {hasFieldActions && (
-        <div
-          data-field-actions
-          ref={fieldActionsRef}
-        />
+      {/* Clone layout: actions slot + content slot */}
+      {formField?.isClone ? (
+        <>
+          {hasFieldActions && (
+            <div data-field-actions>
+              <RemoveCloneButton
+                formField={formField}
+                masterFormField={masterFormField}
+                removeClone={removeClone}
+                changesetWebform={changesetWebform}
+              />
+            </div>
+          )}
+          <div data-field-content>{fieldInternals}</div>
+        </>
+      ) : (
+        fieldInternals
       )}
-
-      {/* For clones, a separate content slot div receives the label/errors/controls */}
-      {isClone && (
-        <div
-          data-field-content
-          ref={fieldContentsRef}
-        />
-      )}
-
-      {/* Render field contents directly (non-clone) or into the clone slot */}
-      {!isClone && fieldContents}
-
-      {/* Clone-actions: RemoveCloneButton placed into fieldActions or wrapper */}
-      {/* Uncomment and adapt once RemoveCloneButton is available:
-      {isClone && (
-        <RemoveCloneButton
-          formField={formField}
-          masterFormField={masterFormField}
-          removeClone={removeClone}
-          changesetWebform={changesetWebform}
-        />
-      )} */}
     </ValidatingFieldWrapperElement>
   );
-}
+});
+
+export default ValidatingFieldWrapper;
