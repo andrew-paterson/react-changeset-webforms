@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import RadioButtonInput from './RadioButtonInput.jsx';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * RadioButton
@@ -48,7 +49,7 @@ export default function RadioButton({ value, groupValue, changed, radioId, disab
       aria-labelledby={ariaLabelledby}
       aria-describedby={ariaDescribedby}
       changed={handleChanged}
-      {...rest}
+      {...filterHtmlProps(rest)}
     />
   );
 }

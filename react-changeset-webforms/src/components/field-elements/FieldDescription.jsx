@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * FieldDescription
@@ -25,7 +26,7 @@ export default function FieldDescription({ formField, changesetWebform, ...rest 
       ref={descriptionRef}
       id={`${formField.id}-description`}
       data-test-class="cwf-field-description"
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {formField.fieldDescription}
     </div>

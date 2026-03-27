@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 export default function Clicker({ formField, changesetWebform, onUserInteraction, ...rest }) {
   const onClick = useCallback(
@@ -16,7 +17,7 @@ export default function Clicker({ formField, changesetWebform, onUserInteraction
         formField={formField}
         changesetWebform={changesetWebform}
         onClick={onClick}
-        {...rest}
+        {...filterHtmlProps(rest)}
       />
     );
   }
@@ -26,7 +27,7 @@ export default function Clicker({ formField, changesetWebform, onUserInteraction
       role="button"
       data-test-class="cwf-clicker-element"
       onClick={onClick}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {formField.clickerText}
     </div>

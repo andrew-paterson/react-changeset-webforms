@@ -2,6 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import OptionLabelComponent from './OptionLabelComponent.jsx';
 import { safeName } from 'validated-changeset-webforms';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * LabelledCheckbox
@@ -61,7 +62,7 @@ export default function LabelledCheckbox({ formField, option, value, changedActi
       data-test-id={checkboxId}
       data-test-option={`checkbox-option-${option?.key}`}
       data-test-labelled-checkbox
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       <input
         type="checkbox"

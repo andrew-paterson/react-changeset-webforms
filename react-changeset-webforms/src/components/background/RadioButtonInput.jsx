@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * RadioButtonInput
@@ -34,7 +35,7 @@ export default function RadioButtonInput({ value, groupValue, checked, changed, 
       value={value}
       required={required}
       onChange={handleChange}
-      {...rest}
+      {...filterHtmlProps(rest)}
     />
   );
 }

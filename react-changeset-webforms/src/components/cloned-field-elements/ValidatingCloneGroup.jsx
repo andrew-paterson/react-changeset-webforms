@@ -3,6 +3,7 @@ import FieldLabel from '../field-elements/FieldLabel.jsx';
 import FieldErrors from '../field-elements/FieldErrors.jsx';
 import ValidatingClone from './ValidatingClone.jsx';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 import './validating-clone-group.css';
 
 /**
@@ -139,7 +140,7 @@ export default function ValidatingCloneGroup({ masterFormField, changesetWebform
       data-test-class={`cwf-field-type-${masterFormField?.fieldType}`}
       className={[masterFormField?.typeClass, ...dynamicClasses].filter(Boolean).join(' ')}
       ref={cloneGroupWrapperRef}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {/* Label — with optional labWrapper slot for actions */}
       {cloneGroupActionsPosition === 'labelWrapper' ? (

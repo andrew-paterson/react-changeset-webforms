@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * SubmitFormButton
@@ -38,7 +39,7 @@ export default function SubmitFormButton({ onFormSubmit, changesetWebform, formS
       data-test-id="cwf-submit-form-button"
       disabled={formSettings?.submitDisabled}
       onClick={() => onFormSubmit?.(changesetWebform)}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {SubmitIconComponent && (
         <span ref={submitIconRef}>

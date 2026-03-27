@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import MarkdownToHtml from './MarkdownToHtml.jsx';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * OptionLabelComponent
@@ -25,7 +26,6 @@ import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
  */
 export default function OptionLabelComponent({ optionLabelComponent, option, optionLabelMarkdown, label, for: htmlFor, labelId, checked, changesetWebform, formField, ...rest }) {
   const labelElement = useRef(null);
-  console.log(changesetWebform);
   useAttrsFromConfig(labelElement, 'labelElement', changesetWebform, formField);
 
   if (optionLabelComponent) {
@@ -50,7 +50,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
         htmlFor={htmlFor}
         id={labelId}
         ref={labelElement}
-        {...rest}
+        {...filterHtmlProps(rest)}
       >
         <MarkdownToHtml source={optionLabelMarkdown} />
       </label>
@@ -63,7 +63,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
         htmlFor={htmlFor}
         id={labelId}
         ref={labelElement}
-        {...rest}
+        {...filterHtmlProps(rest)}
       >
         {label}
       </label>

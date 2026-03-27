@@ -8,6 +8,7 @@ import appDefaults from '../utils/app-defaults.js';
 import ValidatingField from './field-elements/ValidatingField.jsx';
 import FormActions from './form-elements/FormActions.jsx';
 import useAttrsFromConfig from '../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../utils/filter-html-props.js';
 
 import { FormField as _FormField } from 'validated-changeset-webforms';
 import { FormFieldClone as _FormFieldClone } from 'validated-changeset-webforms';
@@ -196,7 +197,7 @@ export default function ChangesetWebformComp({
     <div
       ref={formWrapperRef}
       className="changeset-webform"
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       <form
         ref={formElementRef}

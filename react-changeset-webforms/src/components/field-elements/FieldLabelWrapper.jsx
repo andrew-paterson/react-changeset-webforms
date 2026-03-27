@@ -36,7 +36,7 @@ export default function FieldLabelWrapper({ formField, changesetWebform, childre
     return (
       <legend
         ref={legendRef}
-        {...rest}
+        {...filterHtmlProps(rest)}
       >
         {children}
       </legend>
@@ -44,7 +44,7 @@ export default function FieldLabelWrapper({ formField, changesetWebform, childre
   }
 
   if (labelType === 'div') {
-    return <div {...rest}>{children}</div>;
+    return <div {...filterHtmlProps(rest)}>{children}</div>;
   }
 
   // default: <label> with htmlFor

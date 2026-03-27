@@ -5,6 +5,7 @@ import FieldDescription from './FieldDescription.jsx';
 import FieldErrors from './FieldErrors.jsx';
 import RemoveCloneButton from '../cloned-field-elements/RemoveCloneButton.jsx';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 /**
  * ValidatingFieldWrapper
@@ -100,7 +101,7 @@ const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ form
       data-test-was-validated={formField?.wasValidated}
       data-test-validation-status={formField?.validationStatus}
       className={formField?.typeClass}
-      {...rest}
+      {...filterHtmlProps(rest)}
     >
       {/* Clone layout: actions slot + content slot */}
       {formField?.isClone ? (

@@ -1,3 +1,5 @@
+import filterHtmlProps from '../../../utils/filter-html-props.js';
+
 export default function IconCross({ children, ...rest }) {
-  return <div {...rest}>{children}</div>;
+  return <div {...filterHtmlProps(rest)}>{children}</div>;
 }

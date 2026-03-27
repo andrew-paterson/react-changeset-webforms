@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import LabelledCheckbox from '../background/LabelledCheckbox.jsx';
+import filterHtmlProps from '../../utils/filter-html-props.js';
 
 export default function Checkbox({ formField, formSettings, changesetWebform, updateFieldValue, onUserInteraction, dataTestFieldId, ...rest }) {
   const checkboxToggled = useCallback(
@@ -29,7 +30,7 @@ export default function Checkbox({ formField, formSettings, changesetWebform, up
       ariaErrorMessage={formField.ariaErrorMessage}
       ariaDescribedBy={formField.ariaDescribedBy}
       required={formField.required}
-      {...rest}
+      {...filterHtmlProps(rest)}
     />
   );
 }
