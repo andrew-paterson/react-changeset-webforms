@@ -25,6 +25,7 @@ export default function useAttrsFromConfig(ref, names, changesetWebform, formFie
   const wasValidated = formField?.wasValidated;
   const disabled = formField?.disabled;
   const focussed = formField?.focussed;
+  const eventLogLength = formField?.eventLog?.length;
 
   useEffect(() => {
     const element = ref.current;
@@ -44,5 +45,5 @@ export default function useAttrsFromConfig(ref, names, changesetWebform, formFie
         attrFunctions[elementType](element, changesetWebform, formField);
       }
     });
-  }, [ref, names, changesetWebform, formField, fieldValue, validationStatus, wasValidated, disabled, focussed]);
+  }, [ref, names, changesetWebform, formField, fieldValue, validationStatus, wasValidated, disabled, focussed, eventLogLength]);
 }

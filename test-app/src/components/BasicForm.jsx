@@ -64,7 +64,7 @@ const formSchema = {
       placeholder: 'Enter your description here',
     },
     {
-      fieldId: 'emails',
+      fieldId: 'Users',
       fieldLabel: 'User emails',
       fieldType: 'clone-group',
       minClones: 2,
@@ -79,11 +79,11 @@ const formSchema = {
           },
         },
       ],
-      cloneButtonText: 'Add email address',
+      cloneButtonText: 'Add user name',
       cloneFieldSchema: {
-        fieldLabel: 'Email',
+        fieldLabel: 'User name',
         fieldType: 'input',
-        inputType: 'email',
+        inputType: 'text',
         validationRules: [
           // {
           //   validationMethod: 'validateFormat',
@@ -93,12 +93,12 @@ const formSchema = {
             validationMethod: 'validatePresence',
             arguments: true,
           },
-          {
-            validationMethod: 'uniqueClone',
-            arguments: {
-              description: 'email',
-            },
-          },
+          // {
+          //   validationMethod: 'uniqueClone',
+          //   arguments: {
+          //     description: 'email',
+          //   },
+          // },
         ],
       },
     },
