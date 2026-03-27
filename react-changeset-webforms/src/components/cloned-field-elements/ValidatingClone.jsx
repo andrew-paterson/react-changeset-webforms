@@ -41,7 +41,6 @@ export default function ValidatingClone({ clonedFormField, masterFormField, chan
       setTimeout(() => {
         clonedFormField.customValidityEls = element.querySelectorAll('[data-set-custom-validity]');
         validateField?.(masterFormField);
-        console.log('clonedFormField.customValidityEls', clonedFormField.customValidityEls);
       }, 500); // TODO better pattern for this
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

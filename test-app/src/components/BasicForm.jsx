@@ -3,7 +3,7 @@ import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetW
 const formSchema = {
   formSettings: {
     formName: 'appClassNames',
-    hideSubmitButton: true,
+    hideSubmitButton: false,
   },
   fields: [
     {
@@ -67,6 +67,7 @@ const formSchema = {
       fieldId: 'Users',
       fieldLabel: 'User emails',
       fieldType: 'clone-group',
+      omitted: true,
       minClones: 2,
       maxClones: 4,
       validationRules: [
@@ -85,10 +86,6 @@ const formSchema = {
         fieldType: 'input',
         inputType: 'text',
         validationRules: [
-          // {
-          //   validationMethod: 'validateFormat',
-          //   arguments: { type: 'email' },
-          // },
           {
             validationMethod: 'validatePresence',
             arguments: {
@@ -107,8 +104,18 @@ const formSchema = {
   ],
 };
 
+function submitForm(data, changesetWebform) {
+  console.log('Form submitted with data:', data);
+  console.log('ChangesetWebform instance:', changesetWebform);
+}
+
 function BasicForm() {
-  return <ChangesetWebform formSchema={formSchema} />;
+  return (
+    <ChangesetWebform
+      formSchema={formSchema}
+      submitData={submitForm}
+    />
+  );
 }
 
 export default BasicForm;
