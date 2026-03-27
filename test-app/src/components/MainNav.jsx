@@ -1,0 +1,452 @@
+export default function MainNav() {
+  return (
+    <nav>
+      <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
+        <nav
+          class="
+      docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
+      docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
+    "
+        >
+          <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
+            <ul>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Introduction
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember6"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Index"
+                  href="/docs"
+                >
+                  Index
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember7"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Basic usage"
+                  href="/docs/basic-usage"
+                >
+                  Basic usage
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Validation
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember8"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Field validation"
+                  href="/docs/field-validation"
+                >
+                  Field validation
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember9"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Integrating custom validators"
+                  href="/docs/integrating-custom-validators"
+                >
+                  Integrating custom validators
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Form &amp; field settings
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember10"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Form settings"
+                  href="/docs/form-settings"
+                >
+                  Form settings
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember11"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Field settings"
+                  href="/docs/field-settings"
+                >
+                  Field settings
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Form &amp; field methods
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember12"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Form methods"
+                  href="/docs/form-methods"
+                >
+                  Form methods
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember13"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Field methods"
+                  href="/docs/field-methods"
+                >
+                  Field methods
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Hiding and showing fields
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember14"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Hiding and showing fields"
+                  href="/docs/hiding-and-showing-fields"
+                >
+                  Hiding and showing fields
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Clonable form fields
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember15"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Clonable form fields"
+                  href="/docs/clonable-form-fields"
+                >
+                  Clonable form fields
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Built in fields
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember16"
+                  class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Input"
+                  href="/docs/input"
+                >
+                  Input
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember17"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Textarea"
+                  href="/docs/textarea"
+                >
+                  Textarea
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember18"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Single checkbox"
+                  href="/docs/single-checkbox"
+                >
+                  Single checkbox
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember19"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Radio button group"
+                  href="/docs/radio-button-group"
+                >
+                  Radio button group
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember20"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Checkbox group"
+                  href="/docs/checkbox-group"
+                >
+                  Checkbox group
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember21"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Static content field"
+                  href="/docs/static-content-field"
+                >
+                  Static content field
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember22"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Power select"
+                  href="/docs/power-select"
+                >
+                  Power select
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember23"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Power select checkboxes"
+                  href="/docs/power-select-checkboxes"
+                >
+                  Power select checkboxes
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember24"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Power datepicker"
+                  href="/docs/power-datepicker"
+                >
+                  Power datepicker
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember25"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Clicker"
+                  href="/docs/clicker"
+                >
+                  Clicker
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Creating custom fields
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember26"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Creating custom fields"
+                  href="/docs/creating-custom-fields"
+                >
+                  Creating custom fields
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Form submission
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember27"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Form submission"
+                  href="/docs/form-submission"
+                >
+                  Form submission
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Action handling
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember28"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Action handling"
+                  href="/docs/action-handling"
+                >
+                  Action handling
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Configuration options
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember29"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Configuration options"
+                  href="/docs/configuration-options"
+                >
+                  Configuration options
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember30"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Manipulating element class names and attrs"
+                  href="/docs/manipulating-element-class-names-and-attrs"
+                >
+                  Manipulating element class names and attrs
+                </a>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember31"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Debug mode"
+                  href="/docs/debug-mode"
+                >
+                  Debug mode
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Utils
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember32"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Using a ChangesetWebform component with Ember query params"
+                  href="/docs/changeset-webform-with-query-params"
+                >
+                  Using a ChangesetWebform component with Ember query params
+                </a>
+              </li>
+              <li
+                class="
+  docs-mt-8 docs-capitalize
+  "
+              >
+                Test helpers
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <a
+                  id="ember33"
+                  class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Test helpers"
+                  href="/docs/test-helpers"
+                >
+                  Test helpers
+                </a>
+              </li>
+            </ul>
+            <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xxs docs-rounded">
+              <a
+                href="https://github.com/ember-learn/ember-cli-addon-docs"
+                class="docs-opacity-50 hover:docs-opacity-100 docs-transition docs-no-underline docs-text-inherit docs-flex docs-items-center docs-text-grey-darkest"
+              >
+                <svg
+                  width="22"
+                  height="16"
+                  viewBox="0 0 207 112"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="docs-mr-2"
+                >
+                  <title>Group 2 Copy 2</title>
+                  <g fill-rule="evenodd">
+                    <path d="M206.897 58c-.484 3.423-2.667 6-6.397 6-2.547 0-4.373-1.202-5.429-3.054C157 67.738 122.832 85.927 96.164 111.89 69.004 94.1 37.063 83.1 2.71 81.27A162.4 162.4 0 01.897 57c0-9.006.735-17.813 2.14-26.346C36.881 28.616 68.344 17.673 95.152.118c26.814 26.491 61.364 45.057 99.92 51.936C196.126 50.202 197.952 49 200.5 49c3.73 0 5.913 2.577 6.397 6H95v3h111.897z"></path>
+                    <g transform="translate(19.116 29.756)">
+                      <circle
+                        cx="26.12"
+                        cy="26.12"
+                        r="26.12"
+                      ></circle>
+                      <path
+                        d="M39.387 28.863s-7.943 5.63-13.164 5.705c-5.22.075-4.69-3.284-4.69-3.284s19.141-6.5 13.92-19.336c-2.346-3.302-5.07-4.342-8.926-4.266-3.86.075-8.645 2.41-11.749 9.316-1.483 3.294-2.022 6.419-2.325 8.785 0 0-3.348.679-5.165-.823-1.817-1.5-2.75 0-2.75 0s-3.12 3.942-.016 5.144c3.104 1.2 7.943 1.762 7.943 1.762.44 2.102 1.736 5.671 5.516 8.518 5.673 4.278 16.567-.393 16.567-.393s2.374-.894 4.463-2.487c3.041-2.649 2.614-10.707.376-8.64zm-18.633-3.62c.224-8.815 6.048-12.667 8.066-10.741 2.017 1.926 1.27 6.074-2.541 8.667-3.807 2.592-5.525 2.074-5.525 2.074z"
+                        fill-rule="nonzero"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <div>
+                  Powered by
+                  <span class="docs-font-bold">AddonDocs</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </nav>
+  );
+}
