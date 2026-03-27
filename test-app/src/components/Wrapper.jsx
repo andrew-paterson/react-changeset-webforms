@@ -6,7 +6,6 @@ export default function Wrapper({ children }) {
     <div class="docs-viewer docs-flex docs-flex-1 __web-inspector-hide-shortcut__">
       <div class="md:docs-flex docs-w-full">
         <MainNav />
-
         <main class="docs-px-4 md:docs-px-8 lg:docs-px-20 docs-mx-auto md:docs-mx-0 docs-mt-6 md:docs-mt-12 md:docs-min-w-0 md:docs-flex-1">
           <div data-current-page-index-target="">
             <div class="docs-md">

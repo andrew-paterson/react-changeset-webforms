@@ -15,6 +15,17 @@ import { classNamesFromConfig, mergedAttrFunctions, setCustomValidity } from 'va
  * @param {object}          formField        - The field model.
  */
 export default function useAttrsFromConfig(ref, names, changesetWebform, formField) {
+  // Scalar values derived from formField that change when field data updates.
+  // Because formField is a class instance, React's reference-equality check on
+  // the dependency array won't detect mutations to its properties — so we pull
+  // out the primitive values that are most likely to drive config-driven class
+  // and attr changes, ensuring the effect re-runs when they change.
+  const fieldValue = formField?.fieldValue;
+  const validationStatus = formField?.validationStatus;
+  const wasValidated = formField?.wasValidated;
+  const disabled = formField?.disabled;
+  const focussed = formField?.focussed;
+
   useEffect(() => {
     const element = ref.current;
     if (!element || !changesetWebform) return;
@@ -33,5 +44,5 @@ export default function useAttrsFromConfig(ref, names, changesetWebform, formFie
         attrFunctions[elementType](element, changesetWebform, formField);
       }
     });
-  }, [ref, names, changesetWebform, formField]);
+  }, [ref, names, changesetWebform, formField, fieldValue, validationStatus, wasValidated, disabled, focussed]);
 }
