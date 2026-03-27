@@ -38,7 +38,7 @@ const formSchema = {
       fieldLabel: 'Select colour',
       attrsFromConfig: {
         classNames: {
-          optionsWrapper: ['$inherited', 'd-flex'],
+          optionsWrapper: ['$inherited', 'd-flex', 'foo'],
           labelledRadioButton: ['$inherited', 'me-4'],
         },
       },

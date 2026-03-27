@@ -31,7 +31,7 @@ export default function LabelledRadioButton({ formField, option, value, groupVal
   const labelledRadioButton = useRef(null);
   const radioButtonElement = useRef(null);
   const radioButtonLabel = useRef(null);
-  useAttrsFromConfig(labelledRadioButton, 'radioButton,optionWrapper', changesetWebform, formField);
+  useAttrsFromConfig(labelledRadioButton, 'labelledRadioButton', changesetWebform, formField);
   useAttrsFromConfig(radioButtonElement, 'radioButtonElement', changesetWebform, formField);
   useAttrsFromConfig(radioButtonLabel, 'radioButtonLabel', changesetWebform, formField);
   const radioId = formField?.fieldId === option?.value ? safeName(formField?.id) : safeName(`${formField?.id}-radio-option-${option?.value}`);
