@@ -1,5 +1,6 @@
-import React from 'react';
+import { useRef } from 'react';
 import FieldLabelWrapper from './FieldLabelWrapper.jsx';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * FieldLabel
@@ -28,6 +29,10 @@ function getNoLabel(formField) {
 }
 
 export default function FieldLabel({ formField, changesetWebform, labelId }) {
+  const fieldLabelRef = useRef(null);
+
+  useAttrsFromConfig(fieldLabelRef, 'fieldLabel', changesetWebform, formField);
+
   if (getNoLabel(formField)) {
     return null;
   }
@@ -58,6 +63,8 @@ export default function FieldLabel({ formField, changesetWebform, labelId }) {
       data-test-class="cwf-field-label"
       data-test-id={`${formField.id}-label`}
       formField={formField}
+      changesetWebform={changesetWebform}
+      ref={fieldLabelRef}
     >
       {labelContent}
     </FieldLabelWrapper>

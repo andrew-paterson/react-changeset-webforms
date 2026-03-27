@@ -1,5 +1,6 @@
-import React from 'react';
+import { useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * FieldLabelWrapper
@@ -10,9 +11,10 @@ import filterHtmlProps from '../../utils/filter-html-props.js';
  *  - "label"   → all other fields (default, with a `for` attribute)
  *
  * Props:
- *  - formField   {object}        The field model object.
- *  - children    {React.Node}    Label content.
- *  - ...rest                     Spread onto the wrapper element.
+ *  - formField         {object}        The field model object.
+ *  - changesetWebform  {object}        The webform instance.
+ *  - children          {React.Node}    Label content.
+ *  - ...rest                           Spread onto the wrapper element.
  */
 function getLabelType(formField) {
   if (formField?.requiresAriaLabelledBy) return 'div';
@@ -20,11 +22,25 @@ function getLabelType(formField) {
   return 'label';
 }
 
-export default function FieldLabelWrapper({ formField, children, ...rest }) {
+export default function FieldLabelWrapper({ formField, changesetWebform, children, ...rest }) {
   const labelType = getLabelType(formField);
 
+  const legendRef = useRef(null);
+  const labelRef = useRef(null);
+  const divLabelRef = useRef(null);
+  useAttrsFromConfig(legendRef, 'legendElement', changesetWebform, formField);
+  useAttrsFromConfig(labelRef, 'labelElement', changesetWebform, formField);
+  useAttrsFromConfig(divLabelRef, 'divLabel', changesetWebform, formField);
+
   if (labelType === 'legend') {
-    return <legend {...rest}>{children}</legend>;
+    return (
+      <legend
+        ref={legendRef}
+        {...rest}
+      >
+        {children}
+      </legend>
+    );
   }
 
   if (labelType === 'div') {
@@ -34,6 +50,7 @@ export default function FieldLabelWrapper({ formField, children, ...rest }) {
   // default: <label> with htmlFor
   return (
     <label
+      ref={labelRef}
       htmlFor={formField?.id}
       {...filterHtmlProps(rest)}
     >
