@@ -80,9 +80,9 @@ const formSchema = {
           },
         },
       ],
-      cloneButtonText: 'Add user name',
+      cloneButtonText: 'Email',
       cloneFieldSchema: {
-        fieldLabel: 'User name',
+        fieldLabel: 'User email',
         fieldType: 'input',
         inputType: 'text',
         validationRules: [
@@ -91,6 +91,10 @@ const formSchema = {
             arguments: {
               presence: true,
             },
+          },
+          {
+            validationMethod: 'validateFormat',
+            arguments: { type: 'email' },
           },
           {
             validationMethod: 'uniqueClone',

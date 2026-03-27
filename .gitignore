@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 test-app-nextjs
+test-app/src/components/demos
+test-app/markdown/docs
