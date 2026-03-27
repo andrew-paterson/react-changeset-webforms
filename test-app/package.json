@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "react": "^19.2.0",
+    "react-changeset-webforms": "workspace:*",
     "react-dom": "^19.2.0",
-    "react-changeset-webforms": "workspace:*"
+    "react-live": "^4.1.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

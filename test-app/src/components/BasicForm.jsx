@@ -67,8 +67,8 @@ const formSchema = {
       fieldId: 'Users',
       fieldLabel: 'User emails',
       fieldType: 'clone-group',
-      omitted: true,
-      minClones: 2,
+      omitted: false,
+      minClones: 1,
       maxClones: 4,
       validationRules: [
         {
