@@ -52,8 +52,6 @@ export default function FieldLabel({ formField, changesetWebform, labelId }) {
     // Render as plain text; replace with a markdown component if available.
     labelContent = formField.labelMarkdown;
   } else {
-    console.log(formField.fieldLabel);
-
     labelContent = formField.fieldLabel;
   }
 

@@ -105,7 +105,6 @@ export default function ValidatingClone({ clonedFormField, masterFormField, chan
   );
 
   const FieldComponent = clonedFormField?.componentClass;
-  console.log('FieldComponent', FieldComponent);
   return (
     <ValidatingFieldWrapper
       ref={callbackRef}
