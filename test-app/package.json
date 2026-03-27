@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.5",
+    "marked-highlight": "^2.2.3",
+    "node-html-parser": "^7.1.0",
     "react": "^19.2.0",
     "react-changeset-webforms": "workspace:*",
     "react-dom": "^19.2.0",
