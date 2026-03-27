@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ChangesetWebform } from 'validated-changeset-webforms';
 import { safeName } from 'validated-changeset-webforms';
