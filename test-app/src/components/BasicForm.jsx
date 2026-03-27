@@ -109,11 +109,16 @@ function submitForm(data, changesetWebform) {
   console.log('ChangesetWebform instance:', changesetWebform);
 }
 
+function formValidationFailed(changesetWebform) {
+  console.log('ChangesetWebform instance:', changesetWebform);
+}
+
 function BasicForm() {
   return (
     <ChangesetWebform
       formSchema={formSchema}
       submitData={submitForm}
+      formValidationFailed={formValidationFailed}
     />
   );
 }

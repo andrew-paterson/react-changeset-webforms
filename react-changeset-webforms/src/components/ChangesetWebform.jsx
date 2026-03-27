@@ -141,7 +141,14 @@ export default function ChangesetWebformComp({
     if (event && event.preventDefault) {
       event.preventDefault();
     }
-    return cwfRef.current?.submit();
+    const result = cwfRef.current?.submit();
+    // submit() is async — it validates all fields, mutating formField instances.
+    // Force a re-render once it resolves so every ValidatingField re-reads
+    // formField.validationErrors and passes the updated array down to FieldErrors.
+    if (result && typeof result.then === 'function') {
+      result.then(() => setChangesetWebform((prev) => (prev ? { ...prev } : prev)));
+    }
+    return result;
   }, []);
 
   const resetForm = useCallback(() => {

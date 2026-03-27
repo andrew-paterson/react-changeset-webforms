@@ -17,7 +17,6 @@ export default function FieldErrors({ formField, validationErrorsArray, changese
   const errorItemRefs = useRef([]);
 
   useAttrsFromConfig(errorsWrapperRef, 'validationErrors', changesetWebform, formField);
-
   useEffect(() => {
     errorItemRefs.current.forEach((el) => {
       if (!el || !changesetWebform) return;
