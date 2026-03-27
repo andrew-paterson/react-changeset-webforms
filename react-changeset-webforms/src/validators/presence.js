@@ -1,5 +1,6 @@
 export function validatePresence(options) {
   return (_key, newValue, _oldValue, changes, content) => {
+    console.log('validatePresence', { options, newValue, content });
     var response = true;
     if (options && options.presence) {
       if (typeof newValue === 'string' && newValue.trim() === '') {

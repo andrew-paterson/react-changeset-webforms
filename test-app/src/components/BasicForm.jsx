@@ -91,14 +91,16 @@ const formSchema = {
           // },
           {
             validationMethod: 'validatePresence',
-            arguments: true,
+            arguments: {
+              presence: true,
+            },
           },
-          // {
-          //   validationMethod: 'uniqueClone',
-          //   arguments: {
-          //     description: 'email',
-          //   },
-          // },
+          {
+            validationMethod: 'uniqueClone',
+            arguments: {
+              description: 'User name',
+            },
+          },
         ],
       },
     },
