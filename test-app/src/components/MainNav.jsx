@@ -1,6 +1,6 @@
 export default function MainNav() {
   return (
-    <nav>
+    <>
       <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
         <nav
           class="
@@ -447,6 +447,6 @@ export default function MainNav() {
           </div>
         </nav>
       </div>
-    </nav>
+    </>
   );
 }
