@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MarkdownToHtml from './MarkdownToHtml.jsx';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * OptionLabelComponent
@@ -23,6 +24,10 @@ import MarkdownToHtml from './MarkdownToHtml.jsx';
  *  - ...rest                           Spread onto the rendered element.
  */
 export default function OptionLabelComponent({ optionLabelComponent, option, optionLabelMarkdown, label, for: htmlFor, labelId, checked, changesetWebform, formField, ...rest }) {
+  const labelElement = useRef(null);
+  console.log(changesetWebform);
+  useAttrsFromConfig(labelElement, 'labelElement', changesetWebform, formField);
+
   if (optionLabelComponent) {
     const CustomLabel = optionLabelComponent.componentClass;
     return (
@@ -44,6 +49,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
       <label
         htmlFor={htmlFor}
         id={labelId}
+        ref={labelElement}
         {...rest}
       >
         <MarkdownToHtml source={optionLabelMarkdown} />
@@ -56,6 +62,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
       <label
         htmlFor={htmlFor}
         id={labelId}
+        ref={labelElement}
         {...rest}
       >
         {label}

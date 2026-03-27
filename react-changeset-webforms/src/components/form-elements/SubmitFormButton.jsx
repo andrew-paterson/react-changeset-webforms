@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * SubmitFormButton
@@ -22,8 +23,17 @@ export default function SubmitFormButton({ onFormSubmit, changesetWebform, formS
   const InFlightIconComponent = formSettings?.requestInFlightIcon?.componentClass;
   const requestInFlight = changesetWebform?.formSettings?.requestInFlight;
 
+  const buttonRef = useRef(null);
+  const submitIconRef = useRef(null);
+  const inFlightIconRef = useRef(null);
+
+  useAttrsFromConfig(buttonRef, 'buttonElement,submitButton', changesetWebform);
+  useAttrsFromConfig(submitIconRef, 'buttonIcon,submitButtonIcon', changesetWebform);
+  useAttrsFromConfig(inFlightIconRef, 'requestInFlightIcon', changesetWebform);
+
   return (
     <button
+      ref={buttonRef}
       type={formSettings?.submitButtonType}
       data-test-id="cwf-submit-form-button"
       disabled={formSettings?.submitDisabled}
@@ -31,17 +41,21 @@ export default function SubmitFormButton({ onFormSubmit, changesetWebform, formS
       {...rest}
     >
       {SubmitIconComponent && (
-        <SubmitIconComponent
-          props={formSettings.submitButtonIcon.props}
-          changesetWebform={changesetWebform}
-        />
+        <span ref={submitIconRef}>
+          <SubmitIconComponent
+            props={formSettings.submitButtonIcon.props}
+            changesetWebform={changesetWebform}
+          />
+        </span>
       )}
       {formSettings?.submitButtonText}
       {requestInFlight && InFlightIconComponent && (
-        <InFlightIconComponent
-          props={formSettings.requestInFlightIcon.props}
-          changesetWebform={changesetWebform}
-        />
+        <span ref={inFlightIconRef}>
+          <InFlightIconComponent
+            props={formSettings.requestInFlightIcon.props}
+            changesetWebform={changesetWebform}
+          />
+        </span>
       )}
     </button>
   );

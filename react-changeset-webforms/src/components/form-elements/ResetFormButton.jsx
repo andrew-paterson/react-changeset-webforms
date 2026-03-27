@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * ResetFormButton
@@ -16,17 +17,26 @@ import React from 'react';
 export default function ResetFormButton({ resetForm, changesetWebform, formSettings }) {
   const IconComponent = formSettings?.resetFormButtonIcon?.componentClass;
 
+  const buttonRef = useRef(null);
+  const iconRef = useRef(null);
+
+  useAttrsFromConfig(buttonRef, 'buttonElement,resetFormButton', changesetWebform);
+  useAttrsFromConfig(iconRef, 'buttonIcon,resetFormButtonIcon', changesetWebform);
+
   return (
     <button
+      ref={buttonRef}
       type="button"
       data-test-id="cwf-discard-changes-button"
       onClick={() => resetForm?.(changesetWebform)}
     >
       {IconComponent && (
-        <IconComponent
-          props={formSettings.resetFormButtonIcon.props}
-          changesetWebform={changesetWebform}
-        />
+        <span ref={iconRef}>
+          <IconComponent
+            props={formSettings.resetFormButtonIcon.props}
+            changesetWebform={changesetWebform}
+          />
+        </span>
       )}
       {formSettings?.resetFormButtonText}
     </button>

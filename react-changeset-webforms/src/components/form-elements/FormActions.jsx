@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import SubmitFormButton from './SubmitFormButton.jsx';
 import ResetFormButton from './ResetFormButton.jsx';
 import ClearFormButton from './ClearFormButton.jsx';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * FormActions
@@ -20,8 +21,14 @@ import ClearFormButton from './ClearFormButton.jsx';
  *  - formSettings      {object}    Form-level settings object.
  */
 export default function FormActions({ onFormSubmit, resetForm, clearForm, changesetWebform, formSettings }) {
+  const formActionsRef = useRef(null);
+  useAttrsFromConfig(formActionsRef, 'formActions', changesetWebform);
+
   return (
-    <div data-test-id="cwf-form-actions">
+    <div
+      ref={formActionsRef}
+      data-test-id="cwf-form-actions"
+    >
       {!formSettings?.hideSubmitButton && (
         <SubmitFormButton
           onFormSubmit={onFormSubmit}

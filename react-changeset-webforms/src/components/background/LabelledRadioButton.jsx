@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import RadioButton from './RadioButton.jsx';
 import OptionLabelComponent from './OptionLabelComponent.jsx';
 import { safeName } from 'validated-changeset-webforms';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * LabelledRadioButton
@@ -27,6 +28,12 @@ import { safeName } from 'validated-changeset-webforms';
  *  - changesetWebform      {object}    Parent webform instance.
  */
 export default function LabelledRadioButton({ formField, option, value, groupValue, changedAction, name, disabled, required, optionLabelComponent, optionLabelMarkdown, label, optionLabelDataTestClass, changesetWebform }) {
+  const labelledRadioButton = useRef(null);
+  const radioButtonElement = useRef(null);
+  const radioButtonLabel = useRef(null);
+  useAttrsFromConfig(labelledRadioButton, 'radioButton,optionWrapper', changesetWebform, formField);
+  useAttrsFromConfig(radioButtonElement, 'radioButtonElement', changesetWebform, formField);
+  useAttrsFromConfig(radioButtonLabel, 'radioButtonLabel', changesetWebform, formField);
   const radioId = formField?.fieldId === option?.value ? safeName(formField?.id) : safeName(`${formField?.id}-radio-option-${option?.value}`);
 
   const labelId = radioId ? `${radioId}-label` : null;
@@ -34,6 +41,7 @@ export default function LabelledRadioButton({ formField, option, value, groupVal
 
   return (
     <div
+      ref={labelledRadioButton}
       className={disabled ? 'disabled' : undefined}
       data-test-id={radioId}
       data-test-option={`radio-option-${option?.value}`}
@@ -49,6 +57,7 @@ export default function LabelledRadioButton({ formField, option, value, groupVal
         ariaLabelledby={labelId}
         required={required}
         data-set-custom-validity
+        ref={radioButtonElement}
       />
       <OptionLabelComponent
         optionLabelComponent={optionLabelComponent}
@@ -61,6 +70,7 @@ export default function LabelledRadioButton({ formField, option, value, groupVal
         changesetWebform={changesetWebform}
         formField={formField}
         data-test-class={optionLabelDataTestClass}
+        ref={radioButtonLabel}
       />
     </div>
   );

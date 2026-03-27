@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useEffect, useState } from 'react';
 import FieldLabel from '../field-elements/FieldLabel.jsx';
 import FieldErrors from '../field-elements/FieldErrors.jsx';
 import ValidatingClone from './ValidatingClone.jsx';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 import './validating-clone-group.css';
 
 /**
@@ -36,6 +37,9 @@ export default function ValidatingCloneGroup({ masterFormField, changesetWebform
   const cloneGroupWrapperRef = useRef(null);
   const preClonesRef = useRef(null);
   const labelWrapperRef = useRef(null);
+  const cloneGroupItemsRef = useRef(null);
+  const cloneGroupActionsRef = useRef(null);
+  const maxClonesReachedRef = useRef(null);
 
   // Force re-render when clones change (masterFormField.clonedFields is mutated)
   const [, forceUpdate] = useState(0);
@@ -86,15 +90,31 @@ export default function ValidatingCloneGroup({ masterFormField, changesetWebform
   if (masterFormField?.validates) dynamicClasses.push('fieldValidates');
   if (masterFormField?.required) dynamicClasses.push('requiredField');
 
+  const dynamicClassNameNameSpaces = dynamicClasses.join(',');
+
+  useAttrsFromConfig(cloneGroupWrapperRef, dynamicClassNameNameSpaces, changesetWebform, masterFormField);
+  useAttrsFromConfig(labelWrapperRef, 'labelWrapper', changesetWebform, masterFormField);
+  useAttrsFromConfig(cloneGroupItemsRef, 'cloneGroupItems', changesetWebform, masterFormField);
+  useAttrsFromConfig(cloneGroupActionsRef, 'cloneGroupActions', changesetWebform, masterFormField);
+  useAttrsFromConfig(maxClonesReachedRef, 'maxClonesReached', changesetWebform, masterFormField);
+
   const clones = masterFormField?.clonedFields || [];
 
   // Clone-group actions: add-clone button or max-clones message
   const AddCloneButtonComponent = masterFormField?.addCloneButtonComponent?.componentClass;
 
   const cloneGroupActions = (
-    <div data-test-id="cwf-clone-group-actions">
+    <div
+      ref={cloneGroupActionsRef}
+      data-test-id="cwf-clone-group-actions"
+    >
       {masterFormField?.cloneCountStatus === 'max' ? (
-        <div data-test-id="cwf-max-clones-reached">{masterFormField?.maxClonesReachedText}</div>
+        <div
+          ref={maxClonesReachedRef}
+          data-test-id="cwf-max-clones-reached"
+        >
+          {masterFormField?.maxClonesReachedText}
+        </div>
       ) : (
         AddCloneButtonComponent && (
           <AddCloneButtonComponent
@@ -150,7 +170,10 @@ export default function ValidatingCloneGroup({ masterFormField, changesetWebform
       </div>
 
       {/* Clone rows */}
-      <div data-test-id="cwf-clone-group-items">
+      <div
+        ref={cloneGroupItemsRef}
+        data-test-id="cwf-clone-group-items"
+      >
         {clones.map((clonedFormField) => (
           <ValidatingClone
             key={clonedFormField.id ?? clonedFormField.cloneId}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * AddCloneButton
@@ -23,18 +24,27 @@ export default function AddCloneButton({ onClickAddCloneButton, formField, chang
 
   const buttonText = formField?.cloneButtonText || `New ${formField?.fieldLabel} field`;
 
+  const buttonRef = useRef(null);
+  const iconRef = useRef(null);
+
+  useAttrsFromConfig(buttonRef, 'buttonElement,addCloneButton', changesetWebform, formField);
+  useAttrsFromConfig(iconRef, 'buttonIcon,addCloneButtonIcon', changesetWebform);
+
   return (
     <button
+      ref={buttonRef}
       type="button"
       data-test-id="cwf-add-clone-button"
       onClick={() => onClickAddCloneButton?.(formField?.cloneGroupName)}
     >
       {IconComponent && (
-        <IconComponent
-          props={iconConfig.props}
-          changesetWebform={changesetWebform}
-          formField={formField}
-        />
+        <span ref={iconRef}>
+          <IconComponent
+            props={iconConfig.props}
+            changesetWebform={changesetWebform}
+            formField={formField}
+          />
+        </span>
       )}
       {buttonText}
     </button>

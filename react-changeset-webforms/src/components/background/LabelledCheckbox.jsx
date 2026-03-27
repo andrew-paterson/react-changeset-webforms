@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import OptionLabelComponent from './OptionLabelComponent.jsx';
 import { safeName } from 'validated-changeset-webforms';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * LabelledCheckbox
@@ -30,6 +31,12 @@ import { safeName } from 'validated-changeset-webforms';
  *  - ...rest                           Spread onto the wrapper div.
  */
 export default function LabelledCheckbox({ formField, option, value, changedAction, checkboxId: checkboxIdProp, name, disabled, required, ariaErrorMessage, ariaDescribedBy, optionLabelComponent, optionLabelMarkdown, label, optionLabelDataTestClass, changesetWebform, ...rest }) {
+  const labelledCheckbox = useRef(null);
+  const checkboxElement = useRef(null);
+  const checkboxLabel = useRef(null);
+  useAttrsFromConfig(labelledCheckbox, 'labelledCheckbox,optionWrapper', changesetWebform, formField);
+  useAttrsFromConfig(checkboxElement, 'checkboxElement', changesetWebform, formField);
+  useAttrsFromConfig(checkboxLabel, 'checkboxLabel', changesetWebform, formField);
   const checkboxId = (() => {
     if (checkboxIdProp) return checkboxIdProp;
     if (formField?.fieldId === option?.key) {
@@ -49,6 +56,7 @@ export default function LabelledCheckbox({ formField, option, value, changedActi
 
   return (
     <div
+      ref={labelledCheckbox}
       className={disabled ? 'disabled' : undefined}
       data-test-id={checkboxId}
       data-test-option={`checkbox-option-${option?.key}`}
@@ -66,6 +74,7 @@ export default function LabelledCheckbox({ formField, option, value, changedActi
         aria-errormessage={ariaErrorMessage}
         aria-describedby={ariaDescribedBy}
         name={name}
+        ref={checkboxElement}
         required={required}
       />
       <OptionLabelComponent
@@ -79,6 +88,7 @@ export default function LabelledCheckbox({ formField, option, value, changedActi
         changesetWebform={changesetWebform}
         formField={formField}
         data-test-class={optionLabelDataTestClass}
+        ref={checkboxLabel}
       />
     </div>
   );

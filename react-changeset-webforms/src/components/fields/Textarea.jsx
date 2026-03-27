@@ -1,7 +1,10 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 export default function Textarea({ formField, changesetWebform, updateFieldValue, onUserInteraction, onFormSubmit, ...rest }) {
+  const textArea = useRef(null);
+  useAttrsFromConfig(textArea, 'textareaElement', changesetWebform, formField);
   const onChange = useCallback(
     (event) => {
       updateFieldValue(event.target.value);
@@ -29,6 +32,7 @@ export default function Textarea({ formField, changesetWebform, updateFieldValue
 
   return (
     <textarea
+      ref={textArea}
       value={formField.fieldValue ?? ''}
       data-set-custom-validity
       onKeyUp={(e) => handleUserInteraction('keyUp', e)}

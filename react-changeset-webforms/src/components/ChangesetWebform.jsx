@@ -7,6 +7,7 @@ import addonDefaults from '../utils/addon-defaults.js';
 import appDefaults from '../utils/app-defaults.js';
 import ValidatingField from './field-elements/ValidatingField.jsx';
 import FormActions from './form-elements/FormActions.jsx';
+import useAttrsFromConfig from '../hooks/use-attrs-from-config.js';
 
 import { FormField as _FormField } from 'validated-changeset-webforms';
 import { FormFieldClone as _FormFieldClone } from 'validated-changeset-webforms';
@@ -81,6 +82,14 @@ export default function ChangesetWebformComp({
   // Keep a ref so callbacks always close over the latest instance without
   // causing the effect to re-run.
   const cwfRef = useRef(null);
+
+  const formWrapperRef = useRef(null);
+  const formElementRef = useRef(null);
+  const formFieldsRef = useRef(null);
+
+  useAttrsFromConfig(formWrapperRef, 'formWrapper', changesetWebform);
+  useAttrsFromConfig(formElementRef, 'formElement', changesetWebform);
+  useAttrsFromConfig(formFieldsRef, 'formFields', changesetWebform);
 
   const debugMode = appDefaults?.debug || debugProp;
 
@@ -185,15 +194,17 @@ export default function ChangesetWebformComp({
 
   return (
     <div
+      ref={formWrapperRef}
       className="changeset-webform"
       {...rest}
     >
       <form
+        ref={formElementRef}
         onSubmit={onFormSubmit}
         noValidate={formSettings?.novalidate}
         data-test-id={safeName(formSettings?.formName)}
       >
-        <div>
+        <div ref={formFieldsRef}>
           {changesetWebform.fields.map((formField) => (
             <ValidatingField
               key={formField.fieldId}

@@ -1,7 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 export default function Input({ formField, changesetWebform, updateFieldValue, onUserInteraction, onFormSubmit, ...rest }) {
+  const inputRef = useRef(null);
+
+  useAttrsFromConfig(inputRef, 'inputElement,inputField', changesetWebform, formField);
   const onChange = useCallback(
     (event) => {
       updateFieldValue(event.target.value);
@@ -51,6 +55,7 @@ export default function Input({ formField, changesetWebform, updateFieldValue, o
       aria-errormessage={formField.ariaErrorMessage}
       aria-describedby={formField.ariaDescribedBy}
       required={formField.required}
+      ref={inputRef}
       {...filterHtmlProps(rest)}
     />
   );

@@ -1,6 +1,7 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useRef } from 'react';
 import LabelledCheckbox from '../background/LabelledCheckbox.jsx';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 function stringToArray(value) {
   let array;
@@ -13,6 +14,9 @@ function stringToArray(value) {
 }
 
 export default function CheckboxGroup({ formField, changesetWebform, updateFieldValue, onUserInteraction, ...rest }) {
+  const optionsWrapper = useRef(null);
+  useAttrsFromConfig(optionsWrapper, 'optionsWrapper', changesetWebform, formField);
+  // optionsWrapper
   const options = useMemo(() => {
     const checkedItems = stringToArray(formField.fieldValue);
     const checkedCount = checkedItems.filter((item) => formField.options.some((o) => o.key === item)).length;
@@ -43,6 +47,7 @@ export default function CheckboxGroup({ formField, changesetWebform, updateField
 
   return (
     <div
+      ref={optionsWrapper}
       data-test-id="options-wrapper"
       aria-label={formField.ariaLabel}
       {...filterHtmlProps(rest)}

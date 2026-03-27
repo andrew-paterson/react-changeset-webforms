@@ -1,8 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import LabelledRadioButton from '../background/LabelledRadioButton.jsx';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 export default function RadioButtonGroup({ formField, formSettings, changesetWebform, updateFieldValue, onUserInteraction, ...rest }) {
+  const optionsWrapper = useRef(null);
+  useAttrsFromConfig(optionsWrapper, 'optionsWrapper', changesetWebform, formField);
   const onRadioChange = useCallback(
     (value) => {
       onUserInteraction('radioOptionChanged', value);
@@ -13,6 +16,7 @@ export default function RadioButtonGroup({ formField, formSettings, changesetWeb
 
   return (
     <div
+      ref={optionsWrapper}
       aria-label={formField.ariaLabel}
       data-test-id="options-wrapper"
       {...filterHtmlProps(rest)}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * RemoveCloneButton
@@ -21,6 +22,12 @@ import React from 'react';
 export default function RemoveCloneButton({ formField, masterFormField, removeClone, props, changesetWebform }) {
   const shouldRender = formField?.isClone && masterFormField?.cloneCountStatus !== 'min';
 
+  const buttonRef = useRef(null);
+  const iconRef = useRef(null);
+
+  useAttrsFromConfig(buttonRef, 'removeCloneButton', changesetWebform, formField);
+  useAttrsFromConfig(iconRef, 'removeCloneButtonIcon', changesetWebform, formField);
+
   if (!shouldRender) {
     return null;
   }
@@ -29,18 +36,21 @@ export default function RemoveCloneButton({ formField, masterFormField, removeCl
 
   return (
     <button
+      ref={buttonRef}
       type="button"
       data-test-class="cwf-remove-clone-button"
       title={`Remove ${formField?.fieldId}`}
       onClick={() => removeClone?.(formField)}
     >
       {IconComponent && (
-        <IconComponent
-          props={props}
-          changesetWebform={changesetWebform}
-          formField={masterFormField}
-          formFieldClone={formField}
-        />
+        <span ref={iconRef}>
+          <IconComponent
+            props={props}
+            changesetWebform={changesetWebform}
+            formField={masterFormField}
+            formFieldClone={formField}
+          />
+        </span>
       )}
     </button>
   );

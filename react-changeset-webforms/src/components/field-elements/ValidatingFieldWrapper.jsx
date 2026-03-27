@@ -4,6 +4,7 @@ import FieldLabel from './FieldLabel.jsx';
 import FieldDescription from './FieldDescription.jsx';
 import FieldErrors from './FieldErrors.jsx';
 import RemoveCloneButton from '../cloned-field-elements/RemoveCloneButton.jsx';
+import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 
 /**
  * ValidatingFieldWrapper
@@ -36,6 +37,7 @@ import RemoveCloneButton from '../cloned-field-elements/RemoveCloneButton.jsx';
  */
 const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ formField, masterFormField, changesetWebform, children, dataTestFieldId, dataTestFormName, labelId, validationErrorsArray, removeClone, ...rest }, ref) {
   const wrapperElRef = useRef(null);
+  const fieldControlsRef = useRef(null);
 
   // Merge the forwarded ref with our internal ref so the parent's callback ref
   // fires on the wrapper element while we can also query it internally.
@@ -52,6 +54,11 @@ const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ form
     return ns.filter((item, i, arr) => arr.indexOf(item) === i).join(',');
   })();
 
+  const fieldControlsNameSpace = formField?.isClone ? 'cloneFieldControls' : 'fieldControls';
+
+  useAttrsFromConfig(wrapperElRef, attrsFromConfigNameSpaces, changesetWebform, formField);
+  useAttrsFromConfig(fieldControlsRef, fieldControlsNameSpace, changesetWebform, formField);
+
   const fieldInternals = (
     <>
       <FieldLabel
@@ -64,6 +71,7 @@ const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ form
         changesetWebform={changesetWebform}
       />
       <div
+        ref={fieldControlsRef}
         data-test-id="field-controls"
         role={formField?.isGroup ? 'group' : undefined}
       >
@@ -92,7 +100,6 @@ const ValidatingFieldWrapper = forwardRef(function ValidatingFieldWrapper({ form
       data-test-was-validated={formField?.wasValidated}
       data-test-validation-status={formField?.validationStatus}
       className={formField?.typeClass}
-      data-attrs-from-config={attrsFromConfigNameSpaces}
       {...rest}
     >
       {/* Clone layout: actions slot + content slot */}
