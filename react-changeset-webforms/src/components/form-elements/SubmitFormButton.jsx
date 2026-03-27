@@ -22,7 +22,7 @@ import filterHtmlProps from '../../utils/filter-html-props.js';
 export default function SubmitFormButton({ onFormSubmit, changesetWebform, formSettings, ...rest }) {
   const SubmitIconComponent = formSettings?.submitButtonIcon?.componentClass;
   const InFlightIconComponent = formSettings?.requestInFlightIcon?.componentClass;
-  const requestInFlight = changesetWebform?.formSettings?.requestInFlight;
+  const requestInFlight = formSettings?.requestInFlight;
 
   const buttonRef = useRef(null);
   const submitIconRef = useRef(null);

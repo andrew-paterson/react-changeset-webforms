@@ -64,7 +64,7 @@ const formSchema = {
       placeholder: 'Enter your description here',
     },
     {
-      fieldId: 'Users',
+      fieldId: 'user-emails',
       fieldLabel: 'User emails',
       fieldType: 'clone-group',
       omitted: false,
@@ -80,11 +80,12 @@ const formSchema = {
           },
         },
       ],
-      cloneButtonText: 'Email',
+      cloneButtonText: 'Add another email',
       cloneFieldSchema: {
         fieldLabel: 'User email',
         fieldType: 'input',
         inputType: 'text',
+        hideLabel: true,
         validationRules: [
           {
             validationMethod: 'validatePresence',
@@ -94,12 +95,12 @@ const formSchema = {
           },
           {
             validationMethod: 'validateFormat',
-            arguments: { type: 'email' },
+            arguments: { type: 'email', description: 'User email' },
           },
           {
             validationMethod: 'uniqueClone',
             arguments: {
-              description: 'User name',
+              description: 'Each user email',
             },
           },
         ],
@@ -109,8 +110,12 @@ const formSchema = {
 };
 
 function submitForm(data, changesetWebform) {
-  console.log('Form submitted with data:', data);
-  console.log('ChangesetWebform instance:', changesetWebform);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      alert(`Form submitted with data: ${JSON.stringify(data, null, 2)}`);
+      resolve();
+    }, 700);
+  });
 }
 
 function formValidationFailed(changesetWebform) {

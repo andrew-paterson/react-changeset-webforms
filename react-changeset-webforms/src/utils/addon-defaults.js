@@ -8,6 +8,7 @@ import StaticContentComponent from '../components/fields/StaticContent.jsx';
 import IconTrashComponent from '../components/svg/icons/IconTrash.jsx';
 import AddCloneButtonComponent from '../components/cloned-field-elements/AddCloneButton.jsx';
 import defaultValidators from './default-validators';
+import IconPlusComponent from '../components/svg/icons/IconPlus.jsx';
 
 export default {
   // BEGIN-SNIPPET default-attrs-from-config.js
@@ -126,12 +127,12 @@ export default {
     novalidate: true, // Disable the browser's native validation feedback
     hideSubmitButton: false, // Boolean - hides the submit button if true
     submitButtonText: 'Submit', // String - text to show on the submit form button
-    requestInFlightIcon: null, // Object with { componentClass, props }.
+    requestInFlightIcon: { componentClass: IconPlusComponent, props: {} }, // Object with { componentClass, props }.
     // `componentClass` is the imported class of the component to show on the submit form button.
     // `props` can be included to pass state or data to the component, accessible as {{@props}}.
     // `@changesetWebform is passed to the component.
     // Note that if null, an empty element will still appear on the submit button, with the class names defined for requestInFlightIcon. If false, the element will not appear on the submit button.
-    addCloneButtonIconComponent: null, // Object with { componentClass, props }.
+    addCloneButtonIconComponent: { componentClass: IconPlusComponent, props: {} }, // Object with { componentClass, props }.
     // `componentClass` is the imported class of the component to show on the submit form button.
     // `props` can be included to pass state or data to the component, accessible as {{@props}}.
     // `@changesetWebform, and @formField are passed to the component.
@@ -295,6 +296,6 @@ export default {
       ignoreValidation: true,
     },
   ],
-  validators: defaultValidators,
+  // validators: defaultValidators,
 };
 // END-SNIPPET

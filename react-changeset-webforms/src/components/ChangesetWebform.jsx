@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ChangesetWebform } from 'validated-changeset-webforms';
 import { safeName } from 'validated-changeset-webforms';
@@ -114,7 +112,7 @@ export default function ChangesetWebformComp({
 
     const instance = new ChangesetWebform(formSchema, data, {
       // appDefaults: [addonDefaults, appDefaults],
-      appDefaults: [addonDefaults],
+      appDefaults: [addonDefaults, appDefaults],
       dynamicIncludeExcludeConditions,
       onFormSubmit: onFormSubmitOverride,
       debug: debugMode,
@@ -146,6 +144,11 @@ export default function ChangesetWebformComp({
     // Force a re-render once it resolves so every ValidatingField re-reads
     // formField.validationErrors and passes the updated array down to FieldErrors.
     if (result && typeof result.then === 'function') {
+      // Re-render immediately so requestInFlight=true is visible while in-flight,
+      // then again on resolution so requestInFlight=false is reflected.
+      setTimeout(() => {
+        setChangesetWebform((prev) => (prev ? { ...prev } : prev));
+      }, 0);
       result.then(() => setChangesetWebform((prev) => (prev ? { ...prev } : prev)));
     }
     return result;
