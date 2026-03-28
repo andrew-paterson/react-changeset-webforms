@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import CloneGroupForm from './CloneGroupForm.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function CloneGroupFormDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <CloneGroupForm />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="clone-group-form.jsx"
         label="Component jsx"
       />
     </DocsDemo>

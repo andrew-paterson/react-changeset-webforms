@@ -1,0 +1,16 @@
+import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
+import RadioButtonGroupExampleOne from './RadioButtonGroupExampleOne.jsx';
+
+export default function RadioButtonGroupExampleOneDemo() {
+  return (
+    <DocsDemo>
+      <DocsExample>
+        <RadioButtonGroupExampleOne />
+      </DocsExample>
+      <DocsSnippet
+        name="radio-button-group-example-1.jsx"
+        label="Component jsx"
+      />
+    </DocsDemo>
+  );
+}

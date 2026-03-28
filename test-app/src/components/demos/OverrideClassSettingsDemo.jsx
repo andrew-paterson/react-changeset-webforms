@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import OverrideClassSettings from './OverrideClassSettings.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function OverrideClassSettingsDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <OverrideClassSettings />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="override-class-settings.jsx"
         label="Component jsx"
       />
     </DocsDemo>

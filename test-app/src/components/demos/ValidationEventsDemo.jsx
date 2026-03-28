@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import ValidationEvents from './ValidationEvents.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function ValidationEventsDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <ValidationEvents />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="validation-events.jsx"
         label="Component jsx"
       />
     </DocsDemo>

@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import HiddenFieldsExampleThree from './HiddenFieldsExampleThree.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function HiddenFieldsExampleThreeDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <HiddenFieldsExampleThree />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="omitted-fields-example-3.jsx"
         label="Component jsx"
       />
     </DocsDemo>

@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import InheritClassSettings from './InheritClassSettings.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function InheritClassSettingsDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <InheritClassSettings />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="inherit-class-settings.jsx"
         label="Component jsx"
       />
     </DocsDemo>

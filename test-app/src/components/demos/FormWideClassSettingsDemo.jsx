@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import FormWideClassSettings from './FormWideClassSettings.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function FormWideClassSettingsDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <FormWideClassSettings />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="form-wide-class-settings.jsx"
         label="Component jsx"
       />
     </DocsDemo>

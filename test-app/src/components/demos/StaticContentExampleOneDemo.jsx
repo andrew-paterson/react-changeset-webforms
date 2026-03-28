@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import StaticContentExampleOne from './StaticContentExampleOne.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function StaticContentExampleOneDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <StaticContentExampleOne />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="static-content-example-1.jsx"
         label="Component jsx"
       />
     </DocsDemo>

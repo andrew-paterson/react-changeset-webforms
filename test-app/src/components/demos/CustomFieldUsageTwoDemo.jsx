@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import CustomFieldUsageTwo from './CustomFieldUsageTwo.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function CustomFieldUsageTwoDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <CustomFieldUsageTwo />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="custom-fields-demo-2.jsx"
         label="Component jsx"
       />
     </DocsDemo>

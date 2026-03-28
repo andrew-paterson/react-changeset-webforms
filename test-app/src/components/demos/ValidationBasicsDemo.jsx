@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import ValidationBasics from './ValidationBasics.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function ValidationBasicsDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <ValidationBasics />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="validation-basics.jsx"
         label="Component jsx"
       />
     </DocsDemo>

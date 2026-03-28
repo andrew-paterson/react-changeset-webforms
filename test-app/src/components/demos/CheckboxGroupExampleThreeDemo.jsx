@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import CheckboxGroupExampleThree from './CheckboxGroupExampleThree.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function CheckboxGroupExampleThreeDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <CheckboxGroupExampleThree />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="checkbox-group-example-3.jsx"
         label="Component jsx"
       />
     </DocsDemo>

@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import LoginForm from './LoginForm.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function LoginFormDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <LoginForm />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="login-form.jsx"
         label="Component jsx"
       />
     </DocsDemo>

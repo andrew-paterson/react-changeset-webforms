@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import AttrFunctions from './AttrFunctions.jsx';
+import ClearFormFormSchema from './ClearFormFormSchema.jsx';
 
-export default function AttrFunctionsDemo() {
+export default function ClearFormFormSchemaDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <AttrFunctions />
+        <ClearFormFormSchema />
       </DocsExample>
       <DocsSnippet
-        name="attr-functions.jsx"
+        name="clear-form-form-schema.jsx"
         label="Component jsx"
       />
     </DocsDemo>
