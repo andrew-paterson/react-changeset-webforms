@@ -8,7 +8,7 @@ export default function CustomFieldUsageDemo() {
         <CustomFieldUsage />
       </DocsExample>
       <DocsSnippet
-        name="custom-fields-demo.jsx"
+        name="custom-fields-usage.jsx"
         label="Component jsx"
       />
     </DocsDemo>

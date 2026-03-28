@@ -14,12 +14,10 @@ export default function CheckboxGroupExampleTwoDemo() {
       <DocsSnippet
         name="component-for-all-checkbox-options.jsx"
         label="component-for-all-checkbox-options.jsx"
-        language="htmlbars"
       />
       <DocsSnippet
         name="component-for-single-checkbox-option.jsx"
         label="component-for-single-checkbox-option.jsx"
-        language="htmlbars"
       />
     </DocsDemo>
   );

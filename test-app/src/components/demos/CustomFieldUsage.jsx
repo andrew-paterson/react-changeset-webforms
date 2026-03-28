@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET custom-field-usage.jsx
+// BEGIN-SNIPPET custom-fields-usage.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import validatePhoneNumber from '../../validators/phone-number';

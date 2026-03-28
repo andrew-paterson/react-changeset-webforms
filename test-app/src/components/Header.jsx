@@ -53,24 +53,12 @@ export default function Header() {
               data-version-selector=""
               class="docs-flex docs-items-center"
             >
-              0.3.0
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 64 64"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>caret</title>
-                <path
-                  d="M32 41L15 24h35z"
-                  fill-rule="evenodd"
-                ></path>
-              </svg>
+              0.0.1
             </span>
           </a>
 
           <a
-            href="https://github.com/andrew-paterson/ember-changeset-webforms"
+            href="https://github.com/andrew-paterson/react-changeset-webforms"
             class="docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs docs-font-bold docs-text-grey-darkest docs-no-underline hover:docs-text-brand
           
           "

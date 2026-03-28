@@ -31,7 +31,7 @@ import NotFound from './pages/NotFound.jsx';
 
 function DocsLayout() {
   return (
-    <div className="AddonDocs-DocsViewer docs-flex docs-flex-1 docs-w-full docs-max-w-site-container docs-mx-auto">
+    <div className="md:docs-flex docs-w-full">
       <MainNav />
       <main className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
         <Routes>

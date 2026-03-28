@@ -14,7 +14,6 @@ export default function SingleCheckboxExampleThreeDemo() {
       <DocsSnippet
         name="component-for-single-checkbox-option.jsx"
         label="custom label component jsx"
-        language="htmlbars"
       />
     </DocsDemo>
   );

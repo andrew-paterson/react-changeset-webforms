@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET hidden-fields-example-two.jsx
+// BEGIN-SNIPPET omitted-fields-example-two.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

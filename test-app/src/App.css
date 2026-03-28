@@ -8,3 +8,7 @@
 pre {
   background-color: #282c34 !important;
 }
+
+main {
+  max-width: 888px !important;
+}

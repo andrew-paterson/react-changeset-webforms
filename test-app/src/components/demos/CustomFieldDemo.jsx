@@ -4,14 +4,8 @@ export default function CustomFieldDemo() {
   return (
     <DocsDemo>
       <DocsSnippet
-        name="custom-field-component.hbs"
-        label="custom field template"
-        language="htmlbars"
-      />
-      <DocsSnippet
-        name="custom-field-component.js"
-        label="custom field component js"
-        language="javascript"
+        name="custom-field-component.jsx"
+        label="custom field component jsx"
       />
       <DocsSnippet
         name="phone-number-validator.js"

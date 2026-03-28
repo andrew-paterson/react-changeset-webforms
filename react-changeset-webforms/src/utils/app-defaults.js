@@ -1,4 +1,4 @@
-// import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/phone-number-with-country-code'; TODO add back
+import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/PhoneNumberWithCountryCode.jsx';
 import IconPaperPlane from '../components/svg/icons/app-level/IconPaperPlane.jsx';
 import RequestInFlightIcon from '../components/svg/icons/app-level/RequestInFlightIcon.jsx';
 // BEGIN-SNIPPET import-default-validators.js
@@ -58,20 +58,20 @@ export default {
     },
     // END-SNIPPET
     // BEGIN-SNIPPET custom-field-definition.js
-    // In the changesetWebformsDefaults object
-    // {
-    //   fieldType: 'phoneNumberWithCountryCode',
-    //   // import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/phone-number-with-country-code';
-    //   componentClass: PhoneNumberWithCountryCodeComponent,
-    //   validatesOn: ['$inherited', 'focusOutPhoneNumberInput'],
-    //   attrsFromConfig: {
-    //     classNames: {
-    //       fieldControls: ['$validationClassNames', 'form-control', 'p-0', 'bg-white'],
-    //       phoneNumberInput: ['form-control ', 'border', 'border-0', 'border-start', '$validationPseudoClasses'],
-    //       countryCodeTrigger: ['input-group-text ', 'pe-5 ', 'border ', 'border-0'],
-    //     },
-    //   },
-    // },
+    // In the app defaults
+    {
+      fieldType: 'phoneNumberWithCountryCode',
+      // import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/phone-number-with-country-code';
+      componentClass: PhoneNumberWithCountryCodeComponent,
+      validatesOn: ['$inherited', 'focusOutPhoneNumberInput'],
+      attrsFromConfig: {
+        classNames: {
+          fieldControls: ['$validationClassNames', 'form-control', 'p-0', 'bg-white'],
+          phoneNumberInput: ['form-control ', 'border', 'border-0', 'border-start', '$validationPseudoClasses'],
+          countryCodeTrigger: ['input-group-text ', 'pe-5 ', 'border ', 'border-0'],
+        },
+      },
+    },
     // END-SNIPPET
     // BEGIN-SNIPPET custom-parser-in-service.js
     // In the changesetWebformsDefaults object  at changesetWebformsDefaults.fieldTypes
