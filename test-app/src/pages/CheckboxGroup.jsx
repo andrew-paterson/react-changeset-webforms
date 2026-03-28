@@ -1,6 +1,7 @@
 import CheckboxGroupExampleOneDemo from '../components/demos/CheckboxGroupExampleOneDemo.jsx';
 import CheckboxGroupExampleThreeDemo from '../components/demos/CheckboxGroupExampleThreeDemo.jsx';
 import CheckboxGroupExampleTwoDemo from '../components/demos/CheckboxGroupExampleTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
 
 export default function CheckboxGroup() {
   return (
@@ -20,7 +21,11 @@ export default function CheckboxGroup() {
           The above props are in addition to the generic field props shown with
           their default values below.
         </p>
-        <p></p>
+
+        <DocsSnippet
+          name="generic-field-settings.js"
+          title="Default generic field settings and their values"
+        />
         <h2 id="checkbox-group-options" class="docs-md__h2">
           <a href="#checkbox-group-options" class="heading-anchor">
             Checkbox group options
@@ -45,7 +50,11 @@ export default function CheckboxGroup() {
           The above props are in addition to the generic field props shown with
           their default values below.
         </p>
-        <p></p>
+
+        <DocsSnippet
+          name="generic-field-settings.js"
+          title="Default generic field settings and their values"
+        />
         <h2 id="basic-usage" class="docs-md__h2">
           <a href="#basic-usage" class="heading-anchor">
             Basic usage
@@ -127,7 +136,11 @@ export default function CheckboxGroup() {
           The above props are in addition to the generic field props shown with
           their default values below.
         </p>
-        <p></p>
+
+        <DocsSnippet
+          name="generic-field-settings.js"
+          title="Default generic field settings and their values"
+        />
       </div>
     </>
   );
