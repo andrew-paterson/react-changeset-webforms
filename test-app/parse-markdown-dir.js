@@ -11,12 +11,17 @@ async function parseMarkdownDir() {
   const files = await fs.promises.readdir(path.resolve(__dirname, markdownDir));
   for (const file of files) {
     if (!file.endsWith('.md')) continue;
-    const inputPath = path.resolve(__dirname, markdownDir, file);
-    const componentName = toPascalCase(path.basename(file, '.md'));
-    const outputPath = path.resolve(__dirname, pagesDir, `${componentName}.jsx`);
-    const formatted = await parseMarkdown(inputPath);
-    fs.writeFileSync(outputPath, formatted, 'utf-8');
-    console.log(`Written: ${outputPath}`);
+    try {
+      const inputPath = path.resolve(__dirname, markdownDir, file);
+      const componentName = toPascalCase(path.basename(file, '.md'));
+      const outputPath = path.resolve(__dirname, pagesDir, `${componentName}.jsx`);
+      const formatted = await parseMarkdown(inputPath);
+      console.log(`Written: ${outputPath}`);
+
+      fs.writeFileSync(outputPath, formatted, 'utf-8');
+    } catch (err) {
+      console.error(`Error processing ${file}`);
+    }
   }
 }
 

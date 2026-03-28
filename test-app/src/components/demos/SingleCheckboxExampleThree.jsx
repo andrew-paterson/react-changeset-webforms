@@ -1,6 +1,6 @@
 // BEGIN-SNIPPET single-checkbox-example-three.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
-import ComponentForSingleCheckboxOption from '../forms/component-for-single-checkbox-option';
+import ComponentForSingleCheckboxOption from '../forms/ComponentForSingleCheckboxOption';
 
 const formSchema = {
   formSettings: {

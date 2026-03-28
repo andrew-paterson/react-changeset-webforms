@@ -1,6 +1,6 @@
 // BEGIN-SNIPPET static-content-example-two.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
-import ComponentForStaticContentField from '../forms/component-for-static-content-field';
+import ComponentForStaticContentField from '../forms/ComponentForStaticContentField.jsx';
 
 const formSchema = {
   formSettings: {
