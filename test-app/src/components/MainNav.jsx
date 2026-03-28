@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function MainNav() {
   return (
     <>
@@ -18,26 +20,24 @@ export default function MainNav() {
                 Introduction
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember6"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Index"
-                  href="/docs"
+                  to="/docs"
                 >
                   Introduction
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember7"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Basic usage"
-                  href="/docs/basic-usage"
+                  to="/docs/basic-usage"
                 >
                   Basic usage
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -47,26 +47,24 @@ export default function MainNav() {
                 Validation
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember8"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field validation"
-                  href="/docs/field-validation"
+                  to="/docs/field-validation"
                 >
                   Field validation
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember9"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Integrating custom validators"
-                  href="/docs/integrating-custom-validators"
+                  to="/docs/integrating-custom-validators"
                 >
                   Integrating custom validators
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -76,26 +74,24 @@ export default function MainNav() {
                 Form &amp; field settings
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember10"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form settings"
-                  href="/docs/form-settings"
+                  to="/docs/form-settings"
                 >
                   Form settings
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember11"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field settings"
-                  href="/docs/field-settings"
+                  to="/docs/field-settings"
                 >
                   Field settings
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -105,26 +101,24 @@ export default function MainNav() {
                 Form &amp; field methods
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember12"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form methods"
-                  href="/docs/form-methods"
+                  to="/docs/form-methods"
                 >
                   Form methods
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember13"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field methods"
-                  href="/docs/field-methods"
+                  to="/docs/field-methods"
                 >
                   Field methods
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -134,15 +128,14 @@ export default function MainNav() {
                 Hiding and showing fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember14"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Hiding and showing fields"
-                  href="/docs/hiding-and-showing-fields"
+                  to="/docs/hiding-and-showing-fields"
                 >
                   Hiding and showing fields
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -152,15 +145,14 @@ export default function MainNav() {
                 Clonable form fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember15"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Clonable form fields"
-                  href="/docs/clonable-form-fields"
+                  to="/docs/clonable-form-fields"
                 >
                   Clonable form fields
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -170,81 +162,74 @@ export default function MainNav() {
                 Built in fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember16"
+                <Link
                   class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Input"
-                  href="/docs/input"
+                  to="/docs/input"
                 >
                   Input
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember17"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Textarea"
-                  href="/docs/textarea"
+                  to="/docs/textarea"
                 >
                   Textarea
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember18"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Single checkbox"
-                  href="/docs/single-checkbox"
+                  to="/docs/single-checkbox"
                 >
                   Single checkbox
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember19"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Radio button group"
-                  href="/docs/radio-button-group"
+                  to="/docs/radio-button-group"
                 >
                   Radio button group
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember20"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Checkbox group"
-                  href="/docs/checkbox-group"
+                  to="/docs/checkbox-group"
                 >
                   Checkbox group
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember21"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Static content field"
-                  href="/docs/static-content-field"
+                  to="/docs/static-content-field"
                 >
                   Static content field
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember25"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Clicker"
-                  href="/docs/clicker"
+                  to="/docs/clicker"
                 >
                   Clicker
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -254,15 +239,14 @@ export default function MainNav() {
                 Creating custom fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember26"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Creating custom fields"
-                  href="/docs/creating-custom-fields"
+                  to="/docs/creating-custom-fields"
                 >
                   Creating custom fields
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -272,15 +256,14 @@ export default function MainNav() {
                 Form submission
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember27"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form submission"
-                  href="/docs/form-submission"
+                  to="/docs/form-submission"
                 >
                   Form submission
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -290,15 +273,14 @@ export default function MainNav() {
                 Action handling
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember28"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Action handling"
-                  href="/docs/action-handling"
+                  to="/docs/action-handling"
                 >
                   Action handling
-                </a>
+                </Link>
               </li>
               <li
                 class="
@@ -309,26 +291,24 @@ export default function MainNav() {
               </li>
 
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember30"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Manipulating element class names and attrs"
-                  href="/docs/manipulating-element-class-names-and-attrs"
+                  to="/docs/manipulating-element-class-names-and-attrs"
                 >
                   Manipulating element class names and attrs
-                </a>
+                </Link>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <a
-                  id="ember31"
+                <Link
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Debug mode"
-                  href="/docs/debug-mode"
+                  to="/docs/debug-mode"
                 >
                   Debug mode
-                </a>
+                </Link>
               </li>
             </ul>
             <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xxs docs-rounded"></div>

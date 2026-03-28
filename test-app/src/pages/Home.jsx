@@ -1,4 +1,4 @@
-import SignupFormDemo from '../components/demos/SignupFormDemo.jsx';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -30,17 +30,15 @@ export default function Home() {
           </p>
 
           <div class="docs-mt-8">
-            <a
-              id="ember2608"
+            <Link
               class="ember-view 
         docs-no-underline docs-bg-white docs-text-brand docs-text-xs docs-px-3 docs-py-2
         docs-rounded docs-mt-4 docs-shadow-md hover:docs-shadow-lg
-        docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase
-      "
-              href="/docs"
+        docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase"
+              to="/docs"
             >
               Read the docs
-            </a>
+            </Link>
           </div>
         </div>
       </div>
