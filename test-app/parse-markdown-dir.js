@@ -20,7 +20,7 @@ async function parseMarkdownDir() {
 
       fs.writeFileSync(outputPath, formatted, 'utf-8');
     } catch (err) {
-      console.error(`Error processing ${file}`);
+      console.error(`Error processing ${file}: ${err.message}`);
     }
   }
 }

@@ -177,6 +177,17 @@ export async function parseMarkdown(inputPath) {
     imports.push(`import ${name}Demo from '../components/demos/${name}Demo.jsx';`);
   }
 
+  // <Forms::ComponentName /> → <ComponentName />
+  // + import ComponentName from '../components/forms/ComponentName.jsx'
+  const formComponentNames = new Set();
+  html = html.replace(/<Forms::([A-Za-z]+)\s*\/?>/g, (_match, name) => {
+    formComponentNames.add(name);
+    return `<${name} />`;
+  });
+  for (const name of formComponentNames) {
+    imports.push(`import ${name} from '../components/forms/${name}.jsx';`);
+  }
+
   // <DocsSnippet ...> — add import if present
   if (html.includes('<DocsSnippet')) {
     imports.push(`import { DocsSnippet } from '../components/docs-utils';`);
