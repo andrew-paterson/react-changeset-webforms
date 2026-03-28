@@ -22,15 +22,23 @@ export default function DocsDemo({ children }) {
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className="docs-mr-4 docs-text-xs docs-no-underline outline-none
+              className={`docs-mr-4 docs-text-xs docs-no-underline outline-none
               hover:docs-text-grey-lighter
-              docs-text-grey-dark"
+              ${index === activeIndex ? 'docs-text-grey-light' : 'docs-text-grey-dark'}`}
             >
               {snippet.props.label}
             </button>
           ))}
         </nav>
-        <div className="activeSnippet">{snippets[activeIndex]}</div>
+        <div className="docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b">
+          <div
+            className="docs-text-xs docs-px-2 docs-py-1 docs-bg-code-base
+    docs-relative docs-subpixel-antialiased
+    docs-rounded"
+          >
+            {snippets[activeIndex]}
+          </div>
+        </div>
       </div>
     </div>
   );
