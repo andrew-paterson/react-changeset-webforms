@@ -25,7 +25,7 @@ export default function MainNav() {
                   data-test-label="Index"
                   href="/docs"
                 >
-                  Index
+                  Introduction
                 </a>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">

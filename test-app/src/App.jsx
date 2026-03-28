@@ -3,6 +3,7 @@ import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
 import './App.css';
 
+import Index from './pages/Index.jsx';
 import BasicUsage from './pages/BasicUsage.jsx';
 import ConfigurationOptions from './pages/ConfigurationOptions.jsx';
 import CreatingCustomFields from './pages/CreatingCustomFields.jsx';
@@ -28,6 +29,7 @@ import FieldMethods from './pages/FieldMethods.jsx';
 import DebugMode from './pages/DebugMode.jsx';
 import TestHelpers from './pages/TestHelpers.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Home from './pages/Home.jsx';
 
 function DocsLayout() {
   return (
@@ -36,13 +38,8 @@ function DocsLayout() {
       <main className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
         <Routes>
           <Route
-            index
-            element={
-              <Navigate
-                to="basic-usage"
-                replace
-              />
-            }
+            path="/"
+            element={<Index />}
           />
           <Route
             path="basic-usage"
@@ -157,12 +154,7 @@ export default function App() {
         />
         <Route
           path="/"
-          element={
-            <Navigate
-              to="/docs/basic-usage"
-              replace
-            />
-          }
+          element={<Home />}
         />
         <Route
           path="*"
