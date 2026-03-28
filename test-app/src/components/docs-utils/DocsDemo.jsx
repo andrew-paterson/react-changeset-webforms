@@ -7,10 +7,31 @@ export default function DocsDemo({ children }) {
   const examples = childArray.filter((child) => child.type === DocsExample);
   const snippets = childArray.filter((child) => child.type === DocsSnippet);
 
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
   return (
     <div className="docs-rounded docs-border docs-border-grey-lighter docs-my-8">
       <div className="example">{examples}</div>
-      <div className="snippets">{snippets}</div>
+      <div className="snippets">
+        <nav
+          className="docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium
+        docs-bg-black docs-tracking-tight docs-border-b
+        docs-border-grey-darkest"
+        >
+          {snippets.map((snippet, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className="docs-mr-4 docs-text-xs docs-no-underline outline-none
+              hover:docs-text-grey-lighter
+              docs-text-grey-dark"
+            >
+              {snippet.props.label}
+            </button>
+          ))}
+        </nav>
+        <div className="activeSnippet">{snippets[activeIndex]}</div>
+      </div>
     </div>
   );
 }
