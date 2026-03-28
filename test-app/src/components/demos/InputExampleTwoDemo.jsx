@@ -8,7 +8,7 @@ export default function InputExampleTwoDemo() {
         <InputExampleTwo />
       </DocsExample>
       <DocsSnippet
-        name="input-example-2.jsx"
+        name="input-example-two.jsx"
         label="Component jsx"
       />
     </DocsDemo>

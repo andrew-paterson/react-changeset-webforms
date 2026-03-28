@@ -8,7 +8,7 @@ export default function FormMethodsExampleNineDemo() {
         <FormMethodsExampleNine />
       </DocsExample>
       <DocsSnippet
-        name="form-methods-example-9.jsx"
+        name="form-methods-example-nine.jsx"
         label="Component jsx"
       />
     </DocsDemo>

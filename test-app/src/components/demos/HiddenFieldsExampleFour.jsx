@@ -86,7 +86,7 @@ const formSchema = {
 
 export default function HiddenFieldsExampleFour() {
   return (
-    <div data-test-id="omitted-fields-example-4">
+    <div data-test-id="omitted-fields-example-four">
       Free drink for members and orders including 3 mains and 3 side dishes!
       <ChangesetWebform formSchema={formSchema} />
     </div>

@@ -8,7 +8,7 @@ export default function HiddenFieldsExampleFiveDemo() {
         <HiddenFieldsExampleFive />
       </DocsExample>
       <DocsSnippet
-        name="omitted-fields-example-5.jsx"
+        name="omitted-fields-example-five.jsx"
         label="Component jsx"
       />
     </DocsDemo>

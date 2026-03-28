@@ -8,7 +8,7 @@ export default function SingleCheckboxExampleTwoDemo() {
         <SingleCheckboxExampleTwo />
       </DocsExample>
       <DocsSnippet
-        name="single-checkbox-example-2.jsx"
+        name="single-checkbox-example-two.jsx"
         label="Component jsx"
       />
     </DocsDemo>

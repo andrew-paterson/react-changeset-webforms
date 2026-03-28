@@ -8,7 +8,7 @@ export default function CheckboxGroupExampleOneDemo() {
         <CheckboxGroupExampleOne />
       </DocsExample>
       <DocsSnippet
-        name="checkbox-group-example-1.jsx"
+        name="checkbox-group-example-one.jsx"
         label="Component jsx"
       />
     </DocsDemo>

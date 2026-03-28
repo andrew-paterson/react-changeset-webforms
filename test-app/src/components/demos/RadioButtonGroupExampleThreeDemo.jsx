@@ -8,7 +8,7 @@ export default function RadioButtonGroupExampleThreeDemo() {
         <RadioButtonGroupExampleThree />
       </DocsExample>
       <DocsSnippet
-        name="radio-button-group-example-3.jsx"
+        name="radio-button-group-example-three.jsx"
         label="Component jsx"
       />
     </DocsDemo>

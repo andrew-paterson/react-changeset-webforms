@@ -8,7 +8,7 @@ export default function TextareaExampleOneDemo() {
         <TextareaExampleOne />
       </DocsExample>
       <DocsSnippet
-        name="textarea-example-1.jsx"
+        name="textarea-example-one.jsx"
         label="Component jsx"
       />
     </DocsDemo>

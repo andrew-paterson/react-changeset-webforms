@@ -8,7 +8,7 @@ export default function FieldMethodsExampleFiveDemo() {
         <FieldMethodsExampleFive />
       </DocsExample>
       <DocsSnippet
-        name="field-methods-example-5.jsx"
+        name="field-methods-example-five.jsx"
         label="Component jsx"
       />
     </DocsDemo>

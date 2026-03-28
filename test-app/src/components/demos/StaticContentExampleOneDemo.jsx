@@ -8,7 +8,7 @@ export default function StaticContentExampleOneDemo() {
         <StaticContentExampleOne />
       </DocsExample>
       <DocsSnippet
-        name="static-content-example-1.jsx"
+        name="static-content-example-one.jsx"
         label="Component jsx"
       />
     </DocsDemo>
