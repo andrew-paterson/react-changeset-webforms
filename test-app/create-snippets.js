@@ -1,10 +1,12 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, relative } from 'path';
+const relativeDirPaths = ['./src', '../react-changeset-webforms/src'];
 
-const SRC_DIR = new URL('./src', import.meta.url).pathname;
+const BASE_DIR = new URL('.', import.meta.url).pathname;
+const SRC_DIR = join(BASE_DIR, 'src');
 const OUTPUT_FILE = join(SRC_DIR, 'snippets.js');
 
-const BEGIN = /^\s*\/\/\s*BEGIN-SNIPPET\s+(.+?)"?\s*$/;
+const BEGIN = /^\s*\/\/\s*BEGIN-SNIPPET\s+(.+?)\s*$/;
 const END = /^\s*\/\/\s*END-SNIPPET\s*$/;
 
 function walkDir(dir) {
@@ -23,7 +25,12 @@ function walkDir(dir) {
 
 const snippets = [];
 
-const files = walkDir(SRC_DIR).sort();
+const files = relativeDirPaths
+  .map((p) => join(BASE_DIR, p))
+  .flatMap((dir) => walkDir(dir))
+  .sort();
+
+console.log(files);
 
 for (const filePath of files.sort()) {
   // Skip the output file itself

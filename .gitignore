@@ -26,3 +26,4 @@ test-app-nextjs
 test-app/src/components/demos/**/*.js
 test-app/src/components/demos/**/*.hbs
 test-app/markdown/docs
+ember-demo-components

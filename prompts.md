@@ -29,3 +29,30 @@ Note also, that within the <DocsExample> in AttrFunctionsDemo.jsx, we have diffe
 I would like you to please repeat this pattern for all other components in /home/paddy/development/ember-addons/react-changeset-webforms/test-app/src/components/demos.
 
 IMPORTANT. Ignore any .hbs files that do not have exactly 2 snippets, where one they have the same label, but one with .hbs and one with .js.
+
+## Generate create-snippets script
+
+Please write a Node.js script at /home/paddy/development/ember-addons/react-changeset-webforms/test-app/create-snippets.js, which will find all code snippets from all the files within these directories:
+/home/paddy/development/ember-addons/react-changeset-webforms/test-app/src
+/home/paddy/development/ember-addons/react-changeset-webforms/test-app/src
+And then output them to /home/paddy/development/ember-addons/react-changeset-webforms/test-app/src/snippets.js
+
+A code snippet is identified by an opening comment in this form: // BEGIN-SNIPPET snippet-name.extension, and a closing tag which in in the form // END-SNIPPET
+
+Each snippet object in snippets.js should be an object with keys name and text.
+
+The name is what comes after // BEGIN-SNIPPET
+
+The text is the code found between opening and closing snippet comments.
+
+Please maintain whitespace when outputting the text for each snippet.
+
+There is one example you can use in snippets.js, which is derived from /home/paddy/development/ember-addons/react-changeset-webforms/test-app/src/components/demos/AttrFunctions.jsx
+
+## File create-snippets script
+
+In /home/paddy/development/ember-addons/react-changeset-webforms/test-app/create-snippets.js, I've added two relative paths in the array 'relativeDirPaths'.
+
+Please update /home/paddy/development/ember-addons/react-changeset-webforms/test-app/create-snippets.js to determine which files to search for snippets.
+
+Also, the trailing quote at the end of the BEGIN-SNIPPET lines was a mistake, which I have removed. Please update the create-snippets file accordingly.
