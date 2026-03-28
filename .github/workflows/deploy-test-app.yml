@@ -39,3 +39,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./test-app/dist
           publish_branch: gh-pages
+          cname: react-changeset-webforms.ajp-sandbox.co.za
