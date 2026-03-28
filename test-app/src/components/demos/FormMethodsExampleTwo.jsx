@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET form-methods-example-two.jsx"
+// BEGIN-SNIPPET form-methods-example-two.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

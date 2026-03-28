@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET field-specific-class-settings.jsx"
+// BEGIN-SNIPPET field-specific-class-settings.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

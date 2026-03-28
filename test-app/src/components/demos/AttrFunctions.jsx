@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET attr-functions.jsx"
+// BEGIN-SNIPPET attr-functions.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

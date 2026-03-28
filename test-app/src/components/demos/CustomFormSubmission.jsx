@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET custom-form-submission.jsx"
+// BEGIN-SNIPPET custom-form-submission.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import { preFlightForm } from 'validated-changeset-webforms';

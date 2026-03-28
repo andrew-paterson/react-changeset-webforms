@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET radio-button-group-example-three.jsx"
+// BEGIN-SNIPPET radio-button-group-example-three.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

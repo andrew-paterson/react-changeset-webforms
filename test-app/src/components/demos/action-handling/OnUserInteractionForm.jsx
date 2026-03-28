@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET after-field-click-action-form.jsx"
+// BEGIN-SNIPPET after-field-click-action-form.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

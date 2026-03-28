@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET validation-events.jsx"
+// BEGIN-SNIPPET validation-events.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

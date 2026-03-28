@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET form-methods-example-nine.jsx"
+// BEGIN-SNIPPET form-methods-example-nine.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

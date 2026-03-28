@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET after-field-validation-form.jsx"
+// BEGIN-SNIPPET after-field-validation-form.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

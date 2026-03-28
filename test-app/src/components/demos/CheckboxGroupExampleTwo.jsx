@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET checkbox-group-example-two.jsx"
+// BEGIN-SNIPPET checkbox-group-example-two.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import ComponentForAllCheckboxOptions from '../forms/component-for-all-checkbox-options';
 import ComponentForSingleCheckboxOption from '../forms/component-for-single-checkbox-option';

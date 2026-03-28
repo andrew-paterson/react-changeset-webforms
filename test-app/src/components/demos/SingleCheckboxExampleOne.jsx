@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET single-checkbox-example-one.jsx"
+// BEGIN-SNIPPET single-checkbox-example-one.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET clone-group-form.jsx"
+// BEGIN-SNIPPET clone-group-form.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 export const formSchema = {

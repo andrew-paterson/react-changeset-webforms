@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET forcing-validation.jsx"
+// BEGIN-SNIPPET forcing-validation.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

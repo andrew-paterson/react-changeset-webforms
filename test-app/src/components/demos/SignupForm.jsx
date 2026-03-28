@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET signup-form.jsx"
+// BEGIN-SNIPPET signup-form.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET clear-after-submit-form-schema.jsx"
+// BEGIN-SNIPPET clear-after-submit-form-schema.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

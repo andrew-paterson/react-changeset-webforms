@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET field-settings-overridden-one.jsx"
+// BEGIN-SNIPPET field-settings-overridden-one.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET radio-button-group-example-two.jsx"
+// BEGIN-SNIPPET radio-button-group-example-two.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import ComponentForAllRadioOptions from '../forms/component-for-all-radio-options';
 import ComponentForSingleRadioOption from '../forms/component-for-single-radio-option';

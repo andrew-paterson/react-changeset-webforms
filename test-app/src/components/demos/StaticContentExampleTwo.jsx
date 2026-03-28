@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET static-content-example-two.jsx"
+// BEGIN-SNIPPET static-content-example-two.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import ComponentForStaticContentField from '../forms/component-for-static-content-field';
 

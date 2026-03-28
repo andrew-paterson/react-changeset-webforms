@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET default-form-submission.jsx"
+// BEGIN-SNIPPET default-form-submission.jsx
 import React from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 

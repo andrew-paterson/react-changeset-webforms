@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET clone-group-form-with-keyup.jsx"
+// BEGIN-SNIPPET clone-group-form-with-keyup.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

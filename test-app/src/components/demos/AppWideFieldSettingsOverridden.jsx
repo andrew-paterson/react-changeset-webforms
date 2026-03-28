@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET app-wide-field-settings-overridden.jsx"
+// BEGIN-SNIPPET app-wide-field-settings-overridden.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {

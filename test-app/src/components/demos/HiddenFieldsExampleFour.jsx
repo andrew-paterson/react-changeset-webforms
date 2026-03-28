@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET hidden-fields-example-four.jsx"
+// BEGIN-SNIPPET hidden-fields-example-four.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {
