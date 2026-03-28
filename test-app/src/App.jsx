@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Wrapper>
         {/* <MarkDownTest /> */}
-        {/* <ReactLive /> */}
+        <ReactLive />
         <BasicForm />
       </Wrapper>
     </>
