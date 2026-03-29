@@ -24,7 +24,7 @@ export default function BasicUsage() {
         </h2>
         <p>
           You can pass actions to a instance of a <code>ChangesetWebform</code>{' '}
-          component, to define behaviours whioch are individual to a particulary
+          component, to define behaviours which are individual to a particulary
           instance of a form. The most obvious example would be the action that
           should run when the form is submitted, in many cases to submit the
           data from the form to the server.
