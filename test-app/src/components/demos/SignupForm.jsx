@@ -72,33 +72,7 @@ const formSchema = {
         },
       ],
       inputType: 'password',
-    },
-    {
-      fieldId: 'country',
-      fieldLabel: 'Country',
-      fieldType: 'powerSelect',
-      placeholder: 'Select',
-      searchEnabled: true,
-      validationRules: [
-        {
-          validationMethod: 'validatePresence',
-          arguments: { presence: true, description: 'Nation of origin' },
-        },
-      ],
-      options: ['Afghanistan', 'Åland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'United States'],
-    },
-    {
-      fieldId: 'birthDate',
-      fieldLabel: 'Date of Birth',
-      fieldType: 'powerDatePicker',
-      showTimeSelector: true,
-      validationRules: [
-        {
-          validationMethod: 'validatePresence',
-          arguments: { presence: true, description: 'Date of birth' },
-        },
-      ],
-    },
+    }, 
     {
       fieldId: 'acceptTerms',
       fieldType: 'radioButtonGroup',
