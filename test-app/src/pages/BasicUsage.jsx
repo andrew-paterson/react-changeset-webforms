@@ -9,7 +9,7 @@ export default function BasicUsage() {
           Basic usage
         </h1>
         <p>
-          Define your form, including its fields validation rules in object like
+          Define your form, including its fields, and their validation rules in an object like
           the one below, and pass this to the <code>ChangesetWebform</code>{' '}
           component as the <code>formSchema</code> property, and that's it! The
           form will be rendered and all validation behaviours will work without
@@ -25,8 +25,8 @@ export default function BasicUsage() {
         <p>
           You can pass actions to a instance of a <code>ChangesetWebform</code>{' '}
           component, to define behaviours whioch are individual to a particulary
-          ionstance of a form. The most obvious example would be the action that
-          should run whgern the form is submitted, in many cases to submit the
+          instance of a form. The most obvious example would be the action that
+          should run when the form is submitted, in many cases to submit the
           data from the form to the server.
         </p>
         <p>
