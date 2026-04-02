@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET clone-group-form-custom-labels-and-placeholders.jsx
+// BEGIN-SNIPPET clone-group-form-function-field-label.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {
