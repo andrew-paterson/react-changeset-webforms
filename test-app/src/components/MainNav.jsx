@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-export default function MainNav() {
+export default function MainNav({ isMenuToggled }) {
   return (
     <>
-      <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
+      <div class={`AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink${isMenuToggled ? ' show-mobile' : ''}`}>
         <nav
           class="
       docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2

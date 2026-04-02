@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Header() {
   return (
     <header class="docs-shadow docs-relative docs-z-40 docs-bg-white">
@@ -14,14 +16,14 @@ export default function Header() {
           </span>
         </a>
         <div class="docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-scrolling-touch docs-mask-image md:docs-no-mask-image">
-          <a
+          <Link
             id="ember4"
             class="ember-view active docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
           docs-font-bold docs-no-underline docs-text-brand"
-            href="/docs"
+            to="/docs"
           >
             Documentation
-          </a>
+          </Link>
           <div class="docs-ml-auto">
             <div
               class="docs-relative docs-text-grey-darkest"
