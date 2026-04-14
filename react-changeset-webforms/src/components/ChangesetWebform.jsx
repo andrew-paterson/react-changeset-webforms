@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { ChangesetWebform } from 'validated-changeset-webforms';
 import { safeName } from 'validated-changeset-webforms';
 import addonDefaults from '../utils/addon-defaults.js';
-import appDefaults from '../utils/app-defaults.js';
+import { useChangesetWebformsConfig } from '../context/ChangesetWebformsContext.jsx';
 import ValidatingField from './field-elements/ValidatingField.jsx';
 import FormActions from './form-elements/FormActions.jsx';
 import useAttrsFromConfig from '../hooks/use-attrs-from-config.js';
@@ -81,6 +81,8 @@ export default function ChangesetWebformComp({
   // Keep a ref so callbacks always close over the latest instance without
   // causing the effect to re-run.
   const cwfRef = useRef(null);
+
+  const appDefaults = useChangesetWebformsConfig();
 
   const formWrapperRef = useRef(null);
   const formElementRef = useRef(null);

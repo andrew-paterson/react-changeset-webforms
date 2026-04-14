@@ -1,8 +1,8 @@
 import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/PhoneNumberWithCountryCode.jsx';
-import IconPaperPlane from '../components/svg/icons/app-level/IconPaperPlane.jsx';
-import RequestInFlightIcon from '../components/svg/icons/app-level/RequestInFlightIcon.jsx';
+import IconPaperPlane from 'react-changeset-webforms/src/components/svg/icons/app-level/IconPaperPlane.jsx';
+import RequestInFlightIcon from 'react-changeset-webforms/src/components/svg/icons/app-level/RequestInFlightIcon.jsx';
 // BEGIN-SNIPPET import-default-validators.js
-import defaultValidators from './default-validators';
+import defaultValidators from 'react-changeset-webforms/src/utils/default-validators.js';
 
 // END-SNIPPET
 
@@ -34,7 +34,7 @@ export default {
     },
   },
   // BEGIN-SNIPPET custom-parser-for-all-fields.js
-  // In services/ember-changeset-webforms.js at changesetWebformsDefaults.fieldTypes
+  // In services/ember-changeset-webforms.js at changesetWebformsDefaults.fieldSettings
   fieldSettings: {
     customParser(field) {
       if (field.fieldLabel && typeof field.fieldLabel === 'string') {
@@ -61,7 +61,6 @@ export default {
     // In the app defaults
     {
       fieldType: 'phoneNumberWithCountryCode',
-      // import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/phone-number-with-country-code';
       componentClass: PhoneNumberWithCountryCodeComponent,
       validatesOn: ['$inherited', 'focusOutPhoneNumberInput'],
       attrsFromConfig: {
@@ -74,7 +73,7 @@ export default {
     },
     // END-SNIPPET
     // BEGIN-SNIPPET custom-parser-in-service.js
-    // In the changesetWebformsDefaults object  at changesetWebformsDefaults.fieldTypes
+    // In the changesetWebformsDefaults object at changesetWebformsDefaults.fieldTypes
     {
       fieldType: 'input',
       customParser(field) {
