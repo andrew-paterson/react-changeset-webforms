@@ -1,6 +1,20 @@
-import { useRef } from 'react';
+import { forwardRef, useCallback, useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+
+function useMergedRef(...refs) {
+  return useCallback(
+    (node) => {
+      refs.forEach((ref) => {
+        if (!ref) return;
+        if (typeof ref === 'function') ref(node);
+        else ref.current = node;
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    refs,
+  );
+}
 
 /**
  * FieldLabelWrapper
@@ -15,6 +29,8 @@ import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
  *  - changesetWebform  {object}        The webform instance.
  *  - children          {React.Node}    Label content.
  *  - ...rest                           Spread onto the wrapper element.
+ *
+ * The forwarded ref is applied to whichever element is rendered.
  */
 function getLabelType(formField) {
   if (formField?.requiresAriaLabelledBy) return 'div';
@@ -22,9 +38,8 @@ function getLabelType(formField) {
   return 'label';
 }
 
-export default function FieldLabelWrapper({ formField, changesetWebform, children, ...rest }) {
+const FieldLabelWrapper = forwardRef(function FieldLabelWrapper({ formField, changesetWebform, children, ...rest }, ref) {
   const labelType = getLabelType(formField);
-
   const legendRef = useRef(null);
   const labelRef = useRef(null);
   const divLabelRef = useRef(null);
@@ -35,7 +50,7 @@ export default function FieldLabelWrapper({ formField, changesetWebform, childre
   if (labelType === 'legend') {
     return (
       <legend
-        ref={legendRef}
+        ref={useMergedRef(ref, legendRef)}
         {...filterHtmlProps(rest)}
       >
         {children}
@@ -44,17 +59,26 @@ export default function FieldLabelWrapper({ formField, changesetWebform, childre
   }
 
   if (labelType === 'div') {
-    return <div {...filterHtmlProps(rest)}>{children}</div>;
+    return (
+      <div
+        ref={useMergedRef(ref, divLabelRef)}
+        {...filterHtmlProps(rest)}
+      >
+        {children}
+      </div>
+    );
   }
 
   // default: <label> with htmlFor
   return (
     <label
-      ref={labelRef}
+      ref={useMergedRef(ref, labelRef)}
       htmlFor={formField?.id}
       {...filterHtmlProps(rest)}
     >
       {children}
     </label>
   );
-}
+});
+
+export default FieldLabelWrapper;

@@ -14,7 +14,7 @@ export default function ComponentForAllCheckboxOptions({ option, props, htmlFor,
           {option.label}
         </a>
       </b>
-      This is a custom label component applied to all of the checkbox options
+      &nbsp;This is a custom label component applied to all of the checkbox options
     </label>
   );
 }

@@ -78,7 +78,7 @@ export default function ShowClasses({ children }) {
       });
 
       doTheThing();
-    });
+    }, 100);
 
     return () => {
       clearTimeout(timer);

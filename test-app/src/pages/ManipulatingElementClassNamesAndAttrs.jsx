@@ -6,7 +6,7 @@ import FieldSpecificClassSettingsDemo from '../components/demos/FieldSpecificCla
 import InheritClassSettingsDemo from '../components/demos/InheritClassSettingsDemo.jsx';
 import OverrideClassSettingsDemo from '../components/demos/OverrideClassSettingsDemo.jsx';
 import ValidationClassSettingsDemo from '../components/demos/ValidationClassSettingsDemo.jsx';
-import ShowClassesDemo from '../components/demos/ShowClassesDemo.jsx';
+import ShowClasses from '../components/demos/ShowClasses.jsx';
 import AttrFunctionsDemo from '../components/demos/AttrFunctionsDemo.jsx';
 import { DocsSnippet } from '../components/docs-utils';
 import { Link } from 'react-router-dom';
@@ -400,6 +400,7 @@ export default function ManipulatingElementClassNamesAndAttrs() {
         </p>
         <AttrFunctionsDemo />
       </div>
+      <ShowClasses />
     </>
   );
 }

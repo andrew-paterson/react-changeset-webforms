@@ -54,7 +54,6 @@ export default function FieldLabel({ formField, changesetWebform, labelId }) {
   } else {
     labelContent = formField.fieldLabel;
   }
-
   return (
     <FieldLabelWrapper
       id={labelId}

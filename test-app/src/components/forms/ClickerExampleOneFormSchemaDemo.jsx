@@ -1,14 +1,14 @@
 import { DocsSnippet, DocsDemo, DocsExample } from '../docs-utils';
-import ShowClasses from './ShowClasses.jsx';
+import ClickerExampleOneFormSchema from './ClickerExampleOneFormSchema.jsx';
 
-export default function ShowClassesDemo() {
+export default function ClickerExampleOneFormSchemaDemo() {
   return (
     <DocsDemo>
       <DocsExample>
-        <ShowClasses />
+        <ClickerExampleOneFormSchema />
       </DocsExample>
       <DocsSnippet
-        name="signup-form.jsx"
+        name="clicker-example-1.jsx"
         label="Component jsx"
       />
     </DocsDemo>

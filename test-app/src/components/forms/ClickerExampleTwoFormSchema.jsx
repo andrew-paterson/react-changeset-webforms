@@ -1,6 +1,7 @@
 // BEGIN-SNIPPET custom-component-clicker.jsx
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 import CustomClickerComponent from './CustomClickerComponent.jsx';
+import { useReducer } from 'react';
 
 const formSchema = {
   formSettings: {
@@ -38,11 +39,13 @@ const formSchema = {
 };
 
 export default function ClickerExampleTwoFormSchema() {
+  const [_, forceUpdate] = useReducer((n) => n + 1, 0);
   function onUserInteraction(formField, changesetWebform, eventName) {
     if (formField.fieldId === 'toggleAdvanced' && eventName === 'click') {
       formField.customProps.showAdvanced = !formField.customProps.showAdvanced;
       const advancedFields = changesetWebform.fields.filter((field) => field.advancedSetting);
       advancedFields.forEach((field) => field.setOmission(!field.omitted));
+      forceUpdate();
     }
   }
 
