@@ -38,7 +38,6 @@ export default function FieldMethodsExampleSeven() {
   }
 
   function updateErrorMessage(event) {
-    console.log('updateErrorMessage');
     nameFieldRef.current.pushErrors([event.target.value]);
     document.querySelector('[data-test-id="error-message-input"]').value = '';
     forceUpdate();
