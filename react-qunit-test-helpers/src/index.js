@@ -335,7 +335,9 @@ export function resumeTest() {
  * @param {string} path  e.g. '/docs/form-submission'
  */
 export async function visit(path) {
-  window.history.pushState({}, '', path);
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  if (!find(`[href="${path}"]`)) {
+    await click(`[href="/docs"]`);
+  }
+  await click(`[href="${path}"]`);
   await settled();
 }

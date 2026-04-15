@@ -72,7 +72,7 @@ const formSchema = {
         },
       ],
       inputType: 'password',
-    }, 
+    },
     {
       fieldId: 'acceptTerms',
       fieldType: 'radioButtonGroup',
@@ -157,6 +157,7 @@ export default function SignupForm() {
     <ChangesetWebform
       formSchema={formSchema}
       submitData={submit}
+      data={{ email: 'tobias@bluthcompany.com', recoveryEmail: 'test' }}
     />
   );
 }
