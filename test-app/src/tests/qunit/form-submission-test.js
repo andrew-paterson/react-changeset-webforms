@@ -1,16 +1,16 @@
 import { visit, fillIn, blur, click, waitFor, find, triggerKeyEvent, pauseTest } from 'react-changeset-webforms/src/test-support/test-helpers';
 import { module, test } from 'qunit';
-// import { setupApplicationTest } from 'ember-qunit';
+import { setupApplicationTest } from 'react-qunit';
 import testEls from './test-selectors';
 import { passedValidation, failedValidation, wasValidated, noneValidated } from 'react-changeset-webforms/src/test-support/helpers';
 import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
 
 module('Acceptance | Form submission', function (hooks) {
-  // setupApplicationTest(hooks);
+  setupApplicationTest(hooks);
 
   test('Basics', async function (assert) {
     await visit('/docs/form-settings');
-    // await pauseTest();
+    // await this.pauseTest();
     assert.notOk(await wasValidated(testEls.signupFormNameField, validationTestHelpersDefaults), 'Name field is not validated on insert.');
     assert.dom(`${testEls.signupFormNameField} input`).hasValue('', 'Name field is empty on insert.');
     await fillIn(`${testEls.signupFormNameField} input`, 'Steve Holt');

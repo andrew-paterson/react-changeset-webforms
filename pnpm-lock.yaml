@@ -64,6 +64,12 @@ importers:
         specifier: ^7.3.1
         version: 7.3.1
 
+  react-qunit:
+    dependencies:
+      qunit:
+        specifier: '>=2.0.0'
+        version: 2.25.0
+
   test-app:
     dependencies:
       highlight.js:
@@ -148,6 +154,9 @@ importers:
       qunit-dom:
         specifier: ^3.5.0
         version: 3.5.0
+      react-qunit:
+        specifier: workspace:*
+        version: link:../react-qunit
       vite:
         specifier: ^7.3.1
         version: 7.3.1

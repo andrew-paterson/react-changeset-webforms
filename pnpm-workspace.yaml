@@ -1,3 +1,4 @@
 packages:
   - 'react-changeset-webforms'
+  - 'react-qunit'
   - 'test-app'
