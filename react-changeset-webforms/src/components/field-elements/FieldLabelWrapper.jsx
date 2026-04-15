@@ -1,20 +1,7 @@
-import { forwardRef, useCallback, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
-
-function useMergedRef(...refs) {
-  return useCallback(
-    (node) => {
-      refs.forEach((ref) => {
-        if (!ref) return;
-        if (typeof ref === 'function') ref(node);
-        else ref.current = node;
-      });
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    refs,
-  );
-}
+import useMergedRef from '../../hooks/use-merged-ref.js';
 
 /**
  * FieldLabelWrapper

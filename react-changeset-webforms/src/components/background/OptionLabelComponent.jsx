@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import MarkdownToHtml from './MarkdownToHtml.jsx';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
 import filterHtmlProps from '../../utils/filter-html-props.js';
+import useMergedRef from '../../hooks/use-merged-ref.js';
 
 /**
  * OptionLabelComponent
@@ -24,8 +25,9 @@ import filterHtmlProps from '../../utils/filter-html-props.js';
  *  - formField             {object}    The field model object.
  *  - ...rest                           Spread onto the rendered element.
  */
-export default function OptionLabelComponent({ optionLabelComponent, option, optionLabelMarkdown, label, for: htmlFor, labelId, checked, changesetWebform, formField, ...rest }) {
+export default forwardRef(function OptionLabelComponent({ optionLabelComponent, option, optionLabelMarkdown, label, for: htmlFor, labelId, checked, changesetWebform, formField, ...rest }, ref) {
   const labelElement = useRef(null);
+  const mergedRef = useMergedRef(ref, labelElement);
   useAttrsFromConfig(labelElement, 'labelElement', changesetWebform, formField);
 
   if (optionLabelComponent) {
@@ -49,7 +51,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
       <label
         htmlFor={htmlFor}
         id={labelId}
-        ref={labelElement}
+        ref={mergedRef}
         {...filterHtmlProps(rest)}
       >
         <MarkdownToHtml source={optionLabelMarkdown} />
@@ -62,7 +64,7 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
       <label
         htmlFor={htmlFor}
         id={labelId}
-        ref={labelElement}
+        ref={mergedRef}
         {...filterHtmlProps(rest)}
       >
         {label}
@@ -71,4 +73,4 @@ export default function OptionLabelComponent({ optionLabelComponent, option, opt
   }
 
   return null;
-}
+});
