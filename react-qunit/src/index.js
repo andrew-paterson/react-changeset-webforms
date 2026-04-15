@@ -199,3 +199,23 @@ export function setupApplicationTest(hooks, options = {}) {
   // test-helper.jsx importing main.jsx. Tests interact with the live DOM
   // directly via find(), fillIn(), click() etc. from test-helpers.js.
 }
+
+// ---------------------------------------------------------------------------
+// start
+//
+// Equivalent to ember-qunit's `start()`. Calls QUnit.start() to begin the
+// test run. Import and call this at the end of test-helper.jsx instead of
+// calling QUnit.start() directly, mirroring the Ember pattern.
+// ---------------------------------------------------------------------------
+
+export function start(options = {}) {
+  if (options.setupTestIsolationValidation !== false) {
+    // Reset any leftover pause state between test runs
+    _resumeTestFn = null;
+  }
+  // QUnit must be available as a global or imported by the host
+  // eslint-disable-next-line no-undef
+  const q = typeof QUnit !== 'undefined' ? QUnit : null;
+  if (!q) throw new Error('[react-qunit] QUnit global not found. Make sure qunit is loaded before calling start().');
+  q.start();
+}

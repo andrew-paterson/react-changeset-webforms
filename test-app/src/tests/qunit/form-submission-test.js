@@ -10,11 +10,12 @@ module('Acceptance | Form submission', function (hooks) {
 
   test('Basics', async function (assert) {
     await visit('/docs/form-settings');
-    // await this.pauseTest();
     assert.notOk(await wasValidated(testEls.signupFormNameField, validationTestHelpersDefaults), 'Name field is not validated on insert.');
     assert.dom(`${testEls.signupFormNameField} input`).hasValue('', 'Name field is empty on insert.');
     await fillIn(`${testEls.signupFormNameField} input`, 'Steve Holt');
     await blur(`${testEls.signupFormNameField} input`);
+    await this.pauseTest();
+
     assert.dom(`${testEls.signupFormNameField} input`).hasValue('Steve Holt', 'Name field has value after filling in focussing out.');
     await passedValidation(testEls.signupFormNameField, validationTestHelpersDefaults, assert, 'Name field passes validation after  filling in focussing out.');
     assert.dom(`${testEls.signupFormRecoveryEmailField} input`).hasValue('test', 'Email recovery field has initial value "test".');
