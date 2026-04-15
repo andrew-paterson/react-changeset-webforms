@@ -42,8 +42,7 @@ module('Acceptance | Form submission', function (hooks) {
     const syncSuccessRadio = '[data-test-id="default-form-submission-form-server-response-type-field-radio-option-synchronous-success-response"] input';
     const syncErrorRadio = '[data-test-id="default-form-submission-form-server-response-type-field-radio-option-synchronous-error-response"] input';
     await visit('/docs/form-submission');
-    await this.pauseTest();
-
+    await click(submitButton);
     await failedValidation('[data-test-id="default-form-submission-form-name-field"]', validationTestHelpersDefaults, assert, 'Name field fails validation when submit clicked while the field is empty.');
 
     assert.dom(alert).doesNotExist('Alert does not exist when submit clicked while the field is empty.');
