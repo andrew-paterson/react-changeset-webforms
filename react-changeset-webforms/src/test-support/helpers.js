@@ -1,6 +1,10 @@
 import { find, findAll, click, waitUntil } from './test-helpers';
 import els from './element-selectors.js';
 
+function camelize(str) {
+  return str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+}
+
 function _removeExtraSpaces(string, whiteSpaceReplacement = ' ') {
   string = string.trim();
   string = string.replace(/\s\s+/g, whiteSpaceReplacement).replace(/\r?\n|\r/g, whiteSpaceReplacement);
@@ -91,7 +95,6 @@ async function failedValidation(arg, opts = {}, assert, assertionSuffix) {
 }
 
 function _checkValidation(fieldElement, assert, opts = {}) {
-  console.log(opts);
   opts.elementsWithValidationClass = opts.elementsWithValidationClass || [];
   opts.validationBorderColourElements = opts.validationBorderColourElements || [];
   opts.validationBackgroundColourElements = opts.validationBackgroundColourElements || [];
@@ -107,13 +110,11 @@ function _checkValidation(fieldElement, assert, opts = {}) {
   };
   const validatingElementCSS = (selectors) => {
     const el = firstMatchingEl(selectors);
-    // console.log('el', el);
     if (el) {
       return window.getComputedStyle(el, null);
     }
     return null;
   };
-  console.log('validationBorderColourElements', opts.validationBorderColourElements);
   const validationBorderColourElementsCss = validatingElementCSS(opts.validationBorderColourElements);
   const validationBackgroundImageElementsCss = validatingElementCSS(opts.validationBackgroundImageElements);
   const validationBackgroundColourElementsCss = validatingElementCSS(opts.validationBackgroundColourElements);
@@ -136,21 +137,6 @@ function _checkValidation(fieldElement, assert, opts = {}) {
       assert.strictEqual(validationBackgroundColourElementsCss.getPropertyValue('background-color'), opts.validationBackgroundColour, `[${opts.assertionPrefix}] The appropriate element has ${opts.validationResult} background colour ${opts.validationBackgroundColour} => ${opts.assertionSuffix}`);
     }
   }
-  console.log('validationBorderColourElementsCss', validationBorderColourElementsCss);
-  console.log('borderColour', validationBorderColourElementsCss?.getPropertyValue('border-color'), 'expected', opts.validationBorderColour);
-
-  const list = {
-    presentValidationClass: firstFoundElementWithValidationClass.classList.contains(opts.presentValidationClass),
-    //
-    multipleValidationElements: [validationBorderColourElementsCss, validationBackgroundColourElementsCss, validationBackgroundImageElementsCss].filter((el) => el).length > 1,
-    //
-    borderColorMatches: !validationBorderColourElementsCss || validationBorderColourElementsCss.getPropertyValue('border-color') === opts.validationBorderColour,
-    //
-    backgroundColorMatches: !validationBackgroundColourElementsCss || validationBackgroundColourElementsCss.getPropertyValue('background-color') === opts.validationBackgroundColour,
-    //
-    backgroundImageMatches: !validationBackgroundImageElementsCss || validationBackgroundImageElementsCss.getPropertyValue('background-image') === opts.validationBackgroundImage,
-  };
-  console.log(list);
 
   if (firstFoundElementWithValidationClass.classList.contains(opts.presentValidationClass) && [validationBorderColourElementsCss, validationBackgroundColourElementsCss, validationBackgroundImageElementsCss].filter((el) => el).length > 1 && (!validationBorderColourElementsCss || validationBorderColourElementsCss.getPropertyValue('border-color') === opts.validationBorderColour) && (!validationBackgroundColourElementsCss || validationBackgroundColourElementsCss.getPropertyValue('background-color') === opts.validationBackgroundColour) && (!validationBackgroundImageElementsCss || validationBackgroundImageElementsCss.getPropertyValue('background-image') === opts.validationBackgroundImage)) {
     return true;
@@ -298,10 +284,6 @@ function _validationStatus(el) {
     return 'not-validated';
   }
   return el.getAttribute('data-test-validation-status');
-}
-
-function camelize(str) {
-  return str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
 }
 
 export { fieldErrorText };

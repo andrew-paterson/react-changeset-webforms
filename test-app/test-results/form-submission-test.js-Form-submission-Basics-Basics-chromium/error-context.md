@@ -1,0 +1,435 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: form-submission-test.js >> Form submission | Basics >> Basics
+- Location: src/tests/e2e/form-submission-test.js:52:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "React Changeset Webforms" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]:
+          - generic [ref=e7]: React
+          - text: Changeset Webforms
+      - generic [ref=e8]:
+        - link "Documentation" [ref=e9] [cursor=pointer]:
+          - /url: /docs
+        - generic:
+          - generic:
+            - img "search"
+        - link "0.0.1" [ref=e11] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e12]: 0.0.1
+        - link "GitHub" [ref=e13] [cursor=pointer]:
+          - /url: https://github.com/andrew-paterson/react-changeset-webforms
+          - img "GitHub" [ref=e15]
+  - generic [ref=e17]:
+    - navigation [ref=e19]:
+      - list [ref=e21]:
+        - listitem [ref=e22]: Introduction
+        - listitem [ref=e23]:
+          - link "Introduction" [ref=e24] [cursor=pointer]:
+            - /url: /docs
+        - listitem [ref=e25]:
+          - link "Basic usage" [ref=e26] [cursor=pointer]:
+            - /url: /docs/basic-usage
+        - listitem [ref=e27]: Validation
+        - listitem [ref=e28]:
+          - link "Field validation" [ref=e29] [cursor=pointer]:
+            - /url: /docs/field-validation
+        - listitem [ref=e30]:
+          - link "Integrating custom validators" [ref=e31] [cursor=pointer]:
+            - /url: /docs/integrating-custom-validators
+        - listitem [ref=e32]: Form & field settings
+        - listitem [ref=e33]:
+          - link "Form settings" [ref=e34] [cursor=pointer]:
+            - /url: /docs/form-settings
+        - listitem [ref=e35]:
+          - link "Field settings" [ref=e36] [cursor=pointer]:
+            - /url: /docs/field-settings
+        - listitem [ref=e37]: Form & field methods
+        - listitem [ref=e38]:
+          - link "Form methods" [ref=e39] [cursor=pointer]:
+            - /url: /docs/form-methods
+        - listitem [ref=e40]:
+          - link "Field methods" [ref=e41] [cursor=pointer]:
+            - /url: /docs/field-methods
+        - listitem [ref=e42]: Hiding and showing fields
+        - listitem [ref=e43]:
+          - link "Hiding and showing fields" [ref=e44] [cursor=pointer]:
+            - /url: /docs/hiding-and-showing-fields
+        - listitem [ref=e45]: Clonable form fields
+        - listitem [ref=e46]:
+          - link "Clonable form fields" [ref=e47] [cursor=pointer]:
+            - /url: /docs/clonable-form-fields
+        - listitem [ref=e48]: Built in fields
+        - listitem [ref=e49]:
+          - link "Input" [ref=e50] [cursor=pointer]:
+            - /url: /docs/input
+        - listitem [ref=e51]:
+          - link "Textarea" [ref=e52] [cursor=pointer]:
+            - /url: /docs/textarea
+        - listitem [ref=e53]:
+          - link "Single checkbox" [ref=e54] [cursor=pointer]:
+            - /url: /docs/single-checkbox
+        - listitem [ref=e55]:
+          - link "Radio button group" [ref=e56] [cursor=pointer]:
+            - /url: /docs/radio-button-group
+        - listitem [ref=e57]:
+          - link "Checkbox group" [ref=e58] [cursor=pointer]:
+            - /url: /docs/checkbox-group
+        - listitem [ref=e59]:
+          - link "Static content field" [ref=e60] [cursor=pointer]:
+            - /url: /docs/static-content-field
+        - listitem [ref=e61]:
+          - link "Clicker" [ref=e62] [cursor=pointer]:
+            - /url: /docs/clicker
+        - listitem [ref=e63]: Creating custom fields
+        - listitem [ref=e64]:
+          - link "Creating custom fields" [ref=e65] [cursor=pointer]:
+            - /url: /docs/creating-custom-fields
+        - listitem [ref=e66]: Form submission
+        - listitem [ref=e67]:
+          - link "Form submission" [ref=e68] [cursor=pointer]:
+            - /url: /docs/form-submission
+        - listitem [ref=e69]: Action handling
+        - listitem [ref=e70]:
+          - link "Action handling" [ref=e71] [cursor=pointer]:
+            - /url: /docs/action-handling
+        - listitem [ref=e72]: Configuration options
+        - listitem [ref=e73]:
+          - link "Manipulating element class names and attrs" [ref=e74] [cursor=pointer]:
+            - /url: /docs/manipulating-element-class-names-and-attrs
+        - listitem [ref=e75]:
+          - link "Debug mode" [ref=e76] [cursor=pointer]:
+            - /url: /docs/debug-mode
+    - main [ref=e77]:
+      - generic [ref=e78]:
+        - heading "Form settings" [level=1] [ref=e79]
+        - paragraph [ref=e80]: Form settings control various aspects of the content and behaviour at the form level. The available settings are listed below.
+        - generic [ref=e82]:
+          - generic [ref=e83]: "formName: null, // String. Must be unique. Used as a namespace for things like input ID and 'for' attributes.."
+          - generic [ref=e84]: "novalidate: true, // Disable the browser's native validation feedback"
+          - generic [ref=e85]: "hideSubmitButton: false, // Boolean - hides the submit button if true"
+          - generic [ref=e86]: "submitButtonText: 'Submit', // String - text to show on the submit form button"
+          - generic [ref=e87]: "requestInFlightIcon: { componentClass: IconPlusComponent, props: {} }, // Object with { componentClass, props }."
+          - generic [ref=e88]: "// `componentClass` is the imported class of the component to show on the submit form button."
+          - generic [ref=e89]: "// `props` can be included to pass state or data to the component, accessible as {{@props}}."
+          - generic [ref=e90]: "// `@changesetWebform is passed to the component."
+          - generic [ref=e91]: // Note that if null, an empty element will still appear on the submit button, with the class names defined for requestInFlightIcon. If false, the element will not appear on the submit button.
+          - generic [ref=e92]: "addCloneButtonIconComponent: { componentClass: IconPlusComponent, props: {} }, // Object with { componentClass, props }."
+          - generic [ref=e93]: "// `componentClass` is the imported class of the component to show on the submit form button."
+          - generic [ref=e94]: "// `props` can be included to pass state or data to the component, accessible as {{@props}}."
+          - generic [ref=e95]: "// `@changesetWebform, and @formField are passed to the component."
+          - generic [ref=e96]: "clearFormButton: false, // Boolean - whether or not to show the button that will empty all fields."
+          - generic [ref=e97]: "clearFormButtonText: 'Clear form', // String - text to show on the clear form button TODO implement"
+          - generic [ref=e98]: "resetFormButton: false, // Boolean - if true, a button is shown which call the changeset.rollback() method. See https://github.com/poteto/ember-changeset#rollback"
+          - generic [ref=e99]: "resetFormButtonText: 'Discard changes',"
+          - generic [ref=e100]: "submitAfterClear: false, // Boolean. If true submits, the form after the clear form button is clicked. An example use case is a filters form with a clear filters button, where the desired behaviour is to clear the form fields, and then submit the empty form to reset the filters."
+          - generic [ref=e101]: "clearFormAfterSubmit: false, // Boolean or string - if true, all fields are reset to their defaults after a the form submitData returns successfully."
+          - generic [ref=e102]: "submitButtonType: 'button', // String - the type of the submit button. Can be 'button' or 'submit'."
+          - generic [ref=e103]: "attrsFromConfig: {"
+          - generic [ref=e104]: "classNames: {}, // Object - keys can correspond to those in the classNames settings. See /docs/configure-classnames"
+          - generic [ref=e105]: "},"
+        - paragraph [ref=e106]:
+          - text: Form level settings can be tweaked for each instance of a
+          - code [ref=e107]: changesetWebform
+          - text: component, in the
+          - code [ref=e108]: formSettings
+          - text: object at the root of your formSchema.
+        - paragraph [ref=e109]:
+          - text: The only required setting is
+          - code [ref=e110]: formName
+          - text: which must be unique from that of any other form rendered on th page. This is to avoid the browser error from attempting to add multiple elements to the DOM with the same ID.
+        - generic [ref=e111]:
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - generic [ref=e117]:
+                - generic [ref=e118]: Name
+                - textbox "Name" [ref=e120]: Steve Holt
+              - generic [ref=e121]:
+                - generic [ref=e122]: Email
+                - textbox "Email" [ref=e124]
+              - generic [ref=e125]:
+                - generic [ref=e126]: Recovery email
+                - textbox "Recovery email" [ref=e128]
+              - generic [ref=e129]:
+                - generic [ref=e130]: Password (Minimum 8 characters)
+                - textbox "Password (Minimum 8 characters)" [ref=e132]
+              - group "Do you agree to the terms and conditions?" [ref=e133]:
+                - generic [ref=e134]: Do you agree to the terms and conditions?
+                - group [ref=e135]:
+                  - generic [ref=e136]:
+                    - generic [ref=e137]:
+                      - radio "I agree" [ref=e138]
+                      - generic [ref=e139]: I agree
+                    - generic [ref=e140]:
+                      - radio "I do not agree" [ref=e141]
+                      - generic [ref=e142]: I do not agree
+              - generic [ref=e143]:
+                - generic [ref=e144]: Are you a human?
+                - generic [ref=e146]:
+                  - checkbox "Are you a human? Are you human" [ref=e147]
+                  - generic [ref=e148]: Are you human
+              - group "Please select the cookies you consent to" [ref=e149]:
+                - generic [ref=e150]: Please select the cookies you consent to
+                - group [ref=e151]:
+                  - generic [ref=e152]:
+                    - generic [ref=e153]:
+                      - checkbox "Essential" [ref=e154]
+                      - generic [ref=e155]: Essential
+                    - generic [ref=e156]:
+                      - checkbox "Analytics" [ref=e157]
+                      - generic [ref=e158]: Analytics
+                    - generic [ref=e159]:
+                      - checkbox "Marketing" [ref=e160]
+                      - generic [ref=e161]: Marketing
+            - generic [ref=e162]:
+              - button "Sign up" [ref=e163] [cursor=pointer]:
+                - img [ref=e165]
+                - text: Sign up
+              - button "Discard changes" [ref=e167] [cursor=pointer]:
+                - img [ref=e169]
+                - text: Discard changes
+              - button "Clear form" [ref=e171] [cursor=pointer]:
+                - img [ref=e173]
+                - text: Clear form
+          - generic [ref=e175]:
+            - navigation [ref=e176]:
+              - button "Component jsx" [ref=e177] [cursor=pointer]
+            - generic [ref=e181]:
+              - generic [ref=e182]: import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+              - generic [ref=e183]: "const formSchema = {"
+              - generic [ref=e184]: "formSettings: {"
+              - generic [ref=e185]: "formName: 'Signup',"
+              - generic [ref=e186]: "submitButtonText: 'Sign up',"
+              - generic [ref=e187]: "clearFormAfterSubmit: true,"
+              - generic [ref=e188]: "resetFormButton: true,"
+              - generic [ref=e189]: "clearFormButton: true,"
+              - generic [ref=e190]: "},"
+              - generic [ref=e191]: "fields: ["
+              - generic [ref=e192]: "{"
+              - generic [ref=e193]: "fieldId: 'name',"
+              - generic [ref=e194]: "fieldLabel: 'Name',"
+              - generic [ref=e195]: "fieldType: 'input',"
+              - generic [ref=e196]: "showValidationWhenFocussed: true,"
+              - generic [ref=e197]: "validationRules: ["
+              - generic [ref=e198]: "{"
+              - generic [ref=e199]: "validationMethod: 'validatePresence',"
+              - generic [ref=e200]: "arguments: true,"
+              - generic [ref=e201]: "},"
+              - generic [ref=e202]: "],"
+              - generic [ref=e203]: "inputType: 'text',"
+              - generic [ref=e204]: "},"
+              - generic [ref=e205]: "{"
+              - generic [ref=e206]: "fieldId: 'email',"
+              - generic [ref=e207]: "fieldLabel: 'Email',"
+              - generic [ref=e208]: "fieldType: 'input',"
+              - generic [ref=e209]: "validatesOn: ['$inherited', 'insertWithValue'],"
+              - generic [ref=e210]: "validationRules: ["
+              - generic [ref=e211]: "{"
+              - generic [ref=e212]: "validationMethod: 'validatePresence',"
+              - generic [ref=e213]: "arguments: true,"
+              - generic [ref=e214]: "},"
+              - generic [ref=e215]: "{"
+              - generic [ref=e216]: "validationMethod: 'validateFormat',"
+              - generic [ref=e217]: "arguments: { type: 'email' },"
+              - generic [ref=e218]: "},"
+              - generic [ref=e219]: "],"
+              - generic [ref=e220]: "inputType: 'email',"
+              - generic [ref=e221]: "},"
+              - generic [ref=e222]: "{"
+              - generic [ref=e223]: "fieldId: 'recoveryEmail',"
+              - generic [ref=e224]: "fieldLabel: 'Recovery email',"
+              - generic [ref=e225]: "fieldType: 'input',"
+              - generic [ref=e226]: "validatesOn: ['$inherited', 'insertWithValue'],"
+              - generic [ref=e227]: "validationRules: ["
+              - generic [ref=e228]: "{"
+              - generic [ref=e229]: "validationMethod: 'validatePresence',"
+              - generic [ref=e230]: "arguments: true,"
+              - generic [ref=e231]: "},"
+              - generic [ref=e232]: "{"
+              - generic [ref=e233]: "validationMethod: 'validateFormat',"
+              - generic [ref=e234]: "arguments: { type: 'email' },"
+              - generic [ref=e235]: "},"
+              - generic [ref=e236]: "],"
+              - generic [ref=e237]: "inputType: 'email',"
+              - generic [ref=e238]: "},"
+              - generic [ref=e239]: "{"
+              - generic [ref=e240]: "fieldId: 'password',"
+              - generic [ref=e241]: "fieldLabel: 'Password (Minimum 8 characters)',"
+              - generic [ref=e242]: "fieldType: 'input',"
+              - generic [ref=e243]: "validationRules: ["
+              - generic [ref=e244]: "{"
+              - generic [ref=e245]: "validationMethod: 'validatePresence',"
+              - generic [ref=e246]: "arguments: true,"
+              - generic [ref=e247]: "},"
+              - generic [ref=e248]: "{"
+              - generic [ref=e249]: "validationMethod: 'validateLength',"
+              - generic [ref=e250]: "arguments: { min: 8, max: 72 },"
+              - generic [ref=e251]: "},"
+              - generic [ref=e252]: "],"
+              - generic [ref=e253]: "inputType: 'password',"
+              - generic [ref=e254]: "},"
+              - generic [ref=e255]: "{"
+              - generic [ref=e256]: "fieldId: 'acceptTerms',"
+              - generic [ref=e257]: "fieldType: 'radioButtonGroup',"
+              - generic [ref=e258]: "fieldLabel: 'Do you agree to the terms and conditions?',"
+              - generic [ref=e259]: "validationRules: ["
+              - generic [ref=e260]: "{"
+              - generic [ref=e261]: "validationMethod: 'validateInclusion',"
+              - generic [ref=e262]: "arguments: {"
+              - generic [ref=e263]: "list: ['true'],"
+              - generic [ref=e264]: "message: 'You must accept the terms to continue.',"
+              - generic [ref=e265]: "},"
+              - generic [ref=e266]: "},"
+              - generic [ref=e267]: "],"
+              - generic [ref=e268]: "options: ["
+              - generic [ref=e269]: "{"
+              - generic [ref=e270]: "label: 'I agree',"
+              - generic [ref=e271]: "value: 'true',"
+              - generic [ref=e272]: "},"
+              - generic [ref=e273]: "{"
+              - generic [ref=e274]: "label: 'I do not agree',"
+              - generic [ref=e275]: "value: 'false',"
+              - generic [ref=e276]: "},"
+              - generic [ref=e277]: "],"
+              - generic [ref=e278]: "},"
+              - generic [ref=e279]: "{"
+              - generic [ref=e280]: "fieldId: 'confirmHuman',"
+              - generic [ref=e281]: "fieldType: 'singleCheckbox',"
+              - generic [ref=e282]: "fieldLabel: 'Are you a human?',"
+              - generic [ref=e283]: "checkBoxLabel: 'Are you human',"
+              - generic [ref=e284]: "validationRules: ["
+              - generic [ref=e285]: "{"
+              - generic [ref=e286]: "validationMethod: 'validatePresence',"
+              - generic [ref=e287]: "arguments: {"
+              - generic [ref=e288]: "presence: true,"
+              - generic [ref=e289]: "message: 'Please confirm that you are not a robot.',"
+              - generic [ref=e290]: "},"
+              - generic [ref=e291]: "},"
+              - generic [ref=e292]: "],"
+              - generic [ref=e293]: "},"
+              - generic [ref=e294]: "{"
+              - generic [ref=e295]: "fieldId: 'cookieConsent',"
+              - generic [ref=e296]: "fieldType: 'checkboxGroup',"
+              - generic [ref=e297]: "fieldLabel: 'Please select the cookies you consent to',"
+              - generic [ref=e298]: "validationRules: ["
+              - generic [ref=e299]: "{"
+              - generic [ref=e300]: "validationMethod: 'validateLength',"
+              - generic [ref=e301]: "arguments: {"
+              - generic [ref=e302]: "min: 2,"
+              - generic [ref=e303]: "allowNone: false,"
+              - generic [ref=e304]: "message: 'You must select at least two cookie consent options.',"
+              - generic [ref=e305]: "},"
+              - generic [ref=e306]: "},"
+              - generic [ref=e307]: "],"
+              - generic [ref=e308]: "options: ["
+              - generic [ref=e309]: "{"
+              - generic [ref=e310]: "label: 'Essential',"
+              - generic [ref=e311]: "key: 'essential',"
+              - generic [ref=e312]: "},"
+              - generic [ref=e313]: "{"
+              - generic [ref=e314]: "label: 'Analytics',"
+              - generic [ref=e315]: "key: 'analytics',"
+              - generic [ref=e316]: "},"
+              - generic [ref=e317]: "{"
+              - generic [ref=e318]: "label: 'Marketing',"
+              - generic [ref=e319]: "key: 'marketing',"
+              - generic [ref=e320]: "},"
+              - generic [ref=e321]: "],"
+              - generic [ref=e322]: "},"
+              - generic [ref=e323]: "],"
+              - generic [ref=e324]: "};"
+              - generic [ref=e325]: "function submit() {"
+              - generic [ref=e326]: "return new Promise((resolve) => {"
+              - generic [ref=e327]: "setTimeout(() => {"
+              - generic [ref=e328]: resolve();
+              - generic [ref=e329]: "}, 500);"
+              - generic [ref=e330]: "});"
+              - generic [ref=e331]: "}"
+              - generic [ref=e332]: "export default function SignupForm() {"
+              - generic [ref=e333]: return (
+              - generic [ref=e334]: <ChangesetWebform
+              - generic [ref=e335]: "formSchema={formSchema}"
+              - generic [ref=e336]: "submitData={submit}"
+              - generic [ref=e337]: />
+              - generic [ref=e338]: );
+              - generic [ref=e339]: "}"
+        - generic [ref=e340]:
+          - generic [ref=e344]:
+            - generic [ref=e345]:
+              - generic [ref=e346]:
+                - generic [ref=e347]: Name
+                - textbox "Name" [ref=e349]
+              - generic [ref=e350]:
+                - generic [ref=e351]: email
+                - textbox "email" [ref=e353]: test@email.com
+            - generic [ref=e354]:
+              - button "Create account" [ref=e355] [cursor=pointer]:
+                - img [ref=e357]
+                - text: Create account
+              - button "Discard changes" [ref=e359] [cursor=pointer]:
+                - img [ref=e361]
+                - text: Discard changes
+              - button "Clear form" [ref=e363] [cursor=pointer]:
+                - img [ref=e365]
+                - text: Clear form
+          - generic [ref=e367]:
+            - navigation [ref=e368]:
+              - button "Component jsx" [ref=e369] [cursor=pointer]
+            - generic [ref=e373]:
+              - generic [ref=e374]: import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+              - generic [ref=e375]: "const formSchema = {"
+              - generic [ref=e376]: "formSettings: {"
+              - generic [ref=e377]: "formName: 'clearAfterSubmitForm',"
+              - generic [ref=e378]: "clearFormAfterSubmit: true,"
+              - generic [ref=e379]: "submitButtonText: 'Create account',"
+              - generic [ref=e380]: "clearFormButton: true,"
+              - generic [ref=e381]: "resetFormButton: true,"
+              - generic [ref=e382]: "},"
+              - generic [ref=e383]: "fields: ["
+              - generic [ref=e384]: "{"
+              - generic [ref=e385]: "fieldId: 'name',"
+              - generic [ref=e386]: "fieldType: 'input',"
+              - generic [ref=e387]: "fieldLabel: 'Name',"
+              - generic [ref=e388]: "},"
+              - generic [ref=e389]: "{"
+              - generic [ref=e390]: "fieldId: 'email',"
+              - generic [ref=e391]: "fieldType: 'input',"
+              - generic [ref=e392]: "fieldLabel: 'email',"
+              - generic [ref=e393]: "defaultValue: 'test@email.com',"
+              - generic [ref=e394]: "},"
+              - generic [ref=e395]: "],"
+              - generic [ref=e396]: "};"
+              - generic [ref=e397]: "function submit() {"
+              - generic [ref=e398]: "return new Promise((resolve) => {"
+              - generic [ref=e399]: "setTimeout(() => {"
+              - generic [ref=e400]: resolve();
+              - generic [ref=e401]: "}, 2000);"
+              - generic [ref=e402]: "});"
+              - generic [ref=e403]: "}"
+              - generic [ref=e404]: "export default function ClearAfterSubmitFormSchema() {"
+              - generic [ref=e405]: return (
+              - generic [ref=e406]: <ChangesetWebform
+              - generic [ref=e407]: "formSchema={formSchema}"
+              - generic [ref=e408]: "submitData={submit}"
+              - generic [ref=e409]: />
+              - generic [ref=e410]: );
+              - generic [ref=e411]: "}"
+```
