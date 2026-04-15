@@ -11,6 +11,7 @@ export default function CloneGroupFormWithData() {
     <ChangesetWebform
       formSchema={formSchema}
       data={data}
+      data-test-id="clonable-field-with-data"
     />
   );
 }

@@ -53,6 +53,11 @@ export const formSchema = {
 };
 
 export default function CloneGroupForm() {
-  return <ChangesetWebform formSchema={formSchema} />;
+  return (
+    <ChangesetWebform
+      formSchema={formSchema}
+      data-test-id="clonable-field-basics"
+    />
+  );
 }
 // END-SNIPPET

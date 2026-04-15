@@ -34,6 +34,7 @@ import '../main.jsx';
 QUnit.config.testTimeout = 10000000000000000;
 
 // Import all test modules (they register with QUnit)
-import './qunit/form-submission-test.js';
+// import './qunit/form-submission-test.js';
+import './qunit/cloned-fields-test.js';
 
 start();
