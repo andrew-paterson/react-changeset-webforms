@@ -25,9 +25,12 @@ function _pauseTest(assert) {
     assert.timeout(0);
   }
   // eslint-disable-next-line no-console
-  console.log('[react-qunit] Test paused — call this.resumeTest() to continue.');
+  console.log('[react-qunit] Test paused — call resumeTest() in the console to continue.');
   return new Promise((resolve) => {
     _resumeTestFn = resolve;
+    // Expose as a global so it can be called from the browser console,
+    // mirroring the behaviour of ember-qunit's pauseTest/resumeTest.
+    window.resumeTest = () => _resumeTest();
   });
 }
 
@@ -36,6 +39,8 @@ function _resumeTest() {
     _resumeTestFn();
     _resumeTestFn = null;
   }
+  // Clean up the global once resumed
+  delete window.resumeTest;
 }
 
 // ---------------------------------------------------------------------------
