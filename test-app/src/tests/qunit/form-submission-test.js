@@ -2,7 +2,7 @@ import { visit, fillIn, blur, click, waitFor, find, triggerKeyEvent } from 'reac
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 import testEls from './test-selectors';
-import { passedValidation, failedValidation, wasValidated, noneValidated } from 'react-changeset-webforms/src/test-support/helpers';
+import { passedValidation, failedValidation, wasValidated, noneValidated, _waitForMs } from 'react-changeset-webforms/src/test-support/helpers';
 import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
 
 module('Acceptance | Form submission', function (hooks) {
@@ -14,7 +14,6 @@ module('Acceptance | Form submission', function (hooks) {
     assert.dom(`${testEls.signupFormNameField} input`).hasValue('', 'Name field is empty on insert.');
     await fillIn(`${testEls.signupFormNameField} input`, 'Steve Holt');
     await blur(`${testEls.signupFormNameField} input`);
-    await this.pauseTest();
 
     assert.dom(`${testEls.signupFormNameField} input`).hasValue('Steve Holt', 'Name field has value after filling in focussing out.');
     await passedValidation(testEls.signupFormNameField, validationTestHelpersDefaults, assert, 'Name field passes validation after  filling in focussing out.');
@@ -43,8 +42,8 @@ module('Acceptance | Form submission', function (hooks) {
     const syncSuccessRadio = '[data-test-id="default-form-submission-form-server-response-type-field-radio-option-synchronous-success-response"] input';
     const syncErrorRadio = '[data-test-id="default-form-submission-form-server-response-type-field-radio-option-synchronous-error-response"] input';
     await visit('/docs/form-submission');
-    await click(submitButton);
     await failedValidation('[data-test-id="default-form-submission-form-name-field"]', validationTestHelpersDefaults, assert, 'Name field fails validation when submit clicked while the field is empty.');
+
     assert.dom(alert).doesNotExist('Alert does not exist when submit clicked while the field is empty.');
     await fillIn('[data-test-id="default-form-submission-form-name-field"] input', 'Steve Holt');
     await blur('[data-test-id="default-form-submission-form-name-field"] input');

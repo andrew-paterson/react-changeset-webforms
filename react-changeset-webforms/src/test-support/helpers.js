@@ -37,7 +37,7 @@ function _getElements(arg, indexes) {
   return elements.filter((el) => el);
 }
 
-async function _waitForMs(ms) {
+export async function _waitForMs(ms) {
   const startTimeEpoch = Date.now();
   await waitUntil(
     () => {

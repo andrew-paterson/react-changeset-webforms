@@ -38,24 +38,27 @@ const serverResponseFormSchema = {
 
 export default function DefaultFormSubmission() {
   const [serverResponseType, setServerResponseType] = React.useState('Asynchronous success response');
+  const serverResponseTypeRef = React.useRef(serverResponseType);
   const [alert, setAlert] = React.useState(null);
 
   function submitData(data, _changesetWebform) {
-    if (serverResponseType.startsWith('Asynchronous')) {
+    const responseType = serverResponseTypeRef.current;
+    if (responseType.startsWith('Asynchronous')) {
+      console.log(responseType);
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (serverResponseType.includes('error')) {
-            reject(new Error(serverResponseType));
+          if (responseType.includes('error')) {
+            reject(new Error(responseType));
           } else {
-            resolve(serverResponseType);
+            resolve(responseType);
           }
         }, 500);
       });
     } else {
-      if (serverResponseType.includes('error')) {
-        throw new Error(serverResponseType);
+      if (responseType.includes('error')) {
+        throw new Error(responseType);
       } else {
-        return serverResponseType;
+        return responseType;
       }
     }
   }
@@ -69,6 +72,8 @@ export default function DefaultFormSubmission() {
   }
 
   function onFieldValueChange(formField) {
+    console.log('Field value changed', formField.fieldValue);
+    serverResponseTypeRef.current = formField.fieldValue;
     setServerResponseType(formField.fieldValue);
   }
 

@@ -334,8 +334,8 @@ export function resumeTest() {
  * event so React Router picks up the change.
  * @param {string} path  e.g. '/docs/form-submission'
  */
-export function visit(path) {
+export async function visit(path) {
   window.history.pushState({}, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
-  return settled();
+  await settled();
 }
