@@ -36,10 +36,10 @@ QUnit.config.testTimeout = 10000000000000000;
 // import './qunit/attr-functions-test.js'; // Passing
 // import './qunit/checkbox-group-test.js'; // Passing with 1 todo
 // import './qunit/clicker-test.js'; // Passing
-// import './qunit/cloned-fields-test.js'; // Padding with 1 todo
-import './qunit/configure-classnames-test.js';
-// import './qunit/custom-fields-test.js';
-// import './qunit/field-methods-test.js';
+// import './qunit/cloned-fields-test.js'; // Passing with 1 todo
+// import './qunit/configure-classnames-test.js'; // Passing
+// import './qunit/custom-fields-test.js'; // Needs to select native select
+import './qunit/field-methods-test.js';
 // import './qunit/field-omission-test.js';
 // import './qunit/form-methods-test.js';
 // import './qunit/form-submission-test.js';

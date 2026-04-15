@@ -44,7 +44,6 @@ export default function DefaultFormSubmission() {
   function submitData(data, _changesetWebform) {
     const responseType = serverResponseTypeRef.current;
     if (responseType.startsWith('Asynchronous')) {
-      console.log(responseType);
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if (responseType.includes('error')) {

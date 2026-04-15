@@ -1,5 +1,5 @@
 // BEGIN-SNIPPET field-methods-example-seven.jsx
-import React from 'react';
+import { useRef, useReducer } from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {
@@ -26,19 +26,28 @@ const formSchema = {
 };
 
 export default function FieldMethodsExampleSeven() {
-  const nameFieldRef = React.useRef(null);
-
+  const nameFieldRef = useRef(null);
+  const [_, forceUpdate] = useReducer((n) => n + 1, 0);
   function afterGenerateChangesetWebform(changesetWebform) {
     nameFieldRef.current = changesetWebform.getField('name');
   }
 
   function pushErrors() {
     nameFieldRef.current.pushErrors(['This is a custom error message']);
+    forceUpdate();
   }
 
   function updateErrorMessage(event) {
+    console.log('updateErrorMessage');
     nameFieldRef.current.pushErrors([event.target.value]);
     document.querySelector('[data-test-id="error-message-input"]').value = '';
+    forceUpdate();
+  }
+
+  function handleErrorMessageKeyDown(event) {
+    if (event.key === 'Enter') {
+      updateErrorMessage(event);
+    }
   }
 
   return (
@@ -52,7 +61,8 @@ export default function FieldMethodsExampleSeven() {
             className="form-control me-2"
             style={{ maxWidth: '300px' }}
             data-test-id="error-message-input"
-            onChange={updateErrorMessage}
+            onBlur={updateErrorMessage}
+            onKeyDown={handleErrorMessageKeyDown}
           />
           <button
             className="btn btn-primary me-2"

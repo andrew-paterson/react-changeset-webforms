@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import ValidatingFieldWrapper from './ValidatingFieldWrapper.jsx';
 import ValidatingCloneGroup from '../cloned-field-elements/ValidatingCloneGroup.jsx';
 
@@ -26,9 +26,24 @@ import ValidatingCloneGroup from '../cloned-field-elements/ValidatingCloneGroup.
  *  - afterClickAddCloneButton {Function} Clone-group callback.
  *  - onFormSubmit            {Function}  Submit handler forwarded to field control.
  */
-export default function ValidatingField({ formField, formFields, formSettings, changesetWebform, dataTestId, dataTestFormName, onUserInteraction: onUserInteractionProp, afterFieldInserted, afterFieldRemoved, afterClickAddCloneButton, onFormSubmit }) {
+export default function ValidatingField({
+  formField,
+  formFields,
+  formSettings,
+  changesetWebform,
+  dataTestId,
+  dataTestFormName,
+  onUserInteraction: onUserInteractionProp,
+  afterFieldInserted,
+  afterFieldRemoved,
+  afterClickAddCloneButton,
+  onFormSubmit,
+}) {
   // Guard: skip rendering entirely when conditions are not met
-  const shouldRender = changesetWebform?.changeset && !formField?.isOmitted && formField?.fieldType !== 'noDisplay';
+  const shouldRender =
+    changesetWebform?.changeset &&
+    !formField?.isOmitted &&
+    formField?.fieldType !== 'noDisplay';
 
   // Incrementing this counter after async validation completes is the only way
   // to tell React that formField.validationErrors (a getter on the changeset
@@ -36,11 +51,31 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   // plain objects/class instances.
   const [, forceUpdate] = useState(0);
 
+  // Holds the wrapper DOM element so we can query [data-set-custom-validity]
+  // after all useAttrsFromConfig effects have run.
+  const wrapperElementRef = useRef(null);
+
   const validateField = useCallback(async (field) => {
     await field.validate({ skipUnvalidated: true });
     // Changeset errors have now been updated on the class instance — tell React.
     forceUpdate((n) => n + 1);
   }, []);
+
+  // Patch pushErrors so external callers (outside React's event cycle) also
+  // trigger a re-render of this field. The patch is applied once on mount via
+  // a layout effect so it wraps the original method on the stable class instance.
+  // useEffect(() => {
+  //   if (!formField) return;
+  //   const originalPushErrors = formField.pushErrors.bind(formField);
+  //   formField.pushErrors = (...args) => {
+  //     originalPushErrors(...args);
+  //     console.log('forceUpdate from pushErrors patch');
+  //     forceUpdate((n) => n + 1);
+  //   };
+  //   return () => {
+  //     formField.pushErrors = originalPushErrors;
+  //   };
+  // }, [formField, forceUpdate]);
 
   const updateFieldValue = useCallback(
     (value) => {
@@ -73,20 +108,29 @@ export default function ValidatingField({ formField, formFields, formSettings, c
   const didInsert = useCallback(
     (element) => {
       if (!formField || !element) return;
+      wrapperElementRef.current = element;
       formField.eventLog = formField.eventLog || []; // TODO should not be required.
       formField.eventLog.push('insert');
       if (formField.fieldValue) {
         formField.eventLog.push('insertWithValue');
       }
-      // Defer so the DOM is fully painted before querying
-      setTimeout(() => {
-        formField.customValidityEls = element.querySelectorAll('[data-set-custom-validity]');
-      });
       validateField(formField);
       afterFieldInserted?.(formField);
     },
     [formField, validateField, afterFieldInserted],
   );
+
+  // Populate customValidityEls after all useAttrsFromConfig effects have run.
+  // useEffect is guaranteed to run after all effects in child components, so
+  // by this point useAttrsFromConfig will have set data-set-custom-validity on
+  // the relevant elements.
+  useEffect(() => {
+    const element = wrapperElementRef.current;
+    if (!element || !formField) return;
+    formField.customValidityEls = element.querySelectorAll(
+      '[data-set-custom-validity]',
+    );
+  });
 
   // Equivalent of {{will-destroy}}
   useEffect(() => {

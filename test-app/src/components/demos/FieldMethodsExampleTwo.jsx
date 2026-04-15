@@ -1,5 +1,5 @@
 // BEGIN-SNIPPET field-methods-example-two.jsx
-import React from 'react';
+import { useRef, useReducer } from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {
@@ -32,7 +32,8 @@ const formSchema = {
 };
 
 export default function FieldMethodsExampleTwo() {
-  const nameFieldRef = React.useRef(null);
+  const nameFieldRef = useRef(null);
+  const [, forceUpdate] = useReducer((n) => n + 1, 0);
 
   function afterGenerateChangesetWebform(changesetWebform) {
     nameFieldRef.current = changesetWebform.fields.find((field) => field.fieldId === 'name');
@@ -41,6 +42,7 @@ export default function FieldMethodsExampleTwo() {
   async function externalValidation() {
     nameFieldRef.current.updateValue('New Name');
     await nameFieldRef.current.validate({ skipUnvalidated: true });
+    forceUpdate();
   }
 
   return (

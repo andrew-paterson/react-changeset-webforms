@@ -4,7 +4,7 @@ import FieldMethodsExampleThree from './FieldMethodsExampleThree.jsx';
 export default function FieldMethodsExampleThreeDemo() {
   return (
     <DocsDemo>
-      <DocsExample>
+      <DocsExample data-test-id="example-3">
         <FieldMethodsExampleThree />
       </DocsExample>
       <DocsSnippet

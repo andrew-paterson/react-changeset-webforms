@@ -123,7 +123,10 @@ export default function ChangesetWebformComp({
     });
 
     if (debugMode) {
-      console.log('[Changeset Webforms] DEBUG changesetWebform object', instance);
+      console.log(
+        '[Changeset Webforms] DEBUG changesetWebform object',
+        instance,
+      );
     }
 
     cwfRef.current = instance;
@@ -151,7 +154,9 @@ export default function ChangesetWebformComp({
       setTimeout(() => {
         setChangesetWebform((prev) => (prev ? { ...prev } : prev));
       }, 0);
-      result.then(() => setChangesetWebform((prev) => (prev ? { ...prev } : prev)));
+      result.then(() =>
+        setChangesetWebform((prev) => (prev ? { ...prev } : prev)),
+      );
     }
     return result;
   }, []);
@@ -193,7 +198,13 @@ export default function ChangesetWebformComp({
   const onUserInteraction = useCallback(
     (formField, eventName, value, event) => {
       if (onUserInteractionProp) {
-        onUserInteractionProp(formField, cwfRef.current, eventName, value, event);
+        onUserInteractionProp(
+          formField,
+          cwfRef.current,
+          eventName,
+          value,
+          event,
+        );
       }
     },
     [onUserInteractionProp],

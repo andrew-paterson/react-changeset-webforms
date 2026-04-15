@@ -335,6 +335,9 @@ export function resumeTest() {
  * @param {string} path  e.g. '/docs/form-submission'
  */
 export async function visit(path) {
+  if (!path.startsWith('/')) {
+    path = '/' + path;
+  }
   if (!find(`[href="${path}"]`)) {
     await click(`[href="/docs"]`);
   }

@@ -4,7 +4,6 @@ import { setupApplicationTest } from 'react-qunit';
 
 function checkClasses(selector, expectedClasses, assert, options = {}) {
   const el = find(selector);
-  console.log(el);
   const classes = Array.from(el.classList);
   assert.deepEqual(classes.sort(), expectedClasses.sort(), `${options.assertionPrefix ? `[${options.assertionPrefix}] ` : ''}Classes for ${selector} are correct ${options.assertionSuffix ? options.assertionSuffix : ''}`);
 }
@@ -14,7 +13,6 @@ module('Acceptance | Configuring class names', function (hooks) {
 
   test('App wide config', async function (assert) {
     await visit('/docs/manipulating-element-class-names-and-attrs');
-    await this.pauseTest();
     checkClasses('[data-test-id="app-class-names-form-name-field-label"]', ['app-wide-label-element-class', 'form-label'], assert, {
       assertionPrefix: 'App wide label element classes',
       assertionSuffix: 'for main field label.',
