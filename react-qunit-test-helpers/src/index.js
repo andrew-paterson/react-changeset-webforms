@@ -282,7 +282,7 @@ export async function waitUntil(callback, { timeout = 1000, timeoutMessage = 'wa
  * @param {{ timeout?: number }} options
  */
 export async function waitForFocus(selector, { timeout = 1000 } = {}) {
-  const el = await waitForElement(selector, { timeout });
+  const el = await waitFor(selector, { timeout });
   if (document.activeElement === el) return el;
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error(`waitForFocus timed out waiting for "${selector}"`)), timeout);
@@ -301,7 +301,7 @@ export async function waitForFocus(selector, { timeout = 1000 } = {}) {
 // Pause Helpers (useful for debugging)
 // ---------------------------------------------------------------------------
 
-let _resumeTest = null;
+let _resumeTestFn = null;
 
 /**
  * Pause test execution. Resolves only when resumeTest() is called.
@@ -309,22 +309,32 @@ let _resumeTest = null;
  */
 export function pauseTest() {
   // eslint-disable-next-line no-console
-  console.log('Test paused. Call resumeTest() to continue.');
+  console.log('[react-qunit-test-helpers] Test paused — call resumeTest() in the console to continue.');
   return new Promise((resolve) => {
-    _resumeTest = resolve;
+    _resumeTestFn = resolve;
+    window.resumeTest = () => resumeTest();
   });
 }
 
 /** Resume a test paused by pauseTest(). */
 export function resumeTest() {
-  if (_resumeTest) {
-    _resumeTest();
-    _resumeTest = null;
+  if (_resumeTestFn) {
+    _resumeTestFn();
+    _resumeTestFn = null;
   }
+  delete window.resumeTest;
 }
 
+// ---------------------------------------------------------------------------
+// Routing Helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Navigate to a path in the app using the History API and fire a popstate
+ * event so React Router picks up the change.
+ * @param {string} path  e.g. '/docs/form-submission'
+ */
 export function visit(path) {
-  // return;
   window.history.pushState({}, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
   return settled();

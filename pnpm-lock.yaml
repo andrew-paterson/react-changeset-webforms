@@ -60,6 +60,9 @@ importers:
       globals:
         specifier: ^16.5.0
         version: 16.5.0
+      react-qunit-test-helpers:
+        specifier: workspace:*
+        version: link:../react-qunit-test-helpers
       vite:
         specifier: ^7.3.1
         version: 7.3.1
@@ -69,6 +72,18 @@ importers:
       qunit:
         specifier: '>=2.0.0'
         version: 2.25.0
+
+  react-qunit-test-helpers:
+    dependencies:
+      '@testing-library/react':
+        specifier: '>=16.0.0'
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      react:
+        specifier: '>=18.0.0'
+        version: 19.2.4
+      react-dom:
+        specifier: '>=18.0.0'
+        version: 19.2.4(react@19.2.4)
 
   test-app:
     dependencies:
@@ -157,6 +172,9 @@ importers:
       react-qunit:
         specifier: workspace:*
         version: link:../react-qunit
+      react-qunit-test-helpers:
+        specifier: workspace:*
+        version: link:../react-qunit-test-helpers
       vite:
         specifier: ^7.3.1
         version: 7.3.1

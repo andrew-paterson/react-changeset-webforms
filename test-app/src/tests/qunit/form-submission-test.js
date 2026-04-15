@@ -1,4 +1,4 @@
-import { visit, fillIn, blur, click, waitFor, find, triggerKeyEvent, pauseTest } from 'react-changeset-webforms/src/test-support/test-helpers';
+import { visit, fillIn, blur, click, waitFor, find, triggerKeyEvent } from 'react-qunit-test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 import testEls from './test-selectors';
