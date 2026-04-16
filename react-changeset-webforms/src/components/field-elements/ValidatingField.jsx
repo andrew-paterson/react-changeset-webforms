@@ -61,22 +61,6 @@ export default function ValidatingField({
     forceUpdate((n) => n + 1);
   }, []);
 
-  // Patch pushErrors so external callers (outside React's event cycle) also
-  // trigger a re-render of this field. The patch is applied once on mount via
-  // a layout effect so it wraps the original method on the stable class instance.
-  // useEffect(() => {
-  //   if (!formField) return;
-  //   const originalPushErrors = formField.pushErrors.bind(formField);
-  //   formField.pushErrors = (...args) => {
-  //     originalPushErrors(...args);
-  //     console.log('forceUpdate from pushErrors patch');
-  //     forceUpdate((n) => n + 1);
-  //   };
-  //   return () => {
-  //     formField.pushErrors = originalPushErrors;
-  //   };
-  // }, [formField, forceUpdate]);
-
   const updateFieldValue = useCallback(
     (value) => {
       if (!formField) return;

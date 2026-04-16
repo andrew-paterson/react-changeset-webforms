@@ -40,6 +40,7 @@ module('Acceptance | Field omission', function (hooks) {
   test('Explicit - formField.setOmission method - no first', async function (assert) {
     await visit('docs/hiding-and-showing-fields');
     checkStateMealRequiredNotSet(assert, { demoNumber: '5' });
+    await this.pauseTest();
     await selectMealRequiredNo(assert, { demoNumber: '5' });
     await selectMealRequiredYes(assert, { demoNumber: '5' });
     await selectMealOptionBeef(assert, { demoNumber: '5' });

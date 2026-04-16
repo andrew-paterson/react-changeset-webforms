@@ -96,7 +96,12 @@ export default function ChangesetWebformComp({
 
   useEffect(() => {
     const callbacks = {
-      onFieldValueChange,
+      onFieldValueChange: onFieldValueChange
+        ? async (formField, cwf) => {
+            await onFieldValueChange(formField, cwf);
+            setChangesetWebform((prev) => (prev ? { ...prev } : prev));
+          }
+        : undefined, // TODO - this was to ensure DOM updates after using changesetWebform.setFieldOmission in onFieldValueChange, but ideally that method would trigger its own update without needing this workaround
       beforeResetForm,
       afterResetForm,
       beforeClearForm,

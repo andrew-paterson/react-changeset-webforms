@@ -1,5 +1,5 @@
 // BEGIN-SNIPPET form-methods-example-three.jsx
-import React from 'react';
+import { useRef, useReducer} from 'react';
 import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
 
 const formSchema = {
@@ -39,7 +39,9 @@ const formSchema = {
 };
 
 export default function FormMethodsExampleThree() {
-  const changesetWebformRef = React.useRef(null);
+
+  const changesetWebformRef = useRef(null);
+  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
   function afterGenerateChangesetWebform(changesetWebform) {
     changesetWebformRef.current = changesetWebform;
@@ -48,6 +50,7 @@ export default function FormMethodsExampleThree() {
   function toggleEmailField() {
     const emailField = changesetWebformRef.current.fields.find((field) => field.fieldId === 'email');
     changesetWebformRef.current.setFieldOmission('email', !emailField.isOmitted);
+    forceUpdate();
   }
 
   return (

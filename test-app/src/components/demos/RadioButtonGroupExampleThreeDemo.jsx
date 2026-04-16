@@ -4,7 +4,7 @@ import RadioButtonGroupExampleThree from './RadioButtonGroupExampleThree.jsx';
 export default function RadioButtonGroupExampleThreeDemo() {
   return (
     <DocsDemo>
-      <DocsExample>
+      <DocsExample data-test-id="radio-button-group-example-3">
         <RadioButtonGroupExampleThree />
       </DocsExample>
       <DocsSnippet

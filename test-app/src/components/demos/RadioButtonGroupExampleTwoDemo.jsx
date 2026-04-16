@@ -4,7 +4,7 @@ import RadioButtonGroupExampleTwo from './RadioButtonGroupExampleTwo.jsx';
 export default function RadioButtonGroupExampleTwoDemo() {
   return (
     <DocsDemo>
-      <DocsExample>
+      <DocsExample data-test-id="radio-button-group-example-2">
         <RadioButtonGroupExampleTwo />
       </DocsExample>
       <DocsSnippet

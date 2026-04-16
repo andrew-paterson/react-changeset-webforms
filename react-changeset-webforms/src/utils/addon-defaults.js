@@ -242,7 +242,7 @@ export default {
       componentClass: CheckboxComponent,
     },
     {
-      // BEGIN-SNIPPET radio-button-group-options.js
+      // BEGIN-SNIPPET radioButtonGroup-field-options.js
       fieldType: 'radioButtonGroup',
       options: [], // Array of objects, see /docs/radio-button-group#radio-button-group-options-prop
       optionLabelComponent: null, // Object with { componentClass, props }.

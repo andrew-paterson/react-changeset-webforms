@@ -4,7 +4,7 @@ import FormMethodsExampleTwo from './FormMethodsExampleTwo.jsx';
 export default function FormMethodsExampleTwoDemo() {
   return (
     <DocsDemo>
-      <DocsExample>
+      <DocsExample data-test-id="example-2">
         <FormMethodsExampleTwo />
       </DocsExample>
       <DocsSnippet

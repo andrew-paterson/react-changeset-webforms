@@ -57,7 +57,7 @@ export default function HiddenFieldsExampleFive() {
   }
 
   return (
-    <div data-test-id="omitted-fields-example-five">
+    <div data-test-id="omitted-fields-example-5">
       <ChangesetWebform
         formSchema={formSchema}
         onFieldValueChange={onFieldValueChange}

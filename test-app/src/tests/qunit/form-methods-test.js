@@ -114,6 +114,7 @@ module('Acceptance | Form methods', function (hooks) {
     });
     await fillIn('[data-test-id="form-methods10-form-email-field"] input', 'Steve Holt');
     await blur('[data-test-id="form-methods10-form-email-field"] input');
+
     checkNextStepDisabled(assert, 10, {
       assertionSuffix: 'when one field has failed validation.',
     });
