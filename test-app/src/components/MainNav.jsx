@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import QueryPreservingLink from './QueryPreservingLink.jsx';
 
 export default function MainNav({ isMenuToggled }) {
   return (
@@ -20,24 +20,24 @@ export default function MainNav({ isMenuToggled }) {
                 Introduction
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Index"
                   to="/docs"
                 >
                   Introduction
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Basic usage"
                   to="/docs/basic-usage"
                 >
                   Basic usage
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -47,24 +47,24 @@ export default function MainNav({ isMenuToggled }) {
                 Validation
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field validation"
                   to="/docs/field-validation"
                 >
                   Field validation
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Integrating custom validators"
                   to="/docs/integrating-custom-validators"
                 >
                   Integrating custom validators
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -74,24 +74,24 @@ export default function MainNav({ isMenuToggled }) {
                 Form &amp; field settings
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form settings"
                   to="/docs/form-settings"
                 >
                   Form settings
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field settings"
                   to="/docs/field-settings"
                 >
                   Field settings
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -101,24 +101,24 @@ export default function MainNav({ isMenuToggled }) {
                 Form &amp; field methods
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form methods"
                   to="/docs/form-methods"
                 >
                   Form methods
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Field methods"
                   to="/docs/field-methods"
                 >
                   Field methods
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -128,14 +128,14 @@ export default function MainNav({ isMenuToggled }) {
                 Hiding and showing fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Hiding and showing fields"
                   to="/docs/hiding-and-showing-fields"
                 >
                   Hiding and showing fields
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -145,14 +145,14 @@ export default function MainNav({ isMenuToggled }) {
                 Clonable form fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Clonable form fields"
                   to="/docs/clonable-form-fields"
                 >
                   Clonable form fields
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -162,74 +162,74 @@ export default function MainNav({ isMenuToggled }) {
                 Built in fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Input"
                   to="/docs/input"
                 >
                   Input
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Textarea"
                   to="/docs/textarea"
                 >
                   Textarea
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Single checkbox"
                   to="/docs/single-checkbox"
                 >
                   Single checkbox
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Radio button group"
                   to="/docs/radio-button-group"
                 >
                   Radio button group
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Checkbox group"
                   to="/docs/checkbox-group"
                 >
                   Checkbox group
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Static content field"
                   to="/docs/static-content-field"
                 >
                   Static content field
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Clicker"
                   to="/docs/clicker"
                 >
                   Clicker
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -239,14 +239,14 @@ export default function MainNav({ isMenuToggled }) {
                 Creating custom fields
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Creating custom fields"
                   to="/docs/creating-custom-fields"
                 >
                   Creating custom fields
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -256,14 +256,14 @@ export default function MainNav({ isMenuToggled }) {
                 Form submission
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Form submission"
                   to="/docs/form-submission"
                 >
                   Form submission
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -273,14 +273,14 @@ export default function MainNav({ isMenuToggled }) {
                 Action handling
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Action handling"
                   to="/docs/action-handling"
                 >
                   Action handling
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li
                 class="
@@ -291,24 +291,24 @@ export default function MainNav({ isMenuToggled }) {
               </li>
 
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Manipulating element class names and attrs"
                   to="/docs/manipulating-element-class-names-and-attrs"
                 >
                   Manipulating element class names and attrs
-                </Link>
+                </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
-                <Link
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Debug mode"
                   to="/docs/debug-mode"
                 >
                   Debug mode
-                </Link>
+                </QueryPreservingLink>
               </li>
             </ul>
             <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xxs docs-rounded"></div>

@@ -31,7 +31,7 @@ importers:
         version: 1.4.1
       validated-changeset-webforms:
         specifier: ^0.0.4
-        version: 0.0.4
+        version: link:../../validated-changeset-webforms
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1

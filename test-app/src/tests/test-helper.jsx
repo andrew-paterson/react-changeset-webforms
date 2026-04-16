@@ -15,7 +15,9 @@ window.onerror = function (message, ...args) {
   if (typeof message === 'string' && message.includes('ResizeObserver loop')) {
     return true; // returning true suppresses the error
   }
-  return _originalOnerror ? _originalOnerror.call(this, message, ...args) : false;
+  return _originalOnerror
+    ? _originalOnerror.call(this, message, ...args)
+    : false;
 };
 window.addEventListener(
   'error',
@@ -33,19 +35,19 @@ import '../main.jsx';
 
 QUnit.config.testTimeout = 10000000000000000;
 
-// import './qunit/attr-functions-test.js'; // Passing
-// import './qunit/checkbox-group-test.js'; // Passing with 1 todo
-// import './qunit/clicker-test.js'; // Passing
-// import './qunit/cloned-fields-test.js'; // Passing with 1 todo
-// import './qunit/configure-classnames-test.js'; // Passing
+import './qunit/attr-functions-test.js'; // Passing
+import './qunit/checkbox-group-test.js'; // Passing with 1 todo
+import './qunit/clicker-test.js'; // Passing
+import './qunit/cloned-fields-test.js'; // Passing with 1 todo
+import './qunit/configure-classnames-test.js'; // Passing
 // import './qunit/custom-fields-test.js'; // Needs to select native select
-// import './qunit/field-methods-test.js'; // Passing 
-import './qunit/field-omission-test.js';
-// import './qunit/form-methods-test.js'; // Passing
-// import './qunit/form-submission-test.js'; // Passing
-// import './qunit/radio-button-group-test.js'; // Passing with whitespace updates
-// import './qunit/single-checkbox-test.js'; // Passing, but still needs to be written
-// import './qunit/todo-test.js';
+import './qunit/field-methods-test.js'; // Passing
+import './qunit/field-omission-test.js'; // Passing
+import './qunit/form-methods-test.js'; // Passing
+import './qunit/form-submission-test.js'; // Passing
+import './qunit/radio-button-group-test.js'; // Passing with whitespace updates
+import './qunit/single-checkbox-test.js'; // Passing, but still needs to be written
+import './qunit/todo-test.js';
 // import './qunit/validation-test.js'; // Needs to ignore old power fields
 
 start();

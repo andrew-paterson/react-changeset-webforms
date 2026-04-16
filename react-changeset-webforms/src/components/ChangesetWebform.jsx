@@ -78,6 +78,9 @@ export default function ChangesetWebformComp({
   ...rest
 }) {
   const [changesetWebform, setChangesetWebform] = useState(null);
+  // Incremented on reset/clear so ValidatingField components are remounted,
+  // causing didInsert to fire and re-initialising field eventLogs.
+  const [resetCount, setResetCount] = useState(0);
   // Keep a ref so callbacks always close over the latest instance without
   // causing the effect to re-run.
   const cwfRef = useRef(null);
@@ -96,12 +99,15 @@ export default function ChangesetWebformComp({
 
   useEffect(() => {
     const callbacks = {
-      onFieldValueChange: onFieldValueChange
-        ? async (formField, cwf) => {
-            await onFieldValueChange(formField, cwf);
-            setChangesetWebform((prev) => (prev ? { ...prev } : prev));
-          }
-        : undefined, // TODO - this was to ensure DOM updates after using changesetWebform.setFieldOmission in onFieldValueChange, but ideally that method would trigger its own update without needing this workaround
+      onFieldValueChange: async (formField, cwf) => {
+        if (onFieldValueChange) {
+          await onFieldValueChange(formField, cwf);
+        }
+        // Always trigger a re-render after any field value change — the
+        // underlying class may have mutated isOmitted, fieldValue, etc. on
+        // any field (e.g. via condition-based omission in _checkOmitted).
+        setChangesetWebform((prev) => (prev ? { ...prev } : prev));
+      },
       beforeResetForm,
       afterResetForm,
       beforeClearForm,
@@ -168,8 +174,10 @@ export default function ChangesetWebformComp({
 
   const resetForm = useCallback(() => {
     cwfRef.current?.reset();
-    // Force a re-render so fields reflect the rolled-back changeset.
-    setChangesetWebform((prev) => (prev ? { ...prev } : prev));
+    setResetCount((n) => n + 1);
+    // Spread the live instance (not prev) so the fresh fields array from
+    // setChangesetWebformProps is captured rather than the previous snapshot.
+    setChangesetWebform(cwfRef.current ? { ...cwfRef.current } : null);
   }, []);
 
   const clearForm = useCallback(() => {
@@ -179,7 +187,9 @@ export default function ChangesetWebformComp({
     if (cwf.formSettings?.submitAfterClear) {
       cwf.submit();
     }
-    setChangesetWebform((prev) => (prev ? { ...prev } : prev));
+    setResetCount((n) => n + 1);
+    // Same: spread the live instance so fresh fields are captured.
+    setChangesetWebform({ ...cwf });
   }, []);
 
   const afterFieldInserted = useCallback(
@@ -236,7 +246,7 @@ export default function ChangesetWebformComp({
         <div ref={formFieldsRef}>
           {changesetWebform.fields.map((formField) => (
             <ValidatingField
-              key={formField.fieldId}
+              key={`${formField.fieldId}-${resetCount}`}
               formField={formField}
               changesetWebform={changesetWebform}
               dataTestFormName={formSettings?.dataTestFormName}

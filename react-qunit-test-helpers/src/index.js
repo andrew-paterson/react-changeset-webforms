@@ -338,9 +338,18 @@ export async function visit(path) {
   if (!path.startsWith('/')) {
     path = '/' + path;
   }
-  if (!find(`[href="${path}"]`)) {
-    await click(`[href="/docs"]`);
+
+  // Match a link whose href attribute is exactly `path` or `path?...`
+  function findLink(pathname) {
+    return Array.from(document.querySelectorAll(`a[href]`)).find((el) => {
+      const href = el.getAttribute('href');
+      return href === pathname || href?.startsWith(pathname + '?');
+    });
   }
-  await click(`[href="${path}"]`);
+
+  // if (!findLink(path)) {
+    await click(findLink('/docs'));
+  // }
+  await click(findLink(path));
   await settled();
 }
