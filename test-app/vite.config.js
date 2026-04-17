@@ -7,7 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     // Exclude locally-linked packages from pre-bundling so that changes to
     // their source are picked up immediately without a cache bust.
-    exclude: ['validated-changeset-webforms', 'validated-changeset'],
+    // exclude: ['validated-changeset-webforms', 'validated-changeset'],
   },
   test: {
     environment: 'jsdom',
