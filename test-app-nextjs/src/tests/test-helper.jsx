@@ -1,6 +1,5 @@
 import * as QUnit from 'qunit';
 import { setup } from 'qunit-dom';
-import { start } from 'react-qunit';
 
 setup(QUnit.assert, {
   getRootElement: () => document.getElementById('react-testing'),
@@ -49,8 +48,3 @@ import './qunit/radio-button-group-test.js'; // Passing with whitespace updates
 import './qunit/single-checkbox-test.js'; // Passing, but still needs to be written
 import './qunit/todo-test.js';
 import './qunit/validation-test.js'; // Needs to ignore old power fields
-
-if (!window.__qunitStarted) {
-  window.__qunitStarted = true;
-  start();
-}

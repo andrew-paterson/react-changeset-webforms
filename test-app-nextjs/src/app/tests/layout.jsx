@@ -3,6 +3,13 @@
 export default function TestsLayout({ children }) {
   return (
     <>
+      {/* Must run synchronously before QUnit module code executes to prevent autostart */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            'window.QUnit=window.QUnit||{};(window.QUnit.config=window.QUnit.config||{}).autostart=false;',
+        }}
+      />
       <link
         rel="stylesheet"
         href="https://code.jquery.com/qunit/qunit-2.24.1.css"

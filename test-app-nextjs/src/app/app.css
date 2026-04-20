@@ -1,6 +1,6 @@
 @import './vendor.css';
 @import './inner.css';
-
+@import './styles/react-qunit.css';
 
 #root {
   width: 100%;
