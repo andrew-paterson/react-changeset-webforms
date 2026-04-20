@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-test-app-nextjs
 test-app/src/components/demos/**/*.js
 test-app/src/components/demos/**/*.hbs
 test-app/src/components/forms/**/*.js

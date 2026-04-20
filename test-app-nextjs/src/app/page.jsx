@@ -1,0 +1,49 @@
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+    <>
+      <div
+        class="
+  docs-bg-brand docs-text-white
+  docs-px-4 docs-py-16 docs-text-center
+"
+      >
+        <div class="docs-max-w-sm docs-mx-auto">
+          <h1
+            class="
+      docs-font-title docs-font-normal docs-text-jumbo-1 md:docs-text-jumbo-2 xl:docs-text-jumbo-3
+      docs-leading-none docs-tracking-tight
+    "
+          >
+            <span class="docs-block docs-text-large-5 md:docs-text-large-6 xl:docs-text-large-7">
+              React
+            </span>
+            Changeset Webforms
+          </h1>
+
+          <p
+            class="
+      docs-mt-4 xl:docs-mt-6 docs-mb-2 docs-leading-small docs-mx-auto docs-tracking-tight
+      docs-text-large-1 md:docs-text-large-2 xl:docs-text-large-3
+    "
+          >
+            Feature-rich, declarative webforms in React.js
+          </p>
+
+          <div class="docs-mt-8">
+            <Link
+              class="ember-view 
+        docs-no-underline docs-bg-white docs-text-brand docs-text-xs docs-px-3 docs-py-2
+        docs-rounded docs-mt-4 docs-shadow-md hover:docs-shadow-lg
+        docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase"
+              href="/docs"
+            >
+              Read the docs
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

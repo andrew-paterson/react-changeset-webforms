@@ -1,0 +1,35 @@
+@import './vendor.css';
+@import './inner.css';
+
+
+#root {
+  width: 100%;
+}
+
+pre {
+  background-color: #282c34 !important;
+}
+
+#qunit-tests pre {
+  background-color: initial !important;
+}
+
+main {
+  max-width: 888px !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .AddonDocs-DocsViewer-Nav nav {
+    display: none;
+    background: #fff;
+  }
+  .show-mobile nav {
+    display: block;
+  }
+}

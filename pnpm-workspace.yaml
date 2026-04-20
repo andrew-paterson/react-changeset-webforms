@@ -3,3 +3,4 @@ packages:
   - 'react-qunit'
   - 'react-qunit-test-helpers'
   - 'test-app'
+  - 'test-app-nextjs'

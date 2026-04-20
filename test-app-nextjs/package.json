@@ -1,0 +1,27 @@
+{
+  "name": "test-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "lodash.clonedeep": "^4.5.0",
+    "marked": "^11.2.0",
+    "marked-highlight": "^2.2.3",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-changeset-webforms": "workspace:*",
+    "react-dom": "19.2.4",
+    "react-live": "^4.1.8",
+    "validated-changeset-webforms": "0.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1"
+  }
+}
