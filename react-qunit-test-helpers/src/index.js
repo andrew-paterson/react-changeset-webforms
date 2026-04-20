@@ -368,15 +368,34 @@ export function resumeTest() {
 // ---------------------------------------------------------------------------
 
 /**
- * Navigate to a path in the app using the History API and fire a popstate
- * event so React Router picks up the change.
+ * Returns the current internal path of the app.
+ * When running inside a MemoryRouter (test environment), reads from the
+ * router bridge exposed on window. Falls back to window.location.pathname.
+ * @returns {string}  e.g. '/docs/form-submission'
+ */
+export function currentURL() {
+  if (window.__memoryRouterLocation) {
+    const { pathname, search, hash } = window.__memoryRouterLocation;
+    return pathname + search + hash;
+  }
+  return (
+    window.location.pathname + window.location.search + window.location.hash
+  );
+}
+
+/**
+ * Navigate to a path in the app.
+ * When running inside a MemoryRouter (test environment), calls the router's
+ * navigate() directly — no link-clicking needed, and the browser URL stays
+ * at /tests throughout.
+ * Falls back to the History API + popstate for a BrowserRouter context.
  * @param {string} path  e.g. '/docs/form-submission'
  */
 export async function visit(path) {
   if (!path.startsWith('/')) {
     path = '/' + path;
   }
-  console.log('pre');
+
   // Match a link whose href attribute is exactly `path` or `path?...`
   function findLink(pathname) {
     return Array.from(document.querySelectorAll(`a[href]`)).find((el) => {
@@ -384,7 +403,7 @@ export async function visit(path) {
       return href === pathname || href?.startsWith(pathname + '?');
     });
   }
-  console.log('post');
+
   // if (!findLink(path)) {
   await click(findLink('/docs'));
   // }
