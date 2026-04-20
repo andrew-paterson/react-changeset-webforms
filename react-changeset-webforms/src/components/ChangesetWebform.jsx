@@ -218,6 +218,10 @@ export default function ChangesetWebformComp({
           value,
           event,
         );
+        // Re-render in case the callback mutated cwf state (e.g. setOmission)
+        if (cwfRef.current) {
+          setChangesetWebform({ ...cwfRef.current });
+        }
       }
     },
     [onUserInteractionProp],

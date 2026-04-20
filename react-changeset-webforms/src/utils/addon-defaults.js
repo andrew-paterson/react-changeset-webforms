@@ -16,10 +16,23 @@ export default {
     classNames: {
       // Generic element classes
       inputElement: ['input'],
-      textareaElement: ['form-control', 'validation-area', '$validationClassNames', '$validationPseudoClasses'],
+      textareaElement: [
+        'form-control',
+        'validation-area',
+        '$validationClassNames',
+        '$validationPseudoClasses',
+      ],
       labelElement: null,
-      checkboxElement: ['form-check-input', '$validationClassNames', '$validationPseudoClasses'],
-      radioButtonElement: ['form-check-input', '$validationClassNames', '$validationPseudoClasses'],
+      checkboxElement: [
+        'form-check-input',
+        '$validationClassNames',
+        '$validationPseudoClasses',
+      ],
+      radioButtonElement: [
+        'form-check-input',
+        '$validationClassNames',
+        '$validationPseudoClasses',
+      ],
       buttonElement: ['btn', 'd-inline-flex'],
       buttonIcon: ['me-2', 'button-icon'],
       // Generic field classes- apply to all fields
@@ -47,14 +60,24 @@ export default {
       submitButton: ['btn-primary', 'form-submit-button', 'btn-lg'],
       submitButtonIcon: [],
       // Request in flight
-      requestInFlightIcon: ['request-in-flight', 'spinner-border', 'spinner-border-sm', 'ms-2'],
+      requestInFlightIcon: [
+        'request-in-flight',
+        'spinner-border',
+        'spinner-border-sm',
+        'ms-2',
+      ],
       resetFormButtonIcon: [],
       clearFormButtonIcon: [],
       resetFormButton: ['btn-warning', 'btn-lg'],
       clearFormButton: ['btn-dark', 'btn-lg'],
       // fieldType === 'input
       fieldWrapperInput: ['cwf-field-input'],
-      inputField: ['form-control', 'validation-area', '$validationClassNames', '$validationPseudoClasses'],
+      inputField: [
+        'form-control',
+        'validation-area',
+        '$validationClassNames',
+        '$validationPseudoClasses',
+      ],
       // fieldType === 'clonable'
       cloneGroupWrapper: ['cwf-clone-group'],
       cloneWrapper: ['cwf-clone', 'mb-3'],
@@ -63,19 +86,46 @@ export default {
       cloneGroupActions: ['cwf-clone-group-actions', 'margin-y-lg'],
       maxClonesReached: ['cwf-max-clones-reached'],
       addCloneButton: ['btn-outline-secondary'],
-      removeCloneButton: ['hover-pointer', 'remove-clone', 'clone-actions', 'width-xl', 'p-2', 'pb-0'],
+      removeCloneButton: [
+        'hover-pointer',
+        'remove-clone',
+        'clone-actions',
+        'width-xl',
+        'p-2',
+        'pb-0',
+      ],
       addCloneButtonIcon: [],
       removeCloneButtonIcon: ['fill-gray-medium', 'remove-clone-icon'],
       // fieldType === 'powerSelect'
-      powerSelectTrigger: ['form-control', '$validationClassNames', 'validation-area'],
+      powerSelectTrigger: [
+        'form-control',
+        '$validationClassNames',
+        'validation-area',
+      ],
       powerSelectDropdown: [],
       // fieldType === 'powerSelectCheckboxes'
-      powerSelectCheckboxesTrigger: ['form-control', '$validationClassNames', 'validation-area'],
+      powerSelectCheckboxesTrigger: [
+        'form-control',
+        '$validationClassNames',
+        'validation-area',
+      ],
       // fieldType === powerDatePicker
-      powerDatePickerTriggerWrapper: ['form-control', 'input', '$validationClassNames'],
+      powerDatePickerTriggerWrapper: [
+        'form-control',
+        'input',
+        '$validationClassNames',
+      ],
       powerDatePickerTriggerInput: null,
       powerDatePickerDropdown: ['bg-transparent'],
-      powerDatePickerDropdownInner: ['bg-white', 'p-2', 'border', 'rounded', 'd-flex', 'flex-column', 'align-items-center'],
+      powerDatePickerDropdownInner: [
+        'bg-white',
+        'p-2',
+        'border',
+        'rounded',
+        'd-flex',
+        'flex-column',
+        'align-items-center',
+      ],
       powerDatePickerCalendar: null,
       powerDatePickerTimeSelectorContainer: ['cwf-time-selector', 'mt-2'],
       powerDatePickerTimeSelectorInput: ['inline'],
@@ -94,7 +144,8 @@ export default {
     },
     attrFunctions: {
       focussedField(element, changesetWebform, formField) {
-        const classNameSettings = changesetWebform.formSchemaWithDefaults.classNameSettings;
+        const classNameSettings =
+          changesetWebform.formSchemaWithDefaults.classNameSettings;
         if (formField.focussed) {
           element.classList.add(...classNameSettings.focussedField);
         } else {
@@ -102,7 +153,8 @@ export default {
         }
       },
       validatedField(element, changesetWebform, formField) {
-        const classNameSettings = changesetWebform.formSchemaWithDefaults.classNameSettings;
+        const classNameSettings =
+          changesetWebform.formSchemaWithDefaults.classNameSettings;
         if (formField.showValidation) {
           element.classList.add(...classNameSettings.validatedField);
         } else {
@@ -110,7 +162,8 @@ export default {
         }
       },
       disabledField(element, changesetWebform, formField) {
-        const classNameSettings = changesetWebform.formSchemaWithDefaults.classNameSettings;
+        const classNameSettings =
+          changesetWebform.formSchemaWithDefaults.classNameSettings;
         if (formField.disabled) {
           element.classList.add(...classNameSettings.disabledField);
         } else {
@@ -132,7 +185,10 @@ export default {
     // `props` can be included to pass state or data to the component, accessible as {{@props}}.
     // `@changesetWebform is passed to the component.
     // Note that if null, an empty element will still appear on the submit button, with the class names defined for requestInFlightIcon. If false, the element will not appear on the submit button.
-    addCloneButtonIconComponent: { componentClass: IconPlusComponent, props: {} }, // Object with { componentClass, props }.
+    addCloneButtonIconComponent: {
+      componentClass: IconPlusComponent,
+      props: {},
+    }, // Object with { componentClass, props }.
     // `componentClass` is the imported class of the component to show on the submit form button.
     // `props` can be included to pass state or data to the component, accessible as {{@props}}.
     // `@changesetWebform, and @formField are passed to the component.
@@ -217,7 +273,8 @@ export default {
       cloneGroupActionsPosition: 'cloneGroupWrapper', // String. Can also be labelWrapper, If cloneGroupWrapper, the clone group action buttons and content will appear below the cloned fields. If `labelWrapper` the the field bale will be wrapper in a div, and the clone group action buttons will be rendered in the label wrapper, after the label element.
       requiresAriaLabelledBy: true,
       // END-SNIPPET
-      componentClass: 'ember-changeset-webforms/cloned-form-fields/validating-form-field-clone-group',
+      componentClass:
+        'ember-changeset-webforms/cloned-form-fields/validating-form-field-clone-group',
     },
     {
       // BEGIN-SNIPPET textarea-field-options.js
