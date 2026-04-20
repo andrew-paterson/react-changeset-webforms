@@ -18,10 +18,18 @@
     "react-changeset-webforms": "workspace:*",
     "react-dom": "19.2.4",
     "react-live": "^4.1.8",
+    "react-router-dom": "^7.13.2",
     "validated-changeset-webforms": "0.0.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.1"
+    "eslint-config-next": "16.2.1",
+    "qunit": "^2.25.0",
+    "qunit-dom": "^3.5.0",
+    "react-qunit": "workspace:*",
+    "react-qunit-test-helpers": "workspace:*"
   }
 }

@@ -21,7 +21,8 @@ export async function _waitForMs(ms) {
 function _getElement(arg) {
   if (typeof arg === 'string') {
     const element = find(arg);
-    if (!element) throw new Error(`No element with selector "${arg}" was found`);
+    if (!element)
+      throw new Error(`No element with selector "${arg}" was found`);
     return element;
   }
   return arg;
@@ -85,7 +86,9 @@ export async function blur(selector) {
  */
 export async function click(selector, options = {}) {
   const el = _getElement(selector);
-  const isFocusable = el.matches('button, input, select, textarea, a[href], [tabindex]');
+  const isFocusable = el.matches(
+    'button, input, select, textarea, a[href], [tabindex]',
+  );
   fireEvent.mouseDown(el, options);
   if (isFocusable) {
     el.focus();
@@ -100,7 +103,9 @@ export async function click(selector, options = {}) {
 /** Double-click an element. */
 export async function doubleClick(selector, options = {}) {
   const el = _getElement(selector);
-  const isFocusable = el.matches('button, input, select, textarea, a[href], [tabindex]');
+  const isFocusable = el.matches(
+    'button, input, select, textarea, a[href], [tabindex]',
+  );
   fireEvent.mouseDown(el, options);
   if (isFocusable) {
     el.focus();
@@ -142,16 +147,34 @@ export async function select(selector, values, keepPreviouslySelected = false) {
  * @param {number | string} key  numeric keyCode or string key name e.g. 'Enter'
  * @param {{ ctrlKey?, altKey?, shiftKey?, metaKey? }} modifiers
  */
-export async function triggerKeyEvent(selectorOrEl, eventName, key, modifiers = {}) {
+export async function triggerKeyEvent(
+  selectorOrEl,
+  eventName,
+  key,
+  modifiers = {},
+) {
   const el = _getElement(selectorOrEl);
 
   // Normalise 'keyup' → 'keyUp', 'keydown' → 'keyDown', 'keypress' → 'keyPress'
-  const normalised = eventName.replace(/^(key)(up|down|press)$/i, (_, prefix, suffix) => prefix + suffix.charAt(0).toUpperCase() + suffix.slice(1).toLowerCase());
+  const normalised = eventName.replace(
+    /^(key)(up|down|press)$/i,
+    (_, prefix, suffix) =>
+      prefix + suffix.charAt(0).toUpperCase() + suffix.slice(1).toLowerCase(),
+  );
 
   const handler = fireEvent[normalised] ?? fireEvent[eventName];
-  if (!handler) throw new Error(`fireEvent has no handler for event "${eventName}"`);
+  if (!handler)
+    throw new Error(`fireEvent has no handler for event "${eventName}"`);
 
-  const eventInit = typeof key === 'number' ? { keyCode: key, which: key, key: String.fromCharCode(key), ...modifiers } : { key, ...modifiers };
+  const eventInit =
+    typeof key === 'number'
+      ? {
+          keyCode: key,
+          which: key,
+          key: String.fromCharCode(key),
+          ...modifiers,
+        }
+      : { key, ...modifiers };
 
   handler(el, eventInit);
   await settled();
@@ -199,7 +222,10 @@ export async function typeIn(selector, text, { delay = 0 } = {}) {
 
     // Update value and fire input
     const newValue = el.value + char;
-    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set?.call(el, newValue);
+    Object.getOwnPropertyDescriptor(
+      window.HTMLInputElement.prototype,
+      'value',
+    )?.set?.call(el, newValue);
     fireEvent.input(el, { target: { value: newValue } });
 
     fireEvent.keyUp(el, keyInit);
@@ -235,7 +261,10 @@ export async function waitFor(selector, { timeout = 1000, count = null } = {}) {
     () => {
       const els = Array.from(document.querySelectorAll(selector));
       if (count !== null) {
-        if (els.length !== count) throw new Error(`Expected ${count} elements for "${selector}", found ${els.length}`);
+        if (els.length !== count)
+          throw new Error(
+            `Expected ${count} elements for "${selector}", found ${els.length}`,
+          );
         return els;
       }
       if (!els.length) throw new Error(`Element "${selector}" not found`);
@@ -251,7 +280,10 @@ export async function waitFor(selector, { timeout = 1000, count = null } = {}) {
  * @param {() => any} callback
  * @param {{ timeout?: number, timeoutMessage?: string }} options
  */
-export async function waitUntil(callback, { timeout = 1000, timeoutMessage = 'waitUntil timed out' } = {}) {
+export async function waitUntil(
+  callback,
+  { timeout = 1000, timeoutMessage = 'waitUntil timed out' } = {},
+) {
   const deadline = Date.now() + timeout;
   return new Promise((resolve, reject) => {
     function check() {
@@ -285,7 +317,11 @@ export async function waitForFocus(selector, { timeout = 1000 } = {}) {
   const el = await waitFor(selector, { timeout });
   if (document.activeElement === el) return el;
   return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error(`waitForFocus timed out waiting for "${selector}"`)), timeout);
+    const timer = setTimeout(
+      () =>
+        reject(new Error(`waitForFocus timed out waiting for "${selector}"`)),
+      timeout,
+    );
     el.addEventListener(
       'focus',
       () => {
@@ -309,7 +345,9 @@ let _resumeTestFn = null;
  */
 export function pauseTest() {
   // eslint-disable-next-line no-console
-  console.log('[react-qunit-test-helpers] Test paused — call resumeTest() in the console to continue.');
+  console.log(
+    '[react-qunit-test-helpers] Test paused — call resumeTest() in the console to continue.',
+  );
   return new Promise((resolve) => {
     _resumeTestFn = resolve;
     window.resumeTest = () => resumeTest();
@@ -338,7 +376,7 @@ export async function visit(path) {
   if (!path.startsWith('/')) {
     path = '/' + path;
   }
-
+  console.log('pre');
   // Match a link whose href attribute is exactly `path` or `path?...`
   function findLink(pathname) {
     return Array.from(document.querySelectorAll(`a[href]`)).find((el) => {
@@ -346,9 +384,9 @@ export async function visit(path) {
       return href === pathname || href?.startsWith(pathname + '?');
     });
   }
-
+  console.log('post');
   // if (!findLink(path)) {
-    await click(findLink('/docs'));
+  await click(findLink('/docs'));
   // }
   await click(findLink(path));
   await settled();
