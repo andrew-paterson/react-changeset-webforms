@@ -9,6 +9,7 @@ export default defineConfig({
     // their source are picked up immediately without a cache bust.
     // exclude: ['validated-changeset-webforms', 'validated-changeset'],
   },
+  root: './',
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test-setup.js'],

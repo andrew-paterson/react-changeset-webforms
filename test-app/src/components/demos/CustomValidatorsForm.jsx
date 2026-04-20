@@ -49,6 +49,11 @@ const formSchema = {
 };
 
 export default function CustomValidatorsForm() {
-  return <ChangesetWebform formSchema={formSchema} />;
+  return (
+    <ChangesetWebform
+      formSchema={formSchema}
+      data-test-id="integrating-custom-validators-form"
+    />
+  );
 }
 // END-SNIPPET
