@@ -48,6 +48,6 @@ import './qunit/form-submission-test.js'; // Passing
 import './qunit/radio-button-group-test.js'; // Passing with whitespace updates
 import './qunit/single-checkbox-test.js'; // Passing, but still needs to be written
 import './qunit/todo-test.js';
-// import './qunit/validation-test.js'; // Needs to ignore old power fields
+import './qunit/validation-test.js'; // Needs to ignore old power fields
 
 start();

@@ -122,10 +122,8 @@ export default function ChangesetWebformComp({
       beforeSubmitForm,
       formValidationFailed,
     };
-
     const instance = new ChangesetWebform(formSchema, data, {
-      // appDefaults: [addonDefaults, appDefaults],
-      appDefaults: [addonDefaults, appDefaults],
+      appDefaults: [addonDefaults, appDefaults].filter(Boolean),
       dynamicIncludeExcludeConditions,
       onFormSubmit: onFormSubmitOverride,
       debug: debugMode,

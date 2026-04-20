@@ -25,23 +25,40 @@ function buildFieldValue(countryCode, phoneNumber) {
   return `(${countryCode || ''})${phoneNumber || ''}`;
 }
 
-export default function PhoneNumberWithCountryCode({ formField, updateFieldValue, onUserInteraction, ariaLabelledBy, ariaLabel, ariaErrorMessage, ariaDescribedBy }) {
+export default function PhoneNumberWithCountryCode({
+  formField,
+  updateFieldValue,
+  onUserInteraction,
+  ariaLabelledBy,
+  ariaLabel,
+  ariaErrorMessage,
+  ariaDescribedBy,
+}) {
   const fieldValueObject = parseFieldValue(formField.fieldValue);
 
   function handleCodeChange(event) {
-    const updatedValue = buildFieldValue(event.target.value, fieldValueObject.phoneNumber);
+    const updatedValue = buildFieldValue(
+      event.target.value,
+      fieldValueObject.phoneNumber,
+    );
     onUserInteraction('countryCodeSelected');
     updateFieldValue(updatedValue);
   }
 
   function handleInputKeyUp(event) {
-    const updatedValue = buildFieldValue(fieldValueObject.countryCode, event.target.value);
+    const updatedValue = buildFieldValue(
+      fieldValueObject.countryCode,
+      event.target.value,
+    );
     onUserInteraction('keyUpPhoneNumberInput');
     updateFieldValue(updatedValue);
   }
 
   function handleInputChange(event) {
-    const updatedValue = buildFieldValue(fieldValueObject.countryCode, event.target.value);
+    const updatedValue = buildFieldValue(
+      fieldValueObject.countryCode,
+      event.target.value,
+    );
     updateFieldValue(updatedValue);
   }
 
@@ -55,8 +72,9 @@ export default function PhoneNumberWithCountryCode({ formField, updateFieldValue
   }
 
   return (
-    <div className="input-group padding-0">
+    <div className="input-group padding-0 d-flex">
       <select
+        className="form-select flex-shrink-1"
         value={fieldValueObject.countryCode}
         onChange={handleCodeChange}
         disabled={formField.disabled}
@@ -65,23 +83,18 @@ export default function PhoneNumberWithCountryCode({ formField, updateFieldValue
         aria-errormessage={ariaErrorMessage}
         aria-describedby={ariaDescribedBy}
       >
-        <option
-          value=""
-          disabled
-        >
+        <option value="" disabled>
           Country code
         </option>
         {COUNTRY_CODES.map((option) => (
-          <option
-            key={option.code}
-            value={option.code}
-          >
+          <option key={option.code} value={option.code}>
             {option.code} - {option.name}
           </option>
         ))}
       </select>
       <input
         id={formField.id}
+        className=" flex-grow-1"
         type="text"
         value={fieldValueObject.phoneNumber}
         onChange={handleInputChange}
