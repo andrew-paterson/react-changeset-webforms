@@ -1,16 +1,34 @@
-# React + Vite
+# React Changeset Webforms
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Abstracts web form templating into a single component — a form is described as a data structure, passed to the component, and it handles the rest.
 
-Currently, two official plugins are available:
+## Specific features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Adding validation rules to form fields.
+- Controlling the events that trigger validation on a field.
+- Fires a range of optional callback functions in response to various events.
+- Repeatable fields.
+- Hiding or showing fields explicitly, or based on the value of other fields.
+- Accessibility attributes are added where required.
 
-## React Compiler
+The library code is in `./react-changeset-webforms`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Full documentation and live demos at [https://react-changeset-webforms-test-app-n.vercel.app/](https://react-changeset-webforms-test-app-n.vercel.app/).
 
-## Expanding the ESLint configuration
+## Running tests
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### QUnit tests
+
+These form the majority of the library tests and run in the browser.
+
+`cd test-app-nextjs`
+
+`pnpm run dev`
+
+Then visit `/tests`
+
+### Vitest component tests
+
+`cd test-app-nextjs`
+
+`pnpm test:integration`
