@@ -15,8 +15,16 @@ function QueryPreservingLinkInner({ href, to, ...rest }) {
 export default function QueryPreservingLink({ href, to, children, ...rest }) {
   const dest = href || to;
   return (
-    <Suspense fallback={<Link href={dest} {...rest}>{children}</Link>}>
-      <QueryPreservingLinkInner href={href} to={to} {...rest}>{children}</QueryPreservingLinkInner>
+    <Suspense
+      fallback={
+        <Link href={dest} {...rest}>
+          {children}
+        </Link>
+      }
+    >
+      <QueryPreservingLinkInner href={href} to={to} {...rest}>
+        {children}
+      </QueryPreservingLinkInner>
     </Suspense>
   );
 }

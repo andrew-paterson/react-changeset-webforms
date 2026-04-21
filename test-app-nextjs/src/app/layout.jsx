@@ -3,6 +3,7 @@ import './app.css';
 import './inner.css';
 import './vendor.css';
 import Providers from '../components/Providers.jsx';
+import Header from '../components/Header.jsx';
 
 export const metadata = {
   title: 'React Changeset Webforms',
@@ -13,7 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <div id="root">
+          <Header />
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );

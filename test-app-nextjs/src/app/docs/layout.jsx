@@ -1,15 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '../../components/Header.jsx';
 import MainNav from '../../components/MainNav.jsx';
 
 export default function DocsLayout({ children }) {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
 
   return (
-    <div id="root">
-      <Header />
+    <>
       <div className="md:docs-flex docs-w-full">
         <div
           class="mobile-menu docs-text-right docs-px-4 md:docs-px-6 docs-mt-4"
@@ -24,6 +22,6 @@ export default function DocsLayout({ children }) {
           {children}
         </main>
       </div>
-    </div>
+    </>
   );
 }
