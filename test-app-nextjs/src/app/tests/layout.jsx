@@ -1,6 +1,10 @@
-'use client';
+import { notFound } from 'next/navigation';
 
 export default function TestsLayout({ children }) {
+  if (process.env.NODE_ENV === 'production') {
+    notFound();
+  }
+
   return (
     <>
       {/* Must run synchronously before QUnit module code executes to prevent autostart */}
