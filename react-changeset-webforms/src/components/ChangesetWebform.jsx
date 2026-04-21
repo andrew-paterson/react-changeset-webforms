@@ -75,6 +75,7 @@ export default function ChangesetWebformComp({
   formValidationPassed,
   beforeSubmitForm,
   formValidationFailed,
+  appConfig,
   ...rest
 }) {
   const [changesetWebform, setChangesetWebform] = useState(null);
@@ -85,8 +86,7 @@ export default function ChangesetWebformComp({
   // causing the effect to re-run.
   const cwfRef = useRef(null);
 
-  const appDefaults = useChangesetWebformsConfig();
-
+  const appDefaults = appConfig || useChangesetWebformsConfig();
   const formWrapperRef = useRef(null);
   const formElementRef = useRef(null);
   const formFieldsRef = useRef(null);

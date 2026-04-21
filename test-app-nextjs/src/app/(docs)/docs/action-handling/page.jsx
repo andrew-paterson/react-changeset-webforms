@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function ActionHandling() {
   return (
@@ -49,7 +49,7 @@ export default function ActionHandling() {
           A field is inserted when the <code>CWFC</code> is loaded for the first
           time, and also where an individual field is included, either
           explicitly or dynamically, after having been omitted. See{' '}
-          <Link to="/docs/hiding-and-showing-fields">
+          <Link href="/docs/hiding-and-showing-fields">
             Hiding and showing fields
           </Link>{' '}
           for more details.
@@ -78,7 +78,7 @@ export default function ActionHandling() {
         <p>
           A field will be removed from the DOM when it is omitted fropm the
           form, either explicitly or dynamically. See{' '}
-          <Link to="/docs/hiding-and-showing-fields">
+          <Link href="/docs/hiding-and-showing-fields">
             Hiding and showing fields
           </Link>
         </p>
@@ -168,8 +168,8 @@ export default function ActionHandling() {
         <p>
           Called after the form has been preflighted, in response to the user
           clicking "Submit". See{' '}
-          <Link to="/docs/form-submission">Form submission</Link> for details on
-          what preflighting does.
+          <Link href="/docs/form-submission">Form submission</Link> for details
+          on what preflighting does.
         </p>
         <p>
           Arguments: (<code>data</code>, <code>changesetWebform</code>)
@@ -233,7 +233,7 @@ export default function ActionHandling() {
           preflighting. An example of how the data is updated, is that any
           changeset property is set to null if the corresponding form field is
           omitted. See{' '}
-          <Link to="/docs/hiding-and-showing-fields">
+          <Link href="/docs/hiding-and-showing-fields">
             Hiding and showing fields
           </Link>{' '}
           for more details.
@@ -330,7 +330,7 @@ export default function ActionHandling() {
         <p>
           If this callback is passed, it will completely replace the default
           submit behaviour of the <code>CWFC</code>. See{' '}
-          <Link to="/docs/form-submission">Custom form submission</Link> for a
+          <Link href="/docs/form-submission">Custom form submission</Link> for a
           more detailed example.
         </p>
         <p>

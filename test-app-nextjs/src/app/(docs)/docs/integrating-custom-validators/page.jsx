@@ -1,4 +1,4 @@
-import CustomValidatorsFormDemo from '../components/demos/CustomValidatorsFormDemo.jsx';
+import CustomValidatorsFormDemo from '../../../../components/demos/CustomValidatorsFormDemo.jsx';
 
 export default function IntegratingCustomValidators() {
   return (

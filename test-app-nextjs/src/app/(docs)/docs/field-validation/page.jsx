@@ -1,11 +1,11 @@
-import CustomFieldUsageDemo from '../components/demos/CustomFieldUsageDemo.jsx';
-import ValidationBasicsDemo from '../components/demos/ValidationBasicsDemo.jsx';
-import ValidationEventsDemo from '../components/demos/ValidationEventsDemo.jsx';
-import ForcingValidationDemo from '../components/demos/ForcingValidationDemo.jsx';
-import FieldMethodsExampleFiveDemo from '../components/demos/FieldMethodsExampleFiveDemo.jsx';
-import SignupFormDemo from '../components/demos/SignupFormDemo.jsx';
-import { DocsSnippet } from '../components/docs-utils';
-import { Link } from 'react-router-dom';
+import CustomFieldUsageDemo from '../../../../components/demos/CustomFieldUsageDemo.jsx';
+import ValidationBasicsDemo from '../../../../components/demos/ValidationBasicsDemo.jsx';
+import ValidationEventsDemo from '../../../../components/demos/ValidationEventsDemo.jsx';
+import ForcingValidationDemo from '../../../../components/demos/ForcingValidationDemo.jsx';
+import FieldMethodsExampleFiveDemo from '../../../../components/demos/FieldMethodsExampleFiveDemo.jsx';
+import SignupFormDemo from '../../../../components/demos/SignupFormDemo.jsx';
+import { DocsSnippet } from '../../../../components/docs-utils';
+import Link from 'next/link';
 
 export default function FieldValidation() {
   return (
@@ -79,7 +79,7 @@ export default function FieldValidation() {
         </h3>
         <p>
           Custom validators can be imported from anywhere. See{' '}
-          <Link to="/docs/integrating-custom-validators">
+          <Link href="/docs/integrating-custom-validators">
             Integrating custom validators
           </Link>
         </p>
@@ -319,7 +319,7 @@ export default function FieldValidation() {
         <p>
           The addon defaults outlined above can be overridden at the app level,
           or within a particular form schema. See{' '}
-          <Link to="/docs/configuration-options">Configuration options</Link>.
+          <Link href="/docs/configuration-options">Configuration options</Link>.
         </p>
         <h3 id="forcing-validation-in-an-action" class="docs-md__h3">
           <a href="#forcing-validation-in-an-action" class="heading-anchor">

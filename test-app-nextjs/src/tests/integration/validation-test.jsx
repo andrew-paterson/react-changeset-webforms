@@ -8,7 +8,7 @@ import React from 'react';
 import { render, fireEvent, waitFor, act } from '@testing-library/react';
 import { describe, test, expect } from 'vitest';
 import ChangesetWebformComp from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
-
+import appConfig from '../../utils/app-defaults.js';
 // ---------------------------------------------------------------------------
 // Selectors
 // ---------------------------------------------------------------------------
@@ -113,7 +113,7 @@ function hasErrors(container, fieldSel) {
 describe('Integration | Component | Validation events', () => {
   test('Validation events', async () => {
     const { container } = render(
-      <ChangesetWebformComp formSchema={baseSchema} />,
+      <ChangesetWebformComp formSchema={baseSchema} appConfig={appConfig} />,
     );
 
     // Name field: focus then blur (empty) → fails validation with default events
@@ -201,7 +201,10 @@ describe('Integration | Component | Validation events', () => {
     };
 
     const { container } = render(
-      <ChangesetWebformComp formSchema={schemaWithOverrides} />,
+      <ChangesetWebformComp
+        formSchema={schemaWithOverrides}
+        appConfig={appConfig}
+      />,
     );
 
     // Email: type invalid + keyUp → should NOT validate because field is focussed

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:integration": "vitest run src/tests/integration"
   },
   "dependencies": {
     "highlight.js": "^11.11.1",
@@ -30,6 +31,8 @@
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
     "react-qunit": "workspace:*",
-    "react-qunit-test-helpers": "workspace:*"
+    "react-qunit-test-helpers": "workspace:*",
+    "vitest": "^3.1.2",
+    "@vitejs/plugin-react": "^4.3.4"
   }
 }

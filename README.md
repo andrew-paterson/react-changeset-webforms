@@ -1,11 +1,17 @@
 # React Changeset Webforms
 
-Full documentation and live demos at [https://react-changeset-webforms.ajp-sandbox.co.za](https://react-changeset-webforms.ajp-sandbox.co.za).
+Full documentation and live demos at [https://react-changeset-webforms-test-app-n.vercel.app/](https://react-changeset-webforms-test-app-n.vercel.app/).
 
-The addon code is in `/react-changeset-webforms`.
+The library code is in `/react-changeset-webforms`.
 
-To tun the documentation app locally:
+## Running tests
 
-`cd test-app`
+### QUnit tests
+
+These form the majority of the library tests and run in the browser.
+
+`cd test-app-nextjs`
 
 `pnpm run dev`
+
+Then visit `/tests`

@@ -7,6 +7,7 @@ import {
   blur,
   fillIn,
   triggerKeyEvent,
+  settled,
 } from 'react-qunit-test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
@@ -132,7 +133,7 @@ module('Acceptance | Field validation', function (hooks) {
     await visit('/docs/field-validation');
     await click(`[data-test-id="signup"] ${testEls.cwfClearFormButton}`);
     await click(`[data-test-id="signup"] ${els.cwfSubmitButton}`);
-
+    await settled();
     assert.strictEqual(
       findAll(`[data-test-id="signup"] ${els.cwfFieldErrors}`).length,
       7,
