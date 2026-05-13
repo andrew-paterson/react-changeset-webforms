@@ -32,11 +32,11 @@ export default function Select() {
         />
         <h2 id="with-string-options" class="docs-md__h2">
           <a href="#with-string-options" class="heading-anchor">
-            With string options
+            With string options and allowClear
           </a>
         </h2>
         <SelectExampleOneDemo />
-        <h2 id="with-optionvalueprop-and-optiondisplayprop" class="docs-md__h2">
+        {/* <h2 id="with-optionvalueprop-and-optiondisplayprop" class="docs-md__h2">
           <a
             href="#with-optionvalueprop-and-optiondisplayprop"
             class="heading-anchor"
@@ -44,7 +44,7 @@ export default function Select() {
             With optionValueProp and optionDisplayProp
           </a>
         </h2>
-        <SelectExampleTwoDemo />
+        <SelectExampleTwoDemo /> */}
       </div>
     </>
   );

@@ -98,7 +98,9 @@ export default {
       addCloneButtonIcon: [],
       removeCloneButtonIcon: ['fill-gray-medium', 'remove-clone-icon'],
       // fieldType === 'select'
+      selectContainer: ['d-flex'],
       selectElement: ['form-select'],
+      selectClearButton: ['btn', 'btn-outline-primary', 'ms-2'],
       // fieldType === 'powerSelect'
       powerSelectTrigger: [
         'form-control',

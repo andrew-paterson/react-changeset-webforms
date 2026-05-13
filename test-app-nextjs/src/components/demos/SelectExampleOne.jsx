@@ -11,6 +11,7 @@ const formSchema = {
   fields: [
     {
       fieldId: 'country',
+      allowClear: true,
       fieldType: 'select',
       fieldLabel: 'Country',
       placeholder: 'Select a country',
