@@ -1,4 +1,4 @@
-export default {
+const selectors = {
   // common,
   cwfFieldTypeInput: '[data-test-class="cwf-field-type-input"]',
   cwfFieldLabel: '[data-test-class="cwf-field-label"]',
@@ -528,4 +528,6 @@ export default {
   cwfCloneGroupItems: '[data-test-id="cwf-clone-group-items"]',
   cwfCloneGroupActions: '[data-test-id="cwf-clone-group-actions"]',
   cwfFieldLabelWrapper: '[data-test-class="cwf-field-label-wrapper"]',
+  clearSelectButton: '[data-test-id="clear-select-button"]',
 };
+export default selectors;

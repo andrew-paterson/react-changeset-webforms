@@ -29,18 +29,15 @@ export default function useAttrsFromConfig(
   // the dependency array won't detect mutations to its properties — so we pull
   // out the primitive values that are most likely to drive config-driven class
   // and attr changes, ensuring the effect re-runs when they change.
-  // const fieldValue = formField?.fieldValue;
+  const fieldValue = formField?.fieldValue;
   const validationStatus = formField?.validationStatus;
   const requestInFlight = changesetWebform?.formSettings?.requestInFlight;
-  // const wasValidated = formField?.wasValidated;
-  // const disabled = formField?.disabled;
-  // const focussed = formField?.focussed;
-  // const eventLogLength = formField?.eventLog?.length;
+  const wasValidated = formField?.wasValidated;
+  const disabled = formField?.disabled;
+  const focussed = formField?.focussed;
+  const eventLogLength = formField?.eventLog?.length;
 
   useEffect(() => {
-    if (names.includes('selectContainer')) {
-      console.log('it runs', new Error().stack);
-    }
     const element = ref.current;
     if (!element || !changesetWebform) return;
 
@@ -73,16 +70,16 @@ export default function useAttrsFromConfig(
       }
     });
   }, [
-    // ref,
-    // names,
-    // changesetWebform,
+    ref,
+    names,
+    changesetWebform,
     requestInFlight,
-    // formField,
-    // fieldValue,
+    formField,
+    fieldValue,
     validationStatus,
-    // wasValidated,
-    // disabled,
-    // focussed,
-    // eventLogLength,
+    wasValidated,
+    disabled,
+    focussed,
+    eventLogLength,
   ]);
 }

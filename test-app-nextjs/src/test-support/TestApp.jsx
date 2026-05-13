@@ -31,6 +31,7 @@ import RadioButtonGroup from '../app/(docs)/docs/radio-button-group/page.jsx';
 import CheckboxGroup from '../app/(docs)/docs/checkbox-group/page.jsx';
 import StaticContentField from '../app/(docs)/docs/static-content-field/page.jsx';
 import Clicker from '../app/(docs)/docs/clicker/page.jsx';
+import Select from '../app/(docs)/docs/select/page.jsx';
 import HidingAndShowingFields from '../app/(docs)/docs/hiding-and-showing-fields/page.jsx';
 import FormMethods from '../app/(docs)/docs/form-methods/page.jsx';
 import FieldMethods from '../app/(docs)/docs/field-methods/page.jsx';
@@ -86,6 +87,7 @@ function DocsLayout() {
             <Route path="single-checkbox" element={<SingleCheckbox />} />
             <Route path="radio-button-group" element={<RadioButtonGroup />} />
             <Route path="checkbox-group" element={<CheckboxGroup />} />
+            <Route path="select" element={<Select />} />
             <Route
               path="static-content-field"
               element={<StaticContentField />}

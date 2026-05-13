@@ -37,7 +37,13 @@ export default function SelectExampleOne() {
   const [country, updateCountry] = useState(null);
   return (
     <>
-      {country && <div>The selected country code is {country}</div>}
+      <div data-test-id="selected-country-feedback">
+        {country ? (
+          <>The selected country code is {country}</>
+        ) : (
+          <>No country selected</>
+        )}
+      </div>
       <ChangesetWebform
         formSchema={formSchema}
         onUserInteraction={onUserInteraction}

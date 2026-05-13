@@ -10,10 +10,6 @@ export default function Select() {
           Select
         </h1>
         <p>Renders an HTML select.</p>
-        <p>
-          Calls the <code>keyUp</code>, <code>focusIn</code> and{' '}
-          <code>focusOut</code> actions when the corresponding events occur.
-        </p>
         <h2 id="select-field-props" class="docs-md__h2">
           <a href="#select-field-props" class="heading-anchor">
             Select field props
@@ -36,7 +32,7 @@ export default function Select() {
           </a>
         </h2>
         <SelectExampleOneDemo />
-        {/* <h2 id="with-optionvalueprop-and-optiondisplayprop" class="docs-md__h2">
+        <h2 id="with-optionvalueprop-and-optiondisplayprop" class="docs-md__h2">
           <a
             href="#with-optionvalueprop-and-optiondisplayprop"
             class="heading-anchor"
@@ -44,7 +40,7 @@ export default function Select() {
             With optionValueProp and optionDisplayProp
           </a>
         </h2>
-        <SelectExampleTwoDemo /> */}
+        <SelectExampleTwoDemo />
       </div>
     </>
   );

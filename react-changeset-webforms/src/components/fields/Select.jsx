@@ -1,6 +1,7 @@
 import { useCallback, useRef } from 'react';
 import filterHtmlProps from '../../utils/filter-html-props.js';
 import useAttrsFromConfig from '../../hooks/use-attrs-from-config.js';
+import ClearSelect from '../background/ClearSelect.jsx';
 
 export default function Select({
   formField,
@@ -20,12 +21,12 @@ export default function Select({
     formField,
   );
 
-  useAttrsFromConfig(
-    clearButtonRef,
-    'selectClearButton',
-    changesetWebform,
-    formField,
-  );
+  // useAttrsFromConfig(
+  //   clearButtonRef,
+  //   'selectClearButton',
+  //   changesetWebform,
+  //   formField,
+  // );
 
   useAttrsFromConfig(
     selectContainer,
@@ -127,11 +128,16 @@ export default function Select({
           );
         })}
       </select>
-      {formField.allowClear === true && formField.fieldValue != null && (
-        <button ref={clearButtonRef} onClick={clear}>
-          Clear
-        </button>
-      )}
+      <ClearSelect
+        formField={formField}
+        changesetWebform={changesetWebform}
+        clear={clear}
+      />
+      {/*  {formField.allowClear === true && formField.fieldValue != null && (
+         <button ref={clearButtonRef} onClick={clear}>
+           Clear
+         </button>
+       )} */}
     </div>
   );
 }

@@ -31,11 +31,13 @@ export default function SelectExampleOne() {
   const [country, updateCountry] = useState(null);
   return (
     <>
-      {country ? (
-        <div>The selected country is {country}</div>
-      ) : (
-        <div>No country selected</div>
-      )}
+      <div data-test-id="selected-country-feedback">
+        {country ? (
+          <>The selected country is {country}</>
+        ) : (
+          <>No country selected</>
+        )}
+      </div>
       <ChangesetWebform
         formSchema={formSchema}
         onUserInteraction={onUserInteraction}
