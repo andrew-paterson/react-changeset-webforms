@@ -1,4 +1,4 @@
-import { visit, find, click, focus, blur, fillIn, triggerKeyEvent, waitFor } from 'react-qunit-test-helpers';
+import { visit, find, click, focus, blur, fillIn, triggerKeyEvent, waitFor } from 'react-qunit/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 

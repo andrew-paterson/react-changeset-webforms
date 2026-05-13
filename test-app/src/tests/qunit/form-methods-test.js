@@ -1,4 +1,4 @@
-import { visit, click, fillIn, triggerKeyEvent, blur } from 'react-qunit-test-helpers';
+import { visit, click, fillIn, triggerKeyEvent, blur } from 'react-qunit/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 import { passedValidation, failedValidation, wasValidated } from 'react-changeset-webforms/src/test-support/helpers';

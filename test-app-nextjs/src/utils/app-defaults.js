@@ -7,7 +7,7 @@ import defaultValidators from 'react-changeset-webforms/src/utils/default-valida
 
 // END-SNIPPET
 
-export default {
+const config = {
   // BEGIN-SNIPPET app-wide-validators.js
   validators: defaultValidators,
   // END-SNIPPET
@@ -126,3 +126,4 @@ export default {
     // END-SNIPPET
   ],
 };
+export default config;

@@ -30,8 +30,7 @@
     "eslint-config-next": "16.2.1",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
-    "react-qunit": "workspace:*",
-    "react-qunit-test-helpers": "workspace:*",
+    "react-qunit": "^0.0.1",
     "vitest": "^3.1.2",
     "@vitejs/plugin-react": "^4.3.4"
   }

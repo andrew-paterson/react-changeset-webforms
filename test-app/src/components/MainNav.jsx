@@ -3,7 +3,9 @@ import QueryPreservingLink from './QueryPreservingLink.jsx';
 export default function MainNav({ isMenuToggled }) {
   return (
     <>
-      <div class={`AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink${isMenuToggled ? ' show-mobile' : ''}`}>
+      <div
+        class={`AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink${isMenuToggled ? ' show-mobile' : ''}`}
+      >
         <nav
           class="
       docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
@@ -189,6 +191,16 @@ export default function MainNav({ isMenuToggled }) {
                   to="/docs/single-checkbox"
                 >
                   Single checkbox
+                </QueryPreservingLink>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <QueryPreservingLink
+                  class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Select"
+                  to="/docs/select"
+                >
+                  Select
                 </QueryPreservingLink>
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">

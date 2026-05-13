@@ -1,4 +1,4 @@
-import { find, findAll, click, waitUntil } from 'react-qunit-test-helpers';
+import { find, findAll, click, waitUntil } from 'react-qunit/test-helpers';
 import els from './element-selectors.js';
 
 function camelize(str) {

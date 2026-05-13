@@ -41,6 +41,7 @@ import './qunit/clicker-test.js'; // Passing
 import './qunit/cloned-fields-test.js'; // Passing with 1 todo
 import './qunit/configure-classnames-test.js'; // Passing
 // import './qunit/custom-fields-test.js'; // Needs to select native select
+import './qunit/select-test.js'; // Passing
 import './qunit/field-methods-test.js'; // Passing
 import './qunit/field-omission-test.js'; // Passing
 import './qunit/form-methods-test.js'; // Passing

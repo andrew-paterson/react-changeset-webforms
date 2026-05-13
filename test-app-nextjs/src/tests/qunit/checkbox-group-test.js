@@ -1,4 +1,4 @@
-import { visit, click, findAll } from 'react-qunit-test-helpers';
+import { visit, click, findAll } from 'react-qunit/test-helpers';
 import { module, test, todo } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 import testEls from './test-selectors';

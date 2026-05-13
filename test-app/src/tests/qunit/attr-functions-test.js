@@ -1,4 +1,4 @@
-import { visit, click, waitFor } from 'react-qunit-test-helpers';
+import { visit, click, waitFor } from 'react-qunit/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 

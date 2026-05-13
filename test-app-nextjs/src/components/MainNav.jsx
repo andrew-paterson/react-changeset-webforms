@@ -181,6 +181,16 @@ export default function MainNav({ isMenuToggled }) {
               </li>
               <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
                 <QueryPreservingLink
+                  class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline"
+                  data-test-id="nav-item"
+                  data-test-label="Select"
+                  to="/docs/select"
+                >
+                  Select
+                </QueryPreservingLink>
+              </li>
+              <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+                <QueryPreservingLink
                   class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline"
                   data-test-id="nav-item"
                   data-test-label="Static content field"

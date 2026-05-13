@@ -1,6 +1,5 @@
 {
   "name": "react-changeset-webforms",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -27,7 +26,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
-    "react-qunit-test-helpers": "workspace:*",
+    "react-qunit": "^0.0.1",
     "vite": "^7.3.1"
   }
 }

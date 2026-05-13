@@ -5,6 +5,7 @@ import RadioButtonGroupComponent from '../components/fields/RadioButtonGroup.jsx
 import CheckboxGroupComponent from '../components/fields/CheckboxGroup.jsx';
 import ClickerComponent from '../components/fields/Clicker.jsx';
 import StaticContentComponent from '../components/fields/StaticContent.jsx';
+import SelectComponent from '../components/fields/Select.jsx';
 import IconTrashComponent from '../components/svg/icons/IconTrash.jsx';
 import AddCloneButtonComponent from '../components/cloned-field-elements/AddCloneButton.jsx';
 import defaultValidators from './default-validators';
@@ -96,6 +97,8 @@ export default {
       ],
       addCloneButtonIcon: [],
       removeCloneButtonIcon: ['fill-gray-medium', 'remove-clone-icon'],
+      // fieldType === 'select'
+      selectElement: ['form-select'],
       // fieldType === 'powerSelect'
       powerSelectTrigger: [
         'form-control',
@@ -351,6 +354,22 @@ export default {
       // END-SNIPPET
       componentClass: StaticContentComponent,
       ignoreValidation: true,
+    },
+    {
+      // BEGIN-SNIPPET select-field-options.js
+      fieldType: 'select',
+      allowClear: false, // Boolean. If true, the select box shows a clear icon which clears the value oif the field. See https://ember-power-select.com/docs/the-trigger for more.
+      options: [], // Array of items to show in the dropdown. Items can either all be objects, or they can all be primitives, such as strings or numbers. If an array of objects is passed, then optionDisplayProp should be passed to determine which property in the object should be shown as the label of the option in the list.
+      optionDisplayProp: null, // String - which property of the object to show in the list if options is an array of objects.
+      optionValueProp: null, // String - which property of the object to use as the value if options is an array of objects.
+      optionComponent: null, // Object with { componentClass, props }.
+      // `componentClass` is the imported class of the component to show on the add clone button.
+      // `props` can be included to pass state or data to the component, accessible as {{@props}}.
+      // `@changesetWebform and @formField are passed to the component.
+      selectedItemComponent: null, // The imported class of the component to pass to the Power Select component. See https://ember-power-select.com/docs/api-reference
+      validatesOn: ['$inherited', 'valueUpdated'], // Array of strings
+      // END-SNIPPET
+      componentClass: SelectComponent,
     },
   ],
   // validators: defaultValidators,

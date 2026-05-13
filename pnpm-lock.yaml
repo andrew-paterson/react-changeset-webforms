@@ -60,30 +60,12 @@ importers:
       globals:
         specifier: ^16.5.0
         version: 16.5.0
-      react-qunit-test-helpers:
-        specifier: workspace:*
-        version: link:../react-qunit-test-helpers
+      react-qunit:
+        specifier: ^0.0.1
+        version: 0.0.1(@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(qunit@2.25.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       vite:
         specifier: ^7.3.1
         version: 7.3.1
-
-  react-qunit:
-    dependencies:
-      qunit:
-        specifier: '>=2.0.0'
-        version: 2.25.0
-
-  react-qunit-test-helpers:
-    dependencies:
-      '@testing-library/react':
-        specifier: '>=16.0.0'
-        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      react:
-        specifier: '>=18.0.0'
-        version: 19.2.4
-      react-dom:
-        specifier: '>=18.0.0'
-        version: 19.2.4(react@19.2.4)
 
   test-app:
     dependencies:
@@ -173,11 +155,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       react-qunit:
-        specifier: workspace:*
-        version: link:../react-qunit
-      react-qunit-test-helpers:
-        specifier: workspace:*
-        version: link:../react-qunit-test-helpers
+        specifier: ^0.0.1
+        version: 0.0.1(@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(qunit@2.25.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       vite:
         specifier: ^7.3.1
         version: 7.3.1
@@ -246,11 +225,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       react-qunit:
-        specifier: workspace:*
-        version: link:../react-qunit
-      react-qunit-test-helpers:
-        specifier: workspace:*
-        version: link:../react-qunit-test-helpers
+        specifier: ^0.0.1
+        version: 0.0.1(@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(qunit@2.25.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       vitest:
         specifier: ^3.1.2
         version: 3.2.4(jsdom@29.0.2)
@@ -2538,6 +2514,14 @@ packages:
     resolution: {integrity: sha512-B2SgNqwPuS2ekqj4lcxi5TibEcjWkdVyYykBEUBshPAPDQ527x2zPEZg560n8egNtAjUpwXFQm7pcXV65aAYmg==}
     engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
     peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+
+  react-qunit@0.0.1:
+    resolution: {integrity: sha512-hkRUhmUY4btjIHGX2Yx9/+MxcwgQl+QaX1Q/rKA1la3CunR6POoN1OAjvtTVJDPCnyvLyA8AP9vtvKc/WQgMSA==}
+    peerDependencies:
+      '@testing-library/react': '>=16.0.0'
+      qunit: '>=2.0.0'
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
@@ -5479,6 +5463,13 @@ snapshots:
       react-dom: 19.2.4(react@19.2.4)
       sucrase: 3.35.1
       use-editable: 2.3.3(react@19.2.4)
+
+  react-qunit@0.0.1(@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(qunit@2.25.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      '@testing-library/react': 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      qunit: 2.25.0
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
 
   react-refresh@0.17.0: {}
 

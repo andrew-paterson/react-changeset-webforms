@@ -46,8 +46,7 @@
     "jsdom": "^29.0.2",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
-    "react-qunit": "workspace:*",
-    "react-qunit-test-helpers": "workspace:*",
+    "react-qunit": "^0.0.1",
     "vite": "^7.3.1",
     "vitest": "^4.1.4"
   }
