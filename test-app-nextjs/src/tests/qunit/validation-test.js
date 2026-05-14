@@ -12,14 +12,14 @@ import {
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'react-qunit';
 import testEls from './test-selectors';
-import els from 'react-changeset-webforms/src/test-support/element-selectors';
+import els from 'react-changeset-webforms/test-support/element-selectors';
 import {
   fieldErrorText,
   passedValidation,
   failedValidation,
   wasValidated,
-} from 'react-changeset-webforms/src/test-support/helpers';
-import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
+} from 'react-changeset-webforms/test-support/helpers';
+import validationTestHelpersDefaults from 'react-changeset-webforms/test-support/validation-test-helpers-defaults';
 
 module('Acceptance | Field validation', function (hooks) {
   setupApplicationTest(hooks);

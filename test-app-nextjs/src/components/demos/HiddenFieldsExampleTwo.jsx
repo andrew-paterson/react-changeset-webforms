@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET omitted-fields-example-two.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -56,7 +56,10 @@ export default function HiddenFieldsExampleTwo() {
   const [changesetIsValid, setChangesetIsValid] = React.useState(false);
 
   async function onFieldValueChange(_formField, changesetWebform) {
-    setChangesetIsValid(!changesetWebform.hasValidationErrors && !changesetWebform.hasUnvalidatedFields);
+    setChangesetIsValid(
+      !changesetWebform.hasValidationErrors &&
+        !changesetWebform.hasUnvalidatedFields,
+    );
   }
 
   return (

@@ -1,7 +1,13 @@
 {
   "name": "react-changeset-webforms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
+  "main": "./src/components/ChangesetWebform.jsx",
+  "module": "./src/components/ChangesetWebform.jsx",
+  "exports": {
+    ".": "./src/components/ChangesetWebform.jsx",
+    "./*": "./src/*"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,7 +20,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "validated-changeset": "^1.4.1",
-    "validated-changeset-webforms": "^0.0.6"
+    "validated-changeset-webforms": "^0.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

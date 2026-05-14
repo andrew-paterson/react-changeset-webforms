@@ -7,7 +7,7 @@
 import React, { useRef } from 'react';
 import { render, act } from '@testing-library/react';
 import { describe, test } from 'vitest';
-import ChangesetWebformComp from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebformComp from 'react-changeset-webforms/components/ChangesetWebform.jsx';
 import cloneDeep from 'lodash.clonedeep';
 import allFieldTypesFieldSchema from '../../utils/all-field-types-form-schema.js';
 import {

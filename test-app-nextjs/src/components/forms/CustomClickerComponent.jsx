@@ -3,9 +3,14 @@
 // BEGIN-SNIPPET custom-clicker-component.jsx
 import IconArrowUp from '../svg/icons/IconArrowUp.jsx';
 import IconArrowDown from '../svg/icons/IconArrowDown.jsx';
-import filterHtmlProps from 'react-changeset-webforms/src/utils/filter-html-props.js';
+import filterHtmlProps from 'react-changeset-webforms/utils/filter-html-props.js';
 
-export default function CustomClickerComponent({ formField, props, onClick, ...rest }) {
+export default function CustomClickerComponent({
+  formField,
+  props,
+  onClick,
+  ...rest
+}) {
   const Icon = formField.customProps.showAdvanced ? IconArrowUp : IconArrowDown;
   return (
     <button

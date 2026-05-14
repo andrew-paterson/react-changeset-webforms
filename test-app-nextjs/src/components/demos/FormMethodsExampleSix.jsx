@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET form-methods-example-six.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -55,11 +55,6 @@ function submitData(data, changesetWebform) {
 }
 
 export default function FormMethodsExampleSix() {
-  return (
-    <ChangesetWebform
-      formSchema={formSchema}
-      submitData={submitData}
-    />
-  );
+  return <ChangesetWebform formSchema={formSchema} submitData={submitData} />;
 }
 // END-SNIPPET

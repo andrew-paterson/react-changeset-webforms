@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET custom-form-submission.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import { preFlightForm } from 'validated-changeset-webforms';
 
 const formSchema = {
@@ -48,10 +48,7 @@ export default function CustomFormSubmission() {
           {alert.message}
         </div>
       )}
-      <ChangesetWebform
-        formSchema={formSchema}
-        onFormSubmit={onFormSubmit}
-      />
+      <ChangesetWebform formSchema={formSchema} onFormSubmit={onFormSubmit} />
     </>
   );
 }

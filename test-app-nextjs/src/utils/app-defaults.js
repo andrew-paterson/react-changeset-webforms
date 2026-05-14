@@ -1,9 +1,9 @@
 import PhoneNumberWithCountryCodeComponent from '../components/custom-fields/PhoneNumberWithCountryCode.jsx';
 
-import IconPaperPlane from 'react-changeset-webforms/src/components/svg/icons/app-level/IconPaperPlane.jsx';
-import RequestInFlightIcon from 'react-changeset-webforms/src/components/svg/icons/app-level/RequestInFlightIcon.jsx';
+import IconPaperPlane from 'react-changeset-webforms/components/svg/icons/app-level/IconPaperPlane.jsx';
+import RequestInFlightIcon from 'react-changeset-webforms/components/svg/icons/app-level/RequestInFlightIcon.jsx';
 // BEGIN-SNIPPET import-default-validators.js
-import defaultValidators from 'react-changeset-webforms/src/utils/default-validators.js';
+import defaultValidators from 'react-changeset-webforms/utils/default-validators.js';
 
 // END-SNIPPET
 

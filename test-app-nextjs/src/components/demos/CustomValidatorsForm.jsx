@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET custom-validators-form.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import validateUniqueness from '../../validators/uniqueness';
 
 const formSchema = {

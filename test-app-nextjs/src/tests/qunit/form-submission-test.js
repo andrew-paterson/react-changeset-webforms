@@ -16,8 +16,8 @@ import {
   wasValidated,
   noneValidated,
   _waitForMs,
-} from 'react-changeset-webforms/src/test-support/helpers';
-import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
+} from 'react-changeset-webforms/test-support/helpers';
+import validationTestHelpersDefaults from 'react-changeset-webforms/test-support/validation-test-helpers-defaults';
 
 module('Acceptance | Form submission', function (hooks) {
   setupApplicationTest(hooks);

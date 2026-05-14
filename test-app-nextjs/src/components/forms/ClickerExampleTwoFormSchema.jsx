@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET custom-component-clicker.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import CustomClickerComponent from './CustomClickerComponent.jsx';
 import { useReducer } from 'react';
 
@@ -45,7 +45,9 @@ export default function ClickerExampleTwoFormSchema() {
   function onUserInteraction(formField, changesetWebform, eventName) {
     if (formField.fieldId === 'toggleAdvanced' && eventName === 'click') {
       formField.customProps.showAdvanced = !formField.customProps.showAdvanced;
-      const advancedFields = changesetWebform.fields.filter((field) => field.advancedSetting);
+      const advancedFields = changesetWebform.fields.filter(
+        (field) => field.advancedSetting,
+      );
       advancedFields.forEach((field) => field.setOmission(!field.omitted));
       forceUpdate();
     }

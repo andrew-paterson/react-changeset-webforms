@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET form-methods-example-four.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -44,7 +44,10 @@ export default function FormMethodsExampleFour() {
   const [nextStepEnabled, setNextStepEnabled] = React.useState(false);
 
   function afterFieldValidation(_formField, changesetWebform) {
-    setNextStepEnabled(!changesetWebform.hasValidationErrors && !changesetWebform.hasUnvalidatedFields);
+    setNextStepEnabled(
+      !changesetWebform.hasValidationErrors &&
+        !changesetWebform.hasUnvalidatedFields,
+    );
   }
 
   return (
@@ -81,7 +84,8 @@ export default function FormMethodsExampleFour() {
                 className="alert alert-danger mb-0"
                 data-test-id="alert-danger"
               >
-                One or more validating fields has either failed validation, or not yet been validated.
+                One or more validating fields has either failed validation, or
+                not yet been validated.
               </div>
             </>
           )}

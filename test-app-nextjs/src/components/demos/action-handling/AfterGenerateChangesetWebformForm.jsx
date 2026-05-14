@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET after-generate-changeset-webform-form.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {

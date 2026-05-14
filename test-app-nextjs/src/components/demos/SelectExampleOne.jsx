@@ -1,6 +1,6 @@
 'use client';
 // BEGIN-SNIPPET select-example-one.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import { useState } from 'react';
 
 const formSchema = {

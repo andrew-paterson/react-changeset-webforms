@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET after-field-click-action-form.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const initialFormSchema = {
   formSettings: {
@@ -49,10 +49,14 @@ export default function OnUserInteractionForm() {
   function onUserInteraction(formField, changesetWebform, eventName) {
     if (eventName === 'click') {
       if (formField.fieldId === 'toggleNicknameField') {
-        const nickNameField = changesetWebform.fields.find((field) => field.fieldId === 'nickName');
+        const nickNameField = changesetWebform.fields.find(
+          (field) => field.fieldId === 'nickName',
+        );
         const nowOmitted = !nickNameField.omitted;
         nickNameField.omitted = nowOmitted;
-        formField.clickerText = nowOmitted ? 'Show nickname field' : 'Hide nickname field';
+        formField.clickerText = nowOmitted
+          ? 'Show nickname field'
+          : 'Hide nickname field';
       }
     }
   }
@@ -76,7 +80,9 @@ export default function OnUserInteractionForm() {
     const validationError = changesetWebform.changeset.error;
     const errorProps = [];
     for (const key in validationError) {
-      errorProps.push(`"${key}" => "${validationError[key].validation.join(', ')}"`);
+      errorProps.push(
+        `"${key}" => "${validationError[key].validation.join(', ')}"`,
+      );
     }
     setAlert({
       type: 'danger',

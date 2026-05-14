@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET omitted-fields-example-four.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {

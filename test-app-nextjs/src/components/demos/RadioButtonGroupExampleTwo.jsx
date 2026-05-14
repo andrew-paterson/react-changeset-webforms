@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET radio-button-group-example-two.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import ComponentForAllRadioOptions from '../forms/ComponentForAllRadioOptions.jsx';
 import ComponentForSingleRadioOption from '../forms/ComponentForSingleRadioOption.jsx';
 

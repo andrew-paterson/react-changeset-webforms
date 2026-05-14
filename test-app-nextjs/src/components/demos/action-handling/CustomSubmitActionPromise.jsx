@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET forgot-password-form.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -30,7 +30,11 @@ const formSchema = {
 export default function CustomSubmitActionPromise() {
   function submitData(_changesetData, changesetWebform) {
     return changesetWebform.changeset.save().then((response) => {
-      return fetch('/forgot-password' + '?email=' + encodeURIComponent(response.data.email));
+      return fetch(
+        '/forgot-password' +
+          '?email=' +
+          encodeURIComponent(response.data.email),
+      );
     });
   }
 

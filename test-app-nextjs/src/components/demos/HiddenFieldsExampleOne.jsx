@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET omitted-fields-example-one.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -54,7 +54,10 @@ export default function HiddenFieldsExampleOne() {
         changesetWebform.setFieldOmission('mealOption', true);
       }
     }
-    setChangesetIsValid(!changesetWebform.hasValidationErrors && !changesetWebform.hasUnvalidatedFields);
+    setChangesetIsValid(
+      !changesetWebform.hasValidationErrors &&
+        !changesetWebform.hasUnvalidatedFields,
+    );
   }
 
   return (

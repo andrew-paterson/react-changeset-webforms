@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET form-methods-example-one.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -54,7 +54,9 @@ export default function FormMethodsExampleOne() {
   return (
     <>
       <div className="border rounded p-2 mb-4 bg-light">
-        <b className="mb-2">These buttons are outside of the ChangesetWebform component</b>
+        <b className="mb-2">
+          These buttons are outside of the ChangesetWebform component
+        </b>
         <div className="d-flex mt-2">
           <button
             data-test-id="validate-externally"

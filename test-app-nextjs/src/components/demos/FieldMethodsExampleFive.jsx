@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET field-methods-example-five.jsx
 import { useRef, useReducer } from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -32,7 +32,9 @@ export default function FieldMethodsExampleFive() {
   const [_, forceUpdate] = useReducer((n) => n + 1, 0);
 
   function afterGenerateChangesetWebform(changesetWebform) {
-    nameFieldRef.current = changesetWebform.fields.find((field) => field.fieldId === 'name');
+    nameFieldRef.current = changesetWebform.fields.find(
+      (field) => field.fieldId === 'name',
+    );
   }
 
   function updateNameField() {
@@ -44,7 +46,9 @@ export default function FieldMethodsExampleFive() {
   return (
     <>
       <div className="border rounded p-2 mb-4 bg-light">
-        <b className="mb-2">These buttons are outside of the ChangesetWebform component</b>
+        <b className="mb-2">
+          These buttons are outside of the ChangesetWebform component
+        </b>
         <div className="d-flex mt-2">
           <button
             data-test-id="update-name-field"

@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET single-checkbox-example-two.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -13,7 +13,8 @@ const formSchema = {
       fieldLabel: 'Terms and conditions',
       fieldId: 'acceptTerms',
       fieldType: 'singleCheckbox',
-      checkboxLabelMarkdown: 'I agree to the __**[terms and conditions here](https://example.com)**__.',
+      checkboxLabelMarkdown:
+        'I agree to the __**[terms and conditions here](https://example.com)**__.',
     },
   ],
 };

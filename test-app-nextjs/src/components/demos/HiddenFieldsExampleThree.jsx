@@ -2,10 +2,11 @@
 
 // BEGIN-SNIPPET omitted-fields-example-three.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const dynamicIncludeExcludeConditions = {
-  valueDoesNotEqual: (value, condition) => value !== condition.valueDoesNotEqual,
+  valueDoesNotEqual: (value, condition) =>
+    value !== condition.valueDoesNotEqual,
 };
 
 const formSchema = {
@@ -60,7 +61,10 @@ export default function HiddenFieldsExampleThree() {
   const [changesetIsValid, setChangesetIsValid] = React.useState(false);
 
   async function onFieldValueChange(_formField, changesetWebform) {
-    setChangesetIsValid(!changesetWebform.hasValidationErrors && !changesetWebform.hasUnvalidatedFields);
+    setChangesetIsValid(
+      !changesetWebform.hasValidationErrors &&
+        !changesetWebform.hasUnvalidatedFields,
+    );
   }
 
   return (

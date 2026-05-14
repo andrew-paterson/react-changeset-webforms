@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET after-field-validation-form.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const nameAndEmailFormSchema = {
   formSettings: {
@@ -47,18 +47,28 @@ export default function AfterFieldValidationForm() {
   const [lastValidatedField, setLastValidatedField] = React.useState(null);
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
-  const [lastUpdatedFieldValue, setLastUpdatedFieldValue] = React.useState(null);
-  const [fieldValidationErrors, setFieldValidationErrors] = React.useState(null);
+  const [lastUpdatedFieldValue, setLastUpdatedFieldValue] =
+    React.useState(null);
+  const [fieldValidationErrors, setFieldValidationErrors] =
+    React.useState(null);
   const [allFields, setAllFields] = React.useState(null);
   const [formName, setFormName] = React.useState(null);
 
-  function afterFieldValidation(formField, changesetWebform, fieldValidationErrors) {
+  function afterFieldValidation(
+    formField,
+    changesetWebform,
+    fieldValidationErrors,
+  ) {
     setName(changesetWebform.changeset.get('name'));
     setEmail(changesetWebform.changeset.get('email'));
     setLastValidatedField(formField.fieldLabel);
-    setLastUpdatedFieldValue(changesetWebform.changeset.get(formField.propertyName));
+    setLastUpdatedFieldValue(
+      changesetWebform.changeset.get(formField.propertyName),
+    );
     setFieldValidationErrors(fieldValidationErrors);
-    setAllFields(changesetWebform.fields.map((field) => field.fieldId).join(', '));
+    setAllFields(
+      changesetWebform.fields.map((field) => field.fieldId).join(', '),
+    );
     setFormName(changesetWebform.formSettings.formName);
   }
 
@@ -76,7 +86,8 @@ export default function AfterFieldValidationForm() {
           The last validated field was {lastValidatedField}.<br />
           {fieldValidationErrors?.validation?.length ? (
             <>
-              The first argument to the afterFieldValidation argument has the following values:
+              The first argument to the afterFieldValidation argument has the
+              following values:
               <br />
               <code>value: "{fieldValidationErrors.value}"</code>
               <br />
@@ -85,7 +96,8 @@ export default function AfterFieldValidationForm() {
             </>
           ) : (
             <>
-              The {lastValidatedField} has no validation errors when its value is {lastUpdatedFieldValue}.<br />
+              The {lastValidatedField} has no validation errors when its value
+              is {lastUpdatedFieldValue}.<br />
             </>
           )}
           The form has the following fields: {allFields}.<br />

@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET attr-functions.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -45,11 +45,6 @@ function submit() {
 }
 
 export default function AttrFunctions() {
-  return (
-    <ChangesetWebform
-      formSchema={formSchema}
-      submitData={submit}
-    />
-  );
+  return <ChangesetWebform formSchema={formSchema} submitData={submit} />;
 }
 // END-SNIPPET

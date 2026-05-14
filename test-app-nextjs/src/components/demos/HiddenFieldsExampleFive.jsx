@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET omitted-fields-example-five.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -47,7 +47,9 @@ export default function HiddenFieldsExampleFive() {
   const [changesetIsValid, setChangesetIsValid] = React.useState(false);
 
   async function onFieldValueChange(formField, changesetWebform) {
-    const mealOptionField = changesetWebform.fields.find((field) => field.fieldId === 'mealOption');
+    const mealOptionField = changesetWebform.fields.find(
+      (field) => field.fieldId === 'mealOption',
+    );
     if (formField.fieldId === 'mealRequired') {
       if (formField.fieldValue === 'Yes') {
         mealOptionField.setOmission(false);
@@ -55,7 +57,10 @@ export default function HiddenFieldsExampleFive() {
         mealOptionField.setOmission(true);
       }
     }
-    setChangesetIsValid(!changesetWebform.hasValidationErrors && !changesetWebform.hasUnvalidatedFields);
+    setChangesetIsValid(
+      !changesetWebform.hasValidationErrors &&
+        !changesetWebform.hasUnvalidatedFields,
+    );
   }
 
   return (

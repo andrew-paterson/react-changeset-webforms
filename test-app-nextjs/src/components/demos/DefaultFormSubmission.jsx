@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET default-form-submission.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -33,13 +33,20 @@ const serverResponseFormSchema = {
       fieldId: 'serverResponseType',
       fieldType: 'radioButtonGroup',
       fieldLabel: 'Server response type',
-      options: ['Asynchronous success response', 'Asynchronous error response', 'Synchronous success response', 'Synchronous error response'],
+      options: [
+        'Asynchronous success response',
+        'Asynchronous error response',
+        'Synchronous success response',
+        'Synchronous error response',
+      ],
     },
   ],
 };
 
 export default function DefaultFormSubmission() {
-  const [serverResponseType, setServerResponseType] = React.useState('Asynchronous success response');
+  const [serverResponseType, setServerResponseType] = React.useState(
+    'Asynchronous success response',
+  );
   const serverResponseTypeRef = React.useRef(serverResponseType);
   const [alert, setAlert] = React.useState(null);
 

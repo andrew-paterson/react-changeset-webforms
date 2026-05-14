@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET radio-button-group-example-three.jsx
 import React from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -47,7 +47,9 @@ export default function RadioButtonGroupExampleThree() {
         formSchema={formSchema}
         onFieldValueChange={onFieldValueChange}
       />
-      {currentValue && <div data-test-id="current-value">Selected colour: {currentValue}</div>}
+      {currentValue && (
+        <div data-test-id="current-value">Selected colour: {currentValue}</div>
+      )}
     </>
   );
 }

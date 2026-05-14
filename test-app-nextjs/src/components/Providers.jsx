@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangesetWebformsProvider } from 'react-changeset-webforms/src/context/ChangesetWebformsContext.jsx';
+import { ChangesetWebformsProvider } from 'react-changeset-webforms/context/ChangesetWebformsContext.jsx';
 import appDefaults from '../utils/app-defaults.js';
 
 export default function Providers({ children }) {

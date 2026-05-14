@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET form-wide-class-settings.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {

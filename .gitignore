@@ -28,3 +28,4 @@ test-app/src/components/forms/**/*.js
 test-app/src/components/forms/**/*.hbs
 test-app/markdown/docs
 ember-demo-components
+setup

@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET clear-after-submit-form-schema.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -35,11 +35,6 @@ function submit() {
 }
 
 export default function ClearAfterSubmitFormSchema() {
-  return (
-    <ChangesetWebform
-      formSchema={formSchema}
-      submitData={submit}
-    />
-  );
+  return <ChangesetWebform formSchema={formSchema} submitData={submit} />;
 }
 // END-SNIPPET

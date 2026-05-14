@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET static-content-example-two.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import ComponentForStaticContentField from '../forms/ComponentForStaticContentField.jsx';
 
 const formSchema = {

@@ -7,7 +7,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor, act } from '@testing-library/react';
 import { describe, test, expect } from 'vitest';
-import ChangesetWebformComp from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebformComp from 'react-changeset-webforms/components/ChangesetWebform.jsx';
 import appConfig from '../../utils/app-defaults.js';
 // ---------------------------------------------------------------------------
 // Selectors

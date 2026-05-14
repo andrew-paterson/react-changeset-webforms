@@ -2,7 +2,7 @@
 
 // BEGIN-SNIPPET field-methods-example-seven.jsx
 import { useRef, useReducer } from 'react';
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 const formSchema = {
   formSettings: {
@@ -54,7 +54,9 @@ export default function FieldMethodsExampleSeven() {
   return (
     <>
       <div className="border rounded p-2 mb-4 bg-light">
-        <b className="mb-2">This input is outside of the ChangesetWebform component</b>
+        <b className="mb-2">
+          This input is outside of the ChangesetWebform component
+        </b>
         <div className="d-flex mt-2">
           <input
             type="text"

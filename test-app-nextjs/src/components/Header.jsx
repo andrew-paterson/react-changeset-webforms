@@ -53,7 +53,7 @@ export default function Header() {
               data-test-id="current-version"
               class="docs-flex docs-items-center"
             >
-              0.0.4
+              0.0.5
             </span>
           </a>
 

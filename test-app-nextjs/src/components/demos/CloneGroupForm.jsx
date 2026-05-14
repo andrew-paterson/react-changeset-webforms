@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET clone-group-form.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 
 export const formSchema = {
   formSettings: {

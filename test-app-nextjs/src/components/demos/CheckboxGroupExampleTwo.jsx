@@ -1,7 +1,7 @@
 'use client';
 
 // BEGIN-SNIPPET checkbox-group-example-two.jsx
-import ChangesetWebform from 'react-changeset-webforms/src/components/ChangesetWebform.jsx';
+import ChangesetWebform from 'react-changeset-webforms';
 import ComponentForAllCheckboxOptions from '../forms/ComponentForAllCheckboxOptions.jsx';
 import ComponentForSingleCheckboxOption from '../forms/ComponentForSingleCheckboxOption.jsx';
 

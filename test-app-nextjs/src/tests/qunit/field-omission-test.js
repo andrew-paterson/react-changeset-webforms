@@ -10,8 +10,8 @@ import testEls from './test-selectors';
 import {
   passedValidation,
   wasValidated,
-} from 'react-changeset-webforms/src/test-support/helpers';
-import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
+} from 'react-changeset-webforms/test-support/helpers';
+import validationTestHelpersDefaults from 'react-changeset-webforms/test-support/validation-test-helpers-defaults';
 
 // TODO test and document if the data prop of an omitted field is sent with the data payload to submitData
 
