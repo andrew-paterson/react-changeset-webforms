@@ -30,8 +30,8 @@ importers:
         specifier: ^1.4.1
         version: 1.4.1
       validated-changeset-webforms:
-        specifier: ^0.0.4
-        version: 0.0.4
+        specifier: ^0.0.5
+        version: 0.0.5
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
@@ -103,8 +103,8 @@ importers:
         specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       validated-changeset-webforms:
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.0.5
+        version: 0.0.5
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
@@ -197,8 +197,8 @@ importers:
         specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       validated-changeset-webforms:
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.0.5
+        version: 0.0.5
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.9.1
@@ -2212,9 +2212,6 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  lodash.mergewith@4.6.2:
-    resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
-
   lodash@4.17.23:
     resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
@@ -2927,8 +2924,8 @@ packages:
     peerDependencies:
       react: '>= 16.8.0'
 
-  validated-changeset-webforms@0.0.4:
-    resolution: {integrity: sha512-o/ODjALKAG1Y+oygkKRzQzU5gGJY/d1NM50fRIDaNgQ5IUkT35LZ8DeZwXhIn+TcTVfZFt6NHfXqSc1az5wKng==}
+  validated-changeset-webforms@0.0.5:
+    resolution: {integrity: sha512-i3UMXb55qDmqbQvVYUFBzlXG1s65upnPubRXzjQX8Lv2LPXh22KtqIXQQGHFdQXPuPWt/+vN+z6rEZfMduFSYg==}
 
   validated-changeset@1.4.1:
     resolution: {integrity: sha512-GPs6R5bBGP8aY+QIYaDKeO1jJvYzaUhOuZiO6nczUS7MFlgV5oOBq21ShDVrpn28308/6h2fYfC9voJKl4eMtQ==}
@@ -5171,8 +5168,6 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  lodash.mergewith@4.6.2: {}
-
   lodash@4.17.23: {}
 
   loose-envify@1.4.0:
@@ -5989,11 +5984,10 @@ snapshots:
     dependencies:
       react: 19.2.4
 
-  validated-changeset-webforms@0.0.4:
+  validated-changeset-webforms@0.0.5:
     dependencies:
       '@babel/runtime': 7.29.2
       flat: 5.0.2
-      lodash.mergewith: 4.6.2
       validated-changeset: 1.4.1
 
   validated-changeset@1.4.1:
