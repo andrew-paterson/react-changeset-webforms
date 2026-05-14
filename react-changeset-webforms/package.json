@@ -1,6 +1,6 @@
 {
   "name": "react-changeset-webforms",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "validated-changeset": "^1.4.1",
-    "validated-changeset-webforms": "^0.0.5"
+    "validated-changeset-webforms": "^0.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

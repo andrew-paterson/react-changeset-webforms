@@ -55,7 +55,7 @@ export default function Header() {
               data-version-selector=""
               class="docs-flex docs-items-center"
             >
-              0.0.2
+              0.0.4
             </span>
           </a>
 
