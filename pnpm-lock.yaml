@@ -30,8 +30,8 @@ importers:
         specifier: ^1.4.1
         version: 1.4.1
       validated-changeset-webforms:
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
@@ -103,8 +103,8 @@ importers:
         specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       validated-changeset-webforms:
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
@@ -197,8 +197,8 @@ importers:
         specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       validated-changeset-webforms:
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.9.1
@@ -2920,8 +2920,8 @@ packages:
     peerDependencies:
       react: '>= 16.8.0'
 
-  validated-changeset-webforms@0.0.7:
-    resolution: {integrity: sha512-mxK28CL+K6FS0YfKDw3anIL3mEVeOajQ0P4DxEWsYTgmy9iUD605VpgoMUMauTnOvp8Kk/XwsJcTm4BMcqdNAQ==}
+  validated-changeset-webforms@0.0.8:
+    resolution: {integrity: sha512-Pww5YRwIqSwyI836H3848v2FQY8PPL+9yV2B4lXChJROFsIOuHM+VXURj0KjNNqIZcZb0cmDGc7L63G/qmWWQA==}
 
   validated-changeset@1.4.1:
     resolution: {integrity: sha512-GPs6R5bBGP8aY+QIYaDKeO1jJvYzaUhOuZiO6nczUS7MFlgV5oOBq21ShDVrpn28308/6h2fYfC9voJKl4eMtQ==}
@@ -5978,7 +5978,7 @@ snapshots:
     dependencies:
       react: 19.2.4
 
-  validated-changeset-webforms@0.0.7:
+  validated-changeset-webforms@0.0.8:
     dependencies:
       '@babel/runtime': 7.29.2
       validated-changeset: 1.4.1

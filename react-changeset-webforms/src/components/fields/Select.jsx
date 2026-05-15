@@ -21,12 +21,12 @@ export default function Select({
     formField,
   );
 
-  // useAttrsFromConfig(
-  //   clearButtonRef,
-  //   'selectClearButton',
-  //   changesetWebform,
-  //   formField,
-  // );
+  useAttrsFromConfig(
+    clearButtonRef,
+    'selectClearButton',
+    changesetWebform,
+    formField,
+  );
 
   useAttrsFromConfig(
     selectContainer,
@@ -41,7 +41,7 @@ export default function Select({
         ? Array.from(event.target.selectedOptions).map((o) => o.value)
         : event.target.value;
       updateFieldValue(selected);
-      onUserInteraction('change', selected, event);
+      onUserInteraction('optionSelected', selected, event);
     },
     [formField, updateFieldValue, onUserInteraction],
   );
@@ -133,11 +133,6 @@ export default function Select({
         changesetWebform={changesetWebform}
         clear={clear}
       />
-      {/*  {formField.allowClear === true && formField.fieldValue != null && (
-         <button ref={clearButtonRef} onClick={clear}>
-           Clear
-         </button>
-       )} */}
     </div>
   );
 }

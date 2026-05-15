@@ -16,6 +16,12 @@ const formSchema = {
       fieldLabel: 'Country',
       placeholder: 'Select a country',
       options: ['South Africa', 'United Kingdom', 'United States', 'Germany'],
+      validationRules: [
+        {
+          validationMethod: 'validatePresence',
+          arguments: true,
+        },
+      ],
     },
   ],
 };

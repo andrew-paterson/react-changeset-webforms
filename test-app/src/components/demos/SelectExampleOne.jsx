@@ -20,6 +20,12 @@ const formSchema = {
         { value: 'us', label: 'United States' },
         { value: 'de', label: 'Germany' },
       ],
+      validationRules: [
+        {
+          validationMethod: 'validatePresence',
+          arguments: true,
+        },
+      ],
     },
   ],
 };

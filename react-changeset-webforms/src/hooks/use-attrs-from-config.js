@@ -54,6 +54,10 @@ export default function useAttrsFromConfig(
       formField,
       element,
     );
+    if (names.includes('selectContainer')) {
+      console.log('Run');
+      console.log('Class names from config:', classNames);
+    }
     element.classList.remove(
       ...classNames.filter((c) => c.startsWith('!')).map((c) => c.slice(1)),
     );

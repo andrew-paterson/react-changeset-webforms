@@ -98,8 +98,12 @@ export default {
       addCloneButtonIcon: [],
       removeCloneButtonIcon: ['fill-gray-medium', 'remove-clone-icon'],
       // fieldType === 'select'
-      selectContainer: ['d-flex'],
-      selectElement: ['form-select'],
+      selectContainer: ['d-flex', '$validationClassNames', 'validation-area'],
+      selectElement: [
+        'form-select',
+        '$validationClassNames',
+        'validation-area',
+      ],
       selectClearButton: ['btn', 'btn-outline-primary', 'ms-2'],
       // fieldType === 'powerSelect'
       powerSelectTrigger: [
@@ -369,7 +373,7 @@ export default {
       // `props` can be included to pass state or data to the component, accessible as {{@props}}.
       // `@changesetWebform and @formField are passed to the component.
       selectedItemComponent: null, // The imported class of the component to pass to the Power Select component. See https://ember-power-select.com/docs/api-reference
-      validatesOn: ['$inherited', 'valueUpdated'], // Array of strings
+      validatesOn: ['$inherited', 'valueUpdated', 'optionSelected'], // Array of strings
       // END-SNIPPET
       componentClass: SelectComponent,
     },
