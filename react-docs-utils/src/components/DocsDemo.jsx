@@ -31,7 +31,9 @@ export default function DocsDemo({ children }) {
               </button>
             ))}
           </nav>
-          <div className="docs-demo__snippet-wrapper">{snippets[activeIndex]}</div>
+          <div className="docs-demo__snippet-wrapper">
+            {snippets[activeIndex]}
+          </div>
         </div>
       )}
     </div>

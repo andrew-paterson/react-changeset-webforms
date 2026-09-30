@@ -4,7 +4,7 @@ export default function Index() {
   return (
     <>
       <div className="docs-md">
-        <h1 id="what-is-react-changset-webforms" class="docs-md__h1">
+        <h1 id="what-is-react-changeset-webforms" class="docs-md__h1">
           What is React Changeset Webforms
         </h1>
         <p>

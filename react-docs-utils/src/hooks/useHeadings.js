@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
  * Re-scans whenever `deps` changes (typically pass the route/page identity
  * so headings update when navigating between docs pages).
  */
-export default function useHeadings(containerRef, { selector = 'h2[id], h3[id]', deps = [] } = {}) {
+export default function useHeadings(
+  containerRef,
+  { selector = 'h2[id], h3[id]', deps = [] } = {},
+) {
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {

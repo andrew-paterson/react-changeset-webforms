@@ -4,9 +4,30 @@ import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
 import './App.css';
 
+// Pages compiled in-memory from markdown/docs/*.md via the
+// docsMarkdownPagesPlugin. Edits to the .md source are picked up live in
+// dev (full reload) with no build step required.
+//
+// Only pages whose generated output exactly matches their current
+// src/pages/*.jsx file are sourced this way (verified via
+// scripts/diff-check.mjs). Pages with hand-edits beyond what the markdown
+// generator produces remain on static imports below until their edits are
+// migrated into the markdown source.
+import docsPages from 'virtual:docs-pages';
+const ConfigurationOptions = docsPages['configuration-options'];
+const Input = docsPages['input'];
+const Textarea = docsPages['textarea'];
+const SingleCheckbox = docsPages['single-checkbox'];
+const StaticContentField = docsPages['static-content-field'];
+const HidingAndShowingFields = docsPages['hiding-and-showing-fields'];
+const FormMethods = docsPages['form-methods'];
+const FieldMethods = docsPages['field-methods'];
+const DebugMode = docsPages['debug-mode'];
+const TestHelpers = docsPages['test-helpers'];
+
+// Hand-edited beyond generated output (see diff-check.mjs) — kept static.
 import Index from './pages/Index.jsx';
 import BasicUsage from './pages/BasicUsage.jsx';
-import ConfigurationOptions from './pages/ConfigurationOptions.jsx';
 import CreatingCustomFields from './pages/CreatingCustomFields.jsx';
 import ActionHandling from './pages/ActionHandling.jsx';
 import FormSettings from './pages/FormSettings.jsx';
@@ -17,20 +38,11 @@ import IntegratingCustomValidators from './pages/IntegratingCustomValidators.jsx
 import ClonableFormFields from './pages/ClonableFormFields.jsx';
 import CustomComponents from './pages/CustomComponents.jsx';
 import ManipulatingElementClassNamesAndAttrs from './pages/ManipulatingElementClassNamesAndAttrs.jsx';
-import Input from './pages/Input.jsx';
-import Textarea from './pages/Textarea.jsx';
-import SingleCheckbox from './pages/SingleCheckbox.jsx';
 import RadioButtonGroup from './pages/RadioButtonGroup.jsx';
 import CheckboxGroup from './pages/CheckboxGroup.jsx';
-import StaticContentField from './pages/StaticContentField.jsx';
 import Clicker from './pages/Clicker.jsx';
 import Select from './pages/Select.jsx';
 
-import HidingAndShowingFields from './pages/HidingAndShowingFields.jsx';
-import FormMethods from './pages/FormMethods.jsx';
-import FieldMethods from './pages/FieldMethods.jsx';
-import DebugMode from './pages/DebugMode.jsx';
-import TestHelpers from './pages/TestHelpers.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Home from './pages/Home.jsx';
 

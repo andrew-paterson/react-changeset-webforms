@@ -35,10 +35,7 @@ export default function DocsCodeHighlight({ language, children }) {
 
   return (
     <pre>
-      <code
-        ref={ref}
-        className={language ? `language-${language}` : undefined}
-      >
+      <code ref={ref} className={language ? `language-${language}` : undefined}>
         {children}
       </code>
     </pre>

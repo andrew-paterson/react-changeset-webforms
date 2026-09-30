@@ -43,8 +43,8 @@ Already registered in `pnpm-workspace.yaml`. Add as a dependency:
   "scripts": {
     "create-snippets": "node ../react-docs-utils/bin/create-snippets.js ./src ../some-addon/src -o ./src/snippets.js",
     "predev": "pnpm create-snippets",
-    "prebuild": "pnpm create-snippets"
-  }
+    "prebuild": "pnpm create-snippets",
+  },
 }
 ```
 
@@ -95,10 +95,7 @@ import { DocsDemo, DocsExample, DocsSnippet } from 'react-docs-utils';
   <DocsExample name="my-example.js">
     <MyLiveComponent />
   </DocsExample>
-  <DocsSnippet
-    name="my-example.js"
-    label="my-example.js"
-  />
+  <DocsSnippet name="my-example.js" label="my-example.js" />
 </DocsDemo>;
 ```
 

@@ -14,12 +14,16 @@ export default function useActiveHeading(headings) {
       return;
     }
 
-    const elements = headings.map((h) => document.getElementById(h.id)).filter(Boolean);
+    const elements = headings
+      .map((h) => document.getElementById(h.id))
+      .filter(Boolean);
     if (!elements.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) {
           setActiveId(visible[0].target.id);
         }

@@ -9,11 +9,11 @@ export default function BasicUsage() {
           Basic usage
         </h1>
         <p>
-          Define your form, including its fields, and their validation rules in an object like
-          the one below, and pass this to the <code>ChangesetWebform</code>{' '}
-          component as the <code>formSchema</code> property, and that's it! The
-          form will be rendered and all validation behaviours will work without
-          any further template code.
+          Define your form, including its fields, and their validation rules in
+          an object like the one below, and pass this to the{' '}
+          <code>ChangesetWebform</code> component as the <code>formSchema</code>{' '}
+          property, and that's it! The form will be rendered and all validation
+          behaviours will work without any further template code.
         </p>
 
         <LoginFormDemo />

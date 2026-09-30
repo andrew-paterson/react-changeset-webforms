@@ -93,8 +93,8 @@ export default function FieldValidation() {
         </h3>
         <p>
           Validators can be added at the app wide level in{' '}
-          <code>services/ember-changeset-webfornms.js</code> as below. We first
-          import the validators in the service as above and then add them to the{' '}
+          <code>utils/app-defaults.js</code> as below. We first import the
+          validators in the service as above and then add them to the{' '}
           <code>changesetWebformsDefaults</code> object as below.
         </p>
 
@@ -141,20 +141,20 @@ export default function FieldValidation() {
         <p>
           This addon uses{' '}
           <a
-            href="https://github.com/poteto/ember-changeset-validations"
+            href="https://github.com/poteto/react-changeset-validations"
             class="docs-md__a"
           >
-            Ember Changeset Validations
+            React Changeset Validations
           </a>{' '}
           to handle validation, and also as its default library of validators.
         </p>
         <p>
           The{' '}
           <a
-            href="https://github.com/poteto/ember-changeset-validations#usage"
+            href="https://github.com/poteto/react-changeset-validations#usage"
             class="docs-md__a"
           >
-            Ember Changeset Validations usage documentation
+            React Changeset Validations usage documentation
           </a>{' '}
           outlines how you create a validation map and then pass that map to the
           changeset generator, so that the validations are integrated into your

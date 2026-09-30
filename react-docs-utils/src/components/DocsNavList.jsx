@@ -9,7 +9,12 @@ import DocsNavItem from './DocsNavItem.jsx';
  *     linkComponent={Link}
  *   />
  */
-export default function DocsNavList({ title, items = [], currentPath, linkComponent }) {
+export default function DocsNavList({
+  title,
+  items = [],
+  currentPath,
+  linkComponent,
+}) {
   return (
     <>
       <li className="docs-nav-list__title">{title}</li>

@@ -19,17 +19,18 @@ export function useDocsSectionHeadings() {
  *     ...
  *   </DocsSection>
  */
-export default function DocsSection({ children, deps = [], className = 'docs-md', ...rest }) {
+export default function DocsSection({
+  children,
+  deps = [],
+  className = 'docs-md',
+  ...rest
+}) {
   const containerRef = useRef(null);
   const headings = useHeadings(containerRef, { deps });
 
   return (
     <DocsSectionContext.Provider value={headings}>
-      <div
-        ref={containerRef}
-        className={className}
-        {...rest}
-      >
+      <div ref={containerRef} className={className} {...rest}>
         {children}
       </div>
     </DocsSectionContext.Provider>

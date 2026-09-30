@@ -6,7 +6,13 @@ import OnThisPage from './OnThisPage.jsx';
  * The middle slot should contain a <DocsSection> so OnThisPage can pick up
  * its headings automatically.
  */
-export default function DocsMain({ navSections, currentPath, linkComponent, isNavOpen, children }) {
+export default function DocsMain({
+  navSections,
+  currentPath,
+  linkComponent,
+  isNavOpen,
+  children,
+}) {
   return (
     <div className="docs-main">
       <DocsNav

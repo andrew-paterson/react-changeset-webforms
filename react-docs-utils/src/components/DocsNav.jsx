@@ -5,7 +5,13 @@ import DocsNavList from './DocsNavList.jsx';
  * required per page. `sections` shape:
  *   [{ title: 'Introduction', items: [{ to, label }, ...] }, ...]
  */
-export default function DocsNav({ sections = [], currentPath, linkComponent, isOpen, className = '' }) {
+export default function DocsNav({
+  sections = [],
+  currentPath,
+  linkComponent,
+  isOpen,
+  className = '',
+}) {
   return (
     <div className={`docs-nav${isOpen ? ' show-mobile' : ''} ${className}`}>
       <nav className="docs-nav__inner">

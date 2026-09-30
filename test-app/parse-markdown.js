@@ -2,7 +2,7 @@ import prettier from 'prettier';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { marked } from 'marked';
+import { Marked, Renderer } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import { parse as htmlParse } from 'node-html-parser';
 import hljs from 'highlight.js/lib/core';
@@ -52,9 +52,17 @@ const htmlComponent = {
   },
 };
 
-marked.use({ extensions: [htmlComponent] });
+// Scoped Marked instance (rather than mutating the module-level default
+// export) so that registering extensions/highlighting here is safe even if
+// this module is re-evaluated multiple times, e.g. by a dev server's HMR /
+// module-invalidation cycle. Mutating the shared default `marked` singleton
+// would otherwise accumulate duplicate extensions on every re-import,
+// causing code blocks to be syntax-highlighted multiple times over.
+const markedInstance = new Marked();
 
-marked.use(
+markedInstance.use({ extensions: [htmlComponent] });
+
+markedInstance.use(
   markedHighlight({
     langPrefix: 'hljs language-',
     highlight(code, language) {
@@ -63,7 +71,7 @@ marked.use(
   }),
 );
 
-class DocsRenderer extends marked.Renderer {
+class DocsRenderer extends Renderer {
   codespan() {
     return super.codespan.apply(this, arguments);
   }
@@ -120,7 +128,7 @@ class DocsRenderer extends marked.Renderer {
 }
 
 function compileMarkdown(source) {
-  return marked.parse(source, { renderer: new DocsRenderer() });
+  return markedInstance.parse(source, { renderer: new DocsRenderer() });
 }
 
 // Decode HTML entities that marked emits in prose text, so the JSX output

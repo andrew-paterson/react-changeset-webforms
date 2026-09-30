@@ -11,7 +11,9 @@ const DEFAULT_SHORTCUTS = [
  * Renders a button that opens a modal listing keyboard shortcuts.
  * Pass your own `shortcuts` array of { keys: string[], description }.
  */
-export default function DocsKeyboardShortcuts({ shortcuts = DEFAULT_SHORTCUTS }) {
+export default function DocsKeyboardShortcuts({
+  shortcuts = DEFAULT_SHORTCUTS,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,7 +39,9 @@ export default function DocsKeyboardShortcuts({ shortcuts = DEFAULT_SHORTCUTS })
                   <kbd key={key}>{key}</kbd>
                 ))}
               </span>
-              <span className="docs-keyboard-shortcuts__description">{shortcut.description}</span>
+              <span className="docs-keyboard-shortcuts__description">
+                {shortcut.description}
+              </span>
             </li>
           ))}
         </ul>

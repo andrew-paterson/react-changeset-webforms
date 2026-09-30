@@ -10,7 +10,11 @@ const SnippetsContext = createContext([]);
  *   </SnippetsProvider>
  */
 export function SnippetsProvider({ snippets = [], children }) {
-  return <SnippetsContext.Provider value={snippets}>{children}</SnippetsContext.Provider>;
+  return (
+    <SnippetsContext.Provider value={snippets}>
+      {children}
+    </SnippetsContext.Provider>
+  );
 }
 
 export function useSnippet(name) {
