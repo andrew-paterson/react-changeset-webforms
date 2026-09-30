@@ -6,7 +6,7 @@
   "module": "./src/components/ChangesetWebform.jsx",
   "exports": {
     ".": "./src/components/ChangesetWebform.jsx",
-    "./*": "./src/*"
+    "./*": "./*"
   },
   "scripts": {
     "dev": "vite",

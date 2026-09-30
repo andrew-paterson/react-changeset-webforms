@@ -1,0 +1,22 @@
+{
+  "name": "react-docs-utils",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "create-snippets": "node ./bin/create-snippets.js"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "react-live": "^4.1.8"
+  }
+}

@@ -2,5 +2,6 @@ packages:
   - 'react-changeset-webforms'
   - 'react-qunit'
   - 'react-qunit-test-helpers'
+  - 'react-docs-utils'
   - 'test-app'
   - 'test-app-nextjs'

@@ -25,6 +25,7 @@
     "react": "^19.2.0",
     "react-changeset-webforms": "workspace:*",
     "react-dom": "^19.2.0",
+    "react-docs-utils": "workspace:*",
     "react-live": "^4.1.8",
     "react-router-dom": "^7.13.2",
     "validated-changeset-webforms": "^0.0.8"
