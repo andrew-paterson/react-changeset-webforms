@@ -24,8 +24,8 @@ Custom parsers can be used to manipulate field definitions that are passed to th
 
 It receives a single argument, `field` and must also return the `field`.
 
-You can define a `customParser` method for all fields by adding it to the `changesetWebformsDefaults.fieldSettings` in `utils/app-defaults.js`.
+You can define a `customParser` method for all fields by adding it to `fieldSettings` in `utils/app-defaults.js`.
 
-You can also define `customParser` for a specific field type, in the relevant object in `changesetWebformsDefaults.fieldTypes` in `utils/app-defaults.js`.
+You can also define `customParser` for a specific field type, in the relevant object in `fieldTypes` in `utils/app-defaults.js`.
 
 <FieldSettingsCustomParserDemo />

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 # Debug mode
 
-Debug mode can be switched globally, by setting `debug = true` in the `services/ember-changeset-webforms.js`.
+Debug mode can be switched globally, by setting `debug: true` in `utils/app-defaults.js`.
 
 It can also be switched on for a single instance of the `ChangesetWebform` component by passing `@debug={{true}}` to the component.
 

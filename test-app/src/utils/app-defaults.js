@@ -11,7 +11,7 @@ export default {
   validators: defaultValidators,
   // END-SNIPPET
   // BEGIN-SNIPPET app-wide-classes.js
-  // In services/ember-changeset-webforms.js at changesetWebformsDefaults.attrsFromConfig
+  // In utils/app-defaults.js at attrsFromConfig
   attrsFromConfig: {
     classNames: {
       labelElement: ['$inherited', 'app-wide-label-element-class'],
@@ -34,7 +34,7 @@ export default {
     },
   },
   // BEGIN-SNIPPET custom-parser-for-all-fields.js
-  // In services/ember-changeset-webforms.js at changesetWebformsDefaults.fieldSettings
+  // In utils/app-defaults.js at fieldSettings
   fieldSettings: {
     customParser(field) {
       if (field.fieldLabel && typeof field.fieldLabel === 'string') {
@@ -45,7 +45,7 @@ export default {
     },
   },
   // BEGIN-SNIPPET app-wide-field-options.js
-  // In services/ember-changeset-webforms.js at changesetWebformsDefaults.fieldTypes
+  // In utils/app-defaults.js at fieldTypes
   fieldTypes: [
     {
       fieldType: 'radioButtonGroup',
@@ -73,7 +73,7 @@ export default {
     },
     // END-SNIPPET
     // BEGIN-SNIPPET custom-parser-in-service.js
-    // In the changesetWebformsDefaults object at changesetWebformsDefaults.fieldTypes
+    // In utils/app-defaults.js at fieldTypes
     {
       fieldType: 'input',
       customParser(field) {

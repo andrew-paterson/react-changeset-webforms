@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 ## Overview
 
-You can create your own custom fields by simply creating a component will all the required markup and behavious, and then adding an entry to `changesetWebformsDefaults.fieldTypes` in `config/environment.js`, where you provide a namepace for the new field, and give the path to the component as `componentClass`.
+You can create your own custom fields by simply creating a component will all the required markup and behavious, and then adding an entry to `fieldTypes` in `utils/app-defaults.js`, where you provide a namepace for the new field, and give the path to the component as `componentClass`.
 
 ## Example usage
 
@@ -22,9 +22,9 @@ The demo below shows the code that would be used to add the field to a formSchem
 
 ## Defining the field
 
-Create a service named `ember-changeset-webforms.js`.
+Create `utils/app-defaults.js`, and pass its default export to `ChangesetWebformsProvider` as the `config` prop, wrapping your app.
 
-We add an entry to the `changesetWebformsDefaults.fieldTypes` array in our `services/ember-chnageset-webforms.js`, with a fieldType of `phoneNumberWithCountryCode`. The only other required field is `componentClass`, the imported class definition of our custom field component. We can add any other default field options that we would like to.
+We add an entry to the `fieldTypes` array in `utils/app-defaults.js`, with a fieldType of `phoneNumberWithCountryCode`. The only other required field is `componentClass`, the imported class definition of our custom field component. We can add any other default field options that we would like to.
 
 In this case we add some default class names to the `fieldControls` element which wraps all fields. See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link>.
 
@@ -34,7 +34,7 @@ The `alwaysValidatesOn` array allows us to specify events that will always trigg
 
 Note that the addon will always force field validation on `submit`, so there is no need to include it.
 
-<DocsSnippet name="custom-field-definition.js" title="services/ember-changeset-webforms.js" language="javascript" />
+<DocsSnippet name="custom-field-definition.js" title="utils/app-defaults.js" language="javascript" />
 
 ## Creating the custom field
 

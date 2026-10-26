@@ -60,8 +60,8 @@ The addon implements defaults which can be found in the `attrsFromConfig` object
 
 In order to override these defaults, an `attrsFromConfig` object can included in the following places, listed in order of specificity.
 
-1. **[App level configuration](#1-app-level-configuration)** - `changesetWebformsDefaults.attrsFromConfig` in `services/ember-changeset-webforms.js` (Applied throuought the app wide config)
-2. **[App level configuration - field type specific](#2-app-level-configuration-field-type-specific)** - Any of the field types `changesetWebformsDefaults.fieldTypes` in `services/ember-changeset-webforms.js` (Applied throuought the app wide config)
+1. **[App level configuration](#1-app-level-configuration)** - `attrsFromConfig` in `utils/app-defaults.js` (Applied throuought the app wide config)
+2. **[App level configuration - field type specific](#2-app-level-configuration-field-type-specific)** - Any of the field types in `fieldTypes` in `utils/app-defaults.js` (Applied throuought the app wide config)
 3. **[Form level configuration](#3-form-level-configuration)** - `@formSchema.attrsFromConfig` (Applied to a specific instance of a `ChangesetWebform` component)
 4. **[Form level configuration - field type specific](#4-form-level-configuration-field-type-specific)** - Any of the field types defined in `@formSchema.fieldSettings.fieldTypes` (Applied to all fields with the specified `fieldType`, within specific instance of a `ChangesetWebform` component)
 5. **[Field level configuration](#5-field-level-configuration)** - `field.attrsFromConfig` where field is the definition of a specidfic field in `@formSchema.fields`.
@@ -72,13 +72,13 @@ At each level, the merged value of `attrsFromConfig` will be inherited, so you o
 
 ### 1. App level configuration
 
-The example below shows how to the `ember-changeset-webforms` service can be used to add the class name `app-wide-label-element-class` to all label elements throughout the app.
+The example below shows how the app wide config in `utils/app-defaults.js` can be used to add the class name `app-wide-label-element-class` to all label elements throughout the app.
 
 <AppWideFieldSettingsOverriddenDemo />
 
 ### 2. App level configuration - field type specific
 
-The example below shows how the `ember-changeset-webforms` service can be used to add the class name `app-wide-radio-button-group-label-element-class` to all label elements within fields with type `radioButtonGroup` throughout the app.
+The example below shows how the app wide config in `utils/app-defaults.js` can be used to add the class name `app-wide-radio-button-group-label-element-class` to all label elements within fields with type `radioButtonGroup` throughout the app.
 
 Thus, the class name is added to all radio option labels throughout the app.
 

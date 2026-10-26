@@ -34,7 +34,7 @@ Custom validators can be imported from anywhere. See <Link to="/docs/integrating
 
 ### Integrating validator functions app wide
 
-Validators can be added at the app wide level in `utils/app-defaults.js` as below. We first import the validators in the service as above and then add them to the `changesetWebformsDefaults` object as below.
+Validators can be added at the app wide level in `utils/app-defaults.js` as below. We first import the validators in that file as above and then add them to the `validators` property as below.
 
 <DocsSnippet name="app-wide-validators.js" title="Including validators app wide" />
 
