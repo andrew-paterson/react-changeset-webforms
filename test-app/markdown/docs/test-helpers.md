@@ -127,7 +127,7 @@ First, import the helper. In this example, we also import the default options ha
 
 ```javascript
 import { passedValidation } from 'react-changeset-webforms/src/test-support/helpers';
-import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support/validation-test-helpers-defaults';
+import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
 ```
 
 **Examples**
@@ -174,7 +174,7 @@ First, import the helper. In this example, we also import the default options ha
 
 ```javascript
 import { failedValidation } from 'react-changeset-webforms/src/test-support/helpers';
-import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support/validation-test-helpers-defaults';
+import validationTestHelpersDefaults from 'react-changeset-webforms/src/test-support/validation-test-helpers-defaults';
 ```
 
 **Examples**

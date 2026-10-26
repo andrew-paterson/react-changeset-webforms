@@ -23,7 +23,7 @@ The full set of default validators shipped by [Ember Changeset Validations](http
 
 Note that we can also import a subset of validations, if we don't intend on using all of the default ones, and we'd prefer to avoid importing validators that we don't need.
 
-The snippet below shows the full set of default validators imported in `ember-changeset-webforms/utils/default-validators` (Used above).
+The snippet below shows the full set of default validators imported in `react-changeset-webforms/src/utils/default-validators` (Used above).
 Rather than importing the default validators, we could import a subset of those shown below.
 
 <DocsSnippet name="ember-changeset-validations-default-validators.js" title="The full set of default validators" />

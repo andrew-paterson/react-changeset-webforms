@@ -66,8 +66,8 @@ export default {
       attrsFromConfig: {
         classNames: {
           fieldControls: ['$validationClassNames', 'form-control', 'p-0', 'bg-white'],
-          phoneNumberInput: ['form-control ', 'border', 'border-0', 'border-start', '$validationPseudoClasses'],
-          countryCodeTrigger: ['input-group-text ', 'pe-5 ', 'border ', 'border-0'],
+          phoneNumberInput: ['form-control', 'border', 'border-0', 'border-start', '$validationPseudoClasses'],
+          countryCodeTrigger: ['input-group-text', 'pe-5', 'border', 'border-0'],
         },
       },
     },

@@ -28,7 +28,7 @@ We add an entry to the `fieldTypes` array in `utils/app-defaults.js`, with a fie
 
 In this case we add some default class names to the `fieldControls` element which wraps all fields. See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link>.
 
-We also add class name defaults for `phoneNumberInput` and `countryCodeTrigger`. We will tell out component which element these classnames should using the `class-names-from-config` helper (See below).
+We also add class name defaults for `phoneNumberInput` and `countryCodeTrigger`. We will tell out component which element these classnames should using the `useAttrsFromConfig` hook (See below).
 
 The `alwaysValidatesOn` array allows us to specify events that will always trigger field validation, even if that event is not included in the `validatesOn` array where the field is onvoked in a formSchema.
 
@@ -64,44 +64,35 @@ In response to the relevant browser events, the two power select and input call 
 - `inputKeyUp`
 - `inputChange`
 
-### Using the `attrs-from-config` hook to add attributes from config
+### Using the `useAttrsFromConfig` hook to add attributes from config
 
-TODO inline example
+The `useAttrsFromConfig` hook receives four arguments:
 
-The `attrs-from-config` hook receives three arguments:
-
+- `ref` (required) - a React ref to the element to add the attributes to.
 - `propName` (required) - the property of the classNames config object to get element class names from (See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link>)
-- `changesetWebform` (required) - the changeset webform instance. Accessible in the template via the `@changesetWebform` prop.
-- @formField (required) - the formField instance. Accessible in the template via the `@formField` prop.
+- `changesetWebform` (required) - the changeset webform instance. Passed to your component as the `changesetWebform` prop.
+- `formField` (required) - the formField instance. Passed to your component as the `formField` prop.
 
-The `attrs-from-config` hook does the following:
+The `useAttrsFromConfig` hook does the following:
 
 - finds the array of class names from config which are assigned to the namespace passed in the first argument, and adds those to the element.
 - if `$validationClassNames` is one of the items in the array of class names, it also updates the element classes to include or exclude the validation classes, in accordance with the validation status of the field. The validation classes are defined in the the `validClassNames` and `invalidClassNames` props of the class names config.
-- if `$validationPseudoClasses` is one of the items in the array of class names, _and_ the element in question is a form element, the modifier will add `data-set-custom-validity=true` to the element. Then, whenever the field is validated, all elements within that field with `data-set-custom-validity=true` will have their [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) method called with any validation errors. This allows the broweser to add the `:valid` or `:invalid` pseudo classes to the elements as appropriate.
+- if `$validationPseudoClasses` is one of the items in the array of class names, _and_ the element in question is a form element, the hook will add `data-set-custom-validity=true` to the element. Then, whenever the field is validated, all elements within that field with `data-set-custom-validity=true` will have their [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) method called with any validation errors. This allows the broweser to add the `:valid` or `:invalid` pseudo classes to the elements as appropriate.
 
 See the example in the input field in the example below.
 
 <CustomFieldDemo />
 
-### Invoking class names from config where a modifier can't work
+### Applying class names from config
 
-It might not always be appropriate or possible to use the `attr-from-config` modifier to add classes to an element. This is especially true when you don't have access to the elements within a component.
+In the example below, `useAttrsFromConfig` is called once for the country code select and once for the phone number input, each with its own ref.
 
-The `@triggerClass` property of the `PowerSelect` component is a good example. We're not able to invoke the `attrs-from-config` modifier on the trigger component, because it's inside the PowerSelect component, which we don't have access to.
+<DocsSnippet name="custom-field-component.jsx" />
 
-In the case, we can invoke class names from config by using the `ember-changeset-webforms/class-names-from-config` helper. See the `@triggerClass` prop in the example below. This helper simply returns the class names as a space separated string.
+The call with `'countryCodeTrigger'` applies the class names found in `classNames.countryCodeTrigger` in the field's options to the select element.
 
-<DocsSnippet name="custom-field-component.hbs" />
-
-Notice the use of the `ember-changeset-webforms/class-names-from-config`, both as `@triggerClass` on the power select, and `class` on the input. The example below would output the classnames found in `classNames.countryCodeTrigger` in the fields options, because `countryCodeTrigger` is the first argument passed to the helper.
-
-```handlebars
-@triggerClass="{{ember-changeset-webforms/class-names-from-config
-  'countryCodeTrigger'
-  @changesetWebform
-  @formField
-}}"
+```jsx
+useAttrsFromConfig(countryCodeRef, 'countryCodeTrigger', changesetWebform, formField);
 ```
 
 Of course you could hard code the class names into your template if you don't care about having the option to override them, but doing it this way gives you the ability to override these class names in any particular usage of the field.
@@ -114,22 +105,22 @@ In some cases the attributes of a form element in your custom field may have cor
 
 For example, the phone number input uses formField properties to set attribute sint he following way:
 
-```handlebars
-readonly={{@formField.readonly}}
-disabled={{@formField.disabled}}
-required={{@formField.required}}
-name={{concat @formField.name '-phone-number-input'}}
+```jsx
+readOnly={formField.readonly}
+disabled={formField.disabled}
+required={formField.required}
+name={`${formField.name}-phone-number-input`}
 ```
 
 ### Accessibility
 
 In our example, both the power select component and the input have the following aria properties added:
 
-```handlebars
-ariaLabelledBy={{@ariaLabelledBy}}
-aria-label={{@ariaLabel}}
-aria-errormessage={{@ariaErrorMessage}}
-aria-describedby={{@ariaDescribedBy}}
+```jsx
+aria-labelledby={ariaLabelledBy}
+aria-label={ariaLabel}
+aria-errormessage={ariaErrorMessage}
+aria-describedby={ariaDescribedBy}
 ```
 
 These are passed into the component for you, and you only need to add them to the relevant elements in your custom field, exactly as they appear above. The field label, description and error elements of the field will automatically have the corresponding ids, allowing all the the above attrionutes to work correctly with screen readers.

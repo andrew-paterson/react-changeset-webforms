@@ -1,5 +1,8 @@
 // BEGIN-SNIPPET custom-field-component.jsx
 // components/custom-fields/PhoneNumberWithCountryCode.jsx
+import { useRef } from 'react';
+import useAttrsFromConfig from 'react-changeset-webforms/src/hooks/use-attrs-from-config.js';
+
 const COUNTRY_CODES = [
   { name: 'Afghanistan', code: '93' },
   { name: 'Albania', code: '355' },
@@ -27,6 +30,7 @@ function buildFieldValue(countryCode, phoneNumber) {
 
 export default function PhoneNumberWithCountryCode({
   formField,
+  changesetWebform,
   updateFieldValue,
   onUserInteraction,
   ariaLabelledBy,
@@ -34,6 +38,11 @@ export default function PhoneNumberWithCountryCode({
   ariaErrorMessage,
   ariaDescribedBy,
 }) {
+  const countryCodeRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+  useAttrsFromConfig(countryCodeRef, 'countryCodeTrigger', changesetWebform, formField);
+  useAttrsFromConfig(phoneNumberRef, 'phoneNumberInput', changesetWebform, formField);
+
   const fieldValueObject = parseFieldValue(formField.fieldValue);
 
   function handleCodeChange(event) {
@@ -74,6 +83,7 @@ export default function PhoneNumberWithCountryCode({
   return (
     <div className="input-group padding-0 d-flex">
       <select
+        ref={countryCodeRef}
         className="form-select flex-shrink-1"
         value={fieldValueObject.countryCode}
         onChange={handleCodeChange}
@@ -93,6 +103,7 @@ export default function PhoneNumberWithCountryCode({
         ))}
       </select>
       <input
+        ref={phoneNumberRef}
         id={formField.id}
         className=" flex-grow-1"
         type="text"
