@@ -4,28 +4,11 @@ import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
 import './App.css';
 
-// Pages compiled in-memory from markdown/docs/*.md via the
-// docsMarkdownPagesPlugin. Edits to the .md source are picked up live in
-// dev (full reload) with no build step required.
-//
-// Only pages whose generated output exactly matches their current
-// src/pages/*.jsx file are sourced this way (verified via
-// scripts/diff-check.mjs). Pages with hand-edits beyond what the markdown
-// generator produces remain on static imports below until their edits are
-// migrated into the markdown source.
+// Pages compiled in-memory from markdown/docs/*.md via docsMarkdownPagesPlugin.
+// Which pages are included is controlled by LIVE_MARKDOWN_PAGES in vite.config.js.
 import docsPages from 'virtual:docs-pages';
-const ConfigurationOptions = docsPages['configuration-options'];
-const Input = docsPages['input'];
-const Textarea = docsPages['textarea'];
-const SingleCheckbox = docsPages['single-checkbox'];
-const StaticContentField = docsPages['static-content-field'];
-const HidingAndShowingFields = docsPages['hiding-and-showing-fields'];
-const FormMethods = docsPages['form-methods'];
-const FieldMethods = docsPages['field-methods'];
-const DebugMode = docsPages['debug-mode'];
-const TestHelpers = docsPages['test-helpers'];
 
-// Hand-edited beyond generated output (see diff-check.mjs) — kept static.
+// Static fallbacks; a page with the same slug in docsPages takes precedence.
 import Index from './pages/Index.jsx';
 import BasicUsage from './pages/BasicUsage.jsx';
 import CreatingCustomFields from './pages/CreatingCustomFields.jsx';
@@ -46,6 +29,28 @@ import Select from './pages/Select.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Home from './pages/Home.jsx';
 
+const staticPages = {
+  index: Index,
+  'basic-usage': BasicUsage,
+  'creating-custom-fields': CreatingCustomFields,
+  'action-handling': ActionHandling,
+  'form-settings': FormSettings,
+  'field-settings': FieldSettings,
+  'form-submission': FormSubmission,
+  'field-validation': FieldValidation,
+  'integrating-custom-validators': IntegratingCustomValidators,
+  'clonable-form-fields': ClonableFormFields,
+  'custom-components': CustomComponents,
+  'manipulating-element-class-names-and-attrs':
+    ManipulatingElementClassNamesAndAttrs,
+  'radio-button-group': RadioButtonGroup,
+  'checkbox-group': CheckboxGroup,
+  clicker: Clicker,
+  select: Select,
+};
+
+const pages = { ...staticPages, ...docsPages };
+
 function DocsLayout() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
 
@@ -62,47 +67,13 @@ function DocsLayout() {
       <MainNav isMenuToggled={isMenuToggled} />
       <main className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="basic-usage" element={<BasicUsage />} />
-          <Route
-            path="configuration-options"
-            element={<ConfigurationOptions />}
-          />
-          <Route
-            path="creating-custom-fields"
-            element={<CreatingCustomFields />}
-          />
-          <Route path="action-handling" element={<ActionHandling />} />
-          <Route path="form-settings" element={<FormSettings />} />
-          <Route path="field-settings" element={<FieldSettings />} />
-          <Route path="form-submission" element={<FormSubmission />} />
-          <Route path="field-validation" element={<FieldValidation />} />
-          <Route
-            path="integrating-custom-validators"
-            element={<IntegratingCustomValidators />}
-          />
-          <Route path="clonable-form-fields" element={<ClonableFormFields />} />
-          <Route path="custom-components" element={<CustomComponents />} />
-          <Route
-            path="manipulating-element-class-names-and-attrs"
-            element={<ManipulatingElementClassNamesAndAttrs />}
-          />
-          <Route path="input" element={<Input />} />
-          <Route path="textarea" element={<Textarea />} />
-          <Route path="single-checkbox" element={<SingleCheckbox />} />
-          <Route path="radio-button-group" element={<RadioButtonGroup />} />
-          <Route path="checkbox-group" element={<CheckboxGroup />} />
-          <Route path="static-content-field" element={<StaticContentField />} />
-          <Route path="clicker" element={<Clicker />} />
-          <Route path="select" element={<Select />} />
-          <Route
-            path="hiding-and-showing-fields"
-            element={<HidingAndShowingFields />}
-          />
-          <Route path="form-methods" element={<FormMethods />} />
-          <Route path="field-methods" element={<FieldMethods />} />
-          <Route path="debug-mode" element={<DebugMode />} />
-          <Route path="test-helpers" element={<TestHelpers />} />
+          {Object.entries(pages).map(([slug, Page]) => (
+            <Route
+              key={slug}
+              path={slug === 'index' ? '/' : slug}
+              element={<Page />}
+            />
+          ))}
         </Routes>
       </main>
     </div>

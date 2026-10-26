@@ -134,12 +134,16 @@ function compileMarkdown(source) {
 // Decode HTML entities that marked emits in prose text, so the JSX output
 // contains the actual characters rather than escape sequences.
 function decodeEntities(html) {
-  return html
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>');
+  // Inside <code>, &lt; &gt; &amp; must stay escaped or the JSX won't parse.
+  return html.replace(/(<code[^>]*>[\s\S]*?<\/code>)|[^<]+|</g, (chunk, code) => {
+    if (code) return code.replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+    return chunk
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>');
+  });
 }
 
 // Convert kebab-case filename base to PascalCase component name.
@@ -164,8 +168,14 @@ export async function parseMarkdown(inputPath) {
   // Remove @ sigils from named props: @name="foo" → name="foo"
   html = html.replace(/\s@([a-zA-Z])/g, ' $1');
 
-  // Strip legacy Handlebars mustache invocations {{foo ...}} that have no React equivalent
-  html = html.replace(/\{\{[^}]+\}\}/g, '');
+  // {{docs-snippet name="x" title="y"}} → <DocsSnippet name="x" title="y" />
+  html = html.replace(/(?:<p>\s*)?\{\{docs-snippet\s+([^}]*?)\s*\}\}(?:\s*<\/p>)?/g, '<DocsSnippet $1 />');
+
+  // Strip remaining Handlebars mustaches outside <code>, where they are literal sample text
+  html = html.replace(/(<code[^>]*>[\s\S]*?<\/code>)|\{\{[^}]+\}\}/g, (_match, code) => code ?? '');
+
+  // HTML comments are invalid JSX; keep them as JSX comments
+  html = html.replace(/<!--([\s\S]*?)-->/g, (_match, text) => `{/*${text.replace(/\*\//g, '* /')}*/}`);
 
   // Escape bare { and } inside <code> blocks so JSX doesn't treat them as expressions.
   // This covers both inline <code> and <pre><code> blocks.
