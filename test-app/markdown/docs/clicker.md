@@ -1,3 +1,6 @@
+import ClickerExampleOneFormSchemaDemo from '../components/forms/ClickerExampleOneFormSchemaDemo.jsx';
+import ClickerExampleTwoFormSchemaDemo from '../components/forms/ClickerExampleTwoFormSchemaDemo.jsx';
+
 # Clicker
 
 The field displays an element which emits the `onUserInteraction` action with the eventName `click` when clicked. You can bind this to an action in your component and then respond in any way.
@@ -10,7 +13,7 @@ Pass `clickerText` and optionally `clickerElementClassNames`.
 
 Renders a `div` element with `role="button"` the classNames provided. The inner text of the element is what is passed to `clickerText`.
 
-<Forms::ClickerExampleOneFormSchemaDemo />
+<ClickerExampleOneFormSchemaDemo />
 
 ## Clicker field with a custom component
 
@@ -38,4 +41,4 @@ Pass `displayComponent` as an object containing:
 
 If using a `button` element in your custom clicker component, bear in mind that the default `type` of a button is `submit`. Thus, if you don't add a type to your button, clicking it will result in a form submission. Setting `type="button"` is recommended.
 
-<Forms::ClickerExampleTwoFormSchemaDemo />
+<ClickerExampleTwoFormSchemaDemo />

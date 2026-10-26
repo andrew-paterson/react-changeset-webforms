@@ -1,34 +1,39 @@
+import CheckboxGroupExampleOneDemo from '../components/demos/CheckboxGroupExampleOneDemo.jsx';
+import CheckboxGroupExampleThreeDemo from '../components/demos/CheckboxGroupExampleThreeDemo.jsx';
+import CheckboxGroupExampleTwoDemo from '../components/demos/CheckboxGroupExampleTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Checkbox group
 
 Renders a checkbox group. The value of the field as a whole is an array which will include the value of `key` for each option that is currently selected.
 
-<DocsSnippet @name="checkboxGroup-field-options.js" />
+<DocsSnippet name="checkboxGroup-field-options.js" />
 
 The above props are in addition to the generic field props shown with their default values below.
 
-{{docs-snippet name="generic-field-settings.js" title="Default generic field settings and their values"}}
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
 ## Checkbox group options
 
 Each option in the `options` property of field with type `checkboxGroup` can have the following properties.
 
-<DocsSnippet @name="checkbox-group-option.js" @title="Checkbox group options"/>
+<DocsSnippet name="checkbox-group-option.js" title="Checkbox group options" />
 
 You can also pass a primitive value, such as a string or number as an option. In this case the option will be expanded into an object in which the values of the `key` and `value` properties will be the same.
 
 The above props are in addition to the generic field props shown with their default values below.
 
-{{docs-snippet name="generic-field-settings.js" title="Default generic field settings and their values"}}
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
 ## Basic usage
 
-<Demos::CheckboxGroupExampleOne />
+<CheckboxGroupExampleOneDemo />
 
 ## Option label content in markdown
 
 Pass a string of markdown content as `optionLabelmarkdown` and it will be rendered inside the label element for the option.
 
-<Demos::CheckboxGroupExampleThree />
+<CheckboxGroupExampleThreeDemo />
 
 ## Option label content with a custom component
 
@@ -51,8 +56,8 @@ In both cases the following applies, the object passed must take the following f
   - Set `for={{@for}}` on the label element, to ensure that the browser knows which checkbox the label is for.
   - Set `id={{@labelId}}` so that the `aria-labelledby` attribute on the checkbox works correctly.
 
-<Demos::CheckboxGroupExampleTwo />
+<CheckboxGroupExampleTwoDemo />
 
 The above props are in addition to the generic field props shown with their default values below.
 
-{{docs-snippet name="generic-field-settings.js" title="Default generic field settings and their values"}}
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />

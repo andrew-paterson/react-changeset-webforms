@@ -1,3 +1,7 @@
+import CustomFormSubmissionDemo from '../components/demos/CustomFormSubmissionDemo.jsx';
+import DefaultFormSubmissionDemo from '../components/demos/DefaultFormSubmissionDemo.jsx';
+import { Link } from 'react-router-dom';
+
 # Form submission
 
 ## Default form submission
@@ -16,7 +20,7 @@ A preflight function is run which:
   - If validation passes it:
     - Calls the `formValidationPassed` action.
     - Calls the `beforeSubmitForm` action.
-    - For any fields that are omitted, the corresponding changeset proprties are set to null. See <LinkTo @route="docs.hiding-and-showing-fields">Hiding and showing fields</LinkTo> for more.
+    - For any fields that are omitted, the corresponding changeset proprties are set to null. See <Link to="/docs/hiding-and-showing-fields">Hiding and showing fields</Link> for more.
 
 ### Activation of the tracked requestInFlight property
 
@@ -43,7 +47,7 @@ The tracked property `changesetWebform.formSettings.requestInFlight` is set to `
 If `@submitSuccess` is passed to the `<ChangesetWebform />` component it will be called if the `changeset.save()` and `submitData` actions are successful. The response is included as the first argument.
 If `@submitError` is passed to the `<ChangesetWebform />` component it will be called if either the `changeset.save()` or `submitData` actions are unsuccessful. The error response is included as the first argument.
 
-<Demos::DefaultFormSubmission />
+<DefaultFormSubmissionDemo />
 
 ## Custom form submission
 
@@ -53,6 +57,6 @@ The action receives the `changesetWebform` object as its only argument.
 
 The example below also shows how the preflight util can be invoked if needed (See `Preflighting` above).
 
-<Demos::CustomFormSubmission />
+<CustomFormSubmissionDemo />
 
 <!-- TODO test for submission from outside the form -->

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 # Action handling
 
 React Changeset Webforms aims to be as flexible and customisable as possible. For this reason, it allows you to pass action callbacks to several properties of the `ChangesetWebform` component, so that you can cusatomise the behaviour of your web form.
@@ -16,7 +18,7 @@ Called after an invividual form field is inserted into the DOM.
 
 Arguments: (`formField`, `changesetWebform`)
 
-A field is inserted when the `CWFC` is loaded for the first time, and also where an individual field is included, either explicitly or dynamically, after having been omitted. See <LinkTo @route="docs.hiding-and-showing-fields">Hiding and showing fields</LinkTo> for more details.
+A field is inserted when the `CWFC` is loaded for the first time, and also where an individual field is included, either explicitly or dynamically, after having been omitted. See <Link to="/docs/hiding-and-showing-fields">Hiding and showing fields</Link> for more details.
 
 ## `onFieldValueChange` action
 
@@ -30,7 +32,7 @@ Called after an invividual form field is removed from the DOM.
 
 Arguments: (`formField`, `changesetWebform`)
 
-A field will be removed from the DOM when it is omitted fropm the form, either explicitly or dynamically. See <LinkTo @route="docs.hiding-and-showing-fields">Hiding and showing fields</LinkTo>
+A field will be removed from the DOM when it is omitted fropm the form, either explicitly or dynamically. See <Link to="/docs/hiding-and-showing-fields">Hiding and showing fields</Link>
 
 ## `afterFieldValidation` action
 
@@ -74,7 +76,7 @@ Arguments: (`changesetWebform`)
 
 ## `submitData` action
 
-Called after the form has been preflighted, in response to the user clicking "Submit". See <LinkTo @route="docs.form-submission">Form submission</LinkTo> for details on what preflighting does.
+Called after the form has been preflighted, in response to the user clicking "Submit". See <Link to="/docs/form-submission">Form submission</Link> for details on what preflighting does.
 
 Arguments: (`data`, `changesetWebform`)
 
@@ -95,7 +97,7 @@ When the `save()` method is called on the Ember Data model, a `PATCH` request wi
 
 ## `afterValidateFields` action
 
-All fields are automatically validated during preflighting when the form is submitted. The `afterValidateFields` callback is called after this occues, but before the changeset data is updated in preflighting. An example of how the data is updated, is that any changeset property is set to null if the corresponding form field is omitted. See <LinkTo @route="docs.hiding-and-showing-fields">Hiding and showing fields</LinkTo> for more details.
+All fields are automatically validated during preflighting when the form is submitted. The `afterValidateFields` callback is called after this occues, but before the changeset data is updated in preflighting. An example of how the data is updated, is that any changeset property is set to null if the corresponding form field is omitted. See <Link to="/docs/hiding-and-showing-fields">Hiding and showing fields</Link> for more details.
 
 Arguments: (`changesetWebform`)
 
@@ -139,6 +141,6 @@ Called when the `submit` method on the `changesetWebform` class instance is call
 
 Arguments: (`changesetWebform`, `componentArgs`)
 
-If this callback is passed, it will completely replace the default submit behaviour of the `CWFC`. See <LinkTo @route="docs.form-submission">Custom form submission</LinkTo> for a more detailed example.
+If this callback is passed, it will completely replace the default submit behaviour of the `CWFC`. See <Link to="/docs/form-submission">Custom form submission</Link> for a more detailed example.
 
 Note that `afterValidateFields`, `beforeSubmitForm`, `submitForm`, `submitSuccess` and `submitError` will no longer be automatically called if `onFormSubmit` is passed. Your `onFormSubmit` function would need to call these callbacks if you still want to use them.

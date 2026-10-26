@@ -1,3 +1,8 @@
+import SingleCheckboxExampleOneDemo from '../components/demos/SingleCheckboxExampleOneDemo.jsx';
+import SingleCheckboxExampleThreeDemo from '../components/demos/SingleCheckboxExampleThreeDemo.jsx';
+import SingleCheckboxExampleTwoDemo from '../components/demos/SingleCheckboxExampleTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Single checkbox
 
 Renders a single checkbox with a label.
@@ -6,21 +11,21 @@ The field ID is set to `true` or `false` depending on whether the checkbox is ch
 
 ## Single checkbox props
 
-<DocsSnippet @name="singleCheckbox-field-options.js" />
+<DocsSnippet name="singleCheckbox-field-options.js" />
 
 The above props are in addition to the generic field props shown with their default values below.
 
-{{docs-snippet name="generic-field-settings.js" title="Default generic field settings and their values"}}
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
 ## Single checkbox basic usage
 
-<Demos::SingleCheckboxExampleOne />
+<SingleCheckboxExampleOneDemo />
 
 ## Single checkbox markdown checkbox label
 
 You can also pass a markdown string to the `checkboxLabelMarkdown` prop. This will be rendered as HTML inside a `label` element.
 
-<Demos::SingleCheckboxExampleTwo />
+<SingleCheckboxExampleTwoDemo />
 
 ## Single checkbox custom component for checkbox label
 
@@ -40,4 +45,4 @@ The object passed must take the following form.
   - Set `for={{@for}}` on the label element, to ensure that the browser knows which checkbox the label is for.
   - Set `id={{@labelId}}` so that the `aria-labelledby` attribute on the checkbox works correctly.
 
-<Demos::SingleCheckboxExampleThree />
+<SingleCheckboxExampleThreeDemo />

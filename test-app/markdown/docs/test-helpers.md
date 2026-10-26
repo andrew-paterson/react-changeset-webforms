@@ -1,3 +1,5 @@
+import { DocsSnippet } from '../components/docs-utils';
+
 # Test helpers
 
 ## `wasValidated`
@@ -19,11 +21,11 @@ The `wasValidated` helper receives two arguments
   - **Required**
   - The function needs to know what values to check for each condition, and which elements should have them. Thus we pass it an options hash as the second argument. The available props are shown in **"Example opts hash"** below.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 **Example usage**
 
-<DocsSnippet @name="was-validated-test-helper-usage.js" @title="Example usage of the wasValidated test helper" />
+<DocsSnippet name="was-validated-test-helper-usage.js" title="Example usage of the wasValidated test helper" />
 
 ## `allValidated`
 
@@ -48,13 +50,13 @@ The `allValidated` helper receives three arguments
   - **Optional**
   - the indexes from the set of elements to check. If not passed, all elements in the set will be checked.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 **Example usage**
 
 This example checks that the 1st, 2nd, 4th, 5th and 6th elements in the set returned by the selector `${testEls.clonableFieldWithData} ${els.cwfCloneWrapper}` have all been validated.
 
-<DocsSnippet @name="all-validated-test-helper-usage.js" @title="Example usage of the allvalidated test helper" />
+<DocsSnippet name="all-validated-test-helper-usage.js" title="Example usage of the allvalidated test helper" />
 
 ## `noneValidated`
 
@@ -79,13 +81,13 @@ The `noneValidated` helper receives three arguments
   - **Optional**
   - the indexes from the set of elements to check. If not passed, all elements in the set will be checked.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 **Example usage**
 
 This example checks that the 1st and second elements in the set returned by the selector `${testEls.clonableFieldBasics} ${els.cwfCloneWrapper}` have all been validated.
 
-<DocsSnippet @name="none-validated-test-helper-usage.js" @title="Example usage of the noneValidated test helper" />
+<DocsSnippet name="none-validated-test-helper-usage.js" title="Example usage of the noneValidated test helper" />
 
 ## `passedValidation`
 
@@ -100,7 +102,7 @@ Returns `true` if the field UI satisfies the conditions for a field which has pa
 
 The function needs to know what values to check for each condition, adn which elements should have them. Thus we pass it an options hash as the third argument. The availablke props are shown in the example below.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 Note that the above options work with the addon defaults, which are based on Bootstrap styling.
 
@@ -130,9 +132,9 @@ import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support
 
 **Examples**
 
-<DocsSnippet @name="passed-validation-helper-return-boolean.js" @title="Usage which returns a boolean value" />
+<DocsSnippet name="passed-validation-helper-return-boolean.js" title="Usage which returns a boolean value" />
 
-<DocsSnippet @name="passed-validation-helper-with-assert.js" @title="Usage which creates an assertion for each check" />
+<DocsSnippet name="passed-validation-helper-with-assert.js" title="Usage which creates an assertion for each check" />
 
 ## `failedValidation`
 
@@ -147,7 +149,7 @@ Returns `true` if the field UI satisfies the conditions for a field which has fa
 
 The function needs to know what values to check for each condition, and which elements should have them. Thus we pass it an options hash as the second argument. The available props are shown in the example below.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 Note that the above options work with the addon defaults, which are based on Bootstrap styling.
 
@@ -177,9 +179,9 @@ import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support
 
 **Examples**
 
-<DocsSnippet @name="failed-validation-helper-return-boolean.js" @title="Usage which returns a boolean value" />
+<DocsSnippet name="failed-validation-helper-return-boolean.js" title="Usage which returns a boolean value" />
 
-<DocsSnippet @name="failed-validation-helper-with-assert.js" @title="Usage which creates an assertion for each check" />
+<DocsSnippet name="failed-validation-helper-with-assert.js" title="Usage which creates an assertion for each check" />
 
 ## `allPassedValidation`
 
@@ -204,13 +206,13 @@ The `allPassedValidation` helper receives three arguments
   - **Optional**
   - the indexes from the set of elements to check. If not passed, all elements in the set will be checked.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 **Example usage**
 
 This example checks that the 4th, 5th and 6th elements in the set returned by the selector `${testEls.clonableFieldWithData} ${els.cwfCloneWrapper}` have all passed validation.
 
-<DocsSnippet @name="all-passed-validation-test-helper-usage.js" @title="Example usage of the allPassedValidation test helper" />
+<DocsSnippet name="all-passed-validation-test-helper-usage.js" title="Example usage of the allPassedValidation test helper" />
 
 ## `allFailedValidation`
 
@@ -235,13 +237,13 @@ The `allFailedValidation` helper receives three arguments
   - **Optional**
   - the indexes from the set of elements to check. If not passed, all elements in the set will be checked.
 
-<DocsSnippet @name="validation-test-helpers-defaults.js" @title="Example opts hash" />
+<DocsSnippet name="validation-test-helpers-defaults.js" title="Example opts hash" />
 
 **Example usage**
 
 This example checks that the 1st and 2nd elements in the set returned by the selector `${testEls.clonableFieldWithData} ${els.cwfCloneWrapper}` have all failed validation.
 
-<DocsSnippet @name="all-failed-validation-test-helper-usage.js" @title="Example usage of the allFailedValidation test helper" />
+<DocsSnippet name="all-failed-validation-test-helper-usage.js" title="Example usage of the allFailedValidation test helper" />
 
 ## `removeClones`
 
@@ -265,7 +267,7 @@ The `removeClones` helper receives two arguments
 
   **Example**
 
-<DocsSnippet @name="remove-clones-test-helper-usage.js" @title="Example usage of the removeClones test helper" />
+<DocsSnippet name="remove-clones-test-helper-usage.js" title="Example usage of the removeClones test helper" />
 
 ## `addClone`
 
@@ -286,7 +288,7 @@ The `addClone` helper receives one argument
 
   **Example**
 
-<DocsSnippet @name="add-clone-test-helper-usage.js" @title="Example usage of the removeClones test helper" />
+<DocsSnippet name="add-clone-test-helper-usage.js" title="Example usage of the removeClones test helper" />
 
 ## `clickSubmitButton`
 
@@ -305,7 +307,7 @@ The `clickSubmitButton` helper receives one argument
 
   **Example**
 
-<DocsSnippet @name="click-submit-button-test-helper-usage.js" @title="Example usage of the clickSubmitButton test helper" />
+<DocsSnippet name="click-submit-button-test-helper-usage.js" title="Example usage of the clickSubmitButton test helper" />
 
 ## `changesetWebformStateAsJSON`
 
@@ -326,7 +328,7 @@ The `changesetWebformStateAsJSON` helper receives one argument
 
 **Example**
 
-<DocsSnippet @name="changeset-webform-state-as-json-test-helper-usage.js" @title="Example usage of the changesetWebformStateAsJSON test helper" />
+<DocsSnippet name="changeset-webform-state-as-json-test-helper-usage.js" title="Example usage of the changesetWebformStateAsJSON test helper" />
 
 ## `fieldErrorText`
 

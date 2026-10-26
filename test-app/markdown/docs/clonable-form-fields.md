@@ -1,3 +1,10 @@
+import CloneGroupFormDemo from '../components/demos/CloneGroupFormDemo.jsx';
+import CloneGroupFormCustomLabelsAndPlaceholdersDemo from '../components/demos/CloneGroupFormCustomLabelsAndPlaceholdersDemo.jsx';
+import CloneGroupFormNoFieldLabelDemo from '../components/demos/CloneGroupFormNoFieldLabelDemo.jsx';
+import CloneGroupFormStringFieldLabelDemo from '../components/demos/CloneGroupFormStringFieldLabelDemo.jsx';
+import CloneGroupFormWithDataDemo from '../components/demos/CloneGroupFormWithDataDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Clonable form fields
 
 A clonable form field allows the user to add and remove instances of a field. The example below allows a user to add multiple emails. When the form is submitted, the value of the clonable form field will be an array of values.
@@ -10,7 +17,7 @@ The `cloneFieldSchema` property behaves exactly as the field Schema on any other
 
 The following default field settings can also be overridden:
 
-<DocsSnippet @name="clone-group-field-options.js" @title="Available options for clonable fields" />
+<DocsSnippet name="clone-group-field-options.js" title="Available options for clonable fields" />
 
 ## Adding and removing clones
 
@@ -24,7 +31,7 @@ Where the number of clones is greater than `minClones`, a remove clone button wi
 
 The example below allows the user to add email addresses, with a minimum of 2 and a maximum of 4.
 
-<Demos::CloneGroupForm />
+<CloneGroupFormDemo />
 
 ## Example 2 - with preloaded data
 
@@ -36,7 +43,7 @@ Note also that if the array is longer than the `maxClones` setting, the clonable
 
 In order to validate on the length of the array, add the `validateLength` validation rule to the `clone-group` field as shown in the component JS in the example below. Note that the validation for the clone group displays below the field label. Clicking submit below will result in the length validation error showing under the main field label.
 
-<Demos::CloneGroupFormWithData />
+<CloneGroupFormWithDataDemo />
 
 Note that when the array of data passed to a `clone-group` field is longer than the `maxClones` setting, the component will still insert one clone for each item in the array. In this case, the add clone button will not be available until the user has removed clones until the total is less than the `maxClones` setting.
 
@@ -56,13 +63,13 @@ Note that when not set, the `placeholder` property be the same as `fieldLabel`.
 
 Set `hideLabel` to true on the `cloneFieldSchema` if you don't want the label to show.
 
-<Demos::CloneGroupFormNoFieldLabel />
+<CloneGroupFormNoFieldLabelDemo />
 
 ### `fieldLabel` and `placeholder` strings
 
 If a string is passed for `cloneFieldSchema.fieldLabel`, each clone will have a `fieldLabel` which begins with that string and than has its current index appended. The same applies to `placeholder`.
 
-<Demos::CloneGroupFormStringFieldLabel />
+<CloneGroupFormStringFieldLabelDemo />
 
 ### `fieldLabel` and `placeholder` functions
 
@@ -72,4 +79,4 @@ The function receives a single argument, whiich is the the class instance of the
 
 The same applies to `placeholder`.
 
-<Demos::CloneGroupFormCustomLabelsAndPlaceholders />
+<CloneGroupFormCustomLabelsAndPlaceholdersDemo />

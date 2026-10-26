@@ -1,36 +1,41 @@
+import RadioButtonGroupExampleOneDemo from '../components/demos/RadioButtonGroupExampleOneDemo.jsx';
+import RadioButtonGroupExampleThreeDemo from '../components/demos/RadioButtonGroupExampleThreeDemo.jsx';
+import RadioButtonGroupExampleTwoDemo from '../components/demos/RadioButtonGroupExampleTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Radio button group
 
 Renders a radio button group. The value of the field as a whole is the `value` property of the currently selected option.
 
 ## Radio button group props
 
-<DocsSnippet @name="radioButtonGroup-field-options.js" />
+<DocsSnippet name="radioButtonGroup-field-options.js" />
 
 The above props are in addition to the generic field props shown with their default values below.
 
-<DocsSnippet @name="generic-field-settings.js" @title="Default generic field settings and their values" />
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
 ## Radio button group `options` prop
 
 Each option in the `options` property of field with type `radioButtonGroup` can have the following properties.
 
-<DocsSnippet @name="radio-button-group-option.js" />
+<DocsSnippet name="radio-button-group-option.js" />
 
 You can also pass a primitive value, such as a string or number as an option. In this case the option will be expanded into an object in which the values of the `label` and `value` properties will be the same.
 
 The above props are in addition to the generic field props shown with their default values below.
 
-<DocsSnippet @name="generic-field-settings.js" @title="Default generic field settings and their values" />
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
 ## Basic usage
 
-<Demos::RadioButtonGroupExampleOne />
+<RadioButtonGroupExampleOneDemo />
 
 ## Option label content in markdown
 
 Pass a string of markdown content as `optionLabelmarkdown` and it will be rendered inside the label element for the option.
 
-<Demos::RadioButtonGroupExampleThree />
+<RadioButtonGroupExampleThreeDemo />
 
 ## Option label content with a custom component
 
@@ -53,4 +58,4 @@ In both cases the following applies, the object passed must take the following f
   - Set `for={{@for}}` on the label element, to ensure that the browser knows which radio button the label is for.
   - Set `id={{@labelId}}` so that the `aria-labelledby` attribute on the radio button works correctly.
 
-<Demos::RadioButtonGroupExampleTwo />
+<RadioButtonGroupExampleTwoDemo />

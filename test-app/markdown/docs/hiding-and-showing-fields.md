@@ -1,3 +1,9 @@
+import HiddenFieldsExampleFiveDemo from '../components/demos/HiddenFieldsExampleFiveDemo.jsx';
+import HiddenFieldsExampleFourDemo from '../components/demos/HiddenFieldsExampleFourDemo.jsx';
+import HiddenFieldsExampleOneDemo from '../components/demos/HiddenFieldsExampleOneDemo.jsx';
+import HiddenFieldsExampleThreeDemo from '../components/demos/HiddenFieldsExampleThreeDemo.jsx';
+import HiddenFieldsExampleTwoDemo from '../components/demos/HiddenFieldsExampleTwoDemo.jsx';
+
 # Hiding and showing fields
 
 ## Explicit field omission
@@ -17,7 +23,7 @@ Setting `omitted` to `true` on a fields has several implications:
 
 See the below example of using `includeField` and `omitField`.
 
-<Demos::HiddenFieldsExampleOne />
+<HiddenFieldsExampleOneDemo />
 
 ### The `setOmission` method
 
@@ -25,7 +31,7 @@ This is a method of the `formField` class.
 
 The effect is exactly the same as with using the `setFieldOmission` method of a `changesetWebform` class instance above. This method simply offers an alternative way to achieve the same thing.
 
-<Demos::HiddenFieldsExampleFive />
+<HiddenFieldsExampleFiveDemo />
 
 ## Dynamic field omission
 
@@ -75,7 +81,7 @@ First, `returns` is `false`, and `where` is `allConditionsTrue`.
 
 The live example below shows the `mealOption` field being omitted or not, based on the value of the `mealRequired` field.
 
-<Demos::HiddenFieldsExampleTwo />
+<HiddenFieldsExampleTwoDemo />
 
 ### Extending the dynamic field omission API
 
@@ -92,7 +98,7 @@ Now, any conditions in then `dynamicOmission` property of your field schema can 
 
 In the example below, we add and invoke the `valueDoesNotEqual` method.
 
-<Demos::HiddenFieldsExampleThree />
+<HiddenFieldsExampleThreeDemo />
 
 ### Nested dynamic omission rules
 
@@ -102,4 +108,4 @@ Any item in the `conditions` array of a ruleset can itself be a ruleset.
 
 The example below shows howe the second condition on the `anyConditionsTrue` ruleset is itself an `allConditionsTrue` ruleset.
 
-<Demos::HiddenFieldsExampleFour />
+<HiddenFieldsExampleFourDemo />

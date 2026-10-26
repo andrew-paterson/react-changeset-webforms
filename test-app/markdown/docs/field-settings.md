@@ -1,3 +1,7 @@
+import FieldSettingsCustomParserDemo from '../components/demos/FieldSettingsCustomParserDemo.jsx';
+import ClickerExampleTwoFormSchema from '../components/forms/ClickerExampleTwoFormSchema.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Field settings
 
 ## Generic field settings
@@ -10,9 +14,9 @@ Generic field settings can be tweaked for all the fields in one instance of a `c
 
 Note that any of these settings can be overridden in one of the field objects in the `formSchema.fields` array.
 
-<DocsSnippet @name="generic-field-settings.js" @title="Default generic field settings and their values" />
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
-<Forms::ClickerExampleTwoFormSchema />
+<ClickerExampleTwoFormSchema />
 
 ### The `customParser` method
 
@@ -24,4 +28,4 @@ You can define a `customParser` method for all fields by adding it to the `chang
 
 You can also define `customParser` for a specific field type, in the relevant object in `changesetWebformsDefaults.fieldTypes` in `utils/app-defaults.js`.
 
-<Demos::FieldSettingsCustomParser />
+<FieldSettingsCustomParserDemo />

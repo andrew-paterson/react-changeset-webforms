@@ -1,3 +1,9 @@
+import CustomFieldDemo from '../components/demos/CustomFieldDemo.jsx';
+import CustomFieldUsageDemo from '../components/demos/CustomFieldUsageDemo.jsx';
+import CustomFieldUsageTwoDemo from '../components/demos/CustomFieldUsageTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+import { Link } from 'react-router-dom';
+
 # Creating custom fields
 
 ## Overview
@@ -12,7 +18,7 @@ The field emits its value is a single string, and will have a custom validator w
 
 The demo below shows the code that would be used to add the field to a formSchema.
 
-<Demos::CustomFieldUsage />
+<CustomFieldUsageDemo />
 
 ## Defining the field
 
@@ -20,7 +26,7 @@ Create a service named `ember-changeset-webforms.js`.
 
 We add an entry to the `changesetWebformsDefaults.fieldTypes` array in our `services/ember-chnageset-webforms.js`, with a fieldType of `phoneNumberWithCountryCode`. The only other required field is `componentClass`, the imported class definition of our custom field component. We can add any other default field options that we would like to.
 
-In this case we add some default class names to the `fieldControls` element which wraps all fields. See <LinkTo @route="docs.manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</LinkTo>.
+In this case we add some default class names to the `fieldControls` element which wraps all fields. See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link>.
 
 We also add class name defaults for `phoneNumberInput` and `countryCodeTrigger`. We will tell out component which element these classnames should using the `class-names-from-config` helper (See below).
 
@@ -28,7 +34,7 @@ The `alwaysValidatesOn` array allows us to specify events that will always trigg
 
 Note that the addon will always force field validation on `submit`, so there is no need to include it.
 
-<DocsSnippet @name="custom-field-definition.js" @title="services/ember-changeset-webforms.js" @language="javascript" />
+<DocsSnippet name="custom-field-definition.js" title="services/ember-changeset-webforms.js" language="javascript" />
 
 ## Creating the custom field
 
@@ -36,7 +42,7 @@ The important thing to note here is that your component can be absolutely anythi
 
 For fine grained control of when the fields validation should become activated, you can also call `this.args.onUserInteraction` in response to any user interaction events you choose.
 
-<Demos::CustomField />
+<CustomFieldDemo />
 
 ## The component template
 
@@ -64,7 +70,7 @@ TODO inline example
 
 The `attrs-from-config` hook receives three arguments:
 
-- `propName` (required) - the property of the classNames config object to get element class names from (See <LinkTo @route="docs.manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</LinkTo>)
+- `propName` (required) - the property of the classNames config object to get element class names from (See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link>)
 - `changesetWebform` (required) - the changeset webform instance. Accessible in the template via the `@changesetWebform` prop.
 - @formField (required) - the formField instance. Accessible in the template via the `@formField` prop.
 
@@ -76,7 +82,7 @@ The `attrs-from-config` hook does the following:
 
 See the example in the input field in the example below.
 
-<Demos::CustomField />
+<CustomFieldDemo />
 
 ### Invoking class names from config where a modifier can't work
 
@@ -86,7 +92,7 @@ The `@triggerClass` property of the `PowerSelect` component is a good example. W
 
 In the case, we can invoke class names from config by using the `ember-changeset-webforms/class-names-from-config` helper. See the `@triggerClass` prop in the example below. This helper simply returns the class names as a space separated string.
 
-<DocsSnippet @name="custom-field-component.hbs" />
+<DocsSnippet name="custom-field-component.hbs" />
 
 Notice the use of the `ember-changeset-webforms/class-names-from-config`, both as `@triggerClass` on the power select, and `class` on the input. The example below would output the classnames found in `classNames.countryCodeTrigger` in the fields options, because `countryCodeTrigger` is the first argument passed to the helper.
 
@@ -183,7 +189,7 @@ In this case, the field will validate on:
 - `submit` =: this is inherited from the top level addon default, due to `$inherited` being included in the `alwaysValidatesOn` array in the field definition.
 - `focusOutPhoneNumberInput` which is the only item in the `alwaysValidatesOn` array in the field definition.
 
-<Demos::CustomFieldUsage />
+<CustomFieldUsageDemo />
 
 ### When `validatesOn` is included in the field invocation
 
@@ -195,4 +201,4 @@ In this case, the field will validate on:
 - `focusOutPhoneNumberInput` =: the only other item in the `alwaysValidatesOn` array in the field definition.
 - `countryCodeSelected` =: the only item in the `validatesOn` array in the field invocation.
 
-<Demos::CustomFieldUsageTwo />
+<CustomFieldUsageTwoDemo />

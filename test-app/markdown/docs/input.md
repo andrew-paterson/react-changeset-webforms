@@ -1,3 +1,7 @@
+import InputExampleOneDemo from '../components/demos/InputExampleOneDemo.jsx';
+import InputExampleTwoDemo from '../components/demos/InputExampleTwoDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
 # Input
 
 Renders an HTML input.
@@ -6,12 +10,12 @@ Calls the `keyUp`, `focusIn` and `focusOut` actions when the corresponding event
 
 ## Input field props
 
-<DocsSnippet @name="input-field-options.js" />
+<DocsSnippet name="input-field-options.js" />
 
 The above props are in addition to the generic field props shown with their default values below.
 
-{{docs-snippet name="generic-field-settings.js" title="Default generic field settings and their values"}}
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
 
-<Demos::InputExampleOne />
+<InputExampleOneDemo />
 
-<Demos::InputExampleTwo />
+<InputExampleTwoDemo />

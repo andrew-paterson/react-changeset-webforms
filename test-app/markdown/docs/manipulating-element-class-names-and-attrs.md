@@ -1,3 +1,15 @@
+import AppWideFieldSettingsOverriddenDemo from '../components/demos/AppWideFieldSettingsOverriddenDemo.jsx';
+import AttrFunctionsDemo from '../components/demos/AttrFunctionsDemo.jsx';
+import FieldSettingsOverriddenDemo from '../components/demos/FieldSettingsOverriddenDemo.jsx';
+import FieldSpecificClassSettingsDemo from '../components/demos/FieldSpecificClassSettingsDemo.jsx';
+import FieldTypeWithinFormSettingsDemo from '../components/demos/FieldTypeWithinFormSettingsDemo.jsx';
+import FormWideClassSettingsDemo from '../components/demos/FormWideClassSettingsDemo.jsx';
+import InheritClassSettingsDemo from '../components/demos/InheritClassSettingsDemo.jsx';
+import OverrideClassSettingsDemo from '../components/demos/OverrideClassSettingsDemo.jsx';
+import ValidationClassSettingsDemo from '../components/demos/ValidationClassSettingsDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+import { Link } from 'react-router-dom';
+
 # Manipulating element class names and attrs
 
 ## The `attrs-from-config` hook
@@ -7,8 +19,8 @@ TODO
 Note that:
 
 - the `inputElement` namespace is applied to both input element,
-- the `inputField` namespace is only applied to the input element in the built in <LinkTo @route="docs.input">Input field</LinkTo>,
-- the `powerDatePickerTimeSelectorInput` namespace is only applied to the input elements in the built in <LinkTo @route="docs.power-datepicker">Power Datepicker field</LinkTo>.
+- the `inputField` namespace is only applied to the input element in the built in <Link to="/docs/input">Input field</Link>,
+- the `powerDatePickerTimeSelectorInput` namespace is only applied to the input elements in the built in <Link to="/docs/power-datepicker">Power Datepicker field</Link>.
 
 This means that configuration using the `inputElement` namespace will affect both of the above inputs. Conversely, configuration using the `inputField` namespace will only apply to the input element in the Input field.
 
@@ -36,13 +48,13 @@ attrsFromConfig: {
 
 Switichig on debuig mode in general config, or for a specific instance of a `ChangesetWebform` component, will show the namespaces applied to the various elements in the DOM as class names. This allows you to easily determine which namespace should be used to manipulate the class names or other attrinutes of an element.
 
-See <LinkTo @route="docs.debug-mode">the debug mode docs</LinkTo> for more.
+See <Link to="/docs/debug-mode">the debug mode docs</Link> for more.
 
 ## Default config
 
 The addon implements defaults which can be found in the `attrsFromConfig` object at `./utils/addon-defaults.js`, shown in the snippet below.
 
-<DocsSnippet @name="default-attrs-from-config.js" @title="Default attrsFromConfig object" />
+<DocsSnippet name="default-attrs-from-config.js" title="Default attrsFromConfig object" />
 
 ## Overriding default config
 
@@ -62,7 +74,7 @@ At each level, the merged value of `attrsFromConfig` will be inherited, so you o
 
 The example below shows how to the `ember-changeset-webforms` service can be used to add the class name `app-wide-label-element-class` to all label elements throughout the app.
 
-<Demos::AppWideFieldSettingsOverridden />
+<AppWideFieldSettingsOverriddenDemo />
 
 ### 2. App level configuration - field type specific
 
@@ -70,7 +82,7 @@ The example below shows how the `ember-changeset-webforms` service can be used t
 
 Thus, the class name is added to all radio option labels throughout the app.
 
-<Demos::FieldSettingsOverridden />
+<FieldSettingsOverriddenDemo />
 
 The {{this.fieldTypes.length}} built in fields have the following `fieldTypes`:
 
@@ -84,13 +96,13 @@ The {{this.fieldTypes.length}} built in fields have the following `fieldTypes`:
 
 The example below show how the `attrsFromConfig` property of a formSchema can be used to add the class name `form-wide-label-class` to all labels throughout one instance of a `ChangesetWebform` component.
 
-<Demos::FormWideClassSettings />
+<FormWideClassSettingsDemo />
 
 ### 4. Form level configuration - field type specific
 
 The example below show how the `attrsFromConfig` property of a specific field type in `formSchema.formSettings.fieldTypes` can be used to add the class name `form-wide-radio-button-label-el-class` to all label elements within fields with type `radioButtonGroup` throughout one instance of a `ChangesetWebform` component.
 
-<Demos::FieldTypeWithinFormSettings />
+<FieldTypeWithinFormSettingsDemo />
 
 ### 5. Field level configuration
 
@@ -99,7 +111,7 @@ The example below shows:
 - how the `attrsFromConfig` property of the `name` field can be used to add the class name `class-for-the-field-label-of-this-field` to the field label for that field,
 - how the `attrsFromConfig` property of the `radioButtons1` field can be used to add the class name `class-for-all-label-els-in-this-field` to the field label for that field.
 
-<Demos::FieldSpecificClassSettings />
+<FieldSpecificClassSettingsDemo />
 
 ## Special `classNames` values
 
@@ -109,13 +121,13 @@ The class names `$inherited`, `$validationClassNames` and `$validationPseudoClas
 
 Include `$inherited` in the array of class names for an element as a placeholder for the class names inherited from the next level up.
 
-<Demos::InheritClassSettings />
+<InheritClassSettingsDemo />
 
 Alternatively, exclude `$inherited` in order to completely override the value.
 
 Note that the class `form-label` is still included. This is because it is included via the `fieldLabel` property, and it is the `labelElement` property which has been overridden.
 
-<Demos::OverrideClassSettings />
+<OverrideClassSettingsDemo />
 
 ### Including dynamic validation class names
 
@@ -123,7 +135,7 @@ The class names applied to elements as a result of wither passing or failing val
 
 You may wish to customise which elements within a form field receive those classes once a field has been validated. This can be done by adding `$validationClassNames` as an class name for any element which should receive those class names.
 
-<Demos::ValidationClassSettings />
+<ValidationClassSettingsDemo />
 
 ### Enabling the :valid and :invalid pseudo classes with `$validationPseudoClasses`
 
@@ -152,4 +164,4 @@ If you would like to keep those classes, then always include the contents of the
 
 The method will be run each time the `class-names-from-config` helper is instered or updated in the relevant template. As it receives `changesetWebform` and `formField` as arguments, this will occur whenever a getter or tracked property is updated on opne of those to class instances.
 
-<Demos::AttrFunctions />
+<AttrFunctionsDemo />

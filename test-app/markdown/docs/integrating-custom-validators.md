@@ -1,3 +1,5 @@
+import CustomValidatorsFormDemo from '../components/demos/CustomValidatorsFormDemo.jsx';
+
 # Integrating custom validators
 
 The [Ember Changeset Validations docs on writing your own validators](https://github.com/poteto/ember-changeset-validations#writing-your-own-validators) outlines how to write your own synchronous or asynchronous validators.
@@ -13,7 +15,7 @@ The example below shows how to:
 1. Define a custom validator named `uniqueness.js` in the `validators` directory of your app.
 2. Import your validator into a component and include it in `formSettings.validators`.
 
-<Demos::CustomValidatorsForm />
+<CustomValidatorsFormDemo />
 
 ## Arguments
 

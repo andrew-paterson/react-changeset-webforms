@@ -1,8 +1,11 @@
+import LoginFormDemo from '../components/demos/LoginFormDemo.jsx';
+import { Link } from 'react-router-dom';
+
 # Basic usage
 
 Define your form, including its fields validation rules in object like the one below, and pass this to the `ChangesetWebform` component as the `formSchema` property, and that's it! The form will be rendered and all validation behaviours will work without any further template code.
 
-<Demos::LoginForm />
+<LoginFormDemo />
 
 ## Actions
 
@@ -10,7 +13,7 @@ You can pass actions to a instance of a `ChangesetWebform` component, to define 
 
 The above example also includes a `submitSuccess` and `submitError` which will run when the `submit` action is resolved.
 
-See <LinkTo @route="docs.action-handling">Action handling</LinkTo> for more details.
+See <Link to="/docs/action-handling">Action handling</Link> for more details.
 
 ## Form settings
 
@@ -24,4 +27,4 @@ In the example above, the following default options are overriden:
 - `hideLabels`
 - `clearFormAfterSubmit`
 
-See <LinkTo @route="docs.form-settings">Form settings</LinkTo> for more details.
+See <Link to="/docs/form-settings">Form settings</Link> for more details.

@@ -1,8 +1,10 @@
+import SignupFormDemo from '../components/demos/SignupFormDemo.jsx';
+
 # What is React Changeset Webforms
 
 **React Changeset Webforms** integrates convenient, flexible and feature rich templates and action handling with the immensely powerful [Validated Changeset](https://github.com/poteto/validated-changeset).
 
-Simply define a form schema as a "plain old JavaScript object", which includes an array of `fields`, each with options for UI and validation.
+Simply define a form schema as a "plainf old JavaScript object", which includes an array of `fields`, each with options for UI and validation.
 
 This schema can then be passed to the `ChangesetWebform` component in order to render a form, as below. The creation of the changeset, with its associated validators, is handled by the component, so that you need only think about what fields you would like to include in a webform, and how and when they should be validated.
 
@@ -10,7 +12,7 @@ The rendered form can also be pre populated with data, using its `data` property
 
 ## Example
 
-<Demos::SignupForm />
+<SignupFormDemo />
 
 ## Features
 

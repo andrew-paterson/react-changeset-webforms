@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 # Debug mode
 
 Debug mode can be switched globally, by setting `debug = true` in the `services/ember-changeset-webforms.js`.
@@ -14,7 +16,7 @@ This object contains all of the data that underpins the relevant webform.
 
 ### `$DEBUG-` classes are added to all elements with configurable class names
 
-Thse debugging classes assist with configuring class names of the various elements in your webforms. See <LinkTo @route="docs.manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</LinkTo> for more.
+Thse debugging classes assist with configuring class names of the various elements in your webforms. See <Link to="/docs/manipulating-element-class-names-and-attrs">docs.manipulating-element-class-names-and-attrs</Link> for more.
 
 Here is a quick overview. In various places, you can configure class names via the `classNames` object.
 

@@ -1,3 +1,12 @@
+import CustomFieldUsageDemo from '../components/demos/CustomFieldUsageDemo.jsx';
+import FieldMethodsExampleFiveDemo from '../components/demos/FieldMethodsExampleFiveDemo.jsx';
+import ForcingValidationDemo from '../components/demos/ForcingValidationDemo.jsx';
+import SignupFormDemo from '../components/demos/SignupFormDemo.jsx';
+import ValidationBasicsDemo from '../components/demos/ValidationBasicsDemo.jsx';
+import ValidationEventsDemo from '../components/demos/ValidationEventsDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+import { Link } from 'react-router-dom';
+
 # Field validation
 
 ## Integrating validator functions
@@ -8,7 +17,7 @@ Validator functions need to be included in an instance of a `ChangesetWebform` c
 
 The full set of default validators shipped by [Ember Changeset Validations](https://github.com/adopted-ember-addons/ember-changeset-validations) can be imported as below.
 
-<DocsSnippet @name="import-default-validators.js" @title="Importing the default validator functions" />
+<DocsSnippet name="import-default-validators.js" title="Importing the default validator functions" />
 
 ### Importing a subset of default validators
 
@@ -17,17 +26,17 @@ Note that we can also import a subset of validations, if we don't intend on usin
 The snippet below shows the full set of default validators imported in `ember-changeset-webforms/utils/default-validators` (Used above).
 Rather than importing the default validators, we could import a subset of those shown below.
 
-<DocsSnippet @name="ember-changeset-validations-default-validators.js" @title="The full set of default validators" />
+<DocsSnippet name="ember-changeset-validations-default-validators.js" title="The full set of default validators" />
 
 ### Importing custom validators
 
-Custom validators can be imported from anywhere. See <LinkTo @route="docs.integrating-custom-validators">Integrating custom validators</LinkTo>
+Custom validators can be imported from anywhere. See <Link to="/docs/integrating-custom-validators">Integrating custom validators</Link>
 
 ### Integrating validator functions app wide
 
 Validators can be added at the app wide level in `utils/app-defaults.js` as below. We first import the validators in the service as above and then add them to the `changesetWebformsDefaults` object as below.
 
-<DocsSnippet @name="app-wide-validators.js" @title="Including validators app wide" />
+<DocsSnippet name="app-wide-validators.js" title="Including validators app wide" />
 
 This would result in all of the default validators being available in all instances of the `ChangesetWebform` component throughout our app.
 
@@ -37,7 +46,7 @@ The example component below shows how the custom `phoneNumber` validator can be 
 
 Note that if you've specified app wide validators, as in the above example, those will still be available to this instance of the `ChangesetWebform` component. This is why `validatePresence` still works, even though it is not included in `formSchema.validations`.
 
-<Demos::CustomFieldUsage />
+<CustomFieldUsageDemo />
 
 ## Defining validation rules
 
@@ -79,7 +88,7 @@ validationRules: [
 
 The example below shows a basic implementation of the `validatePresence`, `validateFormat` and `validateLength` validators.
 
-<Demos::ValidationBasics />
+<ValidationBasicsDemo />
 
 ## Validation events
 
@@ -109,9 +118,9 @@ The example below shows three scenrios when defining validation events.
 2. The `email` field overrides the `validatesOn` property. Therefore, it only validates on `keyUp` and does not validate on `focusOut`.
 3. The `phoneNumber` field adds `keyUp` to the `validatesOn` property. This is achieved by including the srting `$inherited` in the array for `validatesOn`. Therefore, it validates both on `focusOut` and `keyUp`.
 
-<Demos::ValidationEvents />
+<ValidationEventsDemo />
 
-The addon defaults outlined above can be overridden at the app level, or within a particular form schema. See <LinkTo @route="docs.configuration-options">Configuration options</LinkTo>.
+The addon defaults outlined above can be overridden at the app level, or within a particular form schema. See <Link to="/docs/configuration-options">Configuration options</Link>.
 
 ### Forcing validation in an action
 
@@ -123,7 +132,7 @@ The addon defaults include `forceValidation` in a field's `validatesOn` property
 
 Thus, you can forcibly activate a field's validation by pushing the string `forceValidation` into `field.eventLog`, as shown in terh `updateNameField` action in the example below.
 
-<Demos::ForcingValidation />
+<ForcingValidationDemo />
 
 ### Using your own validation event names
 
@@ -131,7 +140,7 @@ The example below shows how you can trigger validation in customised ways by add
 
 In the example below, clicking the "Update value of name field" button updates the value of the name field, and validates the field by pushing the custom event name `valueExternallyUpdated` into `eventLog`. This works because `valueExternallyUpdated` is added to the the `validatesOn` property of the field.
 
-<Demos::FieldMethodsExampleFive />
+<FieldMethodsExampleFiveDemo />
 
 ## Setting custom validity on DOM elements
 
@@ -145,4 +154,4 @@ See [https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCusto
 
 ## Example
 
-<Demos::SignupForm />
+<SignupFormDemo />

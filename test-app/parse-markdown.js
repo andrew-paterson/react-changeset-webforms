@@ -158,12 +158,16 @@ export async function parseMarkdown(inputPath) {
   const baseName = path.basename(inputPath, '.md');
   const componentName = toPascalCase(baseName);
 
-  const source = fs.readFileSync(inputPath, 'utf-8');
+  let source = fs.readFileSync(inputPath, 'utf-8');
+  // Leading `import ...` lines in the markdown are hoisted into the generated module.
+  const importBlock = source.match(/^(?:import .+\n)+/);
+  const markdownImports = importBlock ? importBlock[0].trim().split('\n') : [];
+  if (importBlock) source = source.slice(importBlock[0].length);
   let html = decodeEntities(compileMarkdown(source));
 
   // ─── transform Ember-style invocations ─────────────────────────────────────
 
-  const imports = [];
+  const imports = [...markdownImports];
 
   // Remove @ sigils from named props: @name="foo" → name="foo"
   html = html.replace(/\s@([a-zA-Z])/g, ' $1');
@@ -225,7 +229,7 @@ export async function parseMarkdown(inputPath) {
 
   // ─── assemble JSX ──────────────────────────────────────────────────────────
 
-  const importsBlock = imports.length ? imports.join('\n') + '\n\n' : '';
+  const importsBlock = imports.length ? [...new Set(imports)].join('\n') + '\n\n' : '';
 
   const jsxContent = `${importsBlock}export default function ${componentName}() {
   return (
