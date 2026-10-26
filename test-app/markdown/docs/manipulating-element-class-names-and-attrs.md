@@ -143,6 +143,8 @@ If `$validationPseudoClasses` is one of the items in the array of class names, _
 
 As a result, whenever the field is validated, all elements within that field with `data-set-custom-validity=true` will have their [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) method called with any validation errors. This allows the browser to add the `:valid` or `:invalid` pseudo classes to the elements as appropriate.
 
+TODO add code that shows class names in the DOM.
+
 [//]: # "NOTE: the ShowClasses component is rendered once, outside of this page's docs-md wrapper div, at the very bottom of the page - see src/pages/ManipulatingElementClassNamesAndAttrs.jsx - since it needs to observe the whole rendered page's DOM. It is intentionally not inserted here via a Demos:: tag, and this page is not part of the live virtual:docs-pages set."
 
 ## Manipulting DOM attrs with a function

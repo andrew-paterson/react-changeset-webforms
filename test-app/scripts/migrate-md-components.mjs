@@ -5,8 +5,14 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const dir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../markdown/docs');
-const files = process.argv.length > 2 ? process.argv.slice(2) : fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+const dir = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../markdown/docs',
+);
+const files =
+  process.argv.length > 2
+    ? process.argv.slice(2)
+    : fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
 
 const IMPORT_BLOCK = /^(?:import .+\n)+\n?/;
 
@@ -28,16 +34,24 @@ function transformProse(text, found) {
       found.forms.add(name);
       return `<${name} />`;
     })
-    .replace(/<LinkTo @route="([^"]+)">([\s\S]*?)<\/LinkTo>/g, (_m, route, label) => {
-      found.link = true;
-      return `<Link to="/${route.replace(/\./g, '/')}">${label}</Link>`;
-    });
+    .replace(
+      /<LinkTo @route="([^"]+)">([\s\S]*?)<\/LinkTo>/g,
+      (_m, route, label) => {
+        found.link = true;
+        return `<Link to="/${route.replace(/\./g, '/')}">${label}</Link>`;
+      },
+    );
 }
 
 for (const file of files) {
   const full = path.resolve(dir, file);
   const source = fs.readFileSync(full, 'utf-8').replace(IMPORT_BLOCK, '');
-  const found = { demos: new Set(), forms: new Set(), snippet: false, link: false };
+  const found = {
+    demos: new Set(),
+    forms: new Set(),
+    snippet: false,
+    link: false,
+  };
 
   let inFence = false;
   const body = source
@@ -57,12 +71,21 @@ for (const file of files) {
     .join('\n');
 
   const imports = [
-    ...[...found.demos].sort().map((n) => `import ${n}Demo from '../components/demos/${n}Demo.jsx';`),
-    ...[...found.forms].sort().map((n) => `import ${n} from '../components/forms/${n}.jsx';`),
-    ...(found.snippet ? [`import { DocsSnippet } from '../components/docs-utils';`] : []),
+    ...[...found.demos]
+      .sort()
+      .map((n) => `import ${n}Demo from '../components/demos/${n}Demo.jsx';`),
+    ...[...found.forms]
+      .sort()
+      .map((n) => `import ${n} from '../components/forms/${n}.jsx';`),
+    ...(found.snippet
+      ? [`import { DocsSnippet } from '../components/docs-utils';`]
+      : []),
     ...(found.link ? [`import { Link } from 'react-router-dom';`] : []),
   ];
 
-  fs.writeFileSync(full, (imports.length ? imports.join('\n') + '\n\n' : '') + body);
+  fs.writeFileSync(
+    full,
+    (imports.length ? imports.join('\n') + '\n\n' : '') + body,
+  );
   console.log(`${file}: ${imports.length} imports`);
 }

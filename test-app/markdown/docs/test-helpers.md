@@ -9,7 +9,7 @@ Determines whether or not a field has been validated, by checking if the expecte
 First, import ther helper.
 
 ```javascript
-import { wasValidated } from 'ember-changeset-webforms/test-support/helpers';
+import { wasValidated } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `wasValidated` helper receives two arguments
@@ -35,7 +35,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { allValidated } from 'ember-changeset-webforms/test-support/helpers';
+import { allValidated } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `allValidated` helper receives three arguments
@@ -66,7 +66,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { noneValidated } from 'ember-changeset-webforms/test-support/helpers';
+import { noneValidated } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `noneValidated` helper receives three arguments
@@ -126,7 +126,7 @@ The `passedValidation` helper received four arguments
 First, import the helper. In this example, we also import the default options hash to pass as the second argument. In practice these options can be defined anywhere.
 
 ```javascript
-import { passedValidation } from 'ember-changeset-webforms/test-support/helpers';
+import { passedValidation } from 'react-changeset-webforms/src/test-support/helpers';
 import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support/validation-test-helpers-defaults';
 ```
 
@@ -173,7 +173,7 @@ The `failedValidation` helper receives four arguments
 First, import the helper. In this example, we also import the default options hash to pass as the second argument. In practice these options can be defined anywhere.
 
 ```javascript
-import { failedValidation } from 'ember-changeset-webforms/test-support/helpers';
+import { failedValidation } from 'react-changeset-webforms/src/test-support/helpers';
 import validationTestHelpersDefaults from 'ember-changeset-webforms/test-support/validation-test-helpers-defaults';
 ```
 
@@ -191,7 +191,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { allPassedValidation } from 'ember-changeset-webforms/test-support/helpers';
+import { allPassedValidation } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `allPassedValidation` helper receives three arguments
@@ -222,7 +222,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { allFailedValidation } from 'ember-changeset-webforms/test-support/helpers';
+import { allFailedValidation } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `allFailedValidation` helper receives three arguments
@@ -253,7 +253,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { removeClones } from 'ember-changeset-webforms/test-support/helpers';
+import { removeClones } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `removeClones` helper receives two arguments
@@ -277,7 +277,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { addClone } from 'ember-changeset-webforms/test-support/helpers';
+import { addClone } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `addClone` helper receives one argument
@@ -296,7 +296,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { clickSubmitButton } from 'ember-changeset-webforms/test-support/helpers';
+import { clickSubmitButton } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `clickSubmitButton` helper receives one argument
@@ -317,7 +317,7 @@ First, import the helper.
 
 ```javascript
 // Import
-import { changesetWebformStateAsJSON } from 'ember-changeset-webforms/test-support/helpers';
+import { changesetWebformStateAsJSON } from 'react-changeset-webforms/src/test-support/helpers';
 ```
 
 The `changesetWebformStateAsJSON` helper receives one argument
@@ -338,7 +338,7 @@ First, import the helper.
 
 ```javascript
 // import
-import { fieldErrorText } from 'ember-changeset-webforms/test-support/helpers';
+import { fieldErrorText } from 'react-changeset-webforms/src/test-support/helpers';
 onst errors = fieldErrorText(identifier)
 ```
 

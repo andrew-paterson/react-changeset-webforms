@@ -7,7 +7,7 @@ import { DocsSnippet } from '../components/docs-utils';
 
 Renders a checkbox group. The value of the field as a whole is an array which will include the value of `key` for each option that is currently selected.
 
-<DocsSnippet name="checkboxGroup-field-options.js" />
+<DocsSnippet name="checkbox-group-options.js" />
 
 The above props are in addition to the generic field props shown with their default values below.
 

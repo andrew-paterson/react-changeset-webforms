@@ -42,7 +42,12 @@ const htmlComponent = {
       for (let el of root.childNodes) {
         if (el.rawTagName === openingTag) {
           let finalMatch = src.substring(el.range[0], el.range[1]);
-          return { type: 'htmlComponent', raw: finalMatch, text: finalMatch, tokens: [] };
+          return {
+            type: 'htmlComponent',
+            raw: finalMatch,
+            text: finalMatch,
+            tokens: [],
+          };
         }
       }
     }
@@ -66,7 +71,9 @@ markedInstance.use(
   markedHighlight({
     langPrefix: 'hljs language-',
     highlight(code, language) {
-      return hljs.getLanguage(language) ? hljs.highlight(code, { language }).value : code;
+      return hljs.getLanguage(language)
+        ? hljs.highlight(code, { language }).value
+        : code;
     },
   }),
 );
@@ -86,7 +93,10 @@ class DocsRenderer extends Renderer {
       .toLowerCase()
       .replace(/<\/?.*?>/g, '')
       .replace(/[^\w]+/g, '-');
-    let inner = level === 1 ? text : `<a href="#${id}" class="heading-anchor">${text}</a>`;
+    let inner =
+      level === 1
+        ? text
+        : `<a href="#${id}" class="heading-anchor">${text}</a>`;
     return `<h${level} id="${id}" class="docs-md__h${level}">${inner}</h${level}>\n`;
   }
 
@@ -100,7 +110,14 @@ class DocsRenderer extends Renderer {
 
   table(header, body) {
     if (body) body = '<tbody>' + body + '</tbody>';
-    return '<table class="docs-table-auto">\n' + '<thead>\n' + header + '</thead>\n' + body + '</table>\n';
+    return (
+      '<table class="docs-table-auto">\n' +
+      '<thead>\n' +
+      header +
+      '</thead>\n' +
+      body +
+      '</table>\n'
+    );
   }
 
   tablerow(content) {
@@ -109,7 +126,9 @@ class DocsRenderer extends Renderer {
 
   tablecell(content, flags) {
     let type = flags.header ? 'th' : 'td';
-    let tag = flags.align ? `<${type} align="${flags.align}" class="docs-border docs-px-4 docs-py-2">` : `<${type} class="docs-border docs-px-4 docs-py-2">`;
+    let tag = flags.align
+      ? `<${type} align="${flags.align}" class="docs-border docs-px-4 docs-py-2">`
+      : `<${type} class="docs-border docs-px-4 docs-py-2">`;
     return tag + content + `</${type}>\n`;
   }
 
@@ -135,21 +154,26 @@ function compileMarkdown(source) {
 // contains the actual characters rather than escape sequences.
 function decodeEntities(html) {
   // Inside <code>, &lt; &gt; &amp; must stay escaped or the JSX won't parse.
-  return html.replace(/(<code[^>]*>[\s\S]*?<\/code>)|[^<]+|</g, (chunk, code) => {
-    if (code) return code.replace(/&#39;/g, "'").replace(/&quot;/g, '"');
-    return chunk
-      .replace(/&#39;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>');
-  });
+  return html.replace(
+    /(<code[^>]*>[\s\S]*?<\/code>)|[^<]+|</g,
+    (chunk, code) => {
+      if (code) return code.replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      return chunk
+        .replace(/&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>');
+    },
+  );
 }
 
 // Convert kebab-case filename base to PascalCase component name.
 // e.g. "basic-usage" -> "BasicUsage"
 export function toPascalCase(str) {
-  return str.replace(/(^\w|-\w)/g, (match) => match.replace('-', '').toUpperCase());
+  return str.replace(/(^\w|-\w)/g, (match) =>
+    match.replace('-', '').toUpperCase(),
+  );
 }
 
 // Parse a markdown file at the given absolute path and return the formatted
@@ -173,20 +197,32 @@ export async function parseMarkdown(inputPath) {
   html = html.replace(/\s@([a-zA-Z])/g, ' $1');
 
   // {{docs-snippet name="x" title="y"}} → <DocsSnippet name="x" title="y" />
-  html = html.replace(/(?:<p>\s*)?\{\{docs-snippet\s+([^}]*?)\s*\}\}(?:\s*<\/p>)?/g, '<DocsSnippet $1 />');
+  html = html.replace(
+    /(?:<p>\s*)?\{\{docs-snippet\s+([^}]*?)\s*\}\}(?:\s*<\/p>)?/g,
+    '<DocsSnippet $1 />',
+  );
 
   // Strip remaining Handlebars mustaches outside <code>, where they are literal sample text
-  html = html.replace(/(<code[^>]*>[\s\S]*?<\/code>)|\{\{[^}]+\}\}/g, (_match, code) => code ?? '');
+  html = html.replace(
+    /(<code[^>]*>[\s\S]*?<\/code>)|\{\{[^}]+\}\}/g,
+    (_match, code) => code ?? '',
+  );
 
   // HTML comments are invalid JSX; keep them as JSX comments
-  html = html.replace(/<!--([\s\S]*?)-->/g, (_match, text) => `{/*${text.replace(/\*\//g, '* /')}*/}`);
+  html = html.replace(
+    /<!--([\s\S]*?)-->/g,
+    (_match, text) => `{/*${text.replace(/\*\//g, '* /')}*/}`,
+  );
 
   // Escape bare { and } inside <code> blocks so JSX doesn't treat them as expressions.
   // This covers both inline <code> and <pre><code> blocks.
-  html = html.replace(/(<code[^>]*>)([\s\S]*?)(<\/code>)/g, (_match, open, content, close) => {
-    const escaped = content.replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
-    return open + escaped + close;
-  });
+  html = html.replace(
+    /(<code[^>]*>)([\s\S]*?)(<\/code>)/g,
+    (_match, open, content, close) => {
+      const escaped = content.replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
+      return open + escaped + close;
+    },
+  );
 
   // <Demos::ComponentName /> → <ComponentNameDemo />
   // + import ComponentNameDemo from '../components/demos/ComponentNameDemo.jsx'
@@ -196,7 +232,9 @@ export async function parseMarkdown(inputPath) {
     return `<${name}Demo />`;
   });
   for (const name of demoComponentNames) {
-    imports.push(`import ${name}Demo from '../components/demos/${name}Demo.jsx';`);
+    imports.push(
+      `import ${name}Demo from '../components/demos/${name}Demo.jsx';`,
+    );
   }
 
   // <Forms::ComponentName /> → <ComponentName />
@@ -221,15 +259,20 @@ export async function parseMarkdown(inputPath) {
   const hasLinkTo = linkToRegex.test(html);
   if (hasLinkTo) {
     imports.push(`import { Link } from 'react-router-dom';`);
-    html = html.replace(/<LinkTo route="([^"]+)">(.*?)<\/LinkTo>/g, (_match, route, text) => {
-      const to = '/' + route.replace(/\./g, '/');
-      return `<Link to="${to}">${text}</Link>`;
-    });
+    html = html.replace(
+      /<LinkTo route="([^"]+)">(.*?)<\/LinkTo>/g,
+      (_match, route, text) => {
+        const to = '/' + route.replace(/\./g, '/');
+        return `<Link to="${to}">${text}</Link>`;
+      },
+    );
   }
 
   // ─── assemble JSX ──────────────────────────────────────────────────────────
 
-  const importsBlock = imports.length ? [...new Set(imports)].join('\n') + '\n\n' : '';
+  const importsBlock = imports.length
+    ? [...new Set(imports)].join('\n') + '\n\n'
+    : '';
 
   const jsxContent = `${importsBlock}export default function ${componentName}() {
   return (
@@ -254,7 +297,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const markdownDir = './markdown/docs';
   const pagesDir = './src/pages';
 
-  const inputPath = path.resolve(__dirname, markdownDir, process.argv[2] ?? 'basic-usage.md');
+  const inputPath = path.resolve(
+    __dirname,
+    markdownDir,
+    process.argv[2] ?? 'basic-usage.md',
+  );
   const baseName = path.basename(inputPath, '.md');
   const componentName = toPascalCase(baseName);
   const outputPath = path.resolve(__dirname, pagesDir, `${componentName}.jsx`);

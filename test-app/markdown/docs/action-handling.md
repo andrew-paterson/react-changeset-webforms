@@ -87,14 +87,6 @@ It should also return the result of that call so that the form knows when the ca
 - set `formSettings.requestInFlight` to false, allowing request in flight UX to update.
 - call the appropriate `submitSuccess` or `submitError` callback, if they have been passed to the component.
 
-### Where `submitData` is not required
-
-In some cases, the `@data` prop passed to the `CWFC` may have it's own `save()` method which will initiate a server call with the form data.
-
-An example is where `@data` is an Ember Data model. The internal behaviour of the `CWFC` is to call `changeset.save()` which [will proxy to the underlying object's save method](https://github.com/adopted-ember-addons/ember-changeset?tab=readme-ov-file#save), if it exists.
-
-When the `save()` method is called on the Ember Data model, a `PATCH` request will automatically be made to the relevant endpoint, and `submitData` is not necessary.
-
 ## `afterValidateFields` action
 
 All fields are automatically validated during preflighting when the form is submitted. The `afterValidateFields` callback is called after this occues, but before the changeset data is updated in preflighting. An example of how the data is updated, is that any changeset property is set to null if the corresponding form field is omitted. See <Link to="/docs/hiding-and-showing-fields">Hiding and showing fields</Link> for more details.

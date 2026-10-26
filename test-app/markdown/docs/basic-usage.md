@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 # Basic usage
 
-Define your form, including its fields validation rules in object like the one below, and pass this to the `ChangesetWebform` component as the `formSchema` property, and that's it! The form will be rendered and all validation behaviours will work without any further template code.
+Define your form, including its fields, and their validation rules in an object like the one below, and pass this to the `ChangesetWebform` component as the `formSchema` property, and that's it! The form will be rendered and all validation behaviours will work without any further template code.
 
 <LoginFormDemo />
 
 ## Actions
 
-You can pass actions to a instance of a `ChangesetWebform` component, to define behaviours whioch are individual to a particulary ionstance of a form. The most obvious example would be the action that should run whgern the form is submitted, in many cases to submit the data from the form to the server.
+You can pass actions to a instance of a `ChangesetWebform` component, to define behaviours which are individual to a particular instance of a form. The most obvious example would be the action that should run when the form is submitted, in many cases to submit the data from the form to the server.
 
 The above example also includes a `submitSuccess` and `submitError` which will run when the `submit` action is resolved.
 
