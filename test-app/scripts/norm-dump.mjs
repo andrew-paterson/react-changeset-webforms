@@ -1,4 +1,4 @@
-import { toPascalCase } from '../parse-markdown.js';
+import { toPascalCase } from 'react-docs-utils/vite';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

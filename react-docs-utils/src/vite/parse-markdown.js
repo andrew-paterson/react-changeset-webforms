@@ -1,7 +1,6 @@
 import prettier from 'prettier';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { Marked, Renderer } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import { parse as htmlParse } from 'node-html-parser';
@@ -288,25 +287,4 @@ export async function parseMarkdown(inputPath) {
   // ─── format with prettier ──────────────────────────────────────────────────
 
   return prettier.format(jsxContent, { parser: 'babel', singleQuote: true });
-}
-
-// ─── CLI entry point ──────────────────────────────────────────────────────────
-
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const markdownDir = './markdown/docs';
-  const pagesDir = './src/pages';
-
-  const inputPath = path.resolve(
-    __dirname,
-    markdownDir,
-    process.argv[2] ?? 'basic-usage.md',
-  );
-  const baseName = path.basename(inputPath, '.md');
-  const componentName = toPascalCase(baseName);
-  const outputPath = path.resolve(__dirname, pagesDir, `${componentName}.jsx`);
-
-  const formatted = await parseMarkdown(inputPath);
-  fs.writeFileSync(outputPath, formatted, 'utf-8');
-  console.log(`Written: ${outputPath}`);
 }

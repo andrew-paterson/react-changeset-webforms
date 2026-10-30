@@ -72,6 +72,18 @@ importers:
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
+      marked:
+        specifier: ^11.2.0
+        version: 11.2.0
+      marked-highlight:
+        specifier: ^2.2.3
+        version: 2.2.3(marked@11.2.0)
+      node-html-parser:
+        specifier: ^7.1.0
+        version: 7.1.0
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.1
       react:
         specifier: '>=18'
         version: 19.2.4
@@ -90,18 +102,6 @@ importers:
       lodash.clonedeep:
         specifier: ^4.5.0
         version: 4.5.0
-      marked:
-        specifier: ^11.2.0
-        version: 11.2.0
-      marked-highlight:
-        specifier: ^2.2.3
-        version: 2.2.3(marked@11.2.0)
-      node-html-parser:
-        specifier: ^7.1.0
-        version: 7.1.0
-      prettier:
-        specifier: ^3.8.1
-        version: 3.8.1
       react:
         specifier: ^19.2.0
         version: 19.2.4

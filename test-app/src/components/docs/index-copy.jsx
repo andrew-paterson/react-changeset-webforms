@@ -1,4 +1,4 @@
-import DocsSnippet from '../docs-utils/DocsSnippet';;
+import { DocsSnippet } from '../docs-utils';;
 
 export default function IndexCopy() {
   return (

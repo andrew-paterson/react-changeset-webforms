@@ -1,14 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { docsSnippetsPlugin } from 'react-docs-utils/vite';
-import { docsMarkdownPagesPlugin } from './vite-plugins/docs-markdown-pages-plugin.js';
+import {
+  docsSnippetsPlugin,
+  docsMarkdownPagesPlugin,
+} from 'react-docs-utils/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     docsSnippetsPlugin({ dirs: ['./src', '../react-changeset-webforms/src'] }),
-    docsMarkdownPagesPlugin(),
+    docsMarkdownPagesPlugin({
+      markdownDir: './markdown/docs',
+      pagesDir: './src/pages',
+    }),
   ],
   optimizeDeps: {
     // Exclude locally-linked packages from pre-bundling so that changes to

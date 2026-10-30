@@ -18,14 +18,10 @@
   "dependencies": {
     "highlight.js": "^11.11.1",
     "lodash.clonedeep": "^4.5.0",
-    "marked": "^11.2.0",
-    "marked-highlight": "^2.2.3",
-    "node-html-parser": "^7.1.0",
-    "prettier": "^3.8.1",
     "react": "^19.2.0",
     "react-changeset-webforms": "workspace:*",
-    "react-dom": "^19.2.0",
     "react-docs-utils": "workspace:*",
+    "react-dom": "^19.2.0",
     "react-live": "^4.1.8",
     "react-router-dom": "^7.13.2",
     "validated-changeset-webforms": "^0.0.8"
