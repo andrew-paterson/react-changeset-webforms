@@ -1,0 +1,18 @@
+import SelectExampleOneDemo from '../components/demos/SelectExampleOneDemo.jsx';
+import { DocsSnippet } from '../components/docs-utils';
+
+# Select
+
+Renders an HTML select.
+
+Calls the `keyUp`, `focusIn` and `focusOut` actions when the corresponding events occur.
+
+## Select field props
+
+<DocsSnippet name="select-field-options.js" />
+
+The above props are in addition to the generic field props shown with their default values below.
+
+<DocsSnippet name="generic-field-settings.js" title="Default generic field settings and their values" />
+
+<SelectExampleOneDemo />
