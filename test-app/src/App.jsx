@@ -1,15 +1,26 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import { OnThisPage, useHeadings } from 'react-docs-utils';
+import { OnThisPage, useHeadings, mdxComponents } from 'react-docs-utils';
 import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
-import './App.css';
-
-// Pages compiled in-memory from src/pages/docs/*.md via docsMarkdownPagesPlugin.
-import docsPages from 'virtual:docs-pages';
-
 import NotFound from './pages/NotFound.jsx';
 import Index from './pages/Index.jsx';
+import './App.css';
+
+// Docs pages: every src/pages/docs/*.mdx, keyed by file name.
+const pages = Object.fromEntries(
+  Object.entries(
+    import.meta.glob('./pages/docs/*.mdx', { eager: true }),
+  ).map(([file, mod]) => {
+    const MdxPage = mod.default;
+    const Page = () => (
+      <div className="docs-md">
+        <MdxPage components={mdxComponents} />
+      </div>
+    );
+    return [file.match(/([^/]+)\.mdx$/)[1], Page];
+  }),
+);
 
 function DocsLayout() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -31,7 +42,7 @@ function DocsLayout() {
       <MainNav isMenuToggled={isMenuToggled} />
       <main ref={mainRef} className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
         <Routes>
-          {Object.entries(docsPages).map(([slug, Page]) => (
+          {Object.entries(pages).map(([slug, Page]) => (
             <Route
               key={slug}
               path={slug === 'index' ? '/' : slug}

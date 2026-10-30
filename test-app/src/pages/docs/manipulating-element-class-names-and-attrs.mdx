@@ -1,14 +1,15 @@
-import AppWideFieldSettingsOverriddenDemo from '../components/demos/AppWideFieldSettingsOverriddenDemo.jsx';
-import AttrFunctionsDemo from '../components/demos/AttrFunctionsDemo.jsx';
-import FieldSettingsOverriddenDemo from '../components/demos/FieldSettingsOverriddenDemo.jsx';
-import FieldSpecificClassSettingsDemo from '../components/demos/FieldSpecificClassSettingsDemo.jsx';
-import FieldTypeWithinFormSettingsDemo from '../components/demos/FieldTypeWithinFormSettingsDemo.jsx';
-import FormWideClassSettingsDemo from '../components/demos/FormWideClassSettingsDemo.jsx';
-import InheritClassSettingsDemo from '../components/demos/InheritClassSettingsDemo.jsx';
-import OverrideClassSettingsDemo from '../components/demos/OverrideClassSettingsDemo.jsx';
-import ValidationClassSettingsDemo from '../components/demos/ValidationClassSettingsDemo.jsx';
-import { DocsSnippet } from '../components/docs-utils';
+import AppWideFieldSettingsOverriddenDemo from '../../components/demos/AppWideFieldSettingsOverriddenDemo.jsx';
+import AttrFunctionsDemo from '../../components/demos/AttrFunctionsDemo.jsx';
+import FieldSettingsOverriddenDemo from '../../components/demos/FieldSettingsOverriddenDemo.jsx';
+import FieldSpecificClassSettingsDemo from '../../components/demos/FieldSpecificClassSettingsDemo.jsx';
+import FieldTypeWithinFormSettingsDemo from '../../components/demos/FieldTypeWithinFormSettingsDemo.jsx';
+import FormWideClassSettingsDemo from '../../components/demos/FormWideClassSettingsDemo.jsx';
+import InheritClassSettingsDemo from '../../components/demos/InheritClassSettingsDemo.jsx';
+import OverrideClassSettingsDemo from '../../components/demos/OverrideClassSettingsDemo.jsx';
+import ValidationClassSettingsDemo from '../../components/demos/ValidationClassSettingsDemo.jsx';
+import { DocsSnippet } from '../../components/docs-utils';
 import { Link } from 'react-router-dom';
+import addonDefaults from 'react-changeset-webforms/src/utils/addon-defaults.js';
 
 # Manipulating element class names and attrs
 
@@ -84,12 +85,14 @@ Thus, the class name is added to all radio option labels throughout the app.
 
 <FieldSettingsOverriddenDemo />
 
-The {{this.fieldTypes.length}} built in fields have the following `fieldTypes`:
+The {addonDefaults.fieldTypes.length} built in fields have the following `fieldTypes`:
 
-<ul> 
-{{#each this.fieldTypes as |fieldType|}}
-<li><code>{{fieldType}}</code></li>
-{{/each}}
+<ul>
+  {addonDefaults.fieldTypes.map((fieldType) => (
+    <li key={fieldType.fieldType}>
+      <code>{fieldType.fieldType}</code>
+    </li>
+  ))}
 </ul>
 
 ### 3. Form level configuration

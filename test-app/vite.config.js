@@ -1,19 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import {
-  docsSnippetsPlugin,
-  docsMarkdownPagesPlugin,
-} from 'react-docs-utils/vite';
+import mdx from '@mdx-js/rollup';
+import remarkGfm from 'remark-gfm';
+import { docsSnippetsPlugin } from 'react-docs-utils/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    // MDX must run before the React plugin so the generated JSX is transformed.
+    { enforce: 'pre', ...mdx({ remarkPlugins: [remarkGfm] }) },
+    react({ include: /\.(jsx|js|mdx)$/ }),
     docsSnippetsPlugin({ dirs: ['./src', '../react-changeset-webforms/src'] }),
-    docsMarkdownPagesPlugin({
-      markdownDir: './src/pages/docs',
-      pagesDir: './src/pages',
-    }),
   ],
   optimizeDeps: {
     // Exclude locally-linked packages from pre-bundling so that changes to

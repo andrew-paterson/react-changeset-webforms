@@ -30,3 +30,4 @@ export { default as DocsCodeHighlight } from './components/DocsCodeHighlight.jsx
 // Misc
 export { default as DocsModalDialog } from './components/DocsModalDialog.jsx';
 export { default as DocsKeyboardShortcuts } from './components/DocsKeyboardShortcuts.jsx';
+export { default as mdxComponents } from './components/mdxComponents.jsx';
