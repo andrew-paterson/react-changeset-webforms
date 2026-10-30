@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextjsDir = path.resolve(__dirname, '../../test-app-nextjs/src/app/(docs)/docs');
-const mdDir = path.resolve(__dirname, '../markdown/docs');
+const mdDir = path.resolve(__dirname, '../src/pages/docs');
 
 // List of markdown files that need syncing
 const filesToSync = [

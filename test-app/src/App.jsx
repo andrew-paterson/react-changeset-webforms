@@ -4,7 +4,7 @@ import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
 import './App.css';
 
-// Pages compiled in-memory from markdown/docs/*.md via docsMarkdownPagesPlugin.
+// Pages compiled in-memory from src/pages/docs/*.md via docsMarkdownPagesPlugin.
 import docsPages from 'virtual:docs-pages';
 
 import NotFound from './pages/NotFound.jsx';

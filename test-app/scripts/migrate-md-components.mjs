@@ -1,4 +1,4 @@
-// One-off: rewrites Ember component syntax in markdown/docs/*.md to React JSX
+// One-off: rewrites Ember component syntax in src/pages/docs/*.md to React JSX
 // and adds the matching import lines at the top of each file. Idempotent.
 // Usage: node scripts/migrate-md-components.mjs [file.md ...]
 import fs from 'fs';
@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 
 const dir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
-  '../markdown/docs',
+  '../src/pages/docs',
 );
 const files =
   process.argv.length > 2

@@ -11,7 +11,7 @@ export default defineConfig({
     react(),
     docsSnippetsPlugin({ dirs: ['./src', '../react-changeset-webforms/src'] }),
     docsMarkdownPagesPlugin({
-      markdownDir: './markdown/docs',
+      markdownDir: './src/pages/docs',
       pagesDir: './src/pages',
     }),
   ],

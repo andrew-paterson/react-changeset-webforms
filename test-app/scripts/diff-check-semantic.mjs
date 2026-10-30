@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const mdDir = path.resolve(__dirname, '../markdown/docs');
+const mdDir = path.resolve(__dirname, '../src/pages/docs');
 const pagesDir = path.resolve(__dirname, '../src/pages');
 
 function normalize(str) {
