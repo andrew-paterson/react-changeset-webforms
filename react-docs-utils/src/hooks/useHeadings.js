@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
  * Scans the DOM within `containerRef` for heading elements (default h2, h3)
  * and returns them as a flat list of { id, text, level }.
  *
- * Re-scans whenever `deps` changes (typically pass the route/page identity
- * so headings update when navigating between docs pages).
+ * Re-scans on every DOM mutation inside the container, so headings stay in
+ * sync as pages render, change or navigate. `deps` forces an extra re-scan.
  */
 export default function useHeadings(
   containerRef,
@@ -19,14 +19,27 @@ export default function useHeadings(
       setHeadings([]);
       return;
     }
-    const nodes = Array.from(container.querySelectorAll(selector));
-    setHeadings(
-      nodes.map((node) => ({
-        id: node.id,
-        text: node.textContent,
-        level: Number(node.tagName.replace('H', '')),
-      })),
-    );
+
+    const scan = () => {
+      const next = Array.from(container.querySelectorAll(selector)).map(
+        (node) => ({
+          id: node.id,
+          text: node.dataset.text || node.textContent.trim(),
+          level: Number(node.tagName.replace('H', '')),
+        }),
+      );
+      // Avoid re-rendering when a mutation didn't change the heading list.
+      setHeadings((prev) =>
+        JSON.stringify(prev) === JSON.stringify(next) ? prev : next,
+      );
+    };
+
+    scan();
+    if (typeof MutationObserver === 'undefined') return;
+
+    const observer = new MutationObserver(scan);
+    observer.observe(container, { subtree: true, childList: true });
+    return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [containerRef, selector, ...deps]);
 

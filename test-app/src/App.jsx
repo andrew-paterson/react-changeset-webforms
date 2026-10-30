@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { OnThisPage, useHeadings } from 'react-docs-utils';
 import Header from './components/Header.jsx';
 import MainNav from './components/MainNav.jsx';
 import './App.css';
@@ -12,6 +13,10 @@ import Index from './pages/Index.jsx';
 
 function DocsLayout() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const mainRef = useRef(null);
+  const headings = useHeadings(mainRef, {
+    selector: '.docs-md__h2[id], .docs-md__h3[id]',
+  });
 
   return (
     <div className="md:docs-flex docs-w-full">
@@ -24,7 +29,7 @@ function DocsLayout() {
         </button>
       </div>
       <MainNav isMenuToggled={isMenuToggled} />
-      <main className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
+      <main ref={mainRef} className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
         <Routes>
           {Object.entries(docsPages).map(([slug, Page]) => (
             <Route
@@ -35,6 +40,7 @@ function DocsLayout() {
           ))}
         </Routes>
       </main>
+      <OnThisPage headings={headings} />
     </div>
   );
 }
