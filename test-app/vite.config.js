@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
-import { docsSnippetsPlugin } from 'react-docs-utils/vite';
+import { docsSnippetsPlugin, docsStylesPlugin } from 'react-docs-utils/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,6 +10,7 @@ export default defineConfig({
     // MDX must run before the React plugin so the generated JSX is transformed.
     { enforce: 'pre', ...mdx({ remarkPlugins: [remarkGfm] }) },
     react({ include: /\.(jsx|js|mdx)$/ }),
+    docsStylesPlugin(),
     docsSnippetsPlugin({ dirs: ['./src', '../react-changeset-webforms/src'] }),
   ],
   optimizeDeps: {

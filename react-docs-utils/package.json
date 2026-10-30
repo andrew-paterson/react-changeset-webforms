@@ -18,6 +18,9 @@
   },
   "dependencies": {
     "highlight.js": "^11.11.1",
-    "react-live": "^4.1.8"
+    "postcss": "^8.5.32",
+    "react-live": "^4.1.8",
+    "sass": "^1.107.0",
+    "tailwindcss": "1.9.6"
   }
 }

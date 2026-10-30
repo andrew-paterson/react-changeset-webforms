@@ -1,0 +1,270 @@
+body {
+  position: relative;
+}
+
+:root {
+  --brand-primary: #806ca5;
+}
+
+@import 'bootstrap/scss/bootstrap';
+
+.ember-power-select-trigger-multiple-input {
+  border-color: transparent !important;
+}
+
+.docs-rounded {
+  .docs-p-4 {
+    .remove-clone-icon {
+      height: 18px;
+      fill: #999;
+      &:hover {
+        fill: $danger;
+      }
+    }
+    .form-label {
+      font-size: 1rem;
+    }
+  }
+}
+
+.docs-border-grey-lighter {
+  border-color: #bbb;
+}
+
+.hljs-tag {
+  color: #abb2bf;
+}
+
+.hljs-function .hljs-title {
+  color: #e6c07b;
+}
+
+.formatted-list {
+  padding-left: 1.5em;
+  ul {
+    padding-left: 1.5em;
+    list-style: inherit;
+  }
+  li {
+    list-style: disc;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.monospaced {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.text-grey {
+  color: #777;
+}
+
+.element-classlist {
+  background: #999;
+  color: #fff;
+  padding: 5px 5px 3px;
+  font-size: 0.8em;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.width-lg {
+  width: 24px;
+}
+
+.height-lg {
+  height: 24px;
+}
+
+.btn {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.no-validate {
+  background-image: none !important;
+  &:invalid {
+    border-color: inherit !important;
+  }
+  &:valid {
+    border-color: inherit !important;
+  }
+}
+
+.field-type-phone-number-with-country-code {
+  input {
+    background-image: none !important;
+    background: transparent !important;
+  }
+}
+
+.card-box-shadow {
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+// BEGIN-SNIPPET styling-close-button-and-calendar-icons.scss
+.clear-date-time-button,
+.ember-power-select-clear-btn {
+  background: transparent;
+  border-width: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke='%23ccc' stroke-linecap='round' stroke-linejoin='round' stroke-width='1px'%3E%3Cline x1='2' y1='2' x2='8' y2='8' vector-effect='non-scaling-stroke' /%3E%3Cline x1='2' y1='8' x2='8' y2='2' vector-effect='non-scaling-stroke' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 20px;
+  font-size: 0 !important;
+}
+
+.calendar-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 218.8 250' fill='%23ccc' %3E%3Cpath d='M218.8 226.6A23.3 23.3 0 0 1 195.3 250H23.4a22.6 22.6 0 0 1-16.6-6.8A22.6 22.6 0 0 1 0 226.6V54.7a22.6 22.6 0 0 1 6.8-16.6 22.6 22.6 0 0 1 16.6-6.8H46.9V5.9a5.7 5.7 0 0 1 1.7-4.1A5.7 5.7 0 0 1 52.7 0H72.3a5.7 5.7 0 0 1 4.2 1.7 5.7 5.7 0 0 1 1.7 4.2V31.3h62.5V5.9a5.7 5.7 0 0 1 1.7-4.1A5.7 5.7 0 0 1 146.5 0H166a5.7 5.7 0 0 1 4.2 1.7 5.7 5.7 0 0 1 1.7 4.2V31.3h23.4a23.3 23.3 0 0 1 23.4 23.4ZM195.3 78.1H23.4V223.6a2.8 2.8 0 0 0 1 2 2.8 2.8 0 0 0 2 1h166a3.5 3.5 0 0 0 2.9-2.9ZM52.7 140.6a5.8 5.8 0 0 1-5.9-5.9V115.2a5.8 5.8 0 0 1 5.9-5.9H72.3a5.8 5.8 0 0 1 5.9 5.9v19.5a5.8 5.8 0 0 1-5.9 5.9Zm25.4 21.5a5.8 5.8 0 0 0-5.9-5.9H52.7a5.8 5.8 0 0 0-5.9 5.9v19.5a5.8 5.8 0 0 0 5.9 5.9H72.3a5.8 5.8 0 0 0 5.9-5.9ZM125 115.2a5.8 5.8 0 0 0-5.9-5.9H99.6a5.8 5.8 0 0 0-5.9 5.9v19.5a5.8 5.8 0 0 0 5.9 5.9h19.5a5.8 5.8 0 0 0 5.9-5.9Zm0 46.9a5.8 5.8 0 0 0-5.9-5.9H99.6a5.8 5.8 0 0 0-5.9 5.9v19.5a5.8 5.8 0 0 0 5.9 5.9h19.5a5.8 5.8 0 0 0 5.9-5.9Zm46.9-46.9a5.8 5.8 0 0 0-5.9-5.9H146.5a5.8 5.8 0 0 0-5.9 5.9v19.5a5.8 5.8 0 0 0 5.9 5.9H166a5.8 5.8 0 0 0 5.9-5.9Zm0 46.9a5.8 5.8 0 0 0-5.9-5.9H146.5a5.8 5.8 0 0 0-5.9 5.9v19.5a5.8 5.8 0 0 0 5.9 5.9H166a5.8 5.8 0 0 0 5.9-5.9Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 16px;
+  width: 20px;
+}
+// END-SNIPPET
+
+.button-icon {
+  width: 20px;
+}
+
+.box-arrow {
+  position: relative;
+}
+
+.box-arrow:before,
+.box-arrow:after {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.box-arrow:after {
+  border-color: transparent;
+  border-width: 5px;
+}
+.box-arrow:before {
+  border-color: transparent;
+  border-width: 6px;
+}
+
+/*--------------------------Direction Up----------------------------*/
+
+.box-arrow.arrow-direction-up:before,
+.box-arrow.arrow-direction-up:after {
+  bottom: 100%;
+  left: 20px;
+}
+
+.box-arrow.arrow-direction-up:after {
+  border-bottom-color: #999;
+}
+.box-arrow.arrow-direction-up:before {
+  border-bottom-color: inherit;
+}
+
+/*-------------------------Direction Down---------------------------*/
+
+.box-arrow.arrow-direction-down:before,
+.box-arrow.arrow-direction-down:after {
+  top: 100%;
+}
+
+.box-arrow.arrow-direction-down:after {
+  border-top-color: #999;
+}
+
+.box-arrow.arrow-direction-down:before {
+  border-top-color: inherit;
+}
+
+/*-------------------------Direction Left---------------------------*/
+
+.box-arrow.arrow-direction-left:before,
+.box-arrow.arrow-direction-left:after {
+  right: 100%;
+  top: 8px;
+}
+
+.box-arrow.arrow-direction-left:after {
+  border-right-color: #999;
+}
+
+.box-arrow.arrow-direction-left:before {
+  border-right-color: inherit;
+}
+
+/*-------------------------Direction Right--------------------------*/
+
+.box-arrow.arrow-direction-right:before,
+.box-arrow.arrow-direction-right:after {
+  left: 100%;
+}
+
+.box-arrow.arrow-direction-right:after {
+  border-left-color: #999;
+}
+
+.box-arrow.arrow-direction-right:before {
+  border-left-color: inherit;
+}
+
+/*-------------------------Position Left--------------------------*/
+
+.box-arrow.arrow-position-left:before,
+.box-arrow.arrow-position-left:after {
+  left: 10px;
+}
+
+.box-arrow.arrow-position-left:before {
+  margin-left: -1px;
+}
+
+/*-------------------------Position Right--------------------------*/
+
+.box-arrow.arrow-position-right:before,
+.box-arrow.arrow-position-right:after {
+  right: 10px;
+}
+
+.box-arrow.arrow-position-right:before {
+  margin-right: -1px;
+}
+
+/*-------------------------Position Top--------------------------*/
+
+.box-arrow.arrow-position-top:before,
+.box-arrow.arrow-position-top:after {
+  top: 10px;
+}
+
+.box-arrow.arrow-position-top:before {
+  margin-top: -1px;
+}
+
+/*-------------------------Position Bottom--------------------------*/
+
+.box-arrow.arrow-position-bottom:before,
+.box-arrow.arrow-position-bottom:after {
+  bottom: 10px;
+}
+
+.box-arrow.arrow-position-bottom:before {
+  margin-bottom: -1px;
+}

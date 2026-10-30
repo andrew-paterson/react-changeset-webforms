@@ -9,17 +9,17 @@ import './App.css';
 
 // Docs pages: every src/pages/docs/*.mdx, keyed by file name.
 const pages = Object.fromEntries(
-  Object.entries(
-    import.meta.glob('./pages/docs/*.mdx', { eager: true }),
-  ).map(([file, mod]) => {
-    const MdxPage = mod.default;
-    const Page = () => (
-      <div className="docs-md">
-        <MdxPage components={mdxComponents} />
-      </div>
-    );
-    return [file.match(/([^/]+)\.mdx$/)[1], Page];
-  }),
+  Object.entries(import.meta.glob('./pages/docs/*.mdx', { eager: true })).map(
+    ([file, mod]) => {
+      const MdxPage = mod.default;
+      const Page = () => (
+        <div className="docs-md">
+          <MdxPage components={mdxComponents} />
+        </div>
+      );
+      return [file.match(/([^/]+)\.mdx$/)[1], Page];
+    },
+  ),
 );
 
 function DocsLayout() {
@@ -40,7 +40,10 @@ function DocsLayout() {
         </button>
       </div>
       <MainNav isMenuToggled={isMenuToggled} />
-      <main ref={mainRef} className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
+      <main
+        ref={mainRef}
+        className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8"
+      >
         <Routes>
           {Object.entries(pages).map(([slug, Page]) => (
             <Route

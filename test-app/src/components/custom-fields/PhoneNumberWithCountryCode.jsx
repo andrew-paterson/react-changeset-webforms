@@ -40,8 +40,18 @@ export default function PhoneNumberWithCountryCode({
 }) {
   const countryCodeRef = useRef(null);
   const phoneNumberRef = useRef(null);
-  useAttrsFromConfig(countryCodeRef, 'countryCodeTrigger', changesetWebform, formField);
-  useAttrsFromConfig(phoneNumberRef, 'phoneNumberInput', changesetWebform, formField);
+  useAttrsFromConfig(
+    countryCodeRef,
+    'countryCodeTrigger',
+    changesetWebform,
+    formField,
+  );
+  useAttrsFromConfig(
+    phoneNumberRef,
+    'phoneNumberInput',
+    changesetWebform,
+    formField,
+  );
 
   const fieldValueObject = parseFieldValue(formField.fieldValue);
 

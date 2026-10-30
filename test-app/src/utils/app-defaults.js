@@ -38,8 +38,14 @@ export default {
   fieldSettings: {
     customParser(field) {
       if (field.fieldLabel && typeof field.fieldLabel === 'string') {
-        field.fieldLabel = field.fieldLabel.replace('bluthcompany.com', 'sitwell.com');
-        field.placeholder = field.placeholder.replace('bluthcompany.com', 'sitwell.com');
+        field.fieldLabel = field.fieldLabel.replace(
+          'bluthcompany.com',
+          'sitwell.com',
+        );
+        field.placeholder = field.placeholder.replace(
+          'bluthcompany.com',
+          'sitwell.com',
+        );
       }
       return field;
     },
@@ -51,8 +57,14 @@ export default {
       fieldType: 'radioButtonGroup',
       attrsFromConfig: {
         classNames: {
-          fieldLabel: ['$inherited', 'app-wide-radio-button-group-field-label-class'],
-          labelElement: ['$inherited', 'app-wide-radio-button-group-label-element-class'],
+          fieldLabel: [
+            '$inherited',
+            'app-wide-radio-button-group-field-label-class',
+          ],
+          labelElement: [
+            '$inherited',
+            'app-wide-radio-button-group-label-element-class',
+          ],
         },
       },
     },
@@ -65,9 +77,25 @@ export default {
       validatesOn: ['$inherited', 'focusOutPhoneNumberInput'],
       attrsFromConfig: {
         classNames: {
-          fieldControls: ['$validationClassNames', 'form-control', 'p-0', 'bg-white'],
-          phoneNumberInput: ['form-control', 'border', 'border-0', 'border-start', '$validationPseudoClasses'],
-          countryCodeTrigger: ['input-group-text', 'pe-5', 'border', 'border-0'],
+          fieldControls: [
+            '$validationClassNames',
+            'form-control',
+            'p-0',
+            'bg-white',
+          ],
+          phoneNumberInput: [
+            'form-control',
+            'border',
+            'border-0',
+            'border-start',
+            '$validationPseudoClasses',
+          ],
+          countryCodeTrigger: [
+            'input-group-text',
+            'pe-5',
+            'border',
+            'border-0',
+          ],
         },
       },
     },
@@ -79,7 +107,11 @@ export default {
       customParser(field) {
         if (field.inputType === 'email') {
           field.validationRules = field.validationRules || [];
-          const existing = field.validationRules.find((rule) => rule.validationMethod === 'validateFormat' && rule.arguments?.type === 'email');
+          const existing = field.validationRules.find(
+            (rule) =>
+              rule.validationMethod === 'validateFormat' &&
+              rule.arguments?.type === 'email',
+          );
           if (!existing) {
             field.validationRules.push({
               validationMethod: 'validateFormat',
