@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import DocsExample from './DocsExample.jsx';
 import DocsSnippet from './DocsSnippet.jsx';
@@ -7,9 +5,7 @@ import DocsSnippet from './DocsSnippet.jsx';
 export default function DocsDemo({ children }) {
   const childArray = React.Children.toArray(children);
   const examples = childArray.filter((child) => child.type === DocsExample);
-  const snippetChildren = childArray.filter(
-    (child) => child.type === DocsSnippet,
-  );
+  const snippets = childArray.filter((child) => child.type === DocsSnippet);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -22,7 +18,7 @@ export default function DocsDemo({ children }) {
         docs-bg-black docs-tracking-tight docs-border-b
         docs-border-grey-darkest"
         >
-          {snippetChildren.map((snippet, index) => (
+          {snippets.map((snippet, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
@@ -40,7 +36,7 @@ export default function DocsDemo({ children }) {
     docs-relative docs-subpixel-antialiased
     docs-rounded"
           >
-            {snippetChildren[activeIndex]}
+            {snippets[activeIndex]}
           </div>
         </div>
       </div>

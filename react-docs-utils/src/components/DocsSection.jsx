@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useRef } from 'react';
 import useHeadings from '../hooks/useHeadings.js';
 

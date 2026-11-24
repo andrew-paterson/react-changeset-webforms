@@ -28,3 +28,6 @@ test-app/src/components/forms/**/*.js
 test-app/src/components/forms/**/*.hbs
 ember-demo-components
 setup
+
+# Old Next.js docs app kept for reference
+test-app-nextjs-old

@@ -10,33 +10,15 @@ import { useState } from 'react';
 import Header from './TestHeader.jsx';
 import MainNav from './TestMainNav.jsx';
 
-// Pages — imported from the same components the Next.js pages use
 import Index from '../app/(docs)/page.jsx';
-import DocsIndex from '../app/(docs)/docs/page.jsx';
-import BasicUsage from '../app/(docs)/docs/basic-usage/page.jsx';
-import ConfigurationOptions from '../app/(docs)/docs/configuration-options/page.jsx';
-import CreatingCustomFields from '../app/(docs)/docs/creating-custom-fields/page.jsx';
-import ActionHandling from '../app/(docs)/docs/action-handling/page.jsx';
-import FormSettings from '../app/(docs)/docs/form-settings/page.jsx';
-import FieldSettings from '../app/(docs)/docs/field-settings/page.jsx';
-import FormSubmission from '../app/(docs)/docs/form-submission/page.jsx';
-import FieldValidation from '../app/(docs)/docs/field-validation/page.jsx';
-import IntegratingCustomValidators from '../app/(docs)/docs/integrating-custom-validators/page.jsx';
-import ClonableFormFields from '../app/(docs)/docs/clonable-form-fields/page.jsx';
-import ManipulatingElementClassNamesAndAttrs from '../app/(docs)/docs/manipulating-element-class-names-and-attrs/page.jsx';
-import Input from '../app/(docs)/docs/input/page.jsx';
-import Textarea from '../app/(docs)/docs/textarea/page.jsx';
-import SingleCheckbox from '../app/(docs)/docs/single-checkbox/page.jsx';
-import RadioButtonGroup from '../app/(docs)/docs/radio-button-group/page.jsx';
-import CheckboxGroup from '../app/(docs)/docs/checkbox-group/page.jsx';
-import StaticContentField from '../app/(docs)/docs/static-content-field/page.jsx';
-import Clicker from '../app/(docs)/docs/clicker/page.jsx';
-import Select from '../app/(docs)/docs/select/page.jsx';
-import HidingAndShowingFields from '../app/(docs)/docs/hiding-and-showing-fields/page.jsx';
-import FormMethods from '../app/(docs)/docs/form-methods/page.jsx';
-import FieldMethods from '../app/(docs)/docs/field-methods/page.jsx';
-import DebugMode from '../app/(docs)/docs/debug-mode/page.jsx';
-import TestHelpers from '../app/(docs)/docs/test-helpers/page.jsx';
+
+// Every docs page.mdx under app/(docs)/docs, keyed by slug.
+const ctx = require.context('../app/(docs)/docs', true, /page\.mdx$/);
+const pages = ctx.keys().map((key) => {
+  const MdxPage = ctx(key).default;
+  const slug = key.replace(/^\.\//, '').replace(/\/?page\.mdx$/, '');
+  return { slug, MdxPage };
+});
 
 function DocsLayout() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -55,52 +37,18 @@ function DocsLayout() {
         <MainNav isMenuToggled={isMenuToggled} />
         <main className="docs-flex-1 docs-min-w-0 docs-px-4 md:docs-px-8 docs-py-8">
           <Routes>
-            <Route index element={<DocsIndex />} />
-            <Route path="basic-usage" element={<BasicUsage />} />
-            <Route
-              path="configuration-options"
-              element={<ConfigurationOptions />}
-            />
-            <Route
-              path="creating-custom-fields"
-              element={<CreatingCustomFields />}
-            />
-            <Route path="action-handling" element={<ActionHandling />} />
-            <Route path="form-settings" element={<FormSettings />} />
-            <Route path="field-settings" element={<FieldSettings />} />
-            <Route path="form-submission" element={<FormSubmission />} />
-            <Route path="field-validation" element={<FieldValidation />} />
-            <Route
-              path="integrating-custom-validators"
-              element={<IntegratingCustomValidators />}
-            />
-            <Route
-              path="clonable-form-fields"
-              element={<ClonableFormFields />}
-            />
-            <Route
-              path="manipulating-element-class-names-and-attrs"
-              element={<ManipulatingElementClassNamesAndAttrs />}
-            />
-            <Route path="input" element={<Input />} />
-            <Route path="textarea" element={<Textarea />} />
-            <Route path="single-checkbox" element={<SingleCheckbox />} />
-            <Route path="radio-button-group" element={<RadioButtonGroup />} />
-            <Route path="checkbox-group" element={<CheckboxGroup />} />
-            <Route path="select" element={<Select />} />
-            <Route
-              path="static-content-field"
-              element={<StaticContentField />}
-            />
-            <Route path="clicker" element={<Clicker />} />
-            <Route
-              path="hiding-and-showing-fields"
-              element={<HidingAndShowingFields />}
-            />
-            <Route path="form-methods" element={<FormMethods />} />
-            <Route path="field-methods" element={<FieldMethods />} />
-            <Route path="debug-mode" element={<DebugMode />} />
-            <Route path="test-helpers" element={<TestHelpers />} />
+            {pages.map(({ slug, MdxPage }) => (
+              <Route
+                key={slug}
+                index={slug === ''}
+                path={slug || undefined}
+                element={
+                  <div className="docs-md">
+                    <MdxPage />
+                  </div>
+                }
+              />
+            ))}
           </Routes>
         </main>
       </div>

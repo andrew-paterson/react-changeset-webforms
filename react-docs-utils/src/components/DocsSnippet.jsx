@@ -1,3 +1,5 @@
+'use client';
+
 import { LiveProvider, LiveEditor } from 'react-live';
 import { useSnippet } from './SnippetsProvider.jsx';
 

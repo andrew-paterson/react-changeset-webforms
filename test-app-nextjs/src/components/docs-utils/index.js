@@ -1,3 +1,4 @@
-export { default as DocsSnippet } from './DocsSnippet.jsx';
-export { default as DocsDemo } from './DocsDemo.jsx';
-export { default as DocsExample } from './DocsExample.jsx';
+// Re-exported from the shared react-docs-utils package. Kept as a local
+// barrel so existing page imports (`../components/docs-utils`) don't need
+// to change.
+export { DocsSnippet, DocsDemo, DocsExample } from 'react-docs-utils';

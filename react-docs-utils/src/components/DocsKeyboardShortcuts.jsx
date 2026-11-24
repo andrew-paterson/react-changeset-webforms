@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import DocsModalDialog from './DocsModalDialog.jsx';
 

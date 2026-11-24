@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import DocsExample from './DocsExample.jsx';
 import DocsSnippet from './DocsSnippet.jsx';

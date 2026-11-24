@@ -10,28 +10,37 @@
     "test:integration": "vitest run src/tests/integration"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.4.6",
+    "bootstrap": "^5.3",
     "highlight.js": "^11.11.1",
     "lodash.clonedeep": "^4.5.0",
     "marked": "^11.2.0",
     "marked-highlight": "^2.2.3",
     "next": "16.2.1",
+    "postcss": "^8.5.32",
     "react": "19.2.4",
     "react-changeset-webforms": "workspace:*",
+    "react-docs-utils": "workspace:^",
     "react-dom": "19.2.4",
     "react-live": "^4.1.8",
     "react-router-dom": "^7.13.2",
+    "remark-gfm": "^4.0.1",
+    "sass": "^1.107.0",
+    "tailwindcss": "1.9.6",
     "validated-changeset-webforms": "^0.0.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
     "react-qunit": "^0.0.1",
-    "vitest": "^3.1.2",
-    "@vitejs/plugin-react": "^4.3.4"
+    "vitest": "^3.1.2"
   }
 }

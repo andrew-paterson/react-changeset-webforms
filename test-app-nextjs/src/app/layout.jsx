@@ -1,7 +1,7 @@
-import './index.css';
-import './app.css';
-import './inner.css';
-import './vendor.css';
+import 'react-docs-utils/styles/addon.scss';
+import './styles/app.scss';
+import './styles/react-qunit.css';
+import './styles/docs-app.css';
 
 export const metadata = {
   title: 'React Changeset Webforms',
